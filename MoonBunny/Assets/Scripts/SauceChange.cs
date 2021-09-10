@@ -8,40 +8,46 @@ public class SauceChange : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("check");
+        Debug.Log("start ");
+
     }
 
-    void OnMouseDown()
+    private void Update()
     {
-        Debug.Log("Buttin clicked");
-        if (buttons[0].activeSelf == true)
+        if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Buttin clicked");
-            for(int i=0; i<4; i++)
-            {
-                buttons[i].SetActive(false);
-                Debug.Log("DeActivate Rice");
+            Debug.Log("Button clicked");
 
-            }//떡 버튼 비활성화
-            for(int i=4; i<8; i++)
+            if (buttons[0].activeSelf == true)
             {
-                buttons[i].SetActive(true);
-                Debug.Log("Activate Sauce");
-            }//소스 버튼 활성화
-        }
-        else if(buttons[4].activeSelf==true)
-        {
-            for (int i = 0; i < 4; i++)
+                Debug.Log("Button clicked");
+                for (int i = 0; i < 4; i++)
+                {
+                    buttons[i].SetActive(false);
+                    Debug.Log("DeActivate Rice");
+
+                }//떡 버튼 비활성화
+                for (int i = 4; i < 8; i++)
+                {
+                    buttons[i].SetActive(true);
+                    Debug.Log("Activate Sauce");
+                }//소스 버튼 활성화
+            }
+            else if (buttons[4].activeSelf == true)
             {
-                buttons[i].SetActive(true);
-                Debug.Log("Activate Rice");
-            }//떡 버튼 활성화
-            for (int i = 4; i < 8; i++)
-            {
-                buttons[i].SetActive(false);
-                Debug.Log("DeActivate Suace");
-            }//소스 버튼 비활성화
+                for (int i = 0; i < 4; i++)
+                {
+                    buttons[i].SetActive(true);
+                    Debug.Log("Activate Rice");
+                }//떡 버튼 활성화
+                for (int i = 4; i < 8; i++)
+                {
+                    buttons[i].SetActive(false);
+                    Debug.Log("DeActivate Suace");
+                }//소스 버튼 비활성화
+            }
         }
     }
+
 
 }
