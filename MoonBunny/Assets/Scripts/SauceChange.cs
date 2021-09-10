@@ -5,6 +5,7 @@ using UnityEngine;
 public class SauceChange : MonoBehaviour
 {
     public GameObject[] buttons = new GameObject[8];
+    public GameObject Sbutton;
 
     private void Start()
     {
@@ -16,36 +17,46 @@ public class SauceChange : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Button clicked");
+            Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero);
 
-            if (buttons[0].activeSelf == true)
+            if (hit.collider != null && hit.collider.gameObject==Sbutton)
             {
-                Debug.Log("Button clicked");
-                for (int i = 0; i < 4; i++)
+                Debug.Log(hit.collider.gameObject.name);
+                if (buttons[0].activeSelf == true)
                 {
-                    buttons[i].SetActive(false);
-                    Debug.Log("DeActivate Rice");
+                    Debug.Log("Button clicked");
+                    for (int i = 0; i < 4; i++)
+                    {
+                        buttons[i].SetActive(false);
+                        Debug.Log("DeActivate Rice");
 
-                }//떡 버튼 비활성화
-                for (int i = 4; i < 8; i++)
+                    }//떡 버튼 비활성화
+                    for (int i = 4; i < 8; i++)
+                    {
+                        buttons[i].SetActive(true);
+                        Debug.Log("Activate Sauce");
+                    }//소스 버튼 활성화
+                }
+                else if (buttons[4].activeSelf == true)
                 {
-                    buttons[i].SetActive(true);
-                    Debug.Log("Activate Sauce");
-                }//소스 버튼 활성화
+                    for (int i = 0; i < 4; i++)
+                    {
+                        buttons[i].SetActive(true);
+                        Debug.Log("Activate Rice");
+                    }//떡 버튼 활성화
+                    for (int i = 4; i < 8; i++)
+                    {
+                        buttons[i].SetActive(false);
+                        Debug.Log("DeActivate Suace");
+                    }//소스 버튼 비활성화
+                }
             }
-            else if (buttons[4].activeSelf == true)
-            {
-                for (int i = 0; i < 4; i++)
-                {
-                    buttons[i].SetActive(true);
-                    Debug.Log("Activate Rice");
-                }//떡 버튼 활성화
-                for (int i = 4; i < 8; i++)
-                {
-                    buttons[i].SetActive(false);
-                    Debug.Log("DeActivate Suace");
-                }//소스 버튼 비활성화
-            }
+            
+
+
+
+            
         }
     }
 
