@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     public GameObject re1;
     public GameObject re2;
     public int num;
+    public GameObject menu, menuIcon;
+
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +25,9 @@ public class GameManager : MonoBehaviour
         Invoke("guest", 1);
         Invoke("randomRice", 2);
         num = 0;
+
+        menuIcon.SetActive(true);
+        menu.SetActive(false);
     }
 
         
@@ -37,6 +42,12 @@ public class GameManager : MonoBehaviour
 
             if (hit.collider != null)
             {
+                if (hit.collider.gameObject == menuIcon)
+                {
+                    menuIcon.SetActive(false);
+                    menu.SetActive(true);
+                    num--;
+                }
 
                 if (hit.collider.gameObject == buttons[0])
                 {

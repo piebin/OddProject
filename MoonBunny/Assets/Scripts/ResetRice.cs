@@ -49,9 +49,7 @@ public class ResetRice : MonoBehaviour
         {
             count = 0;
             mousePos2 = Input.mousePosition;
-            Debug.Log("1 : " + mousePos2.x);
             mousePos2 = Camera.ScreenToWorldPoint(mousePos2);
-            Debug.Log("2 : " + mousePos2.x);
         }
 
         if(mousePos1.y > mousePos2.y && count == 0)
@@ -60,7 +58,6 @@ public class ResetRice : MonoBehaviour
             {
                 //sprite1.GetComponent<SpriteRenderer>().sprite = resetMat;
                 //sprite2.GetComponent<SpriteRenderer>().sprite = resetMat;
-                Debug.Log("초기화 확인");
                 sprite1.SetActive(false);
                 sprite2.SetActive(false);
                 GameManager gm = GameObject.Find("GameObject").GetComponent<GameManager>();
