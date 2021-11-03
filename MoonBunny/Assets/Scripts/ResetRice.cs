@@ -53,6 +53,7 @@ public class ResetRice : MonoBehaviour
             {
                 //sprite1.GetComponent<SpriteRenderer>().sprite = resetMat;
                 //sprite2.GetComponent<SpriteRenderer>().sprite = resetMat;
+                Debug.Log("초기화 확인");
                 sprite1.SetActive(false);
                 sprite2.SetActive(false);
                 downAnim.enabled = true;
