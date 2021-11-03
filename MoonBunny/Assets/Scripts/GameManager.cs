@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     public GameObject Bigri2;
     public GameObject re1;
     public GameObject re2;
-    int num;
+    public int num;
 
     // Start is called before the first frame update
     void Start()

@@ -9,6 +9,8 @@ public class ResetRice : MonoBehaviour
     private Sprite resetMat;
     public GameObject sprite1, sprite2;
     private Animator downAnim;
+    Camera Camera;
+
     /*void OnMouseDrag()
     {
         if(mousePos1.y > mousePos2.y)
@@ -30,6 +32,7 @@ public class ResetRice : MonoBehaviour
     {
         resetMat = sprite1.GetComponent<SpriteRenderer>().sprite;
         downAnim = GetComponent<Animator>();
+        Camera = GameObject.Find("Main Camera").GetComponent<Camera>();
         downAnim.enabled = false;
     }
 
@@ -38,6 +41,7 @@ public class ResetRice : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             mousePos1 = Input.mousePosition;
+            mousePos1 = Camera.ScreenToWorldPoint(mousePos1);
             count++;
         }
 
@@ -45,17 +49,23 @@ public class ResetRice : MonoBehaviour
         {
             count = 0;
             mousePos2 = Input.mousePosition;
+            Debug.Log("1 : " + mousePos2.x);
+            mousePos2 = Camera.ScreenToWorldPoint(mousePos2);
+            Debug.Log("2 : " + mousePos2.x);
         }
 
         if(mousePos1.y > mousePos2.y && count == 0)
         {
-            if (mousePos1.x > 380 && mousePos1.x < 450 && mousePos2.x > 380 && mousePos2.x < 450)
+            if (mousePos1.x > -6 && mousePos1.x < -3 && mousePos2.x > -6 && mousePos2.x < -3)
             {
                 //sprite1.GetComponent<SpriteRenderer>().sprite = resetMat;
                 //sprite2.GetComponent<SpriteRenderer>().sprite = resetMat;
                 Debug.Log("초기화 확인");
                 sprite1.SetActive(false);
                 sprite2.SetActive(false);
+                GameManager gm = GameObject.Find("GameObject").GetComponent<GameManager>();
+                gm.num = 0;
+
                 downAnim.enabled = true;
                 Invoke("stopAnimation", 0.5f);
             }
