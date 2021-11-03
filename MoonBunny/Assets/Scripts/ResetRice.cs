@@ -51,8 +51,10 @@ public class ResetRice : MonoBehaviour
         {
             if (mousePos1.x > 380 && mousePos1.x < 450 && mousePos2.x > 380 && mousePos2.x < 450)
             {
-                sprite1.GetComponent<SpriteRenderer>().sprite = resetMat;
-                sprite2.GetComponent<SpriteRenderer>().sprite = resetMat;
+                //sprite1.GetComponent<SpriteRenderer>().sprite = resetMat;
+                //sprite2.GetComponent<SpriteRenderer>().sprite = resetMat;
+                sprite1.SetActive(false);
+                sprite2.SetActive(false);
                 downAnim.enabled = true;
                 Invoke("stopAnimation", 0.5f);
             }
