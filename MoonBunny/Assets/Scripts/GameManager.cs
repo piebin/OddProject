@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
-    public GameObject character;
+    public GameObject[] character = new GameObject[3];
     private int[] randoms = new int[2];
     private int[] mynums = new int[2];
     private int[] clickedB = new int[2];
@@ -17,15 +17,15 @@ public class GameManager : MonoBehaviour
     public GameObject re2;
     public int num;
     public GameObject menu, menuIcon;
+    private int CharacterNum;
 
 
     // Start is called before the first frame update
     void Start()
-    {   
+    {
         Invoke("guest", 1);
         Invoke("randomRice", 2);
         num = 0;
-
         menuIcon.SetActive(true);
         menu.SetActive(false);
     }
@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
                 {
                     mynums[num] = 0;
                     clickedB[num] = mynums[num]; //클릭한거 숫자 저장해둠.
-                    Bigrice(num, mynums[num]);
+                    Bigrice(num, mynums[num]); 
                 }
                 else if (hit.collider.gameObject == buttons[1])
                 {
@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
                 }
                 num++;
                 
-                //클릭한거랑 랜덤수랑 비교해서 같으면 문구 출력
+                //클릭한거랑 랜덤수랑 비교해서 같은지 확인
                 if (num >= 2)
                 {
                     if (clickedB[0] == randoms[0] && clickedB[1] == randoms[1])
@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour
                         Debug.Log("congraturatinon");
                         Invoke("AnActive", 1);
                         Invoke("guest", 1.3f);
-                        Invoke("randomRice", 1.5f);
+                        Invoke("randomRice", 1.3f);
                     }
 
                     num = 0;
@@ -94,7 +94,12 @@ public class GameManager : MonoBehaviour
 
     private void AnActive()
     {
-        character.SetActive(false);
+        for(int i=0; i<3; i++)
+        {
+            if (character[i].activeSelf)
+                character[i].SetActive(false);
+        } //랜덤 캐릭터중 활성화된것만 찾아서 비활성화시킴
+
         Bigri1.SetActive(false);
         Bigri2.SetActive(false);
         re1.SetActive(false);
@@ -102,7 +107,9 @@ public class GameManager : MonoBehaviour
     }
     private void guest()
     {
-        character.SetActive(true);
+        CharacterNum = Random.Range(0, 3); //함수가 실행될때마다 랜덤 수 초기화
+        Debug.Log("gueset number : " + CharacterNum);
+        character[CharacterNum].SetActive(true); //랜덤 활성화
     }
 
     private void randomRice()
@@ -134,7 +141,7 @@ public class GameManager : MonoBehaviour
         {
             big0.sprite = sprites[b];
             Bigri1.SetActive(true);
-        }
+        } //1번째 떡일때 1번째떡을 누른버튼의 스프라이트로 변경
 
         else
         {
