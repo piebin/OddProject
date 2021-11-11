@@ -20,11 +20,12 @@ public class GameManager : MonoBehaviour
     private int CharacterNum;
 
 
+
     // Start is called before the first frame update
     void Start()
     {
         Invoke("guest", 1);
-        Invoke("randomRice", 2);
+        Invoke("randomRice", 1);
         num = 0;
         menuIcon.SetActive(true);
         menu.SetActive(false);
@@ -80,10 +81,8 @@ public class GameManager : MonoBehaviour
                 {
                     if (clickedB[0] == randoms[0] && clickedB[1] == randoms[1])
                     {
-                        Debug.Log("congraturatinon");
-                        Invoke("AnActive", 1);
-                        Invoke("guest", 1.3f);
-                        Invoke("randomRice", 1.3f);
+                        Debug.Log("congraturation");
+                        ChangeGuest();
                     }
 
                     num = 0;
@@ -92,7 +91,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void AnActive()
+    public void AnActive()
     {
         for(int i=0; i<3; i++)
         {
@@ -105,14 +104,22 @@ public class GameManager : MonoBehaviour
         re1.SetActive(false);
         re2.SetActive(false);
     }
-    private void guest()
+
+    public void ChangeGuest()
+    {
+        Invoke("AnActive", 1);
+        Invoke("guest", 1.3f);
+        Invoke("randomRice", 1.3f);
+    }
+
+    public void guest()
     {
         CharacterNum = Random.Range(0, 3); //함수가 실행될때마다 랜덤 수 초기화
         Debug.Log("gueset number : " + CharacterNum);
         character[CharacterNum].SetActive(true); //랜덤 활성화
     }
 
-    private void randomRice()
+    public void randomRice()
     {
         SpriteRenderer ren1 = re1.GetComponent<SpriteRenderer>();
         SpriteRenderer ren2 = re2.GetComponent<SpriteRenderer>();
