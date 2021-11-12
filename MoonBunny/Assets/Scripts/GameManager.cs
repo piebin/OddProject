@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     public int num;
     public GameObject menu, menuIcon;
     private int CharacterNum;
-
+ 
 
 
     // Start is called before the first frame update
@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
         num = 0;
         menuIcon.SetActive(true);
         menu.SetActive(false);
+
     }
 
         
@@ -103,6 +104,8 @@ public class GameManager : MonoBehaviour
         Bigri2.SetActive(false);
         re1.SetActive(false);
         re2.SetActive(false);
+        GameObject.Find("GuestTime").GetComponent<GuestTimer>().GuestOff();
+        //애니메이션 비활성화
     }
 
     public void ChangeGuest()
@@ -117,6 +120,8 @@ public class GameManager : MonoBehaviour
         CharacterNum = Random.Range(0, 3); //함수가 실행될때마다 랜덤 수 초기화
         Debug.Log("gueset number : " + CharacterNum);
         character[CharacterNum].SetActive(true); //랜덤 활성화
+        GameObject.Find("GuestTime").GetComponent<GuestTimer>().GuestOn();
+        //애니메이션 활성화
     }
 
     public void randomRice()
