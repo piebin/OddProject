@@ -83,6 +83,7 @@ public class GameManager : MonoBehaviour
                     if (clickedB[0] == randoms[0] && clickedB[1] == randoms[1])
                     {
                         Debug.Log("congraturation");
+                        ScoreManager.score += 10;
                         ChangeGuest();
                     }
 
