@@ -9,8 +9,9 @@ public class GameManager : MonoBehaviour
     private int[] randoms = new int[2];
     private int[] mynums = new int[2];
     private int[] clickedB = new int[2];
-    public Sprite[] sprites = new Sprite[4];
+    public Sprite[] sprites = new Sprite[20];
     public GameObject[] buttons = new GameObject[4];
+    public GameObject[] saucesB = new GameObject[4];
     public GameObject Bigri1;
     public GameObject Bigri2;
     public GameObject re1;
@@ -76,6 +77,25 @@ public class GameManager : MonoBehaviour
                     Bigrice(num, mynums[num]);
                 }
                 num++;
+
+                //소스버튼 눌렀을 때
+                //모양4개, 색 4개->16개 if
+                if(hit.collider.gameObject == saucesB[0]) //보라색
+                {
+                    for (int i=0; i<num; i++)//지금까지 누른 모양 확인
+                    {
+                        //모양 4개 경우 나눠서 다른 스프라이트 적용
+                        if(mynums[i] == 0)
+                        {
+                            Bigrice(i, 4);
+                        }
+                        if(mynums[i] == 1)
+                        {
+                            Bigrice(i, 8);
+                        }
+
+                    }
+                }
                 
                 //클릭한거랑 랜덤수랑 비교해서 같은지 확인
                 if (num >= 2)
@@ -131,8 +151,8 @@ public class GameManager : MonoBehaviour
         SpriteRenderer ren2 = re2.GetComponent<SpriteRenderer>();
         //스프라이트 받아옴
 
-        randoms[0] = Random.Range(0, 3);
-        randoms[1] = Random.Range(0, 3);
+        randoms[0] = Random.Range(4, 19);
+        randoms[1] = Random.Range(4, 19);
         //랜덤숫자들->얘랑 누른거랑 비교하기.
 
         Debug.Log("랜덤 수 생성" + randoms[0] + "and" + randoms[1]);
