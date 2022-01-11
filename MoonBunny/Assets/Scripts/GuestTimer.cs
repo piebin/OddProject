@@ -36,7 +36,7 @@ public class GuestTimer : MonoBehaviour
             Invoke("gameOver", 2.0f);
         }
 
-        Debug.Log("timer on");
+        //Debug.Log("timer on");
     }
 
     public void GuestOff()
@@ -50,7 +50,7 @@ public class GuestTimer : MonoBehaviour
             num++;
         }
 
-        Debug.Log("timer off");
+        //Debug.Log("timer off");
     }
 
     void gameOver()

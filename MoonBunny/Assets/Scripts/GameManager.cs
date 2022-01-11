@@ -8,7 +8,8 @@ public class GameManager : MonoBehaviour
     public GameObject[] character = new GameObject[3];
     private int[] randoms = new int[2];
     private int[] mynums = new int[2];
-    private int[] clickedB = new int[2];
+    private int[] ClickedB = new int[2];
+    private int[] clickedS = new int[2];
     public Sprite[] sprites = new Sprite[20];
     public GameObject[] buttons = new GameObject[4];
     public GameObject[] saucesB = new GameObject[4];
@@ -17,6 +18,8 @@ public class GameManager : MonoBehaviour
     public GameObject re1;
     public GameObject re2;
     public int num;
+    public int snum;
+    public int sauceN;
     public GameObject menu, menuIcon;
     private int CharacterNum;
  
@@ -28,6 +31,7 @@ public class GameManager : MonoBehaviour
         Invoke("guest", 1);
         Invoke("randomRice", 1);
         num = 0;
+        snum = 0;
         menuIcon.SetActive(true);
         menu.SetActive(false);
 
@@ -55,59 +59,188 @@ public class GameManager : MonoBehaviour
                 if (hit.collider.gameObject == buttons[0])
                 {
                     mynums[num] = 0;
-                    clickedB[num] = mynums[num]; //클릭한거 숫자 저장해둠.
-                    Bigrice(num, mynums[num]); 
+                    ClickedB[num] = mynums[num]; //클릭한거 숫자 저장해둠.
+                    Bigrice(num, mynums[num]);
+                    num++;
                 }
                 else if (hit.collider.gameObject == buttons[1])
                 {
                     mynums[num] = 1;
-                    clickedB[num] = mynums[num];
+                    ClickedB[num] = mynums[num];
                     Bigrice(num, mynums[num]);
+                    num++;
                 }
                 else if (hit.collider.gameObject == buttons[2])
                 {
                     mynums[num] = 2;
-                    clickedB[num] = mynums[num];
+                    ClickedB[num] = mynums[num];
                     Bigrice(num, mynums[num]);
+                    num++;
                 }
                 else if (hit.collider.gameObject == buttons[3])
                 {
                     mynums[num] = 3;
-                    clickedB[num] = mynums[num];
+                    ClickedB[num] = mynums[num];
                     Bigrice(num, mynums[num]);
+                    num++;
                 }
-                num++;
 
                 //소스버튼 눌렀을 때
                 //모양4개, 색 4개->16개 if
                 if(hit.collider.gameObject == saucesB[0]) //보라색
                 {
+
                     for (int i=0; i<num; i++)//지금까지 누른 모양 확인
                     {
                         //모양 4개 경우 나눠서 다른 스프라이트 적용
-                        if(mynums[i] == 0)
+                        if (mynums[snum] == 0)
                         {
-                            Bigrice(i, 4);
+                            Bigrice(snum, 4);
+                            clickedS[snum] = 4;
                         }
-                        if(mynums[i] == 1)
+
+                        if (mynums[snum] == 1)
                         {
-                            Bigrice(i, 8);
+                            Bigrice(snum, 8);
+                            clickedS[snum] = 8;
+                        }
+
+                        if (mynums[snum] == 2)
+                        {
+                            Bigrice(snum, 12);
+                            clickedS[snum] = 12;
+                        }
+
+                        if (mynums[snum] == 3)
+                        {
+                            Bigrice(snum, 16);
+                            clickedS[snum] = 16;
                         }
 
                     }
+                    snum++; //소스 버튼을 누른 횟수
+                    
                 }
-                
-                //클릭한거랑 랜덤수랑 비교해서 같은지 확인
-                if (num >= 2)
+
+                if (hit.collider.gameObject == saucesB[1]) //빨간색
                 {
-                    if (clickedB[0] == randoms[0] && clickedB[1] == randoms[1])
+
+                    for (int i = 0; i < num; i++)//지금까지 누른 모양 확인
                     {
+                        //모양 4개 경우 나눠서 다른 스프라이트 적용
+                        if (mynums[snum] == 0)
+                        {
+                            Bigrice(snum, 5);
+                            clickedS[snum] = 5;
+                        }
+
+                        if (mynums[snum] == 1)
+                        {
+                            Bigrice(snum, 9);
+                            clickedS[snum] = 9;
+                        }
+
+                        if (mynums[snum] == 2)
+                        {
+                            Bigrice(snum, 13);
+                            clickedS[snum] = 13;
+                        }
+
+                        if (mynums[snum] == 3)
+                        {
+                            Bigrice(snum, 17);
+                            clickedS[snum] = 17;
+                        }
+
+                    }
+                    snum++; //소스 버튼을 누른 횟수
+
+                }
+
+                if (hit.collider.gameObject == saucesB[2]) //노란색
+                {
+
+                    for (int i = 0; i < num; i++)//지금까지 누른 모양 확인
+                    {
+                        //모양 4개 경우 나눠서 다른 스프라이트 적용
+                        if (mynums[snum] == 0)
+                        {
+                            Bigrice(snum, 6);
+                            clickedS[snum] = 6;
+                        }
+
+                        if (mynums[snum] == 1)
+                        {
+                            Bigrice(snum, 10);
+                            clickedS[snum] = 10;
+                        }
+
+                        if (mynums[snum] == 2)
+                        {
+                            Bigrice(snum, 14);
+                            clickedS[snum] = 14;
+                        }
+
+                        if (mynums[snum] == 3)
+                        {
+                            Bigrice(snum, 18);
+                            clickedS[snum] = 18;
+                        }
+
+                    }
+                    snum++; //소스 버튼을 누른 횟수
+
+                }
+
+                if (hit.collider.gameObject == saucesB[3]) //초록색
+                {
+
+                    for (int i = 0; i < num; i++)//지금까지 누른 모양 확인
+                    {
+                        //모양 4개 경우 나눠서 다른 스프라이트 적용
+                        if (mynums[snum] == 0)
+                        {
+                            Bigrice(snum, 7);
+                            clickedS[snum] = 7;
+                        }
+
+                        if (mynums[snum] == 1)
+                        {
+                            Bigrice(snum, 11);
+                            clickedS[snum] = 11;
+                        }
+
+                        if (mynums[snum] == 2)
+                        {
+                            Bigrice(snum, 15);
+                            clickedS[snum] = 15;
+                        }
+
+                        if (mynums[snum] == 3)
+                        {
+                            Bigrice(snum, 19);
+                            clickedS[snum] = 19;
+                        }
+
+                    }
+                    snum++; //소스 버튼을 누른 횟수
+
+                }
+
+                //클릭한거랑 랜덤수랑 비교해서 같은지 확인
+                if (num >= 2 && snum >= 2)
+                {
+                    if (clickedS[0] == randoms[0] && clickedS[1] == randoms[1])
+                    {
+                        Debug.Log("click number : " + clickedS[0] + "," + clickedS[1]);
                         Debug.Log("congraturation");
                         ScoreManager.score += 10;
                         ChangeGuest();
                     }
-
+                    Debug.Log("click number : " + clickedS[0] + "," + clickedS[1]);
+                    Debug.Log("num: "+num + "snum: " + snum);
                     num = 0;
+                    snum = 0;
                 }
             }
         }
@@ -139,7 +272,6 @@ public class GameManager : MonoBehaviour
     public void guest()
     {
         CharacterNum = Random.Range(0, 3); //함수가 실행될때마다 랜덤 수 초기화
-        Debug.Log("gueset number : " + CharacterNum);
         character[CharacterNum].SetActive(true); //랜덤 활성화
         GameObject.Find("GuestTime").GetComponent<GuestTimer>().GuestOn();
         //애니메이션 활성화

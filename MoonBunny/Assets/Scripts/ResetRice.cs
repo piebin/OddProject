@@ -62,6 +62,7 @@ public class ResetRice : MonoBehaviour
                 sprite2.SetActive(false);
                 GameManager gm = GameObject.Find("GameObject").GetComponent<GameManager>();
                 gm.num = 0;
+                gm.snum = 0;
 
                 downAnim.enabled = true;
                 Invoke("stopAnimation", 0.5f);

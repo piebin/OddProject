@@ -12,7 +12,6 @@ public class SauceChange : MonoBehaviour
     {
         Debug.Log("start ");
 
-
     }
 
     private void Update()
@@ -24,10 +23,8 @@ public class SauceChange : MonoBehaviour
 
             if (hit.collider != null && hit.collider.gameObject==Sbutton)
             {
-                Debug.Log(hit.collider.gameObject.name);
                 if (buttons[0].activeSelf == true)
                 {
-                    Debug.Log("Button clicked");
                     for (int i = 0; i < 4; i++)
                     {
                         buttons[i].SetActive(false);
