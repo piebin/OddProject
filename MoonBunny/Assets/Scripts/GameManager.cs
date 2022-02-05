@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     public int sauceN;
     public GameObject menu, menuIcon;
     private int CharacterNum;
+    public GameObject GuestBar;
  
 
 
@@ -258,14 +259,13 @@ public class GameManager : MonoBehaviour
         Bigri2.SetActive(false);
         re1.SetActive(false);
         re2.SetActive(false);
-        GameObject.Find("GuestTime").GetComponent<GuestTimer>().GuestOff();
-        //애니메이션 비활성화
+
     }
 
     public void ChangeGuest()
     {
         Invoke("AnActive", 1);
-        Invoke("guest", 1.3f);
+        Invoke("guest", 1.1f);
         Invoke("randomRice", 1.3f);
     }
 
@@ -273,7 +273,8 @@ public class GameManager : MonoBehaviour
     {
         CharacterNum = Random.Range(0, 3); //함수가 실행될때마다 랜덤 수 초기화
         character[CharacterNum].SetActive(true); //랜덤 활성화
-        GameObject.Find("GuestTime").GetComponent<GuestTimer>().GuestOn();
+        GuestBar.SetActive(true);//시간 활성화
+        GuestBar.GetComponent<circleBar>().currentValue = 0; //시간을 0으로 초기화해줌
         //애니메이션 활성화
     }
 
