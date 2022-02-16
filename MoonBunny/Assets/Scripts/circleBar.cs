@@ -16,7 +16,7 @@ public class circleBar : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -27,12 +27,28 @@ public class circleBar : MonoBehaviour
         if (currentValue < 100)
         {
             currentValue += speed * Time.deltaTime;
+
+            if (currentValue >=0 && currentValue <= 30)
+            {
+                GameObject.Find("BackBar").GetComponent<Image>().color = new Color(54 / 255, 255 / 255, 0); //green
+            }
+
+            if(currentValue > 30 && currentValue <= 60)
+            {
+                GameObject.Find("BackBar").GetComponent<Image>().color = new Color(255 / 255, 255 / 255, 90 / 255); //yellow
+            }
+            if(currentValue >60 && currentValue < 100)
+            {
+                GameObject.Find("BackBar").GetComponent<Image>().color = new Color(255 / 255, 0, 0); //red
+            }
+
         }
+
+
         //시간오버시
         else 
         {
             gm.ChangeGuest();
-            Debug.Log("time over");
             life[num].GetComponent<SpriteRenderer>().sprite = emptyLife;
             num++;
             this.gameObject.SetActive(false);
@@ -41,7 +57,6 @@ public class circleBar : MonoBehaviour
 
         if (num == 3)
         {
-            Debug.Log("Game Over");
             timeOver.SetActive(true);
             Invoke("gameOver", 2.0f);
         }
@@ -54,7 +69,6 @@ public class circleBar : MonoBehaviour
     {
         if (num == 3)
         {
-            Debug.Log("Game Over");
             timeOver.SetActive(true);
             Invoke("gameOver", 2.0f);
         }
