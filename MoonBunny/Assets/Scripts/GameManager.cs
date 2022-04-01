@@ -6,17 +6,16 @@ public class GameManager : MonoBehaviour
 {
 
     public GameObject[] character = new GameObject[3];
-    private int[] randoms = new int[2];
-    private int[] mynums = new int[2];
-    private int[] ClickedB = new int[2];
-    private int[] clickedS = new int[2];
+    private int[] randoms = new int[7];
+    private int[] mynums = new int[7];
+    private int[] ClickedB = new int[7];
+    private int[] clickedS = new int[7];
+    private int lvNum;
     public Sprite[] sprites = new Sprite[20];
     public GameObject[] buttons = new GameObject[4];
     public GameObject[] saucesB = new GameObject[4];
-    public GameObject Bigri1;
-    public GameObject Bigri2;
-    public GameObject re1;
-    public GameObject re2;
+    public GameObject[] Bigri = new GameObject[4];
+    public GameObject[] re = new GameObject[4];
     public int num;
     public int snum;
     public int sauceN;
@@ -29,13 +28,13 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        checkLv();
         Invoke("guest", 1);
         Invoke("randomRice", 1);
         num = 0;
         snum = 0;
         menuIcon.SetActive(true);
         menu.SetActive(false);
-
     }
 
         
@@ -229,19 +228,23 @@ public class GameManager : MonoBehaviour
                 }
 
                 //클릭한거랑 랜덤수랑 비교해서 같은지 확인
-                if (num >= 2 && snum >= 2)
+                if (num >= lvNum && snum >= lvNum)
                 {
-                    if (clickedS[0] == randoms[0] && clickedS[1] == randoms[1])
+                    for (int i = 0; i < lvNum; i++)
                     {
-                        Debug.Log("click number : " + clickedS[0] + "," + clickedS[1]);
-                        Debug.Log("congraturation");
-                        ScoreManager.score += 10;
-                        ChangeGuest();
+                        if(i == lvNum - 1 && clickedS[i] == randoms[i])
+                        {
+                            Debug.Log("congraturation");
+                            ScoreManager.score += 10;
+                            ChangeGuest();
+                        }
+
+                        if (clickedS[i] == randoms[i])
+                            continue;
                     }
-                    Debug.Log("click number : " + clickedS[0] + "," + clickedS[1]);
-                    Debug.Log("num: "+num + "snum: " + snum);
                     num = 0;
                     snum = 0;
+                    checkLv();
                 }
             }
         }
@@ -255,10 +258,11 @@ public class GameManager : MonoBehaviour
                 character[i].SetActive(false);
         } //랜덤 캐릭터중 활성화된것만 찾아서 비활성화시킴
 
-        Bigri1.SetActive(false);
-        Bigri2.SetActive(false);
-        re1.SetActive(false);
-        re2.SetActive(false);
+        for (int i = 0; i < Bigri.Length; i++)
+        {
+            Bigri[i].SetActive(false);
+            re[i].SetActive(false);
+        }
 
     }
 
@@ -278,44 +282,90 @@ public class GameManager : MonoBehaviour
         //애니메이션 활성화
     }
 
+    public void checkLv()
+    {
+        int randomInt = Random.Range(0, 2);
+        int level = (ScoreManager.score / 100) + 1;
+        switch(level)
+        {
+            case 1:
+                lvNum = 3;
+                break;
+            case 2:
+            case 3:
+            case 4:
+                if (randomInt == 0)
+                     lvNum = 3;
+                else
+                     lvNum = 4;
+                break;
+            case 5:
+            case 6:
+                lvNum = 4;
+                break;
+            case 7:
+            case 8:
+                if (randomInt == 0)
+                    lvNum = 4;
+                else
+                    lvNum = 5;
+                break;
+            case 9:
+            case 10:
+                lvNum = 5;
+                break;
+            case 11:
+            case 12:
+                if (randomInt == 0)
+                    lvNum = 5;
+                else
+                    lvNum = 6;
+                break;
+            case 13:
+                lvNum = 6;
+                break;
+            case 14:
+            case 15:
+            default:
+                if (randomInt == 0)
+                    lvNum = 6;
+                else
+                    lvNum = 7;
+                break;
+        }
+    }
+
     public void randomRice()
     {
-        SpriteRenderer ren1 = re1.GetComponent<SpriteRenderer>();
-        SpriteRenderer ren2 = re2.GetComponent<SpriteRenderer>();
+        SpriteRenderer[] ren = new SpriteRenderer[lvNum];
+        for(int i = 0; i < lvNum; i++)
+        {
+            ren[i] = re[i].GetComponent<SpriteRenderer>();
+            randoms[i] = Random.Range(4, 19);
+            ren[i].sprite = sprites[randoms[i]];
+            re[i].SetActive(true);
+        }
         //스프라이트 받아옴
-
-        randoms[0] = Random.Range(4, 19);
-        randoms[1] = Random.Range(4, 19);
         //랜덤숫자들->얘랑 누른거랑 비교하기.
 
-        Debug.Log("랜덤 수 생성" + randoms[0] + "and" + randoms[1]);
-
-        ren1.sprite = sprites[randoms[0]];
-        re1.SetActive(true);
-
-        ren2.sprite = sprites[randoms[1]];
-        re2.SetActive(true);
-
+        //Debug.Log("랜덤 수 생성" + randoms[0] + "and" + randoms[1]);
+        Debug.Log("num : " + lvNum);
     }
 
     private void Bigrice(int a, int b)
     {
-        SpriteRenderer big0 = Bigri1.GetComponent<SpriteRenderer>();
-        SpriteRenderer big1 = Bigri2.GetComponent<SpriteRenderer>();
-
-        if (a == 0)
+        SpriteRenderer[] big = new SpriteRenderer[lvNum];
+        for (int i = 0; i < lvNum; i++)
         {
-            big0.sprite = sprites[b];
-            Bigri1.SetActive(true);
-        } //1번째 떡일때 1번째떡을 누른버튼의 스프라이트로 변경
-
-        else
-        {
-            big1.sprite = sprites[b];
-            Bigri2.SetActive(true);
+            big[i] = Bigri[i].GetComponent<SpriteRenderer>();
         }
 
-
-
+        switch(a)
+        {
+            default:
+                big[a].sprite = sprites[b];
+                Bigri[a].SetActive(true);
+                break;
+        }
     }
 }

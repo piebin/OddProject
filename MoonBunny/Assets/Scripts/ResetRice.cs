@@ -7,7 +7,7 @@ public class ResetRice : MonoBehaviour
     private int count = 0;
     private Vector2 mousePos1, mousePos2;
     private Sprite resetMat;
-    public GameObject sprite1, sprite2;
+    public GameObject[] sprite = new GameObject[4];
     private Animator downAnim;
     Camera Camera;
 
@@ -30,7 +30,7 @@ public class ResetRice : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        resetMat = sprite1.GetComponent<SpriteRenderer>().sprite;
+        resetMat = sprite[0].GetComponent<SpriteRenderer>().sprite;
         downAnim = GetComponent<Animator>();
         Camera = GameObject.Find("Main Camera").GetComponent<Camera>();
         downAnim.enabled = false;
@@ -58,8 +58,10 @@ public class ResetRice : MonoBehaviour
             {
                 //sprite1.GetComponent<SpriteRenderer>().sprite = resetMat;
                 //sprite2.GetComponent<SpriteRenderer>().sprite = resetMat;
-                sprite1.SetActive(false);
-                sprite2.SetActive(false);
+                for (int i=0; i<sprite.Length; i++)
+                {
+                    sprite[i].SetActive(false);
+                }
                 GameManager gm = GameObject.Find("GameObject").GetComponent<GameManager>();
                 gm.num = 0;
                 gm.snum = 0;
