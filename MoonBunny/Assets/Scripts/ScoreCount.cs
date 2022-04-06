@@ -7,6 +7,8 @@ public class ScoreCount : MonoBehaviour
 
 {
     Text scoreNum;
+    public Text nowscore;
+    public Text newcarrot;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,5 +19,8 @@ public class ScoreCount : MonoBehaviour
     void Update()
     {
         scoreNum.text = ScoreManager.score.ToString();
+        nowscore.text = ScoreManager.score.ToString();
+        newcarrot.text = "+"+ScoreManager.score.ToString();
+
     }
 }
