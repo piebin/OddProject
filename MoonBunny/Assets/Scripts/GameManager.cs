@@ -14,8 +14,10 @@ public class GameManager : MonoBehaviour
     public Sprite[] sprites = new Sprite[20];
     public GameObject[] buttons = new GameObject[4];
     public GameObject[] saucesB = new GameObject[4];
-    public GameObject[] Bigri = new GameObject[4];
-    public GameObject[] re = new GameObject[4];
+    public GameObject[] Bigri = new GameObject[7];
+    public GameObject BGroup;
+    public GameObject sGroup;
+    public GameObject[] re = new GameObject[7];
     public int num;
     public int snum;
     public int sauceN;
@@ -289,7 +291,7 @@ public class GameManager : MonoBehaviour
         switch(level)
         {
             case 1:
-                lvNum = 3;
+                lvNum = 7;
                 break;
             case 2:
             case 3:
@@ -333,6 +335,8 @@ public class GameManager : MonoBehaviour
                     lvNum = 7;
                 break;
         }
+        BGroup.transform.position = new Vector3(0, -lvNum / 1.8f, 0);
+        sGroup.transform.position = new Vector3(0, -lvNum / 3.5f, 0);
     }
 
     public void randomRice()
