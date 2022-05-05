@@ -55,6 +55,7 @@ public class titleClick : MonoBehaviour
             if (hit.collider.gameObject == t3)
             {
                 Debug.Log("상점이 클릭됨");
+                SceneManager.LoadScene("Shop(real)");
             }
 
             if (hit.collider.gameObject == t4)

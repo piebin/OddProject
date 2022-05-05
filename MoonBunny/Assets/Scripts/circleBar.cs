@@ -20,10 +20,12 @@ public class circleBar : MonoBehaviour
     public GameObject totalcarrot;
     public GameObject restartb;
     public GameObject quitb;
+    public GameObject carrot; 
 
 
 
     private int level = 0;
+    private float ro = 180;
     private float[] levelValue = { 110, 110, 110, 110, 100, 100, 100, 100, 90, 90, 90, 90, 80, 80, 80 };
 
     void Start()
@@ -87,6 +89,12 @@ public class circleBar : MonoBehaviour
         }
 
         LoadingBar.fillAmount = currentValue / i;
+        //carrot.transform.localEulerAngles = new Vector3(0, 0, ro);
+
+
+       
+
+
     }
 
 
