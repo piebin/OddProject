@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
+
+
     public GameObject[] character = new GameObject[3];
     private int[] randoms = new int[7];
     private int[] mynums = new int[7];
@@ -37,12 +39,14 @@ public class GameManager : MonoBehaviour
         snum = 0;
         menuIcon.SetActive(true);
         menu.SetActive(false);
+
+
     }
 
-        
     // Update is called once per frame
     void Update()
     {
+
         //버튼 누르는거
         if(Input.GetMouseButtonDown(0))
         {

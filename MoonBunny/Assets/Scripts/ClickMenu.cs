@@ -32,12 +32,12 @@ public class ClickMenu : MonoBehaviour
 
             else if (hit.collider.gameObject.tag == "Shop")
             {
-                SceneManager.LoadScene("Shop");
+                SceneManager.LoadScene("Shop(real)");
             }
 
             else if (hit.collider.gameObject.tag == "Achieve")
             {
-                SceneManager.LoadScene("Achieve");
+                SceneManager.LoadScene("Achieve(real)");
             }
 
             else if (hit.collider.gameObject.tag == "Setting")
