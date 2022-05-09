@@ -8,6 +8,7 @@ TagManager:
   - Setting
   - Achieve
   - BG
+  - content
   layers:
   - Default
   - TransparentFX

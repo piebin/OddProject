@@ -295,7 +295,7 @@ public class GameManager : MonoBehaviour
         switch(level)
         {
             case 1:
-                lvNum = 7;
+                lvNum = 3;
                 break;
             case 2:
             case 3:
