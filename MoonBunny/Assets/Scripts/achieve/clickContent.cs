@@ -38,6 +38,7 @@ public class clickContent : MonoBehaviour
                 }
             }
         }
+
         if(Input.GetMouseButtonUp(0))
         {
             var ped = new PointerEventData(null);

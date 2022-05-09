@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     public GameObject menu, menuIcon;
     private int CharacterNum;
     public GameObject GuestBar;
+    public GameObject Ab1;
  
 
 
@@ -40,6 +41,15 @@ public class GameManager : MonoBehaviour
         menuIcon.SetActive(true);
         menu.SetActive(false);
 
+        Invoke("clearOne", 2);
+
+    }
+
+    void clearOne()
+    {
+        //Album.Open(0); //달성한 업적의 앨범 사진 오픈
+        Ab1.SetActive(true);
+        Destroy(Ab1, 1.5f);
 
     }
 

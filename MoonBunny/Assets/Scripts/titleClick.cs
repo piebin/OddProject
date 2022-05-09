@@ -50,6 +50,7 @@ public class titleClick : MonoBehaviour
             if (hit.collider.gameObject == t2)
             {
                 Debug.Log("¾Ù¹üÀÌ Å¬¸¯µÊ");
+                SceneManager.LoadScene("Achieve(real)");
             }
 
             if (hit.collider.gameObject == t3)
