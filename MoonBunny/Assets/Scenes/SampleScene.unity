@@ -3514,6 +3514,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8d91a805cc671e47a18e804db41a4d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeOver: {fileID: 405101437}
+  bgimage: {fileID: 1059278156}
+  SCORE: {fileID: 1690163057}
+  nowscore: {fileID: 508513427}
+  nowcarrot: {fileID: 1108127701}
+  totalcarrot: {fileID: 1782816272}
+  restartb: {fileID: 1126777481}
+  quitb: {fileID: 1182628510}
 --- !u!1 &1182628510
 GameObject:
   m_ObjectHideFlags: 0
