@@ -115,7 +115,8 @@ public class changeBg : MonoBehaviour
     {
         if(state[num] == 0)
         {
-            oriSet.SetActive(false);
+            oriSet.SetActive(true);
+            oriSet.GetComponent<Image>().sprite = setBG[0];
             oriState.GetComponent<SpriteRenderer>().sprite = stateBG[0];
         }
 

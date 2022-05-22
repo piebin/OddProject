@@ -43,7 +43,7 @@ public class circleBar : MonoBehaviour
         else i = levelValue[level - 1];
         GameManager gm = GameObject.Find("GameObject").GetComponent<GameManager>();
 
-        if (currentValue < i)
+        if (currentValue < i + 2)
         {
             currentValue += speed * Time.deltaTime;
 
@@ -65,13 +65,14 @@ public class circleBar : MonoBehaviour
 
 
         //시간오버시
-        else 
+        else if (!GameManager.success)
         {
+            gm.num = 0;
+            gm.snum = 0;
             gm.ChangeGuest();
             life[num].GetComponent<SpriteRenderer>().sprite = emptyLife;
             num++;
             this.gameObject.SetActive(false);
-            
         }
 
         if (num == 3)
@@ -90,11 +91,6 @@ public class circleBar : MonoBehaviour
 
         LoadingBar.fillAmount = currentValue / i;
         //carrot.transform.localEulerAngles = new Vector3(0, 0, ro);
-
-
-       
-
-
     }
 
 

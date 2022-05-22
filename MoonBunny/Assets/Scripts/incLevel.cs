@@ -6,16 +6,17 @@ using UnityEngine.UI;
 public class incLevel : MonoBehaviour
 {
     private int level, nowLevel = 1;
-    private Text showLevel;
+    private Sprite showLevel;
     private int[] lvTimerArray = { 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4 };
     private Animator anim;
+    public Sprite[] lvSprite = new Sprite[16];
     public GameObject panel, lvTimer;
     // Start is called before the first frame update
     void Start()
     {
         anim = lvTimer.GetComponent<Animator>();
         panel.SetActive(false);
-        showLevel = GetComponent<Text>();
+        showLevel = GetComponent<SpriteRenderer>().sprite;
     }
 
     void LevelUp()
@@ -27,7 +28,8 @@ public class incLevel : MonoBehaviour
     void Update()
     {
         level = (ScoreManager.score / 100) + 1;
-        showLevel.text = "Lv. " + level;
+        try { showLevel = lvSprite[level - 1]; }
+        catch { showLevel = lvSprite[16]; }
         if(level != nowLevel)
         {
             int i;

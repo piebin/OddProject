@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -20,10 +21,11 @@ public class GameManager : MonoBehaviour
     public int num;
     public int snum;
     public int sauceN;
-    public GameObject menu, menuIcon;
+    public GameObject goBack;
     private int CharacterNum;
     public GameObject GuestBar;
     public GameObject Ab1;
+    public static bool success = false;
 
     // Start is called before the first frame update
     void Start()
@@ -33,11 +35,8 @@ public class GameManager : MonoBehaviour
         Invoke("randomRice", 1);
         num = 0;
         snum = 0;
-        menuIcon.SetActive(true);
-        menu.SetActive(false);
-
+        goBack.SetActive(true);
         Invoke("clearOne", 2);
-
     }
 
     void clearOne()
@@ -59,35 +58,33 @@ public class GameManager : MonoBehaviour
 
             if (hit.collider != null)
             {
-                if (hit.collider.gameObject == menuIcon)
+                if (hit.collider.gameObject == goBack)
                 {
-                    menuIcon.SetActive(false);
-                    menu.SetActive(true);
-                    num--;
+                    SceneManager.LoadScene("Title");
                 }
 
-                if (hit.collider.gameObject == buttons[0])
+                if (hit.collider.gameObject == buttons[0] && num < lvNum)
                 {
                     mynums[num] = 0;
                     ClickedB[num] = mynums[num]; //클릭한거 숫자 저장해둠.
                     Bigrice(num, mynums[num]);
                     num++;
                 }
-                else if (hit.collider.gameObject == buttons[1])
+                else if (hit.collider.gameObject == buttons[1] && num < lvNum)
                 {
                     mynums[num] = 1;
                     ClickedB[num] = mynums[num];
                     Bigrice(num, mynums[num]);
                     num++;
                 }
-                else if (hit.collider.gameObject == buttons[2])
+                else if (hit.collider.gameObject == buttons[2] && num < lvNum)
                 {
                     mynums[num] = 2;
                     ClickedB[num] = mynums[num];
                     Bigrice(num, mynums[num]);
                     num++;
                 }
-                else if (hit.collider.gameObject == buttons[3])
+                else if (hit.collider.gameObject == buttons[3] && num < lvNum)
                 {
                     mynums[num] = 3;
                     ClickedB[num] = mynums[num];
@@ -97,9 +94,8 @@ public class GameManager : MonoBehaviour
 
                 //소스버튼 눌렀을 때
                 //모양4개, 색 4개->16개 if
-                if(hit.collider.gameObject == saucesB[0]) //보라색
+                if(hit.collider.gameObject == saucesB[0] && num > snum) //보라색
                 {
-
                     for (int i=0; i<num; i++)//지금까지 누른 모양 확인
                     {
                         //모양 4개 경우 나눠서 다른 스프라이트 적용
@@ -126,13 +122,11 @@ public class GameManager : MonoBehaviour
                             Bigrice(snum, 16);
                             clickedS[snum] = 16;
                         }
-
                     }
                     snum++; //소스 버튼을 누른 횟수
-                    
                 }
 
-                if (hit.collider.gameObject == saucesB[1]) //빨간색
+                if (hit.collider.gameObject == saucesB[1] && num > snum) //빨간색
                 {
 
                     for (int i = 0; i < num; i++)//지금까지 누른 모양 확인
@@ -167,7 +161,7 @@ public class GameManager : MonoBehaviour
 
                 }
 
-                if (hit.collider.gameObject == saucesB[2]) //노란색
+                if (hit.collider.gameObject == saucesB[2] && num > snum) //노란색
                 {
 
                     for (int i = 0; i < num; i++)//지금까지 누른 모양 확인
@@ -196,13 +190,11 @@ public class GameManager : MonoBehaviour
                             Bigrice(snum, 18);
                             clickedS[snum] = 18;
                         }
-
                     }
                     snum++; //소스 버튼을 누른 횟수
-
                 }
 
-                if (hit.collider.gameObject == saucesB[3]) //초록색
+                if (hit.collider.gameObject == saucesB[3] && num > snum) //초록색
                 {
 
                     for (int i = 0; i < num; i++)//지금까지 누른 모양 확인
@@ -246,6 +238,7 @@ public class GameManager : MonoBehaviour
                         {
                             Debug.Log("congraturation");
                             ScoreManager.score += 10;
+                            success = true;
                             ChangeGuest();
                         }
 
@@ -278,9 +271,9 @@ public class GameManager : MonoBehaviour
 
     public void ChangeGuest()
     {
-        Invoke("AnActive", 1);
-        Invoke("guest", 1.1f);
-        Invoke("randomRice", 1.3f);
+        Invoke("AnActive", 0.5f);
+        Invoke("guest", 0.5f);
+        Invoke("randomRice", 0.6f);
     }
 
     public void guest()
@@ -361,6 +354,7 @@ public class GameManager : MonoBehaviour
         //랜덤숫자들->얘랑 누른거랑 비교하기.
 
         //Debug.Log("랜덤 수 생성" + randoms[0] + "and" + randoms[1]);
+        success = false;
         Debug.Log("num : " + lvNum);
     }
 
