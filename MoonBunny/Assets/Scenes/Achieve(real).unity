@@ -309,7 +309,7 @@ SpriteRenderer:
   m_Size: {x: 12, y: 24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &51878278
@@ -1028,7 +1028,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 31787cef9bee37e468e24b006026246a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d71584fcccbb01c49bd237c076c5bbc7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1058,7 +1058,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5409e6892a2b8534fb1cabce6f5f4dfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newimage: {fileID: 21300000, guid: 5bc301de175a0464e9585aa659fe75d6, type: 3}
+  newimage: {fileID: 21300000, guid: d71584fcccbb01c49bd237c076c5bbc7, type: 3}
   thisone: {fileID: 606566032}
 --- !u!65 &606566035
 BoxCollider:
@@ -1743,7 +1743,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 31787cef9bee37e468e24b006026246a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d71584fcccbb01c49bd237c076c5bbc7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1805,7 +1805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5409e6892a2b8534fb1cabce6f5f4dfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newimage: {fileID: 21300000, guid: 60d880ce3dd2ae54e8c8a462b5f99da6, type: 3}
+  newimage: {fileID: 21300000, guid: d71584fcccbb01c49bd237c076c5bbc7, type: 3}
   thisone: {fileID: 1148748715}
 --- !u!1 &1407382896
 GameObject:
