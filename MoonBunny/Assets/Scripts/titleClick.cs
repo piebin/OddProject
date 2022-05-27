@@ -11,6 +11,7 @@ public class titleClick : MonoBehaviour
     public GameObject t2;
     public GameObject t3;
     public GameObject t4;
+    public GameObject t5;
 
     int one = 0;//중복방지
 
@@ -31,6 +32,7 @@ public class titleClick : MonoBehaviour
             t2.GetComponent<Animation>().Play();
             t3.GetComponent<Animation>().Play();
             t4.GetComponent<Animation>().Play();
+            t5.GetComponent<Animation>().Play();
 
             one++;
 
@@ -62,6 +64,11 @@ public class titleClick : MonoBehaviour
             if (hit.collider.gameObject == t4)
             {
                 Debug.Log("옵션이 클릭됨");
+            }
+
+            if(hit.collider.gameObject == t5)
+            {
+                Debug.Log("종료가 클릭됨");
             }
         }
 

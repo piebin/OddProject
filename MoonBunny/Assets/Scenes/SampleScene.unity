@@ -363,6 +363,7 @@ MonoBehaviour:
   goBack: {fileID: 860121423}
   GuestBar: {fileID: 1334658085}
   Ab1: {fileID: 405128823}
+  sauceCh: {fileID: 651932514}
 --- !u!4 &110919639
 Transform:
   m_ObjectHideFlags: 0
@@ -1971,8 +1972,8 @@ GameObject:
   m_Component:
   - component: {fileID: 651932517}
   - component: {fileID: 651932516}
-  - component: {fileID: 651932515}
   - component: {fileID: 651932518}
+  - component: {fileID: 651932515}
   m_Layer: 0
   m_Name: Sauce
   m_TagString: Untagged
@@ -2002,6 +2003,8 @@ MonoBehaviour:
   - {fileID: 2106075564}
   - {fileID: 1899833022}
   Sbutton: {fileID: 651932514}
+  sauceB: {fileID: 21300000, guid: ea3563208d603f7489e7e877a23c5d32, type: 3}
+  ddukB: {fileID: 21300000, guid: 810554b201152f74c834e2c2d3e157d0, type: 3}
 --- !u!212 &651932516
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2042,15 +2045,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: efe1f58690ff96241917c6c0b5fc29dd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ea3563208d603f7489e7e877a23c5d32, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.85, y: 0.34}
+  m_Size: {x: 4.6, y: 1.66}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &651932517
@@ -2061,8 +2064,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 651932514}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.46, y: -10.56, z: 0}
-  m_LocalScale: {x: 6, y: 5, z: 1}
+  m_LocalPosition: {x: 1.54, y: -10.5, z: 0}
+  m_LocalScale: {x: 1.1687965, y: 1.3343371, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -2084,8 +2087,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.85, y: 0.34}
-    newSize: {x: 0.85, y: 0.34}
+    oldSize: {x: 4.6, y: 1.66}
+    newSize: {x: 4.6, y: 1.66}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0

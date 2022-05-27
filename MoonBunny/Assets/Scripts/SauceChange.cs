@@ -6,6 +6,8 @@ public class SauceChange : MonoBehaviour
 {
     public GameObject[] buttons = new GameObject[8];
     public GameObject Sbutton;
+    public Sprite sauceB;
+    public Sprite ddukB;
    
 
     private void Start()
@@ -23,8 +25,11 @@ public class SauceChange : MonoBehaviour
 
             if (hit.collider != null && hit.collider.gameObject==Sbutton)
             {
+                Debug.Log("clicked");
                 if (buttons[0].activeSelf == true)
                 {
+                    Sbutton.GetComponent<SpriteRenderer>().sprite = ddukB;
+
                     for (int i = 0; i < 4; i++)
                     {
                         buttons[i].SetActive(false);
@@ -39,6 +44,8 @@ public class SauceChange : MonoBehaviour
                 }
                 else if (buttons[4].activeSelf == true)
                 {
+                    Sbutton.GetComponent<SpriteRenderer>().sprite = sauceB;
+
                     for (int i = 0; i < 4; i++)
                     {
                         buttons[i].SetActive(true);

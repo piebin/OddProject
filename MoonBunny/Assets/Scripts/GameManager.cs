@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     public GameObject GuestBar;
     public GameObject Ab1;
     public static bool success = false;
+    public GameObject sauceCh;
 
     // Start is called before the first frame update
     void Start()
@@ -229,6 +230,8 @@ public class GameManager : MonoBehaviour
 
                 }
 
+
+
                 //클릭한거랑 랜덤수랑 비교해서 같은지 확인
                 if (num >= lvNum && snum >= lvNum)
                 {
@@ -240,13 +243,13 @@ public class GameManager : MonoBehaviour
                             ScoreManager.score += 10;
                             success = true;
                             ChangeGuest();
+                            num = 0;
+                            snum = 0;
                         }
 
                         if (clickedS[i] == randoms[i])
                             continue;
                     }
-                    num = 0;
-                    snum = 0;
                     checkLv();
                 }
             }
@@ -273,7 +276,24 @@ public class GameManager : MonoBehaviour
     {
         Invoke("AnActive", 0.5f);
         Invoke("guest", 0.5f);
+        Invoke("sauceChange", 0.5f);
         Invoke("randomRice", 0.6f);
+    }
+
+    public void sauceChange()
+    {
+        sauceCh.GetComponent<SauceChange>().Sbutton.GetComponent<SpriteRenderer>().sprite = sauceCh.GetComponent<SauceChange>().sauceB;
+
+        for (int i = 0; i < 4; i++)
+        {
+            sauceCh.GetComponent<SauceChange>().buttons[i].SetActive(true);
+            //Debug.Log("Activate Rice");
+        }//떡 버튼 활성화
+        for (int i = 4; i < 8; i++)
+        {
+            sauceCh.GetComponent<SauceChange>().buttons[i].SetActive(false);
+            //Debug.Log("DeActivate Suace");
+        }//소스 버튼 비활성화
     }
 
     public void guest()
