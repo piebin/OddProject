@@ -162,8 +162,8 @@ public class changeBg : MonoBehaviour
             oriState.SetActive(true);
             carrot.gameObject.SetActive(true);
             check = true;
-            gameObject.GetComponent<Transform>().localScale = new Vector3(0.7f, 0.7f);
-            BackGround.GetComponent<Transform>().localScale = new Vector3(0.7f, 0.7f);
+            gameObject.GetComponent<Transform>().localScale = new Vector3(0.6f, 0.6f);
+            BackGround.GetComponent<Transform>().localScale = new Vector3(0.6f, 0.6f);
         }
     }
 }

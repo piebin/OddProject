@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class incLevel : MonoBehaviour
 {
     private int level, nowLevel = 1;
-    private Sprite showLevel;
     private int[] lvTimerArray = { 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4 };
     private Animator anim;
     public Sprite[] lvSprite = new Sprite[16];
@@ -16,7 +15,6 @@ public class incLevel : MonoBehaviour
     {
         anim = lvTimer.GetComponent<Animator>();
         panel.SetActive(false);
-        showLevel = GetComponent<SpriteRenderer>().sprite;
     }
 
     void LevelUp()
@@ -28,8 +26,8 @@ public class incLevel : MonoBehaviour
     void Update()
     {
         level = (ScoreManager.score / 100) + 1;
-        try { showLevel = lvSprite[level - 1]; }
-        catch { showLevel = lvSprite[16]; }
+        try { gameObject.GetComponent<SpriteRenderer>().sprite = lvSprite[level - 1]; }
+        catch { gameObject.GetComponent<SpriteRenderer>().sprite = lvSprite[16]; }
         if(level != nowLevel)
         {
             int i;

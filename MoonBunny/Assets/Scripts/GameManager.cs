@@ -231,7 +231,6 @@ public class GameManager : MonoBehaviour
                 }
 
 
-
                 //클릭한거랑 랜덤수랑 비교해서 같은지 확인
                 if (num >= lvNum && snum >= lvNum)
                 {
@@ -269,7 +268,6 @@ public class GameManager : MonoBehaviour
             Bigri[i].SetActive(false);
             re[i].SetActive(false);
         }
-
     }
 
     public void ChangeGuest()
@@ -283,7 +281,6 @@ public class GameManager : MonoBehaviour
     public void sauceChange()
     {
         sauceCh.GetComponent<SauceChange>().Sbutton.GetComponent<SpriteRenderer>().sprite = sauceCh.GetComponent<SauceChange>().sauceB;
-
         for (int i = 0; i < 4; i++)
         {
             sauceCh.GetComponent<SauceChange>().buttons[i].SetActive(true);
