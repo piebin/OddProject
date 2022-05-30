@@ -238,7 +238,7 @@ public class GameManager : MonoBehaviour
                     {
                         if(i == lvNum - 1 && clickedS[i] == randoms[i])
                         {
-                            Debug.Log("congraturation");
+                            //Debug.Log("congraturation");
                             ScoreManager.score += 10;
                             success = true;
                             ChangeGuest();
@@ -278,6 +278,7 @@ public class GameManager : MonoBehaviour
         Invoke("randomRice", 0.6f);
     }
 
+    //버튼 창을 떡 시작으로 바꿈.
     public void sauceChange()
     {
         sauceCh.GetComponent<SauceChange>().Sbutton.GetComponent<SpriteRenderer>().sprite = sauceCh.GetComponent<SauceChange>().sauceB;

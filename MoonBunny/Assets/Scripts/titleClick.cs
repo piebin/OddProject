@@ -45,30 +45,30 @@ public class titleClick : MonoBehaviour
         {
             if(hit.collider.gameObject == t1)
             {
-                Debug.Log("시작이 클릭됨");
+                //Debug.Log("시작이 클릭됨");
                 SceneManager.LoadScene("SampleScene");
             }
 
             if (hit.collider.gameObject == t2)
             {
-                Debug.Log("앨범이 클릭됨");
+                //Debug.Log("앨범이 클릭됨");
                 SceneManager.LoadScene("Achieve(real)");
             }
 
             if (hit.collider.gameObject == t3)
             {
-                Debug.Log("상점이 클릭됨");
+                //Debug.Log("상점이 클릭됨");
                 SceneManager.LoadScene("Shop(real)");
             }
 
             if (hit.collider.gameObject == t4)
             {
-                Debug.Log("옵션이 클릭됨");
+                //Debug.Log("옵션이 클릭됨");
             }
 
             if(hit.collider.gameObject == t5)
             {
-                Debug.Log("종료가 클릭됨");
+                //Debug.Log("종료가 클릭됨");
             }
         }
 
