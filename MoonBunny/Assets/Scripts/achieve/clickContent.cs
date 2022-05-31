@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class clickContent : MonoBehaviour
 {
-    public GameObject scrollbar, nameT, contentT, collectT, BackGround, showImg;
+    public GameObject scrollbar, nameT, contentT, collectT, BackGround, showImg, clickText;
     private bool touchChk = false;
     private Sprite clickImg, bgReal;
     public Sprite bgChange;
@@ -15,6 +15,7 @@ public class clickContent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        clickText.SetActive(false);
         gr = GetComponent<GraphicRaycaster>();
         bgReal = BackGround.GetComponent<SpriteRenderer>().sprite;
     }
@@ -61,6 +62,7 @@ public class clickContent : MonoBehaviour
             contentT.SetActive(false);
             collectT.gameObject.SetActive(false);
             showImg.SetActive(true);
+            clickText.SetActive(true);
             BackGround.GetComponent<SpriteRenderer>().sprite = bgChange;
             try { clickImg = results[0].gameObject.GetComponent<Image>().sprite; }
             catch { }
@@ -76,6 +78,7 @@ public class clickContent : MonoBehaviour
             BackGround.GetComponent<SpriteRenderer>().sprite = bgReal;
             showImg.gameObject.GetComponent<Image>().sprite = null;
             showImg.SetActive(false);
+            clickText.SetActive(false);
             try
             {
                 results[0].gameObject.GetComponent<Transform>().localScale = new Vector3(1.0f, 1.0f);

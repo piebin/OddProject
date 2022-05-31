@@ -19,7 +19,7 @@ public class ScrollView : MonoBehaviour
     public Sprite[] setBG = new Sprite[2]; //0:적용 1:구매
     public GameObject oriState, oriSet, BackGround;
     public GameObject purchasePanel, right, left;
-    public Text carrot;
+    public Text carrot, clickText;
     private bool check = false;
     public static bool touchChk = false;
     private int[] priceBG = new int[9];
@@ -28,6 +28,7 @@ public class ScrollView : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        clickText.gameObject.SetActive(false);
         for(int i=0; i<sprite.Length; i++)
         {
             if (sprite[i] == null)
@@ -183,6 +184,7 @@ public class ScrollView : MonoBehaviour
             oriSet.SetActive(false);
             oriState.SetActive(false);
             carrot.gameObject.SetActive(false);
+            clickText.gameObject.SetActive(true);
             gameObject.GetComponent<Transform>().localScale = new Vector3(1.5f, 1.5f);
             gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(clickPos[num], yPos);
             //BackGround.GetComponent<Transform>().localScale = new Vector3(1.0f, 1.0f);
@@ -193,6 +195,7 @@ public class ScrollView : MonoBehaviour
             right.SetActive(true);
             left.SetActive(true);
             carrot.gameObject.SetActive(true);
+            clickText.gameObject.SetActive(false);
             check = true;
             gameObject.GetComponent<Transform>().localScale = new Vector3(1.0f, 1.0f);
             gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(xPos[num], yPos);

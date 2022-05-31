@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResetRice : MonoBehaviour
+public class testReset : MonoBehaviour
 {
     private int count = 0;
     private Vector2 mousePos1, mousePos2;
     private Sprite resetMat;
-    public GameObject[] sprite = new GameObject[7];
+    public GameObject[] sprite = new GameObject[4];
     private Animator downAnim;
     Camera Camera;
 
@@ -62,7 +62,7 @@ public class ResetRice : MonoBehaviour
                 {
                     sprite[i].SetActive(false);
                 }
-                GameManager gm = GameObject.Find("GameObject").GetComponent<GameManager>();
+                testManager gm = GameObject.Find("GameObject").GetComponent<testManager>();
                 gm.num = 0;
                 gm.snum = 0;
 
