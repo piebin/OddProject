@@ -7,6 +7,7 @@ public class circleBar : MonoBehaviour
 {
     // Start is called before the first frame update
     public Image LoadingBar;
+    public Sprite greenBar;
     public Sprite yellowBar;
     public Sprite redBar;
     public float currentValue;
@@ -51,7 +52,7 @@ public class circleBar : MonoBehaviour
 
             if (currentValue >=0 && currentValue <= 30)
             {
-                // GameObject.Find("BackBar").GetComponent<Image>().color = new Color(54 / 255, 255 / 255, 0); //green
+                GameObject.Find("BackBar").GetComponent<Image>().sprite = greenBar; //green
             }
 
             if(currentValue > 30 && currentValue <= 60)

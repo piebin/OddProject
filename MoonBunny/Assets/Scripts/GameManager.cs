@@ -80,13 +80,18 @@ public class GameManager : MonoBehaviour
                     mynums[num] = 0;
                     ClickedB[num] = mynums[num]; //클릭한거 숫자 저장해둠.
                     Bigrice(num, mynums[num]);
+                    Bigri[num].GetComponent<Animation>().Play();
+
                     num++;
+
+
                 }
                 else if (hit.collider.gameObject == buttons[1] && num < lvNum)
                 {
                     mynums[num] = 1;
                     ClickedB[num] = mynums[num];
                     Bigrice(num, mynums[num]);
+                    Bigri[num].GetComponent<Animation>().Play();
                     num++;
                 }
                 else if (hit.collider.gameObject == buttons[2] && num < lvNum)
@@ -94,6 +99,7 @@ public class GameManager : MonoBehaviour
                     mynums[num] = 2;
                     ClickedB[num] = mynums[num];
                     Bigrice(num, mynums[num]);
+                    Bigri[num].GetComponent<Animation>().Play();
                     num++;
                 }
                 else if (hit.collider.gameObject == buttons[3] && num < lvNum)
@@ -101,6 +107,7 @@ public class GameManager : MonoBehaviour
                     mynums[num] = 3;
                     ClickedB[num] = mynums[num];
                     Bigrice(num, mynums[num]);
+                    Bigri[num].GetComponent<Animation>().Play();
                     num++;
                 }
 
