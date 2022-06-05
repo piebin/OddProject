@@ -472,11 +472,11 @@ MonoBehaviour:
   t3: {fileID: 2024384854}
   t4: {fileID: 2118908342}
   t5: {fileID: 1130638390}
-  dark1: {fileID: 21300000, guid: 1b9e9e0d4ed059b4688c939f4cef0d53, type: 3}
-  dark2: {fileID: 21300000, guid: 9af172b7f04d5ae45a5b5e902017c446, type: 3}
-  dark3: {fileID: 21300000, guid: 4879839c2f428b6479e9a775cba53393, type: 3}
-  dark4: {fileID: 21300000, guid: c6eb0beed32a1d441ab31a086ffa07d2, type: 3}
-  dark5: {fileID: 21300000, guid: f48ae8f4f8f9e17448dd45990ff5b09b, type: 3}
+  dark1: {fileID: 21300000, guid: cbe86bc05c4ce954b9047d5d0173728e, type: 3}
+  dark2: {fileID: 21300000, guid: 87fa53169fb10f940a556dab0101ec1c, type: 3}
+  dark3: {fileID: 21300000, guid: b49437109c73e6a47942c7e05c76c6b8, type: 3}
+  dark4: {fileID: 21300000, guid: e8b9edf5a47f86b41845099572f23d87, type: 3}
+  dark5: {fileID: 21300000, guid: 3460851b3004f404bb7bfceae3a549bc, type: 3}
 --- !u!1 &1130638390
 GameObject:
   m_ObjectHideFlags: 0
