@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
     {
         //Album.Open(0); //달성한 업적의 앨범 사진 오픈
         Ab1.SetActive(true);
+        Ab1.GetComponent<Animation>().Play();
         Destroy(Ab1, 1.5f);
 
     }
