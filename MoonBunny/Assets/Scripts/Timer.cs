@@ -76,7 +76,7 @@ public class Timer : MonoBehaviour
             restartb.SetActive(true);
             quitb.SetActive(true);
 
-            Invoke("gameOver", 2.0f);
+            //Invoke("gameOver", 2.0f);
         }
     }
 }

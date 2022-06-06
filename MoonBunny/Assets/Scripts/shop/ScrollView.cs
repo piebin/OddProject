@@ -18,9 +18,10 @@ public class ScrollView : MonoBehaviour
     public Sprite[] stateBG = new Sprite[2]; //0:적용중 1:구매완료
     public Sprite[] setBG = new Sprite[2]; //0:적용 1:구매
     public GameObject oriState, oriSet, BackGround;
-    public GameObject purchasePanel, right, left;
+    public GameObject purchasePanel, right, left, back;
     public Text carrot, clickText;
     private bool check = false;
+    private bool panel = false;
     public static bool touchChk = false;
     private int[] priceBG = new int[9];
     private int[] state = new int[9]; //0:적용중 1:구매완료 2:가격 3:자물쇠
@@ -121,18 +122,22 @@ public class ScrollView : MonoBehaviour
 
     private void openPanel()
     {
+        panel = true;
         purchasePanel.SetActive(true);
         right.SetActive(false);
         left.SetActive(false);
         oriSet.SetActive(false);
+        back.SetActive(false);
     }
 
     private void closePanel()
     {
+        panel = false;
         purchasePanel.SetActive(false);
         right.SetActive(true);
         left.SetActive(true);
         oriSet.SetActive(true);
+        back.SetActive(true);
     }
 
     public void checkState()
@@ -177,24 +182,31 @@ public class ScrollView : MonoBehaviour
             check = false;
         }
 
-        if (touchChk)
+        if(panel)
+        {
+            openPanel();
+        }
+
+        else if (touchChk)
         {
             right.SetActive(false);
             left.SetActive(false);
             oriSet.SetActive(false);
             oriState.SetActive(false);
             carrot.gameObject.SetActive(false);
+            back.SetActive(false);
             clickText.gameObject.SetActive(true);
             gameObject.GetComponent<Transform>().localScale = new Vector3(1.5f, 1.5f);
             gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(clickPos[num], yPos);
             //BackGround.GetComponent<Transform>().localScale = new Vector3(1.0f, 1.0f);
         }
 
-        if (!touchChk)
+        else if (!touchChk)
         {
             right.SetActive(true);
             left.SetActive(true);
             carrot.gameObject.SetActive(true);
+            back.SetActive(true);
             clickText.gameObject.SetActive(false);
             check = true;
             gameObject.GetComponent<Transform>().localScale = new Vector3(1.0f, 1.0f);

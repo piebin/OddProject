@@ -593,6 +593,7 @@ MonoBehaviour:
   BackGround: {fileID: 51878276}
   showImg: {fileID: 0}
   clickText: {fileID: 0}
+  back: {fileID: 0}
   bgChange: {fileID: 0}
 --- !u!1 &411792304
 GameObject:
@@ -629,7 +630,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -17.5, y: -253}
+  m_AnchoredPosition: {x: 0, y: -253}
   m_SizeDelta: {x: 300, y: 29}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &411792306
@@ -937,7 +938,7 @@ GameObject:
   - component: {fileID: 581102886}
   - component: {fileID: 581102889}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1377,6 +1378,7 @@ MonoBehaviour:
   BackGround: {fileID: 51878276}
   showImg: {fileID: 0}
   clickText: {fileID: 0}
+  back: {fileID: 0}
   bgChange: {fileID: 0}
 --- !u!1 &834744666
 GameObject:
@@ -1664,6 +1666,7 @@ MonoBehaviour:
   BackGround: {fileID: 51878276}
   showImg: {fileID: 44760372}
   clickText: {fileID: 411792304}
+  back: {fileID: 581102884}
   bgChange: {fileID: 21300000, guid: a3240878be6cb1e40890d6261c7500b8, type: 3}
 --- !u!114 &1063527212
 MonoBehaviour:
@@ -1786,6 +1789,7 @@ MonoBehaviour:
   BackGround: {fileID: 51878276}
   showImg: {fileID: 0}
   clickText: {fileID: 0}
+  back: {fileID: 0}
   bgChange: {fileID: 0}
 --- !u!1 &1148748713
 GameObject:
@@ -1897,6 +1901,7 @@ MonoBehaviour:
   BackGround: {fileID: 51878276}
   showImg: {fileID: 0}
   clickText: {fileID: 0}
+  back: {fileID: 0}
   bgChange: {fileID: 0}
 --- !u!114 &1148748719
 MonoBehaviour:
@@ -2147,6 +2152,7 @@ MonoBehaviour:
   BackGround: {fileID: 51878276}
   showImg: {fileID: 0}
   clickText: {fileID: 0}
+  back: {fileID: 0}
   bgChange: {fileID: 0}
 --- !u!1 &1537018537
 GameObject:
@@ -2377,6 +2383,7 @@ MonoBehaviour:
   BackGround: {fileID: 51878276}
   showImg: {fileID: 0}
   clickText: {fileID: 0}
+  back: {fileID: 0}
   bgChange: {fileID: 0}
 --- !u!1 &1655893997
 GameObject:
@@ -2739,6 +2746,7 @@ MonoBehaviour:
   BackGround: {fileID: 51878276}
   showImg: {fileID: 0}
   clickText: {fileID: 0}
+  back: {fileID: 0}
   bgChange: {fileID: 0}
 --- !u!1 &1865769685
 GameObject:
@@ -3078,4 +3086,5 @@ MonoBehaviour:
   BackGround: {fileID: 51878276}
   showImg: {fileID: 0}
   clickText: {fileID: 0}
+  back: {fileID: 0}
   bgChange: {fileID: 0}

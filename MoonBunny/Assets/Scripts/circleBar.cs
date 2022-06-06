@@ -26,7 +26,6 @@ public class circleBar : MonoBehaviour
     public GameObject carrot; 
 
 
-
     private int level = 0;
     private float ro = 180;
     private float[] levelValue = { 110, 110, 110, 110, 100, 100, 100, 100, 90, 90, 90, 90, 80, 80, 80 };
@@ -91,7 +90,7 @@ public class circleBar : MonoBehaviour
             restartb.SetActive(true);
             quitb.SetActive(true);
 
-            Invoke("gameOver", 2.0f);
+            //Invoke("gameOver", 2.0f);
         }
 
         LoadingBar.fillAmount = currentValue / i;

@@ -246,6 +246,7 @@ MonoBehaviour:
   purchasePanel: {fileID: 1126364691}
   right: {fileID: 942466614}
   left: {fileID: 1116849025}
+  back: {fileID: 860753575}
   carrot: {fileID: 143969174}
   clickText: {fileID: 1991218005}
 --- !u!1 &125439148
