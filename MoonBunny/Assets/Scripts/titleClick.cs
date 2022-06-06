@@ -106,15 +106,19 @@ public class titleClick : MonoBehaviour
 
             if (hit.collider.gameObject == t4)
             {
-                
-                
+                SceneManager.LoadScene("InGame(test)");
+
                 //Debug.Log("옵션이 클릭됨");
             }
 
-            if(hit.collider.gameObject == t5)
+            if (hit.collider.gameObject == t5)
             {
-                
-                
+
+#if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+#else
+         Application.Quit();
+#endif
                 //Debug.Log("종료가 클릭됨");
             }
         }
