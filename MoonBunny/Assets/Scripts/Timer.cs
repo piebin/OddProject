@@ -6,7 +6,6 @@ public class Timer : MonoBehaviour
 {
     private Animator timerAnim;
 
-    public GameObject timeOver;
     public GameObject bgimage;
     public GameObject SCORE;
     public GameObject nowscore;
@@ -14,6 +13,7 @@ public class Timer : MonoBehaviour
     public GameObject totalcarrot;
     public GameObject restartb;
     public GameObject quitb;
+    public GameObject guesttimer;
     private int num = 0;
 
     // Start is called before the first frame update
@@ -44,7 +44,7 @@ public class Timer : MonoBehaviour
         quitb.SetActive(false);
 
 
-        timeOver.SetActive(false);
+        //timeOver.SetActive(false);
     }
 
     void gameOver()
@@ -67,7 +67,7 @@ public class Timer : MonoBehaviour
         {
             Debug.Log("Game Over");
 
-            timeOver.SetActive(true);
+            guesttimer.SetActive(false);
             bgimage.SetActive(true);
             SCORE.SetActive(true);
             nowscore.SetActive(true);
@@ -75,6 +75,7 @@ public class Timer : MonoBehaviour
             totalcarrot.SetActive(true);
             restartb.SetActive(true);
             quitb.SetActive(true);
+
 
             //Invoke("gameOver", 2.0f);
         }

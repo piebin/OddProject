@@ -15,7 +15,6 @@ public class circleBar : MonoBehaviour
     public int num = 0;
     public GameObject[] life = new GameObject[3];
     public Sprite emptyLife;
-    public GameObject timeOver;
     public GameObject bgimage;
     public GameObject SCORE;
     public GameObject nowscore;
@@ -23,7 +22,8 @@ public class circleBar : MonoBehaviour
     public GameObject totalcarrot;
     public GameObject restartb;
     public GameObject quitb;
-    public GameObject carrot; 
+    public GameObject carrot;
+    public GameObject guestTimer;
 
 
     private int level = 0;
@@ -79,9 +79,8 @@ public class circleBar : MonoBehaviour
             this.gameObject.SetActive(false);
         }
 
-        if (num == 3)
+        if (num ==3)
         {
-            timeOver.SetActive(true);
             bgimage.SetActive(true);
             SCORE.SetActive(true);
             nowscore.SetActive(true);
@@ -89,6 +88,8 @@ public class circleBar : MonoBehaviour
             totalcarrot.SetActive(true);
             restartb.SetActive(true);
             quitb.SetActive(true);
+            //Destroy(guestTimer);
+            guestTimer.SetActive(false);
 
             //Invoke("gameOver", 2.0f);
         }
@@ -102,7 +103,6 @@ public class circleBar : MonoBehaviour
     {
         if (num == 3)
         {
-            timeOver.SetActive(true);
             bgimage.SetActive(true);
             SCORE.SetActive(true);
             nowscore.SetActive(true);

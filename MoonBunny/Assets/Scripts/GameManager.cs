@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
         //Album.Open(0); //달성한 업적의 앨범 사진 오픈
         Ab1.SetActive(true);
         Ab1.GetComponent<Animation>().Play();
-        Destroy(Ab1, 1.5f);
+        //Destroy(Ab1, 10f);
 
     }
 
@@ -253,21 +253,37 @@ public class GameManager : MonoBehaviour
                 //클릭한거랑 랜덤수랑 비교해서 같은지 확인
                 if (num >= lvNum && snum >= lvNum)
                 {
+                    int sn = 0;
+
                     for (int i = 0; i < lvNum; i++)
                     {
-                        if(i == lvNum - 1 && clickedS[i] == randoms[i])
+/*                        if(i == lvNum - 1 && clickedS[i] == randoms[i])
                         {
-                            //Debug.Log("congraturation");
-                            ScoreManager.score += 10;
-                            success = true;
-                            ChangeGuest();
-                            num = 0;
-                            snum = 0;
+                            sn++;
+                            Debug.Log("sn is " + sn);
+                            Debug.Log("lvNum is " + lvNum);
+
+                        }*/
+
+                        if (clickedS[i] == randoms[i])
+                        {
+                            sn++;
+
                         }
 
                         if (clickedS[i] == randoms[i])
                             continue;
                     }
+
+                    if (sn == lvNum)
+                    {
+                        ScoreManager.score += 10;
+                        success = true;
+                        ChangeGuest();
+                        num = 0;
+                        snum = 0;
+                    }
+
                     //checkLv();
                 }
             }
@@ -393,7 +409,7 @@ public class GameManager : MonoBehaviour
 
         //Debug.Log("랜덤 수 생성" + randoms[0] + "and" + randoms[1]);
         success = false;
-        Debug.Log("num : " + lvNum);
+        //Debug.Log("num : " + lvNum);
     }
 
     private void Bigrice(int a, int b)
