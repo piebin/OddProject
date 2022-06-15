@@ -3741,7 +3741,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8d91a805cc671e47a18e804db41a4d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeOver: {fileID: 405101437}
   bgimage: {fileID: 1059278156}
   SCORE: {fileID: 1767997416}
   nowscore: {fileID: 508513427}
@@ -4219,7 +4218,6 @@ MonoBehaviour:
   - {fileID: 1537341378}
   - {fileID: 1864552654}
   emptyLife: {fileID: 21300000, guid: c1c27ec085bd8c341851b653ec90b72b, type: 3}
-  timeOver: {fileID: 405101437}
   bgimage: {fileID: 1059278156}
   SCORE: {fileID: 1767997416}
   nowscore: {fileID: 508513427}

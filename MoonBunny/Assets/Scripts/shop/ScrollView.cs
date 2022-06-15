@@ -10,8 +10,10 @@ public class ScrollView : MonoBehaviour
     public Sprite lockSprite;
     public GameObject content;
     private int num = 0, myCarrot;
-    private int[] xPos = { 40, -150, -345, -536, -730, -922, -1113, -1306, -1500 };
-    private int[] clickPos = { 62, -227, -515, -805, -1093, -1382, -1670, -1959, -2248 };
+    private int[] xPos = { 45, -150, -345, -536, -730, -922, -1113, -1306, -1500 };
+    //private int[] clickPos = { 62, -227, -515, -805, -1093, -1382, -1670, -1959, -2248 }; //1.5 1.5
+    private float[] clickPos = { 67.8f, -249.7f, -565, -880.2f, -1196, -1511, -1826, -2141, -2458 }; //1.64 1.82
+    private int clickYPos = 19;
     private int yPos = 10;
 
     public Sprite[] price = new Sprite[9]; //배경별 가격
@@ -196,8 +198,8 @@ public class ScrollView : MonoBehaviour
             carrot.gameObject.SetActive(false);
             back.SetActive(false);
             clickText.gameObject.SetActive(true);
-            gameObject.GetComponent<Transform>().localScale = new Vector3(1.5f, 1.5f);
-            gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(clickPos[num], yPos);
+            gameObject.GetComponent<Transform>().localScale = new Vector3(1.64f, 1.82f);
+            gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(clickPos[num], clickYPos);
             //BackGround.GetComponent<Transform>().localScale = new Vector3(1.0f, 1.0f);
         }
 

@@ -12,6 +12,8 @@ public class clickContent : MonoBehaviour
     public Sprite bgChange;
     private GraphicRaycaster gr;
     private List<RaycastResult> results;
+    private PointerEventData downPed = new PointerEventData(null);
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +41,11 @@ public class clickContent : MonoBehaviour
                 }
             }
         }
+        if(Input.GetMouseButtonDown(0))
+        {
+            downPed = new PointerEventData(null);
+            downPed.position = Input.mousePosition;
+        }
 
         if(Input.GetMouseButtonUp(0))
         {
@@ -48,9 +55,11 @@ public class clickContent : MonoBehaviour
             gr.Raycast(ped, results);
 
             if (results.Count <= 0) return;
-            if (results[0].gameObject.tag == "content" && results[0].gameObject.GetComponent<Image>().sprite.name != "rock")
-            {
-                touchChk = !touchChk;
+            if (downPed.position == ped.position) {
+                if (results[0].gameObject.tag == "content" && results[0].gameObject.GetComponent<Image>().sprite.name != "rock")
+                {
+                    touchChk = !touchChk;
+                }
             }
             //results[0].gameObject.transform.position = ped.position;
         }

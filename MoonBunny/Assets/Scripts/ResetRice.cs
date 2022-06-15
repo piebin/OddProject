@@ -25,6 +25,24 @@ public class ResetRice : MonoBehaviour
     public void stopAnimation()
     {
         downAnim.enabled = false;
+        StopCoroutine("RiceDown");
+    }
+
+    public IEnumerator RiceDown(GameObject obj, float target)
+    {
+        float duration = 0.4f;
+        float currentTime = 0.0f;
+        float objY = obj.GetComponent<Transform>().position.y;
+        float offset = (target - currentTime) / duration;
+
+        while (currentTime < target)
+        {
+            currentTime += offset * Time.deltaTime;
+            obj.GetComponent<Transform>().position = new Vector3(-3.9f, objY - currentTime, 0);
+            yield return null;
+        }
+        obj.SetActive(false);
+        yield break;
     }
 
     // Start is called before the first frame update
@@ -60,7 +78,8 @@ public class ResetRice : MonoBehaviour
                 //sprite2.GetComponent<SpriteRenderer>().sprite = resetMat;
                 for (int i=0; i<sprite.Length; i++)
                 {
-                    sprite[i].SetActive(false);
+                    //sprite[i].SetActive(false);
+                    StartCoroutine(RiceDown(sprite[i], 20));
                 }
                 GameManager gm = GameObject.Find("GameObject").GetComponent<GameManager>();
                 gm.num = 0;
