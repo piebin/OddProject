@@ -13,6 +13,26 @@ public class OpenButton : MonoBehaviour
         circle.SetActive(false);
         level.SetActive(false);
         life.SetActive(false);
+
+    }
+
+
+    public void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero);
+
+            if (hit.collider != null)
+            {
+                if (hit.collider.gameObject == gm.GetComponent<GameManager>().goBack)
+                {
+                    gm.GetComponent<GameManager>().titlePanel.SetActive(true);
+                }
+            }
+        }
+
     }
 
     public void openBtn()
@@ -26,8 +46,5 @@ public class OpenButton : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }
