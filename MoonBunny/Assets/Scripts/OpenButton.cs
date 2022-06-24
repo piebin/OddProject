@@ -29,6 +29,7 @@ public class OpenButton : MonoBehaviour
                 if (hit.collider.gameObject == gm.GetComponent<GameManager>().goBack)
                 {
                     gm.GetComponent<GameManager>().titlePanel.SetActive(true);
+
                 }
             }
         }

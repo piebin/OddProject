@@ -35,6 +35,7 @@ public class titleClick : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0) && one == 0)
         {
+
             t1.GetComponent<Animation>().Play();
             t2.GetComponent<Animation>().Play();
             t3.GetComponent<Animation>().Play();
@@ -84,6 +85,7 @@ public class titleClick : MonoBehaviour
 
         if (hit.collider!=null && Input.GetMouseButtonDown(0))
         {
+
             if(hit.collider.gameObject == t1)
             {
                 Invoke("GameStart", 0.5f);

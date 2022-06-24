@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 public class GameManager : MonoBehaviour
 {
@@ -27,6 +28,8 @@ public class GameManager : MonoBehaviour
     public GameObject Ab1;
     public static bool success = false;
     public GameObject sauceCh;
+    string achieveTh = "Assets/TextFiles/achieve";
+    bool exist1=false;
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +41,32 @@ public class GameManager : MonoBehaviour
         num = 0;
         snum = 0;
         goBack.SetActive(true);
-        Invoke("clearOne", 2);
+        string achieveLine = null;
+
+
+        //업적 파일에 1이 없으면 실행
+        FileStream achieveR = new FileStream(achieveTh, FileMode.Open);
+        StreamReader achieveReader = new StreamReader(achieveR);
+
+        while ((achieveLine = achieveReader.ReadLine()) != null)
+        {
+            if (achieveLine == "1")
+            {
+                exist1 = false;
+                break;
+            }
+
+            if(achieveLine != "1")
+            {
+                exist1 = true;
+            }
+
+        }
+        achieveReader.Close();
+
+        if (exist1)
+            clearOne();
+
     }
 
     void clearOne()
@@ -46,6 +74,12 @@ public class GameManager : MonoBehaviour
         //Album.Open(0); //달성한 업적의 앨범 사진 오픈
         Ab1.SetActive(true);
         Ab1.GetComponent<Animation>().Play();
+
+        StreamWriter achievewriter;
+        achievewriter = File.AppendText(achieveTh);
+        achievewriter.WriteLine("\n1");
+        achievewriter.Close();
+
         //Destroy(Ab1, 10f);
 
     }
@@ -63,17 +97,26 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (titlePanel.activeSelf == false)
+        {
+            Time.timeScale = 1;
+            GuestBar.SetActive(true);
+        }
+
         //버튼 누르는거
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero);
 
             if (hit.collider != null)
             {
-                if (hit.collider.gameObject == goBack)
+                if(hit.collider.gameObject == goBack)
                 {
                     titlePanel.SetActive(true);
+                    Time.timeScale = 0;
+                    GuestBar.SetActive(false);
                 }
 
                 if (hit.collider.gameObject == buttons[0] && num < lvNum)

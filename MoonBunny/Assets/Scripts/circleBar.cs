@@ -67,7 +67,6 @@ public class circleBar : MonoBehaviour
 
         }
 
-
         //시간오버시
         else if (!GameManager.success)
         {
@@ -76,11 +75,13 @@ public class circleBar : MonoBehaviour
             gm.ChangeGuest();
             life[num].GetComponent<SpriteRenderer>().sprite = emptyLife;
             num++;
+            //Debug.Log("num : " + num);
             this.gameObject.SetActive(false);
         }
 
-        if (num ==3)
+        if (num == 3)
         {
+            guestTimer.SetActive(false);
             bgimage.SetActive(true);
             SCORE.SetActive(true);
             nowscore.SetActive(true);
@@ -89,12 +90,13 @@ public class circleBar : MonoBehaviour
             restartb.SetActive(true);
             quitb.SetActive(true);
             //Destroy(guestTimer);
-            guestTimer.SetActive(false);
 
             //Invoke("gameOver", 2.0f);
         }
 
         LoadingBar.fillAmount = currentValue / i;
+
+
         //carrot.transform.localEulerAngles = new Vector3(0, 0, ro);
     }
 

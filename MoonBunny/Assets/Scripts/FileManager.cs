@@ -9,6 +9,8 @@ public class FileManager : MonoBehaviour
 
 
     string scoreTh = "Assets/TextFiles/score";
+    string achieveTh = "Assets/TextFiles/achieve";
+    string buyTh = "Assets/TextFiles/buy";
 
     void Start()
     {
@@ -20,6 +22,23 @@ public class FileManager : MonoBehaviour
             scoreW.Write("0");
             scoreW.Close();
         }
+
+        if (File.Exists(achieveTh) == false)
+        {
+            FileStream sw = new FileStream(achieveTh, FileMode.Create);
+            StreamWriter achieveW = new StreamWriter(sw);
+            achieveW.Write("0");
+            achieveW.Close();
+        }
+
+        if (File.Exists(buyTh) == false)
+        {
+            FileStream sw = new FileStream(buyTh, FileMode.Create);
+            StreamWriter buyW = new StreamWriter(sw);
+            buyW.Write("0");
+            buyW.Close();
+        }
+
     }
 
     // Update is called once per frame

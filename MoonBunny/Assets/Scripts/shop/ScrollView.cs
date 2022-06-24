@@ -113,6 +113,7 @@ public class ScrollView : MonoBehaviour
             state[num] = 1;
             check = true;
             closePanel();
+
         }
         else
         {
