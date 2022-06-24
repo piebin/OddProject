@@ -19,6 +19,7 @@ public class ScrollView : MonoBehaviour
     public Sprite[] price = new Sprite[9]; //배경별 가격
     public Sprite[] stateBG = new Sprite[2]; //0:적용중 1:구매완료
     public Sprite[] setBG = new Sprite[2]; //0:적용 1:구매
+    public AudioSource[] audioSource = new AudioSource[3]; //1:적용, 구매  2:멀티
     public GameObject oriState, oriSet, BackGround;
     public GameObject purchasePanel, right, left, back;
     public Text carrot, clickText;
@@ -79,6 +80,8 @@ public class ScrollView : MonoBehaviour
 
     public void setBtn()
     {
+        audioSource[1].Play();
+
         if (state[num] == 0) { }
 
         else if (state[num] == 1) //적용
@@ -102,6 +105,7 @@ public class ScrollView : MonoBehaviour
 
     public void purchaseOK()
     {
+        audioSource[2].Play();
         if (myCarrot >= priceBG[num])
         {
             myCarrot -= priceBG[num];
@@ -119,6 +123,7 @@ public class ScrollView : MonoBehaviour
 
     public void purchaseCancel()
     {
+        audioSource[2].Play();
         closePanel();
     }
 

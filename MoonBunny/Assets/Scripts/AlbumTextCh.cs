@@ -15,9 +15,7 @@ public class AlbumTextCh : MonoBehaviour
     public GameObject card8;
     public GameObject card9;
 
-
-
-
+    private AudioSource audioSource;
     private Text coordinate;
     private string coor_format = "({0}, {1})";
 
@@ -28,11 +26,6 @@ public class AlbumTextCh : MonoBehaviour
 
     private float X;
     private float Y;
-
-    public void start()
-    {
-        
-    }
 
     public void SetX(Scrollbar sb)
     {
@@ -101,6 +94,7 @@ public class AlbumTextCh : MonoBehaviour
 
         else if (X >= 0.45 && X < 0.58)
         {
+            audioSource.Play();
             nameT.text = nameA[4];
             contentT.text = contentA[4];
 
@@ -178,6 +172,7 @@ public class AlbumTextCh : MonoBehaviour
     void Start()
     {
         coordinate = GetComponent<Text>();
+        audioSource = GetComponent<AudioSource>();
     }
 
 

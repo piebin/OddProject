@@ -20,14 +20,14 @@ public class titleClick : MonoBehaviour
     public Sprite dark4;
     public Sprite dark5;
 
+    private AudioSource audioSource;
+
     int one = 0;//중복방지
 
 
     void Start()
     {
-
-       
-
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -42,7 +42,6 @@ public class titleClick : MonoBehaviour
             t5.GetComponent<Animation>().Play();
 
             one++;
-
         }
 
         Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -53,26 +52,31 @@ public class titleClick : MonoBehaviour
         {
             if(hit.collider.gameObject == t1)
             {
+                audioSource.Play();
                 t1.GetComponent<SpriteRenderer>().sprite = dark1;
             }
 
             if (hit.collider.gameObject == t2)
             {
+                audioSource.Play();
                 t2.GetComponent<SpriteRenderer>().sprite = dark2;
             }
 
             if (hit.collider.gameObject == t3)
             {
+                audioSource.Play();
                 t3.GetComponent<SpriteRenderer>().sprite = dark3;
             }
 
             if (hit.collider.gameObject == t4)
             {
+                audioSource.Play();
                 t4.GetComponent<SpriteRenderer>().sprite = dark4;
             }
 
             if (hit.collider.gameObject == t5)
             {
+                audioSource.Play();
                 t5.GetComponent<SpriteRenderer>().sprite = dark5;
             }
         }
@@ -82,53 +86,61 @@ public class titleClick : MonoBehaviour
         {
             if(hit.collider.gameObject == t1)
             {
-                //Debug.Log("시작이 클릭됨");
-
-                SceneManager.LoadScene("SampleScene");
-
+                Invoke("GameStart", 0.5f);
             }
 
             if (hit.collider.gameObject == t2)
             {
-                //Debug.Log("앨범이 클릭됨");
-
-
-                SceneManager.LoadScene("Achieve(real)");
+                Invoke("Album", 0.5f);
             }
 
             if (hit.collider.gameObject == t3)
             {
-                //Debug.Log("상점이 클릭됨");
-
-
-                SceneManager.LoadScene("Shop(real)");
+                Invoke("Shop", 0.5f);
             }
 
             if (hit.collider.gameObject == t4)
             {
-                SceneManager.LoadScene("InGame(test)");
-
-                //Debug.Log("옵션이 클릭됨");
+                Invoke("Option", 0.5f);
             }
 
             if (hit.collider.gameObject == t5)
             {
+                Invoke("GameQuit", 0.5f);
+            }
+        }
+    }
 
+    public void GameStart()
+    {
+        //Debug.Log("시작이 클릭됨");
+        SceneManager.LoadScene("SampleScene");
+    }
+
+    public void Album()
+    {
+        //Debug.Log("앨범이 클릭됨");
+        SceneManager.LoadScene("Achieve(real)");
+    }
+
+    public void Shop()
+    {
+        //Debug.Log("상점이 클릭됨");
+        SceneManager.LoadScene("Shop(real)");
+    }
+
+    public void Option()
+    {
+        //Debug.Log("옵션이 클릭됨");
+    }
+
+    public void GameQuit()
+    {
 #if UNITY_EDITOR
-                UnityEditor.EditorApplication.isPlaying = false;
+        UnityEditor.EditorApplication.isPlaying = false;
 #else
          Application.Quit();
 #endif
-                //Debug.Log("종료가 클릭됨");
-            }
-        }
-
-
-
-
-
-      
-
+        //Debug.Log("종료가 클릭됨");
     }
-
 }
