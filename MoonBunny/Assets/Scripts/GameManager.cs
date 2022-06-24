@@ -80,9 +80,9 @@ public class GameManager : MonoBehaviour
                 {
                     mynums[num] = 0;
                     ClickedB[num] = mynums[num]; //클릭한거 숫자 저장해둠.
-                    Bigrice(num, mynums[num]);
-                    Bigri[num].GetComponent<Animation>().Play();
-
+                    Bigrice(num, mynums[num], true);
+                    StopCoroutine("RiceDown");
+                    //Bigri[num].GetComponent<Animation>().Play();
                     num++;
 
 
@@ -91,24 +91,27 @@ public class GameManager : MonoBehaviour
                 {
                     mynums[num] = 1;
                     ClickedB[num] = mynums[num];
-                    Bigrice(num, mynums[num]);
-                    Bigri[num].GetComponent<Animation>().Play();
+                    Bigrice(num, mynums[num], true);
+                    StopCoroutine("RiceDown");
+                    //Bigri[num].GetComponent<Animation>().Play();
                     num++;
                 }
                 else if (hit.collider.gameObject == buttons[2] && num < lvNum)
                 {
                     mynums[num] = 2;
                     ClickedB[num] = mynums[num];
-                    Bigrice(num, mynums[num]);
-                    Bigri[num].GetComponent<Animation>().Play();
+                    Bigrice(num, mynums[num], true);
+                    StopCoroutine("RiceDown");
+                    //Bigri[num].GetComponent<Animation>().Play();
                     num++;
                 }
                 else if (hit.collider.gameObject == buttons[3] && num < lvNum)
                 {
                     mynums[num] = 3;
                     ClickedB[num] = mynums[num];
-                    Bigrice(num, mynums[num]);
-                    Bigri[num].GetComponent<Animation>().Play();
+                    Bigrice(num, mynums[num], true);
+                    StopCoroutine("RiceDown");
+                    //Bigri[num].GetComponent<Animation>().Play();
                     num++;
                 }
 
@@ -121,25 +124,25 @@ public class GameManager : MonoBehaviour
                         //모양 4개 경우 나눠서 다른 스프라이트 적용
                         if (mynums[snum] == 0)
                         {
-                            Bigrice(snum, 4);
+                            Bigrice(snum, 4, false);
                             clickedS[snum] = 4;
                         }
 
                         if (mynums[snum] == 1)
                         {
-                            Bigrice(snum, 8);
+                            Bigrice(snum, 8, false);
                             clickedS[snum] = 8;
                         }
 
                         if (mynums[snum] == 2)
                         {
-                            Bigrice(snum, 12);
+                            Bigrice(snum, 12, false);
                             clickedS[snum] = 12;
                         }
 
                         if (mynums[snum] == 3)
                         {
-                            Bigrice(snum, 16);
+                            Bigrice(snum, 16, false);
                             clickedS[snum] = 16;
                         }
                     }
@@ -154,25 +157,25 @@ public class GameManager : MonoBehaviour
                         //모양 4개 경우 나눠서 다른 스프라이트 적용
                         if (mynums[snum] == 0)
                         {
-                            Bigrice(snum, 5);
+                            Bigrice(snum, 5, false);
                             clickedS[snum] = 5;
                         }
 
                         if (mynums[snum] == 1)
                         {
-                            Bigrice(snum, 9);
+                            Bigrice(snum, 9, false);
                             clickedS[snum] = 9;
                         }
 
                         if (mynums[snum] == 2)
                         {
-                            Bigrice(snum, 13);
+                            Bigrice(snum, 13, false);
                             clickedS[snum] = 13;
                         }
 
                         if (mynums[snum] == 3)
                         {
-                            Bigrice(snum, 17);
+                            Bigrice(snum, 17, false);
                             clickedS[snum] = 17;
                         }
 
@@ -189,25 +192,25 @@ public class GameManager : MonoBehaviour
                         //모양 4개 경우 나눠서 다른 스프라이트 적용
                         if (mynums[snum] == 0)
                         {
-                            Bigrice(snum, 6);
+                            Bigrice(snum, 6, false);
                             clickedS[snum] = 6;
                         }
 
                         if (mynums[snum] == 1)
                         {
-                            Bigrice(snum, 10);
+                            Bigrice(snum, 10, false);
                             clickedS[snum] = 10;
                         }
 
                         if (mynums[snum] == 2)
                         {
-                            Bigrice(snum, 14);
+                            Bigrice(snum, 14, false);
                             clickedS[snum] = 14;
                         }
 
                         if (mynums[snum] == 3)
                         {
-                            Bigrice(snum, 18);
+                            Bigrice(snum, 18, false);
                             clickedS[snum] = 18;
                         }
                     }
@@ -222,25 +225,25 @@ public class GameManager : MonoBehaviour
                         //모양 4개 경우 나눠서 다른 스프라이트 적용
                         if (mynums[snum] == 0)
                         {
-                            Bigrice(snum, 7);
+                            Bigrice(snum, 7, false);
                             clickedS[snum] = 7;
                         }
 
                         if (mynums[snum] == 1)
                         {
-                            Bigrice(snum, 11);
+                            Bigrice(snum, 11, false);
                             clickedS[snum] = 11;
                         }
 
                         if (mynums[snum] == 2)
                         {
-                            Bigrice(snum, 15);
+                            Bigrice(snum, 15, false);
                             clickedS[snum] = 15;
                         }
 
                         if (mynums[snum] == 3)
                         {
-                            Bigrice(snum, 19);
+                            Bigrice(snum, 19, false);
                             clickedS[snum] = 19;
                         }
 
@@ -268,7 +271,6 @@ public class GameManager : MonoBehaviour
                         if (clickedS[i] == randoms[i])
                         {
                             sn++;
-
                         }
 
                         if (clickedS[i] == randoms[i])
@@ -412,7 +414,30 @@ public class GameManager : MonoBehaviour
         //Debug.Log("num : " + lvNum);
     }
 
-    private void Bigrice(int a, int b)
+    public IEnumerator RiceDown(GameObject obj, float target)
+    {
+        float duration = 0.4f;
+        float currentTime = 0.0f;
+        float currentTime2 = 0.0f;
+        float objY = obj.GetComponent<Transform>().position.y + target;
+        float offset = (target - currentTime) / duration;
+        float alpha = 1.0f / duration;
+        obj.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 0);
+
+        while (currentTime < target)
+        {
+            currentTime += offset * Time.deltaTime;
+            currentTime2 += alpha * Time.deltaTime;
+            obj.GetComponent<Transform>().position = new Vector3(-3.9f, objY - currentTime, 0);
+            obj.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, currentTime2);
+            yield return null;
+        }
+        obj.GetComponent<Transform>().position = new Vector3(-3.9f, objY - target, 0);
+        obj.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 1);
+        yield break;
+    }
+
+    private void Bigrice(int a, int b, bool chk)
     {
         SpriteRenderer[] big = new SpriteRenderer[lvNum];
         for (int i = 0; i < lvNum; i++)
@@ -425,6 +450,7 @@ public class GameManager : MonoBehaviour
             default:
                 big[a].sprite = sprites[b];
                 Bigri[a].SetActive(true);
+                if (chk == true) StartCoroutine(RiceDown(Bigri[a], 4));
                 break;
         }
     }

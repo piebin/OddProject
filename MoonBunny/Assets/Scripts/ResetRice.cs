@@ -24,13 +24,13 @@ public class ResetRice : MonoBehaviour
 
     public void stopAnimation()
     {
-        downAnim.enabled = false;
+        //downAnim.enabled = false;
         StopCoroutine("RiceDown");
     }
 
     public IEnumerator RiceDown(GameObject obj, float target)
     {
-        float duration = 0.4f;
+        float duration = 0.3f;
         float currentTime = 0.0f;
         float objY = obj.GetComponent<Transform>().position.y;
         float offset = (target - currentTime) / duration;
@@ -42,6 +42,7 @@ public class ResetRice : MonoBehaviour
             yield return null;
         }
         obj.SetActive(false);
+        obj.GetComponent<Transform>().position = new Vector3(-3.9f, objY, 0);
         yield break;
     }
 
@@ -86,7 +87,8 @@ public class ResetRice : MonoBehaviour
                 gm.snum = 0;
 
                 downAnim.enabled = true;
-                Invoke("stopAnimation", 0.5f);
+                downAnim.Play("Down", -1, 0f);
+                Invoke("stopAnimation", 0.4f);
             }
             mousePos1.y = 0;
             mousePos2.y = 0;
