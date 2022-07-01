@@ -15,7 +15,7 @@ public class AlbumTextCh : MonoBehaviour
     public GameObject card8;
     public GameObject card9;
 
-    private AudioSource audioSource;
+    public AudioSource[] audioSource;
     private Text coordinate;
     private string coor_format = "({0}, {1})";
 
@@ -44,6 +44,7 @@ public class AlbumTextCh : MonoBehaviour
 
         if(X<0.07)
         {
+            if(X > 0.03) audioSource[1].Play();
             nameT.text = nameA[0];
             contentT.text = contentA[0];
 
@@ -58,6 +59,7 @@ public class AlbumTextCh : MonoBehaviour
 
         else if(X>=0.07 && X<0.19)
         {
+            audioSource[2].Play();
             nameT.text = nameA[1];
             contentT.text = contentA[1];
 
@@ -70,6 +72,7 @@ public class AlbumTextCh : MonoBehaviour
 
         else if (X >= 0.19 && X < 0.35)
         {
+            audioSource[3].Play();
             nameT.text = nameA[2];
             contentT.text = contentA[2];
 
@@ -82,6 +85,7 @@ public class AlbumTextCh : MonoBehaviour
 
         else if (X >= 0.35 && X < 0.45)
         {
+            audioSource[4].Play();
             nameT.text = nameA[3];
             contentT.text = contentA[3];
 
@@ -94,7 +98,7 @@ public class AlbumTextCh : MonoBehaviour
 
         else if (X >= 0.45 && X < 0.58)
         {
-            audioSource.Play();
+            audioSource[5].Play();
             nameT.text = nameA[4];
             contentT.text = contentA[4];
 
@@ -107,6 +111,7 @@ public class AlbumTextCh : MonoBehaviour
 
         else if (X >= 0.58 && X < 0.71)
         {
+            audioSource[6].Play();
             nameT.text = nameA[5];
             contentT.text = contentA[5];
 
@@ -119,6 +124,7 @@ public class AlbumTextCh : MonoBehaviour
 
         else if (X >= 0.71 && X < 0.86)
         {
+            audioSource[7].Play();
             nameT.text = nameA[6];
             contentT.text = contentA[6];
 
@@ -131,6 +137,7 @@ public class AlbumTextCh : MonoBehaviour
 
         else if (X >= 0.86 && X < 0.97)
         {
+            audioSource[8].Play();
             nameT.text = nameA[7];
             contentT.text = contentA[7];
 
@@ -143,6 +150,7 @@ public class AlbumTextCh : MonoBehaviour
 
         else if (X >= 0.97)
         {
+            if(X < 1.0) audioSource[9].Play();
             nameT.text = nameA[8];
             contentT.text = contentA[8];
 
@@ -172,7 +180,6 @@ public class AlbumTextCh : MonoBehaviour
     void Start()
     {
         coordinate = GetComponent<Text>();
-        audioSource = GetComponent<AudioSource>();
     }
 
 

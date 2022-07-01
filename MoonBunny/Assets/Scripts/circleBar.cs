@@ -24,6 +24,7 @@ public class circleBar : MonoBehaviour
     public GameObject quitb;
     public GameObject carrot;
     public GameObject guestTimer;
+    public GameObject sauceCh;
 
 
     private int level = 0;
@@ -73,10 +74,11 @@ public class circleBar : MonoBehaviour
             gm.num = 0;
             gm.snum = 0;
             gm.ChangeGuest();
+            Debug.Log("num : " + num);
             life[num].GetComponent<SpriteRenderer>().sprite = emptyLife;
             num++;
-            //Debug.Log("num : " + num);
             this.gameObject.SetActive(false);
+            GameManager.success = true;
         }
 
         if (num == 3)
@@ -89,6 +91,11 @@ public class circleBar : MonoBehaviour
             totalcarrot.SetActive(true);
             restartb.SetActive(true);
             quitb.SetActive(true);
+            Time.timeScale = 0.0f;
+            gm.enabled = false;
+            sauceCh.GetComponent<SauceChange>().enabled = false;
+            
+
             //Destroy(guestTimer);
 
             //Invoke("gameOver", 2.0f);

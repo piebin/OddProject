@@ -26,6 +26,38 @@ public class Album : MonoBehaviour
             {
                 Open(0);
             }
+            if (achieveLine == "2")
+            {
+                Open(1);
+            }
+            if (achieveLine == "3")
+            {
+                Open(2);
+            }
+            if (achieveLine == "4")
+            {
+                Open(3);
+            }
+            if (achieveLine == "5")
+            {
+                Open(4);
+            }
+            if (achieveLine == "6")
+            {
+                Open(5);
+            }
+            if (achieveLine == "7")
+            {
+                Open(6);
+            }
+            if (achieveLine == "8")
+            {
+                Open(7);
+            }
+            if (achieveLine == "9")
+            {
+                Open(8);
+            }
         }
 
     }

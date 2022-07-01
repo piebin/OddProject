@@ -15,10 +15,13 @@ public class Timer : MonoBehaviour
     public GameObject quitb;
     public GameObject guesttimer;
     private int num = 0;
+    public GameObject sauceCh;
+
 
     // Start is called before the first frame update
     void Start()
     {
+
         timerAnim = GetComponent<Animator>();
         //timeOver = GameObject.Find("GameOver");
 
@@ -59,6 +62,8 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GameManager gm = GameObject.Find("GameObject").GetComponent<GameManager>();
+
         if (timerAnim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1) {
             num++;
         }
@@ -75,6 +80,8 @@ public class Timer : MonoBehaviour
             totalcarrot.SetActive(true);
             restartb.SetActive(true);
             quitb.SetActive(true);
+            gm.enabled = false;
+            sauceCh.GetComponent<SauceChange>().enabled = false;
 
 
             //Invoke("gameOver", 2.0f);

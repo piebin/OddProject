@@ -30,6 +30,8 @@ public class GameManager : MonoBehaviour
     public GameObject sauceCh;
     string achieveTh = "Assets/TextFiles/achieve";
     bool exist1=false;
+    public GameObject embox;
+    public GameObject resetR;
 
     // Start is called before the first frame update
     void Start()
@@ -71,7 +73,6 @@ public class GameManager : MonoBehaviour
 
     void clearOne()
     {
-        //Album.Open(0); //달성한 업적의 앨범 사진 오픈
         Ab1.SetActive(true);
         Ab1.GetComponent<Animation>().Play();
 
@@ -79,6 +80,7 @@ public class GameManager : MonoBehaviour
         achievewriter = File.AppendText(achieveTh);
         achievewriter.WriteLine("\n1");
         achievewriter.Close();
+        //1번 앨범 텍스트 파일 입력
 
         //Destroy(Ab1, 10f);
 
@@ -100,8 +102,11 @@ public class GameManager : MonoBehaviour
 
         if (titlePanel.activeSelf == false)
         {
-            Time.timeScale = 1;
-            GuestBar.SetActive(true);
+            Time.timeScale = 1.0f;
+            embox.SetActive(false);
+            resetR.GetComponent<ResetRice>().enabled = true;
+            //this.enabled = true;
+            //GuestBar.SetActive(true);
         }
 
         //버튼 누르는거
@@ -115,8 +120,16 @@ public class GameManager : MonoBehaviour
                 if(hit.collider.gameObject == goBack)
                 {
                     titlePanel.SetActive(true);
-                    Time.timeScale = 0;
-                    GuestBar.SetActive(false);
+                    Time.timeScale = 0.0f;
+                    embox.SetActive(true);
+                    resetR.GetComponent<ResetRice>().enabled = false;
+                    //this.enabled = false;
+                    //GuestBar.SetActive(false);
+                }
+
+                if(hit.collider.gameObject == embox)
+                {
+
                 }
 
                 if (hit.collider.gameObject == buttons[0] && num < lvNum)
