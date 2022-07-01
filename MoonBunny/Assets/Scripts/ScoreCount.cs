@@ -13,6 +13,9 @@ public class ScoreCount : MonoBehaviour
     public Text totalC;
     int LastScoreInt = 0;
     int totalscore = 0;
+    public bool gameover = false;
+    public bool noclick = false;
+    public GameObject bgimage;
 
     string scoreTh = "Assets/TextFiles/score";
 
@@ -45,10 +48,28 @@ public class ScoreCount : MonoBehaviour
         scoreUD();//최종 점수 파일 저장
 
 
+        if (Input.GetMouseButtonDown(0))
+        {
+            noclick = true;
+
+            StopCoroutine(Fade());
+            StopCoroutine(countnew((float)ScoreManager.score, 0f));
+            StopCoroutine(counttotal((float)totalscore, 0f));
+
+            nowscore.text = ScoreManager.score.ToString();//현재 획득 점수
+
+            newcarrot.text = "+" + ScoreManager.score.ToString(); //현재 획득 점수
+
+            totalC.text = totalscore.ToString();//최종점수
+
+        }
 
 
-
-
+        if (gameover)
+        {
+            GOver();
+            gameover = false;
+        }
 
 
 
@@ -56,34 +77,67 @@ public class ScoreCount : MonoBehaviour
     }
 
 
-
-    IEnumerator count(float target, float current, Text score)
+    public void GOver()
     {
-        float duration = 1.3f;
+        StartCoroutine(Fade());
+        StartCoroutine(countnew((float)ScoreManager.score, 0f));
+        StartCoroutine(counttotal((float)totalscore, 0f));
+    }
+
+
+    IEnumerator countnew(float target, float current)
+    {
+
+        float duration = 1.0f;
         float offset = (target - current) / duration;
 
-        while(current<target)
+        while (current < target)
         {
             current += offset * Time.deltaTime;
-            score.text = ((int)current).ToString();
+            nowscore.text = ((int)current).ToString();
             yield return null;
         }
 
         current = target;
-        score.text = ((int)current).ToString();
+        nowscore.text = ((int)current).ToString();
+
+    }
+
+
+    IEnumerator counttotal(float target, float current)
+    {
+
+        float duration = 1.3f;
+        float offset = (target - current) / duration;
+
+        while (current < target)
+        {
+            current += offset * Time.deltaTime;
+            totalC.text = ((int)current).ToString();
+            yield return null;
+        }
+
+        current = target;
+        totalC.text = ((int)current).ToString();
+
+
+
     }
 
 
     IEnumerator Fade()
     {
-        for(float f = 1f; f>=0; f-=0.1f)
+        for(float f = 1f; f>=0; f-=0.001f)
         {
-            Color c = nowscore.GetComponent<Renderer>().material.color;
+            Color c = newcarrot.GetComponent<Text>().color;
             c.a = f;
-            nowscore.GetComponent<Renderer>().material.color = c;
+            newcarrot.GetComponent<Text>().color = c;
             yield return null;
         }
+
+        Time.timeScale = 0;
     }
+
 
 
 
@@ -93,7 +147,7 @@ public class ScoreCount : MonoBehaviour
     {
         StreamWriter Scorewriter;
         Scorewriter = File.CreateText(scoreTh);
-        Scorewriter.WriteLine(totalC.text);
+        Scorewriter.WriteLine(totalscore);
         Scorewriter.Close();
     }
 

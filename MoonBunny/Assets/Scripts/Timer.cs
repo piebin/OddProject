@@ -16,6 +16,7 @@ public class Timer : MonoBehaviour
     public GameObject guesttimer;
     private int num = 0;
     public GameObject sauceCh;
+    public GameObject scoreC;
 
 
     // Start is called before the first frame update
@@ -82,6 +83,7 @@ public class Timer : MonoBehaviour
             quitb.SetActive(true);
             gm.enabled = false;
             sauceCh.GetComponent<SauceChange>().enabled = false;
+            scoreC.GetComponent<ScoreCount>().gameover = true;
 
 
             //Invoke("gameOver", 2.0f);

@@ -2680,6 +2680,9 @@ MonoBehaviour:
   nowscore: {fileID: 508513429}
   newcarrot: {fileID: 1108127703}
   totalC: {fileID: 1782816274}
+  gameover: 0
+  noclick: 0
+  bgimage: {fileID: 1059278156}
 --- !u!114 &482931239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2756,7 +2759,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 52, y: -22.1}
+  m_AnchoredPosition: {x: 55, y: -20.7}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &508513429
@@ -2772,7 +2775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4072,7 +4075,7 @@ GameObject:
   - component: {fileID: 1059278158}
   m_Layer: 5
   m_Name: bgimage
-  m_TagString: Untagged
+  m_TagString: ui
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4247,7 +4250,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 89.2, y: -72.2}
+  m_AnchoredPosition: {x: 80, y: -76.6}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1108127703
@@ -4263,7 +4266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4590,7 +4593,8 @@ MonoBehaviour:
   restartb: {fileID: 1126777481}
   quitb: {fileID: 1182628510}
   guesttimer: {fileID: 1334658085}
-  sauceCh: {fileID: 0}
+  sauceCh: {fileID: 651932514}
+  scoreC: {fileID: 482931236}
 --- !u!1 &1182628510
 GameObject:
   m_ObjectHideFlags: 0
@@ -5070,6 +5074,8 @@ MonoBehaviour:
   carrot: {fileID: 1235289123}
   guestTimer: {fileID: 1334658085}
   sauceCh: {fileID: 651932514}
+  timer: {fileID: 1181181689}
+  scoreC: {fileID: 482931236}
 --- !u!1 &1347862596
 GameObject:
   m_ObjectHideFlags: 0
@@ -6949,7 +6955,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7559,7 +7565,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2058286886
 MonoBehaviour:

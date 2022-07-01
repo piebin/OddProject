@@ -25,6 +25,9 @@ public class circleBar : MonoBehaviour
     public GameObject carrot;
     public GameObject guestTimer;
     public GameObject sauceCh;
+    public GameObject timer;
+
+    public GameObject scoreC;
 
 
     private int level = 0;
@@ -33,18 +36,20 @@ public class circleBar : MonoBehaviour
 
     void Start()
     {
-
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        GameManager gm = GameObject.Find("GameObject").GetComponent<GameManager>();
+
         float i;
         level = (ScoreManager.score / 100) + 1;
         if (level - 1 >= levelValue.Length)
             i = 80;
         else i = levelValue[level - 1];
-        GameManager gm = GameObject.Find("GameObject").GetComponent<GameManager>();
+
 
         if (currentValue < i + 2)
         {
@@ -91,9 +96,12 @@ public class circleBar : MonoBehaviour
             totalcarrot.SetActive(true);
             restartb.SetActive(true);
             quitb.SetActive(true);
-            Time.timeScale = 0.0f;
+            timer.GetComponent<Timer>().enabled = false;
+            //Time.timeScale = 0.0f;
             gm.enabled = false;
+
             sauceCh.GetComponent<SauceChange>().enabled = false;
+            scoreC.GetComponent<ScoreCount>().gameover = true;
             
 
             //Destroy(guestTimer);
@@ -112,6 +120,9 @@ public class circleBar : MonoBehaviour
     {
         if (num == 3)
         {
+            GameManager gm = GameObject.Find("GameObject").GetComponent<GameManager>();
+
+            guestTimer.SetActive(false);
             bgimage.SetActive(true);
             SCORE.SetActive(true);
             nowscore.SetActive(true);
@@ -119,6 +130,12 @@ public class circleBar : MonoBehaviour
             totalcarrot.SetActive(true);
             restartb.SetActive(true);
             quitb.SetActive(true);
+            timer.GetComponent<Timer>().enabled = false;
+            //Time.timeScale = 0.0f;
+            gm.enabled = false;
+
+            sauceCh.GetComponent<SauceChange>().enabled = false;
+            scoreC.GetComponent<ScoreCount>().gameover = true;
 
             Invoke("gameOver", 2.0f);
         }
