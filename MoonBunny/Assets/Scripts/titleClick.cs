@@ -28,6 +28,8 @@ public class titleClick : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        one = 0;
+        Time.timeScale = 1.0f;
     }
 
     // Update is called once per frame
@@ -35,13 +37,11 @@ public class titleClick : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0) && one == 0)
         {
-
             t1.GetComponent<Animation>().Play();
             t2.GetComponent<Animation>().Play();
             t3.GetComponent<Animation>().Play();
             t4.GetComponent<Animation>().Play();
             t5.GetComponent<Animation>().Play();
-
             one++;
         }
 

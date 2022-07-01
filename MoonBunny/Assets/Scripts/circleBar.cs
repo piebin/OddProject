@@ -73,10 +73,11 @@ public class circleBar : MonoBehaviour
             gm.num = 0;
             gm.snum = 0;
             gm.ChangeGuest();
+            Debug.Log("num : " + num);
             life[num].GetComponent<SpriteRenderer>().sprite = emptyLife;
             num++;
-            //Debug.Log("num : " + num);
             this.gameObject.SetActive(false);
+            GameManager.success = true;
         }
 
         if (num == 3)
