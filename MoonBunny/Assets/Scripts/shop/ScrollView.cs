@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 
 public class ScrollView : MonoBehaviour
 {
@@ -28,6 +29,9 @@ public class ScrollView : MonoBehaviour
     public static bool touchChk = false;
     private int[] priceBG = new int[9];
     private int[] state = new int[9]; //0:적용중 1:구매완료 2:가격 3:자물쇠
+
+
+    string buyTh = "Assets/TextFiles/buy";
 
     // Start is called before the first frame update
     void Start()
@@ -101,11 +105,14 @@ public class ScrollView : MonoBehaviour
         }
 
         else if (state[num] == 3) { }
+
+
     }
 
     public void purchaseOK()
     {
         audioSource[2].Play();
+
         if (myCarrot >= priceBG[num])
         {
             myCarrot -= priceBG[num];
@@ -114,7 +121,15 @@ public class ScrollView : MonoBehaviour
             check = true;
             closePanel();
 
-        }
+            StreamWriter buywriter;
+            buywriter = File.AppendText(buyTh);
+
+            buywriter.WriteLine("\n" + num);
+
+            buywriter.Close();
+
+
+        }//구매완료
         else
         {
             Debug.Log("소지 당근이 적습니다.");
@@ -150,6 +165,21 @@ public class ScrollView : MonoBehaviour
 
     public void checkState()
     {
+
+        FileStream buyR = new FileStream(buyTh, FileMode.Open);
+        StreamReader buyReader = new StreamReader(buyR);
+        string buyLine = null;
+        //int buynum = 0;
+
+        while ((buyLine = buyReader.ReadLine()) != null)
+        {
+            if(buyLine=="1")
+                state[num] = 1;
+        }
+
+        buyReader.Close();
+
+
         if (state[num] == 0)
         {
             oriSet.SetActive(true);
