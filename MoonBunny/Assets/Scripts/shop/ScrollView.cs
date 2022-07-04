@@ -30,7 +30,6 @@ public class ScrollView : MonoBehaviour
     private int[] priceBG = new int[9];
     private int[] state = new int[9]; //0:적용중 1:구매완료 2:가격 3:자물쇠
 
-
     string buyTh = "Assets/TextFiles/buy";
 
     // Start is called before the first frame update
@@ -105,8 +104,6 @@ public class ScrollView : MonoBehaviour
         }
 
         else if (state[num] == 3) { }
-
-
     }
 
     public void purchaseOK()
@@ -123,11 +120,8 @@ public class ScrollView : MonoBehaviour
 
             StreamWriter buywriter;
             buywriter = File.AppendText(buyTh);
-
             buywriter.WriteLine("\n" + num);
-
             buywriter.Close();
-
 
         }//구매완료
         else
@@ -173,8 +167,8 @@ public class ScrollView : MonoBehaviour
 
         while ((buyLine = buyReader.ReadLine()) != null)
         {
-            if(buyLine=="1")
-                state[num] = 1;
+            //if(buyLine=="1")
+                //state[num] = 1;
         }
 
         buyReader.Close();

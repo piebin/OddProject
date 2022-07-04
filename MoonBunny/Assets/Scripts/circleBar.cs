@@ -28,7 +28,7 @@ public class circleBar : MonoBehaviour
     public GameObject timer;
 
     public GameObject scoreC;
-
+    public AudioSource[] audioSource = new AudioSource[3]; //패시브, 종료1, 종료2
 
     private int level = 0;
     private float ro = 180;
@@ -36,6 +36,7 @@ public class circleBar : MonoBehaviour
 
     void Start()
     {
+        audioSource[0].Play();
     }
 
     // Update is called once per frame
@@ -76,6 +77,11 @@ public class circleBar : MonoBehaviour
         //시간오버시
         else if (!GameManager.success)
         {
+            int rand = Random.Range(1, 3);
+            if(rand == 1)
+                audioSource[1].Play();
+            else if(rand == 2)
+                audioSource[2].Play();
             gm.num = 0;
             gm.snum = 0;
             gm.ChangeGuest();
@@ -88,6 +94,7 @@ public class circleBar : MonoBehaviour
 
         if (num == 3)
         {
+            bgimage.GetComponent<AudioSource>().Play();
             guestTimer.SetActive(false);
             bgimage.SetActive(true);
             SCORE.SetActive(true);
@@ -110,7 +117,7 @@ public class circleBar : MonoBehaviour
         }
 
         LoadingBar.fillAmount = currentValue / i;
-
+        audioSource[0].Play();
 
         //carrot.transform.localEulerAngles = new Vector3(0, 0, ro);
     }

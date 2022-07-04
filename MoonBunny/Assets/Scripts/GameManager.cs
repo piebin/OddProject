@@ -75,6 +75,7 @@ public class GameManager : MonoBehaviour
     {
         Ab1.SetActive(true);
         Ab1.GetComponent<Animation>().Play();
+        Ab1.GetComponent<AudioSource>().Play();
 
         StreamWriter achievewriter;
         achievewriter = File.AppendText(achieveTh);
@@ -123,6 +124,7 @@ public class GameManager : MonoBehaviour
                     Time.timeScale = 0.0f;
                     embox.SetActive(true);
                     resetR.GetComponent<ResetRice>().enabled = false;
+                    goBack.GetComponent<AudioSource>().Play();
                     //this.enabled = false;
                     //GuestBar.SetActive(false);
                 }
@@ -139,9 +141,8 @@ public class GameManager : MonoBehaviour
                     Bigrice(num, mynums[num], true);
                     StopCoroutine("RiceDown");
                     //Bigri[num].GetComponent<Animation>().Play();
+                    buttons[0].GetComponent<AudioSource>().Play();
                     num++;
-
-
                 }
                 else if (hit.collider.gameObject == buttons[1] && num < lvNum)
                 {
@@ -150,6 +151,7 @@ public class GameManager : MonoBehaviour
                     Bigrice(num, mynums[num], true);
                     StopCoroutine("RiceDown");
                     //Bigri[num].GetComponent<Animation>().Play();
+                    buttons[1].GetComponent<AudioSource>().Play();
                     num++;
                 }
                 else if (hit.collider.gameObject == buttons[2] && num < lvNum)
@@ -159,6 +161,7 @@ public class GameManager : MonoBehaviour
                     Bigrice(num, mynums[num], true);
                     StopCoroutine("RiceDown");
                     //Bigri[num].GetComponent<Animation>().Play();
+                    buttons[2].GetComponent<AudioSource>().Play();
                     num++;
                 }
                 else if (hit.collider.gameObject == buttons[3] && num < lvNum)
@@ -168,6 +171,7 @@ public class GameManager : MonoBehaviour
                     Bigrice(num, mynums[num], true);
                     StopCoroutine("RiceDown");
                     //Bigri[num].GetComponent<Animation>().Play();
+                    buttons[3].GetComponent<AudioSource>().Play();
                     num++;
                 }
 
@@ -175,6 +179,7 @@ public class GameManager : MonoBehaviour
                 //모양4개, 색 4개->16개 if
                 if(hit.collider.gameObject == saucesB[0] && num > snum) //보라색
                 {
+                    saucesB[0].GetComponent<AudioSource>().Play();
                     for (int i=0; i<num; i++)//지금까지 누른 모양 확인
                     {
                         //모양 4개 경우 나눠서 다른 스프라이트 적용
@@ -207,7 +212,7 @@ public class GameManager : MonoBehaviour
 
                 if (hit.collider.gameObject == saucesB[1] && num > snum) //빨간색
                 {
-
+                    saucesB[1].GetComponent<AudioSource>().Play();
                     for (int i = 0; i < num; i++)//지금까지 누른 모양 확인
                     {
                         //모양 4개 경우 나눠서 다른 스프라이트 적용
@@ -237,12 +242,11 @@ public class GameManager : MonoBehaviour
 
                     }
                     snum++; //소스 버튼을 누른 횟수
-
                 }
 
                 if (hit.collider.gameObject == saucesB[2] && num > snum) //노란색
                 {
-
+                    saucesB[2].GetComponent<AudioSource>().Play();
                     for (int i = 0; i < num; i++)//지금까지 누른 모양 확인
                     {
                         //모양 4개 경우 나눠서 다른 스프라이트 적용
@@ -275,7 +279,7 @@ public class GameManager : MonoBehaviour
 
                 if (hit.collider.gameObject == saucesB[3] && num > snum) //초록색
                 {
-
+                    saucesB[3].GetComponent<AudioSource>().Play();
                     for (int i = 0; i < num; i++)//지금까지 누른 모양 확인
                     {
                         //모양 4개 경우 나눠서 다른 스프라이트 적용
@@ -302,10 +306,8 @@ public class GameManager : MonoBehaviour
                             Bigrice(snum, 19, false);
                             clickedS[snum] = 19;
                         }
-
                     }
                     snum++; //소스 버튼을 누른 횟수
-
                 }
 
 
@@ -336,6 +338,7 @@ public class GameManager : MonoBehaviour
                     if (sn == lvNum)
                     {
                         ScoreManager.score += 10;
+                        Camera.main.GetComponent<AudioSource>().Play();
                         success = true;
                         ChangeGuest();
                         num = 0;

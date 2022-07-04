@@ -13,7 +13,6 @@ public class OpenButton : MonoBehaviour
         circle.SetActive(false);
         level.SetActive(false);
         life.SetActive(false);
-
     }
 
 
@@ -29,11 +28,10 @@ public class OpenButton : MonoBehaviour
                 if (hit.collider.gameObject == gm.GetComponent<GameManager>().goBack)
                 {
                     gm.GetComponent<GameManager>().titlePanel.SetActive(true);
-
+                    gm.GetComponent<GameManager>().goBack.GetComponent<AudioSource>().Play();
                 }
             }
         }
-
     }
 
     public void openBtn()

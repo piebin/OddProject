@@ -87,6 +87,7 @@ public class ResetRice : MonoBehaviour
                 gm.snum = 0;
 
                 downAnim.enabled = true;
+                GetComponent<AudioSource>().Play();
                 downAnim.Play("Down", -1, 0f);
                 Invoke("stopAnimation", 0.4f);
             }
