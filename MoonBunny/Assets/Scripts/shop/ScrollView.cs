@@ -159,19 +159,22 @@ public class ScrollView : MonoBehaviour
 
     public void checkState()
     {
-
-        FileStream buyR = new FileStream(buyTh, FileMode.Open);
-        StreamReader buyReader = new StreamReader(buyR);
-        string buyLine = null;
-        //int buynum = 0;
-
-        while ((buyLine = buyReader.ReadLine()) != null)
+        try
         {
-            //if(buyLine=="1")
-                //state[num] = 1;
-        }
+            FileStream buyR = new FileStream(buyTh, FileMode.Open);
+            StreamReader buyReader = new StreamReader(buyR);
+            string buyLine = null;
+            //int buynum = 0;
 
-        buyReader.Close();
+            while ((buyLine = buyReader.ReadLine()) != null)
+            {
+                //if(buyLine=="1")
+                //state[num] = 1;
+            }
+
+            buyReader.Close();
+        }
+        catch { }
 
 
         if (state[num] == 0)
