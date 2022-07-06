@@ -49,25 +49,28 @@ public class GameManager : MonoBehaviour
         //업적 파일에 1이 없으면 실행
         FileStream achieveR = new FileStream(achieveTh, FileMode.Open);
         StreamReader achieveReader = new StreamReader(achieveR);
+        //업적 텍스트파일에 읽기 위해 준비.
 
         while ((achieveLine = achieveReader.ReadLine()) != null)
         {
+            //업적 텍스트 파일을 한줄씩 읽음
             if (achieveLine == "1")
             {
                 exist1 = false;
                 break;
-            }
+            }//텍스트 파일에 1이 있을 경우->이미 실행한 적 있음->업적 공개 효과 없음.
 
             if(achieveLine != "1")
             {
                 exist1 = true;
-            }
+            }//업적 텍스트 파일에 1이 없음->실행한 적 없음->업적 공개 효과 실행. 위해 exist1 true설정
 
         }
         achieveReader.Close();
 
         if (exist1)
             clearOne();
+        //업적 텍스트 파일에 1이 없을 경우 업적 공개 효과인 Celarone함수 실행.
 
     }
 
@@ -81,7 +84,8 @@ public class GameManager : MonoBehaviour
         achievewriter = File.AppendText(achieveTh);
         achievewriter.WriteLine("\n1");
         achievewriter.Close();
-        //1번 앨범 텍스트 파일 입력
+        //업적 텍스트 파일에 업적 공개 효과가 실행됐음을 알리기 위해 텍스트 파일에 "1" 입력.
+        //여기서 "1"은 1번 업적을 의미함.
 
         //Destroy(Ab1, 10f);
 

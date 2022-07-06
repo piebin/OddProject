@@ -9,7 +9,7 @@ public class Album : MonoBehaviour
 {
     //수집도, 오픈한 업적 넘버는 외부 파일에 저장해야할듯.
     public  GameObject[] locks = new GameObject[9];
-    string achieveTh = "Assets/TextFiles/achieve";
+    string achieveTh = "Assets/TextFiles/achieve";//업적 파일 위치
 
 
     // Start is called before the first frame update
@@ -21,6 +21,8 @@ public class Album : MonoBehaviour
 
         while ((achieveLine = achieveReader.ReadLine()) != null)
         {
+            //업적 텍스트 파일을 한줄씩 읽어옴.
+            //각 번호에 대한 open함수 실행(이미지 변경->일러스트 공개)
 
             if (achieveLine == "1")
             {
