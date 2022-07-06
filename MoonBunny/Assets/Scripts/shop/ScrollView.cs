@@ -159,8 +159,8 @@ public class ScrollView : MonoBehaviour
 
     public void checkState()
     {
-        try
-        {
+/*        try
+        {*/
             FileStream buyR = new FileStream(buyTh, FileMode.Open);
             StreamReader buyReader = new StreamReader(buyR);
             string buyLine = null;
@@ -168,13 +168,13 @@ public class ScrollView : MonoBehaviour
 
             while ((buyLine = buyReader.ReadLine()) != null)
             {
-                //if(buyLine=="1")
-                //state[num] = 1;
+                if(buyLine=="1")
+                    state[num] = 1;
             }
 
             buyReader.Close();
-        }
-        catch { }
+        //}
+        //catch { }
 
 
         if (state[num] == 0)

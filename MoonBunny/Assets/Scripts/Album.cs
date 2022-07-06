@@ -60,6 +60,8 @@ public class Album : MonoBehaviour
             }
         }
 
+        achieveReader.Close();
+
     }
 
     // Update is called once per frame
