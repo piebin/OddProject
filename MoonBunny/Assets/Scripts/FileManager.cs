@@ -8,13 +8,13 @@ public class FileManager : MonoBehaviour
     // Start is called before the first frame update
 
 
-    string scoreTh = "Assets/TextFiles/score";
-    string achieveTh = "Assets/TextFiles/achieve";
-    string buyTh = "Assets/TextFiles/buy";
+    string scoreTh = "Assets/Resources/TextFiles/score";
+    string achieveTh = "Assets/Resources/TextFiles/achieve";
+    string buyTh = "Assets/Resources/TextFiles/buy";
 
     void Start()
     {
-        
+
         if(File.Exists(scoreTh)==false)
         {
             FileStream sw = new FileStream(scoreTh, FileMode.Create);

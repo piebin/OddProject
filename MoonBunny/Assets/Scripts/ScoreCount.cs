@@ -17,7 +17,7 @@ public class ScoreCount : MonoBehaviour
     public bool noclick = false;
     public GameObject bgimage;
 
-    string scoreTh = "Assets/TextFiles/score";
+    string scoreTh = "Assets/Resources/TextFiles/score";
 
     // Start is called before the first frame update
     void Start()

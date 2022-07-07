@@ -30,7 +30,7 @@ public class ScrollView : MonoBehaviour
     private int[] priceBG = new int[9];
     private int[] state = new int[9]; //0:적용중 1:구매완료 2:가격 3:자물쇠
 
-    string buyTh = "Assets/TextFiles/buy"; //텍스트 파일 경로
+    string buyTh = "Assets/Resources/TextFiles/buy"; //텍스트 파일 경로
 
     // Start is called before the first frame update
     void Start()
@@ -160,8 +160,7 @@ public class ScrollView : MonoBehaviour
 
     public void checkState()
     {
-/*        try
-        {*/
+
             FileStream buyR = new FileStream(buyTh, FileMode.Open);
             StreamReader buyReader = new StreamReader(buyR);
             string buyLine = null;
@@ -170,14 +169,43 @@ public class ScrollView : MonoBehaviour
 
             while ((buyLine = buyReader.ReadLine()) != null)
             {
-                if(buyLine=="1")
-                    state[num] = 1;
-            }
+
+            if (buyLine == "0")
+                state[0] = 1;
+
+            if (buyLine=="1")
+                    state[1] = 1;
+
+            if (buyLine == "2")
+                state[2] = 1;
+
+            if (buyLine == "3")
+                state[3] = 1;
+
+            if (buyLine == "4")
+                state[4] = 1;
+
+            if (buyLine == "5")
+                state[5] = 1;
+
+            if (buyLine == "6")
+                state[6] = 1;
+
+            if (buyLine == "7")
+                state[7] = 1;
+
+            if (buyLine == "8")
+                state[8] = 1;
+
+            if (buyLine == "9")
+                state[9] = 1;
+        }
+
+
             //buy텍스트 파일을 한줄씩 읽고 그 중 1이 존재하면->1번째의 상품을 구매했을 경우 state[1]=1실행. 구매완료 표시.
 
             buyReader.Close();
-        //}
-        //catch { }
+        
 
 
         if (state[num] == 0)

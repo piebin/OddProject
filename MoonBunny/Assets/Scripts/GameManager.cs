@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     public GameObject Ab1;
     public static bool success = false;
     public GameObject sauceCh;
-    string achieveTh = "Assets/TextFiles/achieve";
+    string achieveTh = "Assets/Resources/TextFiles/achieve";
     bool exist1=false;
     public GameObject embox;
     public GameObject resetR;
