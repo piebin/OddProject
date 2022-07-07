@@ -7,7 +7,7 @@ using System.IO;
 public class ScoreCount : MonoBehaviour
 
 {
-    Text scoreNum;
+    public Text scoreNum;
     public Text nowscore;
     public Text newcarrot;
     public Text totalC;
@@ -17,17 +17,10 @@ public class ScoreCount : MonoBehaviour
     public bool noclick = false;
     public GameObject bgimage;
 
-    string scoreTh = "Assets/Resources/TextFiles/score";
-
     // Start is called before the first frame update
     void Start()
     {
-        scoreNum = GetComponent<Text>();
-
-        FileStream LastScore = new FileStream(scoreTh, FileMode.Open);
-        StreamReader LastScoreReader = new StreamReader(LastScore);
-        LastScoreInt = int.Parse(LastScoreReader.ReadLine());
-        LastScoreReader.Close();
+        LastScoreInt = PlayerPrefs.GetInt("score_key");
 
     }
 
@@ -145,10 +138,8 @@ public class ScoreCount : MonoBehaviour
 
     void scoreUD()
     {
-        StreamWriter Scorewriter;
-        Scorewriter = File.CreateText(scoreTh);
-        Scorewriter.WriteLine(totalscore);
-        Scorewriter.Close();
+
+        PlayerPrefs.SetInt("score_key", totalscore);
     }
 
 

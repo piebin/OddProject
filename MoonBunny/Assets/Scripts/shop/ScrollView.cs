@@ -30,11 +30,13 @@ public class ScrollView : MonoBehaviour
     private int[] priceBG = new int[9];
     private int[] state = new int[9]; //0:적용중 1:구매완료 2:가격 3:자물쇠
 
-    string buyTh = "Assets/Resources/TextFiles/buy"; //텍스트 파일 경로
-
     // Start is called before the first frame update
     void Start()
     {
+
+
+
+
         clickText.gameObject.SetActive(false);
         for(int i=0; i<sprite.Length; i++)
         {
@@ -47,7 +49,8 @@ public class ScrollView : MonoBehaviour
             else state[i] = 2;
             content.transform.GetChild(i).GetComponent<Image>().sprite = sprite[i];
         }
-        state[0] = 0;
+        //state[0] = 0;
+        state[PlayerPrefs.GetInt("ing_key")] = 0;
         priceBG[0] = 50000; //수정 필요
         priceBG[1] = 50000; //수정 필요
         priceBG[4] = 60000; //수정 필요
@@ -94,7 +97,12 @@ public class ScrollView : MonoBehaviour
                 if (state[i] == 0)
                     state[i] = 1;
             }
-            state[num] = 0;
+
+            //state[num] = 0;
+            //Debug.Log("clicked");
+            PlayerPrefs.SetInt("ing_key", num);
+            state[PlayerPrefs.GetInt("ing_key")] = 0;
+
             check = true;
         }
 
@@ -118,10 +126,39 @@ public class ScrollView : MonoBehaviour
             check = true;
             closePanel();
 
-            StreamWriter buywriter;
-            buywriter = File.AppendText(buyTh);
-            buywriter.WriteLine("\n" + num);
-            buywriter.Close();
+            switch(num)
+            {
+                case 0:
+                    PlayerPrefs.SetInt("buy_key0", 1);
+                    break;
+                case 1:
+                    PlayerPrefs.SetInt("buy_key1", 1);
+                    break;
+                case 2:
+                    PlayerPrefs.SetInt("buy_key2", 1);
+                    break;
+                case 3:
+                    PlayerPrefs.SetInt("buy_key3", 1);
+                    break;
+                case 4:
+                    PlayerPrefs.SetInt("buy_key4", 1);
+                    break;
+                case 5:
+                    PlayerPrefs.SetInt("buy_key5", 1);
+                    break;
+                case 6:
+                    PlayerPrefs.SetInt("buy_key6", 1);
+                    break;
+                case 7:
+                    PlayerPrefs.SetInt("buy_key7", 1);
+                    break;
+                case 8:
+                    PlayerPrefs.SetInt("buy_key8", 1);
+                    break;
+
+            }
+
+
             //텍스트 파일에 num입력->구매한 num의 번호를 입력.
 
         }//구매완료
@@ -160,54 +197,37 @@ public class ScrollView : MonoBehaviour
 
     public void checkState()
     {
+        state[PlayerPrefs.GetInt("ing_key")] = 0;
 
-            FileStream buyR = new FileStream(buyTh, FileMode.Open);
-            StreamReader buyReader = new StreamReader(buyR);
-            string buyLine = null;
-            //int buynum = 0;
-            //buy텍스트 파일을 읽기 위한 준비.
+        if (PlayerPrefs.GetInt("buy_key0") == 1 && num != PlayerPrefs.GetInt("ing_key"))
+             state[0] = 1;
 
-            while ((buyLine = buyReader.ReadLine()) != null)
-            {
+        if (PlayerPrefs.GetInt("buy_key1") == 1 && num != PlayerPrefs.GetInt("ing_key"))
+            state[1] = 1;
 
-            if (buyLine == "0")
-                state[0] = 1;
+        if (PlayerPrefs.GetInt("buy_key2") == 1 && num != PlayerPrefs.GetInt("ing_key"))
+            state[2] = 1;
 
-            if (buyLine=="1")
-                    state[1] = 1;
+        if (PlayerPrefs.GetInt("buy_key3") == 1 && num != PlayerPrefs.GetInt("ing_key"))
+            state[3] = 1;
 
-            if (buyLine == "2")
-                state[2] = 1;
+        if (PlayerPrefs.GetInt("buy_key4") == 1 && num != PlayerPrefs.GetInt("ing_key"))
+            state[4] = 1;
 
-            if (buyLine == "3")
-                state[3] = 1;
+        if (PlayerPrefs.GetInt("buy_key5") == 1 && num != PlayerPrefs.GetInt("ing_key"))
+            state[5] = 1;
 
-            if (buyLine == "4")
-                state[4] = 1;
+        if (PlayerPrefs.GetInt("buy_key6") == 1 && num != PlayerPrefs.GetInt("ing_key"))
+            state[6] = 1;
 
-            if (buyLine == "5")
-                state[5] = 1;
+        if (PlayerPrefs.GetInt("buy_key7") == 1 && num != PlayerPrefs.GetInt("ing_key"))
+            state[7] = 1;
 
-            if (buyLine == "6")
-                state[6] = 1;
+        if (PlayerPrefs.GetInt("buy_key8") == 1 && num != PlayerPrefs.GetInt("ing_key"))
+            state[8] = 1;
 
-            if (buyLine == "7")
-                state[7] = 1;
-
-            if (buyLine == "8")
-                state[8] = 1;
-
-            if (buyLine == "9")
-                state[9] = 1;
-        }
-
-
-            //buy텍스트 파일을 한줄씩 읽고 그 중 1이 존재하면->1번째의 상품을 구매했을 경우 state[1]=1실행. 구매완료 표시.
-
-            buyReader.Close();
+   
         
-
-
         if (state[num] == 0)
         {
             oriSet.SetActive(true);

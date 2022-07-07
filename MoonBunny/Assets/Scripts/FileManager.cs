@@ -8,38 +8,115 @@ public class FileManager : MonoBehaviour
     // Start is called before the first frame update
 
 
-    string scoreTh = "Assets/Resources/TextFiles/score";
-    string achieveTh = "Assets/Resources/TextFiles/achieve";
-    string buyTh = "Assets/Resources/TextFiles/buy";
+    public bool deleteData = false;
 
-    void Start()
+
+    private void Start()
     {
+        //PlayerPrefs.DeleteAll();
 
-        if(File.Exists(scoreTh)==false)
+        if (!PlayerPrefs.HasKey("score_key"))
         {
-            FileStream sw = new FileStream(scoreTh, FileMode.Create);
-            StreamWriter scoreW = new StreamWriter(sw);
-            scoreW.Write("0");
-            scoreW.Close();
+            PlayerPrefs.SetInt("score_key", 0);
         }
 
-        if (File.Exists(achieveTh) == false)
+        if (!PlayerPrefs.HasKey("achieve_key0"))
         {
-            FileStream sw = new FileStream(achieveTh, FileMode.Create);
-            StreamWriter achieveW = new StreamWriter(sw);
-            achieveW.Write("0");
-            achieveW.Close();
+            PlayerPrefs.SetInt("achieve_key0", 0);
         }
 
-        if (File.Exists(buyTh) == false)
+        if (!PlayerPrefs.HasKey("achieve_key1"))
         {
-            FileStream sw = new FileStream(buyTh, FileMode.Create);
-            StreamWriter buyW = new StreamWriter(sw);
-            buyW.Write("0");
-            buyW.Close();
+            PlayerPrefs.SetInt("achieve_key1", 0);
+        }
+
+        if (!PlayerPrefs.HasKey("achieve_key2"))
+        {
+            PlayerPrefs.SetInt("achieve_key2", 0);
+        }
+
+        if (!PlayerPrefs.HasKey("achieve_key3"))
+        {
+            PlayerPrefs.SetInt("achieve_key3", 0);
+        }
+
+        if (!PlayerPrefs.HasKey("achieve_key4"))
+        {
+            PlayerPrefs.SetInt("achieve_key4", 0);
+        }
+
+        if (!PlayerPrefs.HasKey("achieve_key5"))
+        {
+            PlayerPrefs.SetInt("achieve_key5", 0);
+        }
+
+        if (!PlayerPrefs.HasKey("achieve_key6"))
+        {
+            PlayerPrefs.SetInt("achieve_key6", 0);
+        }
+
+        if (!PlayerPrefs.HasKey("achieve_key7"))
+        {
+            PlayerPrefs.SetInt("achieve_key7", 0);
+        }
+
+        if(!PlayerPrefs.HasKey("achieve_key8"))
+        {
+            PlayerPrefs.SetInt("achieve_key8", 0);
+        }
+
+        if (!PlayerPrefs.HasKey("buy_key"))
+        {
+            PlayerPrefs.SetInt("buy_key", 1);
+        }
+
+        if (!PlayerPrefs.HasKey("buy_key1"))
+        {
+            PlayerPrefs.SetInt("buy_key1", 0);
+        }
+
+        if (!PlayerPrefs.HasKey("buy_key2"))
+        {
+            PlayerPrefs.SetInt("buy_key2", 0);
+        }
+
+        if (!PlayerPrefs.HasKey("buy_key3"))
+        {
+            PlayerPrefs.SetInt("buy_key3", 0);
+        }
+
+        if (!PlayerPrefs.HasKey("buy_key4"))
+        {
+            PlayerPrefs.SetInt("buy_key4", 0);
+        }
+
+        if (!PlayerPrefs.HasKey("buy_key5"))
+        {
+            PlayerPrefs.SetInt("buy_key5", 0);
+        }
+
+        if (!PlayerPrefs.HasKey("buy_key6"))
+        {
+            PlayerPrefs.SetInt("buy_key6", 0);
+        }
+
+        if (!PlayerPrefs.HasKey("buy_key7"))
+        {
+            PlayerPrefs.SetInt("buy_key7", 0);
+        }
+
+        if (!PlayerPrefs.HasKey("buy_key8"))
+        {
+            PlayerPrefs.SetInt("buy_key8", 0);
+        }
+
+        if (!PlayerPrefs.HasKey("ing_key"))
+        {
+            PlayerPrefs.SetInt("ing_key", 0);
         }
 
     }
+
 
     // Update is called once per frame
     void Update()

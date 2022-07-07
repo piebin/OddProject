@@ -134,6 +134,7 @@ public class titleClick : MonoBehaviour
     public void Option()
     {
         //Debug.Log("옵션이 클릭됨");
+        PlayerPrefs.DeleteAll();
     }
 
     public void GameQuit()

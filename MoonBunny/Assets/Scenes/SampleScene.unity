@@ -2142,6 +2142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 522ab3639dc17fb4f9671b1b03036bb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreNum: {fileID: 482931239}
   nowscore: {fileID: 508513429}
   newcarrot: {fileID: 1108127703}
   totalC: {fileID: 1782816274}
