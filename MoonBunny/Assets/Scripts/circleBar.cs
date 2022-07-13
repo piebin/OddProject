@@ -39,6 +39,11 @@ public class circleBar : MonoBehaviour
         audioSource[0].Play();
     }
 
+    void TimerSound()
+    {
+        audioSource[0].Play();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -78,17 +83,23 @@ public class circleBar : MonoBehaviour
         else if (!GameManager.success)
         {
             int rand = Random.Range(1, 3);
-            if(rand == 1)
+            if (rand == 1)
+            {
                 audioSource[1].Play();
-            else if(rand == 2)
+                Invoke("TimerSound", 1f);
+            }
+            else if (rand == 2)
+            {
                 audioSource[2].Play();
+                Invoke("TimerSound", 1f);
+            }
             gm.num = 0;
             gm.snum = 0;
             gm.ChangeGuest();
             Debug.Log("num : " + num);
             life[num].GetComponent<SpriteRenderer>().sprite = emptyLife;
             num++;
-            this.gameObject.SetActive(false);
+            //this.gameObject.SetActive(false);
             GameManager.success = true;
         }
 
@@ -117,7 +128,7 @@ public class circleBar : MonoBehaviour
         }
 
         LoadingBar.fillAmount = currentValue / i;
-        audioSource[0].Play();
+        //audioSource[0].Play();
 
         //carrot.transform.localEulerAngles = new Vector3(0, 0, ro);
     }
