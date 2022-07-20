@@ -115,6 +115,15 @@ public class FileManager : MonoBehaviour
             PlayerPrefs.SetInt("ing_key", 0);
         }
 
+        if(!PlayerPrefs.HasKey("game_over"))
+        {
+            PlayerPrefs.SetInt("game_over", 0);
+        }
+
+
+
+
+
     }
 
 

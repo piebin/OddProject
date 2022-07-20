@@ -42,7 +42,6 @@ public class GameManager : MonoBehaviour
         num = 0;
         snum = 0;
         goBack.SetActive(true);
-        string achieveLine = null;
 
 
         //업적 파일에 1이 없으면 실행
@@ -52,7 +51,6 @@ public class GameManager : MonoBehaviour
             exist1 = true;
             PlayerPrefs.SetInt("achieve_key0", 1);
         }
-        //업적 텍스트파일에 읽기 위해 준비.
 
 
         if (exist1)
@@ -61,7 +59,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    void clearOne()
+    public void clearOne()
     {
         Ab1.SetActive(true);
         Ab1.GetComponent<Animation>().Play();
@@ -391,6 +389,35 @@ public class GameManager : MonoBehaviour
     {
         int randomInt = Random.Range(0, 2);
         int level = (ScoreManager.score / 100) + 1;
+
+        if(PlayerPrefs.GetInt("game_over")==1)
+        {
+            if(level<4)
+            {
+                if(PlayerPrefs.GetInt("achieve_key8") == 0)
+                {
+                    Debug.Log("achieve9 clear");
+                    clearOne();
+                    PlayerPrefs.SetInt("achieve_key8", 1);
+                }
+            }
+        }//업적 9번 달성
+
+
+
+
+
+        if(level==12)
+        {
+            if(PlayerPrefs.GetInt("achieve_key4") ==0)
+            {
+                Debug.Log("achieve5 clear");
+                clearOne();
+                PlayerPrefs.SetInt("achieve_key4", 1);
+            }
+        }
+        //업적 5번 달성
+
         switch(level)
         {
             case 1:

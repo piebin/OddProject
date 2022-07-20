@@ -62,7 +62,21 @@ public class ScoreCount : MonoBehaviour
         {
             GOver();
             gameover = false;
+            PlayerPrefs.SetInt("game_over", 1);
         }
+
+        if(totalscore==150000)
+        {
+            GameManager gm = GameObject.Find("GameObject").GetComponent<GameManager>();
+
+            if (PlayerPrefs.GetInt("achieve_key2")==0)
+            {
+                Debug.Log("achieve3 clear");
+                gm.clearOne();
+                PlayerPrefs.SetInt("achieve_key2", 1);
+            }
+        }
+        //업적 3번 달성
 
 
 

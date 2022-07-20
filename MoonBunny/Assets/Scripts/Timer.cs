@@ -86,6 +86,10 @@ public class Timer : MonoBehaviour
             scoreC.GetComponent<ScoreCount>().gameover = true;
 
 
+
+
+
+
             //Invoke("gameOver", 2.0f);
         }
     }

@@ -155,6 +155,12 @@ public class circleBar : MonoBehaviour
             sauceCh.GetComponent<SauceChange>().enabled = false;
             scoreC.GetComponent<ScoreCount>().gameover = true;
 
+
+
+
+
+
+
             Invoke("gameOver", 2.0f);
         }
         //Debug.Log("timer on");
