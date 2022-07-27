@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     public int num;
     public int snum;
     public int sauceN;
-    public GameObject goBack, titlePanel;
+    public GameObject goBack, titlePanel, dark, loadingDown;
     private int CharacterNum;
     public GameObject GuestBar;
     public GameObject Ab1;
@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         titlePanel.SetActive(false);
+        dark.SetActive(false);
         checkLv();
         Invoke("guest", 1);
         Invoke("randomRice", 1);
@@ -74,23 +75,31 @@ public class GameManager : MonoBehaviour
 
     public void goBackYes()
     {
+        loadingDown.SetActive(true);
+        titlePanel.SetActive(false);
+        Invoke("loadTitle", 1.8f);
+    }
+
+    public void loadTitle()
+    {
         SceneManager.LoadScene("Title");
     }
 
     public void goBackNo()
     {
         titlePanel.SetActive(false);
+        dark.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-
         if (titlePanel.activeSelf == false)
         {
             Time.timeScale = 1.0f;
             embox.SetActive(false);
             resetR.GetComponent<ResetRice>().enabled = true;
+            dark.SetActive(false);
             //this.enabled = true;
             //GuestBar.SetActive(true);
         }
@@ -106,6 +115,7 @@ public class GameManager : MonoBehaviour
                 if(hit.collider.gameObject == goBack)
                 {
                     titlePanel.SetActive(true);
+                    dark.SetActive(true);
                     Time.timeScale = 0.0f;
                     embox.SetActive(true);
                     resetR.GetComponent<ResetRice>().enabled = false;
@@ -402,10 +412,6 @@ public class GameManager : MonoBehaviour
                 }
             }
         }//업적 9번 달성
-
-
-
-
 
         if(level==12)
         {

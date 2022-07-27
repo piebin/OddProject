@@ -22,10 +22,10 @@ public class ScrollView : MonoBehaviour
     public Sprite[] setBG = new Sprite[2]; //0:적용 1:구매
     public AudioSource[] audioSource = new AudioSource[3]; //1:적용, 구매  2:멀티
     public GameObject oriState, oriSet, BackGround;
-    public GameObject purchasePanel, right, left, back;
+    public GameObject purchasePanel, setPanel, right, left, back;
     public Text carrot, clickText;
     private bool check = false;
-    private bool panel = false;
+    private bool panel1 = false, panel2 = false;
     public static bool touchChk = false;
     private int[] priceBG = new int[9];
     private int[] state = new int[9]; //0:적용중 1:구매완료 2:가격 3:자물쇠
@@ -33,10 +33,6 @@ public class ScrollView : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-
-
-
         clickText.gameObject.SetActive(false);
         for(int i=0; i<sprite.Length; i++)
         {
@@ -57,6 +53,7 @@ public class ScrollView : MonoBehaviour
 
         check = true;
         purchasePanel.SetActive(false);
+        setPanel.SetActive(false);
         Int32.TryParse(carrot.text, out myCarrot);
     }
 
@@ -92,23 +89,24 @@ public class ScrollView : MonoBehaviour
 
         else if (state[num] == 1) //적용
         {
-            for (int i = 0; i < state.Length; i++)
-            {
-                if (state[i] == 0)
-                    state[i] = 1;
-            }
-
-            //state[num] = 0;
-            //Debug.Log("clicked");
-            PlayerPrefs.SetInt("ing_key", num);
-            state[PlayerPrefs.GetInt("ing_key")] = 0;
-
-            check = true;
+            //for (int i = 0; i < state.Length; i++)
+            //{
+            //    if (state[i] == 0)
+            //        state[i] = 1;
+            //}
+            //
+            ////state[num] = 0;
+            ////Debug.Log("clicked");
+            //PlayerPrefs.SetInt("ing_key", num);
+            //state[PlayerPrefs.GetInt("ing_key")] = 0;
+            //
+            //check = true;
+            openPanel(setPanel);
         }
 
         else if (state[num] == 2) //구매
         {
-            openPanel();
+            openPanel(purchasePanel);
         }
 
         else if (state[num] == 3) { }
@@ -157,8 +155,6 @@ public class ScrollView : MonoBehaviour
                     break;
 
             }
-
-
             //텍스트 파일에 num입력->구매한 num의 번호를 입력.
 
         }//구매완료
@@ -175,10 +171,35 @@ public class ScrollView : MonoBehaviour
         closePanel();
     }
 
-    private void openPanel()
+    public void setOK()
     {
-        panel = true;
-        purchasePanel.SetActive(true);
+        audioSource[2].Play();
+        for (int i = 0; i < state.Length; i++)
+        {
+            if (state[i] == 0)
+                state[i] = 1;
+        }
+        
+        //state[num] = 0;
+        //Debug.Log("clicked");
+        PlayerPrefs.SetInt("ing_key", num);
+        state[PlayerPrefs.GetInt("ing_key")] = 0;
+        
+        check = true;
+        closePanel();
+    }
+
+    public void setCancel()
+    {
+        audioSource[2].Play();
+        closePanel();
+    }
+
+    private void openPanel(GameObject nowPanel)
+    {
+        if (nowPanel == purchasePanel)  panel1 = true;
+        else if (nowPanel == setPanel)  panel2 = true;
+        nowPanel.SetActive(true);
         right.SetActive(false);
         left.SetActive(false);
         oriSet.SetActive(false);
@@ -187,7 +208,9 @@ public class ScrollView : MonoBehaviour
 
     private void closePanel()
     {
-        panel = false;
+        panel1 = false;
+        panel2 = false;
+        setPanel.SetActive(false);
         purchasePanel.SetActive(false);
         right.SetActive(true);
         left.SetActive(true);
@@ -226,8 +249,7 @@ public class ScrollView : MonoBehaviour
         if (PlayerPrefs.GetInt("buy_key8") == 1 && num != PlayerPrefs.GetInt("ing_key"))
             state[8] = 1;
 
-   
-        
+
         if (state[num] == 0)
         {
             oriSet.SetActive(true);
@@ -268,9 +290,10 @@ public class ScrollView : MonoBehaviour
             check = false;
         }
 
-        if(panel)
+        if(panel1 || panel2)
         {
-            openPanel();
+            if (panel1) openPanel(purchasePanel);
+            else if (panel2) openPanel(setPanel);
         }
 
         else if (touchChk)

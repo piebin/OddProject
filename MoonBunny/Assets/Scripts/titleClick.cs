@@ -13,12 +13,13 @@ public class titleClick : MonoBehaviour
     public GameObject t4;
     public GameObject t5;
 
-
     public Sprite dark1;
     public Sprite dark2;
     public Sprite dark3;
     public Sprite dark4;
     public Sprite dark5;
+
+    public GameObject loadingUp, loadingDown;
 
     private AudioSource audioSource;
 
@@ -27,9 +28,17 @@ public class titleClick : MonoBehaviour
 
     void Start()
     {
+        loadingDown.SetActive(false);
+        loadingUp.SetActive(true);
+        Invoke("quitLoading", 1.0f);
         audioSource = GetComponent<AudioSource>();
         one = 0;
         Time.timeScale = 1.0f;
+    }
+
+    public void quitLoading()
+    {
+        loadingUp.SetActive(false);
     }
 
     // Update is called once per frame
@@ -88,7 +97,7 @@ public class titleClick : MonoBehaviour
 
             if(hit.collider.gameObject == t1)
             {
-                Invoke("GameStart", 0.5f);
+                GameStart();
             }
 
             if (hit.collider.gameObject == t2)
@@ -113,10 +122,21 @@ public class titleClick : MonoBehaviour
         }
     }
 
+    public void loadSample()
+    {
+        SceneManager.LoadScene("SampleScene");
+    }
+
     public void GameStart()
     {
         //Debug.Log("시작이 클릭됨");
-        SceneManager.LoadScene("SampleScene");
+        loadingDown.SetActive(true);
+        t1.SetActive(false);
+        t2.SetActive(false);
+        t3.SetActive(false);
+        t4.SetActive(false);
+        t5.SetActive(false);
+        Invoke("loadSample", 1.8f);
     }
 
     public void Album()

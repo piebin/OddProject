@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class OpenButton : MonoBehaviour
 {
-    public GameObject gm, timer, circle, level, life, open;
+    public GameObject gm, timer, circle, level, life, open, score;
+    public GameObject loadingUp, loadingDown;
+    private bool openChk = false;
     // Start is called before the first frame update
     void Start()
     {
+        loadingUp.SetActive(true);
+        Invoke("quitLoading", 1.0f);
         gm.SetActive(false);
         timer.SetActive(false);
         circle.SetActive(false);
         level.SetActive(false);
         life.SetActive(false);
+        open.SetActive(false);
+        score.SetActive(false);
+    }
+
+    public void quitLoading()
+    {
+        loadingUp.SetActive(false);
+        open.SetActive(true);
+        score.SetActive(true);
     }
 
 
@@ -28,9 +41,28 @@ public class OpenButton : MonoBehaviour
                 if (hit.collider.gameObject == gm.GetComponent<GameManager>().goBack)
                 {
                     gm.GetComponent<GameManager>().titlePanel.SetActive(true);
+                    gm.GetComponent<GameManager>().dark.SetActive(true);
                     gm.GetComponent<GameManager>().goBack.GetComponent<AudioSource>().Play();
                 }
             }
+        }
+
+        if (loadingDown.activeSelf == true || loadingUp.activeSelf == true)
+        {
+            open.SetActive(false);
+            score.SetActive(false);
+        }
+
+        else if(!openChk)
+        {
+            open.SetActive(true);
+            score.SetActive(true);
+        }
+
+        else
+        {
+            open.SetActive(false);
+            score.SetActive(false);
         }
     }
 
@@ -42,6 +74,7 @@ public class OpenButton : MonoBehaviour
         level.SetActive(true);
         life.SetActive(true);
         open.SetActive(false);
+        openChk = true;
     }
 
     // Update is called once per frame

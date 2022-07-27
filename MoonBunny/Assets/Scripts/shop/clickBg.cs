@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class clickBg : MonoBehaviour
 {
-    public GameObject purchasePanel;
+    public GameObject purchasePanel, setPanel;
     private bool panel;
     private GraphicRaycaster gr;
     private List<RaycastResult> results;
@@ -50,7 +50,7 @@ public class clickBg : MonoBehaviour
             //results[0].gameObject.transform.position = ped.position;
         }
 
-        if (purchasePanel.activeSelf)
+        if (purchasePanel.activeSelf || setPanel.activeSelf)
         {
             panel = true;
         }
