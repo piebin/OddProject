@@ -68,6 +68,7 @@ public class OpenButton : MonoBehaviour
 
     public void openBtn()
     {
+        gameObject.GetComponent<AudioSource>().Play();
         gm.SetActive(true);
         timer.SetActive(true);
         circle.SetActive(true);

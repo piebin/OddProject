@@ -30,6 +30,7 @@ public class incLevel : MonoBehaviour
         catch { gameObject.GetComponent<SpriteRenderer>().sprite = lvSprite[16]; }
         if(level != nowLevel)
         {
+            gameObject.GetComponent<AudioSource>().Play();
             int i;
             panel.SetActive(true);
             Invoke("LevelUp", 1.5f);

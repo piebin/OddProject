@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     bool exist1=false;
     public GameObject embox;
     public GameObject resetR;
+    public GameObject multiBtnSound;
 
     // Start is called before the first frame update
     void Start()
@@ -75,6 +76,7 @@ public class GameManager : MonoBehaviour
 
     public void goBackYes()
     {
+        multiBtnSound.GetComponent<AudioSource>().Play();
         loadingDown.SetActive(true);
         titlePanel.SetActive(false);
         Invoke("loadTitle", 1.8f);
@@ -87,6 +89,7 @@ public class GameManager : MonoBehaviour
 
     public void goBackNo()
     {
+        multiBtnSound.GetComponent<AudioSource>().Play();
         titlePanel.SetActive(false);
         dark.SetActive(false);
     }
@@ -333,7 +336,7 @@ public class GameManager : MonoBehaviour
                     if (sn == lvNum)
                     {
                         ScoreManager.score += 10;
-                        Camera.main.GetComponent<AudioSource>().Play();
+                        gameObject.GetComponent<AudioSource>().Play();
                         success = true;
                         ChangeGuest();
                         num = 0;

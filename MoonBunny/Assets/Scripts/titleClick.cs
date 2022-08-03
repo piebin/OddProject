@@ -22,6 +22,7 @@ public class titleClick : MonoBehaviour
     public GameObject loadingUp, loadingDown;
 
     private AudioSource audioSource;
+    private bool click = false;
 
     int one = 0;//중복방지
 
@@ -62,31 +63,36 @@ public class titleClick : MonoBehaviour
         {
             if(hit.collider.gameObject == t1)
             {
-                audioSource.Play();
+                if(!click) audioSource.Play();
+                click = true;
                 t1.GetComponent<SpriteRenderer>().sprite = dark1;
             }
 
             if (hit.collider.gameObject == t2)
             {
-                audioSource.Play();
+                if (!click) audioSource.Play();
+                click = true;
                 t2.GetComponent<SpriteRenderer>().sprite = dark2;
             }
 
             if (hit.collider.gameObject == t3)
             {
-                audioSource.Play();
+                if (!click) audioSource.Play();
+                click = true;
                 t3.GetComponent<SpriteRenderer>().sprite = dark3;
             }
 
             if (hit.collider.gameObject == t4)
             {
-                audioSource.Play();
+                if (!click) audioSource.Play();
+                click = true;
                 t4.GetComponent<SpriteRenderer>().sprite = dark4;
             }
 
             if (hit.collider.gameObject == t5)
             {
-                audioSource.Play();
+                if (!click) audioSource.Play();
+                click = true;
                 t5.GetComponent<SpriteRenderer>().sprite = dark5;
             }
         }

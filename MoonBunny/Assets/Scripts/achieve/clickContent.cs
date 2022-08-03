@@ -13,6 +13,7 @@ public class clickContent : MonoBehaviour
     private GraphicRaycaster gr;
     private List<RaycastResult> results;
     private PointerEventData downPed = new PointerEventData(null);
+    public AudioSource[] audioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -58,6 +59,10 @@ public class clickContent : MonoBehaviour
             if (downPed.position == ped.position) {
                 if (results[0].gameObject.tag == "content" && results[0].gameObject.GetComponent<Image>().sprite.name != "rock")
                 {
+                    if(!touchChk)
+                        audioSource[0].Play();
+                    else
+                        audioSource[1].Play();
                     touchChk = !touchChk;
                 }
             }
