@@ -120,10 +120,10 @@ public class FileManager : MonoBehaviour
             PlayerPrefs.SetInt("game_over", 0);
         }
 
-
-
-
-
+        if (!PlayerPrefs.HasKey("go_title"))
+        {
+            PlayerPrefs.SetInt("go_title", 0);
+        }
     }
 
 

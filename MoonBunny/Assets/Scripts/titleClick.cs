@@ -30,11 +30,17 @@ public class titleClick : MonoBehaviour
     void Start()
     {
         loadingDown.SetActive(false);
-        loadingUp.SetActive(true);
-        Invoke("quitLoading", 1.0f);
+        loadingUp.SetActive(false);
         audioSource = GetComponent<AudioSource>();
         one = 0;
         Time.timeScale = 1.0f;
+
+        if(PlayerPrefs.GetInt("go_title")==1)
+        {
+            loadingUp.SetActive(true);
+            Invoke("quitLoading", 1.0f);
+            PlayerPrefs.SetInt("go_title", 0);
+        }
     }
 
     public void quitLoading()
@@ -136,6 +142,8 @@ public class titleClick : MonoBehaviour
     public void GameStart()
     {
         //Debug.Log("시작이 클릭됨");
+        loadingDown.GetComponent<Animator>().Rebind();
+        loadingDown.GetComponent<Animator>().Update(0f);
         loadingDown.SetActive(true);
         t1.SetActive(false);
         t2.SetActive(false);

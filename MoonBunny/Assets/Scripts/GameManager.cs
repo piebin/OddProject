@@ -76,6 +76,8 @@ public class GameManager : MonoBehaviour
 
     public void goBackYes()
     {
+        GuestBar.SetActive(false);
+        PlayerPrefs.SetInt("go_title", 1);
         multiBtnSound.GetComponent<AudioSource>().Play();
         loadingDown.SetActive(true);
         titlePanel.SetActive(false);
