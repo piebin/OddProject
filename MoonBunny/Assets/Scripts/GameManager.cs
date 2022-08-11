@@ -6,7 +6,8 @@ using System.IO;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject[] character = new GameObject[3];
+    public GameObject character;
+    public Sprite[] characterSprite = new Sprite[46]; //0 비움
     private int[] randoms = new int[7];
     private int[] mynums = new int[7];
     private int[] ClickedB = new int[7];
@@ -117,7 +118,7 @@ public class GameManager : MonoBehaviour
 
             if (hit.collider != null)
             {
-                if (hit.collider.gameObject == goBack)
+                if (hit.collider.gameObject == goBack && Input.GetMouseButtonUp(0))
                 {
                     titlePanel.SetActive(true);
                     dark.SetActive(true);
@@ -355,12 +356,7 @@ public class GameManager : MonoBehaviour
 
     public void AnActive()
     {
-        for(int i=0; i<3; i++)
-        {
-            if (character[i].activeSelf)
-                character[i].SetActive(false);
-        } //랜덤 캐릭터중 활성화된것만 찾아서 비활성화시킴
-
+        character.SetActive(false);
         for (int i = 0; i < Bigri.Length; i++)
         {
             Bigri[i].SetActive(false);
@@ -395,8 +391,9 @@ public class GameManager : MonoBehaviour
 
     public void guest()
     {
-        CharacterNum = Random.Range(0, 3); //함수가 실행될때마다 랜덤 수 초기화
-        character[CharacterNum].SetActive(true); //랜덤 활성화
+        character.SetActive(true);
+        CharacterNum = Random.Range(1, 46); //함수가 실행될때마다 랜덤 수 초기화
+        character.GetComponent<SpriteRenderer>().sprite = characterSprite[CharacterNum];
         GuestBar.SetActive(true);//시간 활성화
         GuestBar.GetComponent<circleBar>().currentValue = 0; //시간을 0으로 초기화해줌
         //애니메이션 활성화

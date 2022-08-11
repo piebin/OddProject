@@ -13,6 +13,12 @@ public class titleClick : MonoBehaviour
     public GameObject t4;
     public GameObject t5;
 
+    private Sprite bright1;
+    private Sprite bright2;
+    private Sprite bright3;
+    private Sprite bright4;
+    private Sprite bright5;
+
     public Sprite dark1;
     public Sprite dark2;
     public Sprite dark3;
@@ -29,6 +35,12 @@ public class titleClick : MonoBehaviour
 
     void Start()
     {
+        bright1 = t1.GetComponent<SpriteRenderer>().sprite;
+        bright2 = t2.GetComponent<SpriteRenderer>().sprite;
+        bright3 = t3.GetComponent<SpriteRenderer>().sprite;
+        bright4 = t4.GetComponent<SpriteRenderer>().sprite;
+        bright5 = t5.GetComponent<SpriteRenderer>().sprite;
+
         loadingDown.SetActive(false);
         loadingUp.SetActive(false);
         audioSource = GetComponent<AudioSource>();
@@ -103,10 +115,22 @@ public class titleClick : MonoBehaviour
             }
         }
 
-
-        if (hit.collider!=null && Input.GetMouseButtonDown(0))
+        try
         {
+            if (hit.collider.name == "bg1" && Input.GetMouseButtonUp(0))
+            {
+                t1.GetComponent<SpriteRenderer>().sprite = bright1;
+                t2.GetComponent<SpriteRenderer>().sprite = bright2;
+                t3.GetComponent<SpriteRenderer>().sprite = bright3;
+                t4.GetComponent<SpriteRenderer>().sprite = bright4;
+                t5.GetComponent<SpriteRenderer>().sprite = bright5;
+                click = false;
+            }
+        } catch { }
 
+
+        if (hit.collider!=null && Input.GetMouseButtonUp(0))
+        {
             if(hit.collider.gameObject == t1)
             {
                 GameStart();
