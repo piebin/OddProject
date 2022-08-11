@@ -47,13 +47,11 @@ public class GameManager : MonoBehaviour
 
 
         //업적 파일에 1이 없으면 실행
-
         if(PlayerPrefs.GetInt("achieve_key0")==0)
         {
             exist1 = true;
             PlayerPrefs.SetInt("achieve_key0", 1);
         }
-
 
         if (exist1)
             clearOne();
@@ -91,7 +89,9 @@ public class GameManager : MonoBehaviour
 
     public void goBackNo()
     {
+        GuestBar.SetActive(true);
         multiBtnSound.GetComponent<AudioSource>().Play();
+        GuestBar.GetComponent<AudioSource>().Play();
         titlePanel.SetActive(false);
         dark.SetActive(false);
     }
@@ -117,7 +117,7 @@ public class GameManager : MonoBehaviour
 
             if (hit.collider != null)
             {
-                if(hit.collider.gameObject == goBack)
+                if (hit.collider.gameObject == goBack)
                 {
                     titlePanel.SetActive(true);
                     dark.SetActive(true);
@@ -126,12 +126,7 @@ public class GameManager : MonoBehaviour
                     resetR.GetComponent<ResetRice>().enabled = false;
                     goBack.GetComponent<AudioSource>().Play();
                     //this.enabled = false;
-                    //GuestBar.SetActive(false);
-                }
-
-                if(hit.collider.gameObject == embox)
-                {
-
+                    GuestBar.SetActive(false);
                 }
 
                 if (hit.collider.gameObject == buttons[0] && num < lvNum)
@@ -338,6 +333,8 @@ public class GameManager : MonoBehaviour
                     if (sn == lvNum)
                     {
                         ScoreManager.score += 10;
+                        GuestBar.GetComponent<AudioSource>().Stop();
+                        Invoke("TimerSound", 0.8f);
                         gameObject.GetComponent<AudioSource>().Play();
                         success = true;
                         ChangeGuest();
@@ -349,6 +346,11 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void TimerSound()
+    {
+        GuestBar.GetComponent<AudioSource>().Play();
     }
 
     public void AnActive()

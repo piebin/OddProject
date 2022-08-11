@@ -82,6 +82,7 @@ public class circleBar : MonoBehaviour
         //시간오버시
         else if (!GameManager.success)
         {
+            audioSource[0].Stop();
             int rand = Random.Range(1, 3);
             if (rand == 1)
             {
@@ -121,15 +122,12 @@ public class circleBar : MonoBehaviour
             sauceCh.GetComponent<SauceChange>().enabled = false;
             scoreC.GetComponent<ScoreCount>().gameover = true;
             
-
             //Destroy(guestTimer);
-
             //Invoke("gameOver", 2.0f);
         }
 
         LoadingBar.fillAmount = currentValue / i;
         //audioSource[0].Play();
-
         //carrot.transform.localEulerAngles = new Vector3(0, 0, ro);
     }
 
@@ -154,12 +152,6 @@ public class circleBar : MonoBehaviour
 
             sauceCh.GetComponent<SauceChange>().enabled = false;
             scoreC.GetComponent<ScoreCount>().gameover = true;
-
-
-
-
-
-
 
             Invoke("gameOver", 2.0f);
         }
