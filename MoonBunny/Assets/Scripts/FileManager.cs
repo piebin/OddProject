@@ -120,9 +120,14 @@ public class FileManager : MonoBehaviour
             PlayerPrefs.SetInt("game_over", 0);
         }
 
-        if (!PlayerPrefs.HasKey("go_title"))
+        if (!PlayerPrefs.HasKey("go_title")) //인게임에서 타이틀 화면으로 갈때만 샷시 등장
         {
             PlayerPrefs.SetInt("go_title", 0);
+        }
+
+        if (!PlayerPrefs.HasKey("go_main")) //상점과 앨범에서 뒤로가기 시 메인화면 표시 (타이틀 X)
+        {
+            PlayerPrefs.SetInt("go_main", 0);
         }
     }
 

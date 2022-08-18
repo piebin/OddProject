@@ -13,6 +13,7 @@ public class gotoTitle : MonoBehaviour
 
     public void titleBtn()
     {
+        PlayerPrefs.SetInt("go_main", 1);
         SceneManager.LoadScene("Title");
     }
 

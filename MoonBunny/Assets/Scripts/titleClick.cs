@@ -47,11 +47,22 @@ public class titleClick : MonoBehaviour
         one = 0;
         Time.timeScale = 1.0f;
 
-        if(PlayerPrefs.GetInt("go_title")==1)
+        if(PlayerPrefs.GetInt("go_title") == 1)
         {
             loadingUp.SetActive(true);
             Invoke("quitLoading", 1.0f);
             PlayerPrefs.SetInt("go_title", 0);
+        }
+
+        if (PlayerPrefs.GetInt("go_main") == 1)
+        {
+            t1.GetComponent<Animation>().Play();
+            t2.GetComponent<Animation>().Play();
+            t3.GetComponent<Animation>().Play();
+            t4.GetComponent<Animation>().Play();
+            t5.GetComponent<Animation>().Play();
+            one++;
+            PlayerPrefs.SetInt("go_main", 0);
         }
     }
 
@@ -79,6 +90,11 @@ public class titleClick : MonoBehaviour
 
         if(hit.collider!=null && Input.GetMouseButton(0))
         {
+            if(hit.collider.gameObject.name == "bg1")
+            {
+                makeBrigntBtn();
+            }
+
             if(hit.collider.gameObject == t1)
             {
                 if(!click) audioSource.Play();
@@ -119,11 +135,7 @@ public class titleClick : MonoBehaviour
         {
             if (hit.collider.name == "bg1" && Input.GetMouseButtonUp(0))
             {
-                t1.GetComponent<SpriteRenderer>().sprite = bright1;
-                t2.GetComponent<SpriteRenderer>().sprite = bright2;
-                t3.GetComponent<SpriteRenderer>().sprite = bright3;
-                t4.GetComponent<SpriteRenderer>().sprite = bright4;
-                t5.GetComponent<SpriteRenderer>().sprite = bright5;
+                makeBrigntBtn();
                 click = false;
             }
         } catch { }
@@ -131,6 +143,7 @@ public class titleClick : MonoBehaviour
 
         if (hit.collider!=null && Input.GetMouseButtonUp(0))
         {
+            //makeBrigntBtn();
             if(hit.collider.gameObject == t1)
             {
                 GameStart();
@@ -156,6 +169,15 @@ public class titleClick : MonoBehaviour
                 Invoke("GameQuit", 0.5f);
             }
         }
+    }
+
+    public void makeBrigntBtn()
+    {
+        t1.GetComponent<SpriteRenderer>().sprite = bright1;
+        t2.GetComponent<SpriteRenderer>().sprite = bright2;
+        t3.GetComponent<SpriteRenderer>().sprite = bright3;
+        t4.GetComponent<SpriteRenderer>().sprite = bright4;
+        t5.GetComponent<SpriteRenderer>().sprite = bright5;
     }
 
     public void loadSample()

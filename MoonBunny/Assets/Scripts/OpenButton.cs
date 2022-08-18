@@ -43,6 +43,7 @@ public class OpenButton : MonoBehaviour
                     gm.GetComponent<GameManager>().titlePanel.SetActive(true);
                     gm.GetComponent<GameManager>().dark.SetActive(true);
                     gm.GetComponent<GameManager>().goBack.GetComponent<AudioSource>().Play();
+                    gm.GetComponent<GameManager>().GuestBar.SetActive(false);
                 }
             }
         }
