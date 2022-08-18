@@ -8,6 +8,9 @@ public class ResetRice : MonoBehaviour
     private Vector2 mousePos1, mousePos2;
     private Sprite resetMat;
     public GameObject[] sprite = new GameObject[7];
+    public GameObject BGroup;
+    private float BGroupY;
+    private float[] spriteY = new float[7];
     private Animator downAnim;
     Camera Camera;
 
@@ -28,21 +31,20 @@ public class ResetRice : MonoBehaviour
         StopCoroutine("RiceDown");
     }
 
-    public IEnumerator RiceDown(GameObject obj, float target)
+    public IEnumerator RiceDown(GameObject obj, float objY, float target)
     {
         float duration = 0.3f;
         float currentTime = 0.0f;
-        float objY = obj.GetComponent<Transform>().position.y;
         float offset = (target - currentTime) / duration;
 
         while (currentTime < target)
         {
             currentTime += offset * Time.deltaTime;
-            obj.GetComponent<Transform>().position = new Vector3(-3.9f, objY - currentTime, 0);
+            obj.GetComponent<Transform>().position = new Vector2(-3.9f, objY - currentTime);
             yield return null;
         }
         obj.SetActive(false);
-        obj.GetComponent<Transform>().position = new Vector3(-3.9f, objY, 0);
+        obj.GetComponent<Transform>().position = new Vector2(-3.9f, objY + BGroupY);
         yield break;
     }
 
@@ -53,6 +55,11 @@ public class ResetRice : MonoBehaviour
         downAnim = GetComponent<Animator>();
         Camera = GameObject.Find("Main Camera").GetComponent<Camera>();
         downAnim.enabled = false;
+
+        for(int i=0; i<sprite.Length; i++)
+        {
+            spriteY[i] = sprite[i].GetComponent<Transform>().position.y;
+        }
     }
 
     void Update()
@@ -61,7 +68,7 @@ public class ResetRice : MonoBehaviour
         {
             mousePos1 = Input.mousePosition;
             mousePos1 = Camera.ScreenToWorldPoint(mousePos1);
-            count++;
+            count = 1;
         }
 
         if (Input.GetMouseButtonUp(0))
@@ -75,12 +82,10 @@ public class ResetRice : MonoBehaviour
         {
             if (mousePos1.x > -6 && mousePos1.x < -3 && mousePos2.x > -6 && mousePos2.x < -3)
             {
-                //sprite1.GetComponent<SpriteRenderer>().sprite = resetMat;
-                //sprite2.GetComponent<SpriteRenderer>().sprite = resetMat;
+                BGroupY = BGroup.transform.position.y;
                 for (int i=0; i<sprite.Length; i++)
                 {
-                    //sprite[i].SetActive(false);
-                    StartCoroutine(RiceDown(sprite[i], 20));
+                    StartCoroutine(RiceDown(sprite[i], spriteY[i], 20));
                 }
                 GameManager gm = GameObject.Find("GameObject").GetComponent<GameManager>();
                 gm.num = 0;
@@ -91,8 +96,8 @@ public class ResetRice : MonoBehaviour
                 downAnim.Play("Down", -1, 0f);
                 Invoke("stopAnimation", 0.4f);
             }
-            mousePos1.y = 0;
-            mousePos2.y = 0;
+            mousePos1 = new Vector2();
+            mousePos2 = new Vector2();
         }
     }
 }

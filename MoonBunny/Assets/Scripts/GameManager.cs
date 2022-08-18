@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     private int[] mynums = new int[7];
     private int[] ClickedB = new int[7];
     private int[] clickedS = new int[7];
-    private int lvNum;
+    public int lvNum;
     public Sprite[] sprites = new Sprite[20];
     public GameObject[] buttons = new GameObject[4];
     public GameObject[] saucesB = new GameObject[4];
