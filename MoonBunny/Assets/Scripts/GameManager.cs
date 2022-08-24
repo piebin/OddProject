@@ -46,7 +46,6 @@ public class GameManager : MonoBehaviour
         snum = 0;
         goBack.SetActive(true);
 
-
         //업적 파일에 1이 없으면 실행
         if(PlayerPrefs.GetInt("achieve_key0")==0)
         {
@@ -58,7 +57,31 @@ public class GameManager : MonoBehaviour
             clearOne();
         //업적 텍스트 파일에 1이 없을 경우 업적 공개 효과인 Celarone함수 실행.
 
+        character.SetActive(true);
+        //StartCoroutine(Fade(character));
     }
+
+    //public IEnumerator Fade(GameObject obj)
+    //{
+    //    float duration = 0.3f;
+    //    float currentTime = 0.0f;
+    //    float offset = (1 - currentTime) / duration;
+    //
+    //    Color color = obj.GetComponent<SpriteRenderer>().color;
+    //    color.a = Mathf.Lerp(start, end, currentTime);
+    //
+    //    while (color.a < 1f)
+    //    {
+    //        currentTime += Time.deltaTime / duration;
+    //        color.a = Mathf.Lerp(start, end, time);
+    //        // 계산한 알파 값 다시 설정.  
+    //        fadeImage.color = color;
+    //        yield return null;
+    //    }
+    //    obj.SetActive(false);
+    //    obj.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 1);
+    //    yield break;
+    //}
 
     public void clearOne()
     {

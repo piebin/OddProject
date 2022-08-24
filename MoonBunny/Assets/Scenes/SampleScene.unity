@@ -566,6 +566,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ccde15797a567c344ad2fab497805c47, type: 3}
   - {fileID: 21300000, guid: 2bf72cfff0c7afb48a73cba6f4eb0f45, type: 3}
   - {fileID: 21300000, guid: 48631ca82f6950147890cbd119904212, type: 3}
+  lvNum: 0
   sprites:
   - {fileID: 21300000, guid: 94111532bfe31cc41ae7460c3e24fa4e, type: 3}
   - {fileID: 21300000, guid: 1f3e858abbd9c074aa497d7a0ed3fbc0, type: 3}
@@ -3017,6 +3018,7 @@ MonoBehaviour:
   - {fileID: 914818734}
   - {fileID: 1155431182}
   - {fileID: 1791526789}
+  BGroup: {fileID: 35964420}
 --- !u!1 &651932514
 GameObject:
   m_ObjectHideFlags: 0
