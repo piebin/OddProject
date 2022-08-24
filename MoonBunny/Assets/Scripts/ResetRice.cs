@@ -27,6 +27,11 @@ public class ResetRice : MonoBehaviour
 
     public void stopAnimation()
     {
+        GameManager gm = GameObject.Find("GameObject").GetComponent<GameManager>();
+        for(int i=0; i<gm.num; i++)
+        {
+            sprite[i].SetActive(true);
+        }
         //downAnim.enabled = false;
         StopCoroutine("RiceDown");
     }
@@ -51,6 +56,7 @@ public class ResetRice : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        BGroupY = BGroup.transform.position.y;
         resetMat = sprite[0].GetComponent<SpriteRenderer>().sprite;
         downAnim = GetComponent<Animator>();
         Camera = GameObject.Find("Main Camera").GetComponent<Camera>();
@@ -78,22 +84,23 @@ public class ResetRice : MonoBehaviour
             mousePos2 = Camera.ScreenToWorldPoint(mousePos2);
         }
 
-        if(mousePos1.y > mousePos2.y && count == 0)
+        if(mousePos1.y > mousePos2.y + 3 && count == 0)
         {
             if (mousePos1.x > -6 && mousePos1.x < -3 && mousePos2.x > -6 && mousePos2.x < -3)
             {
                 BGroupY = BGroup.transform.position.y;
+                GameManager gm = GameObject.Find("GameObject").GetComponent<GameManager>();
+                gm.num = 0;
+                gm.snum = 0;
                 for (int i=0; i<sprite.Length; i++)
                 {
                     StartCoroutine(RiceDown(sprite[i], spriteY[i], 20));
                 }
-                GameManager gm = GameObject.Find("GameObject").GetComponent<GameManager>();
-                gm.num = 0;
-                gm.snum = 0;
 
                 downAnim.enabled = true;
                 GetComponent<AudioSource>().Play();
                 downAnim.Play("Down", -1, 0f);
+
                 Invoke("stopAnimation", 0.4f);
             }
             mousePos1 = new Vector2();

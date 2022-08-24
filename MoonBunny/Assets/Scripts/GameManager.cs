@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     private int[] mynums = new int[7];
     private int[] ClickedB = new int[7];
     private int[] clickedS = new int[7];
+    private float[] realY = new float[7];
     public int lvNum;
     public Sprite[] sprites = new Sprite[20];
     public GameObject[] buttons = new GameObject[4];
@@ -24,6 +25,7 @@ public class GameManager : MonoBehaviour
     public int snum;
     public int sauceN;
     public GameObject goBack, titlePanel, dark, loadingDown;
+    public GameObject lvTimer;
     private int CharacterNum;
     public GameObject GuestBar;
     public GameObject Ab1;
@@ -45,6 +47,11 @@ public class GameManager : MonoBehaviour
         num = 0;
         snum = 0;
         goBack.SetActive(true);
+
+        for(int i=0; i<realY.Length; i++)
+        {
+            realY[i] = Bigri[i].GetComponent<Transform>().position.y;
+        }
 
         //업적 파일에 1이 없으면 실행
         if(PlayerPrefs.GetInt("achieve_key0")==0)
@@ -116,6 +123,7 @@ public class GameManager : MonoBehaviour
         GuestBar.SetActive(true);
         multiBtnSound.GetComponent<AudioSource>().Play();
         GuestBar.GetComponent<AudioSource>().Play();
+        lvTimer.GetComponent<Animator>().Play("timer1");
         titlePanel.SetActive(false);
         dark.SetActive(false);
     }
@@ -145,6 +153,8 @@ public class GameManager : MonoBehaviour
                 {
                     titlePanel.SetActive(true);
                     dark.SetActive(true);
+                    lvTimer.GetComponent<Animator>().speed = 0.0f;
+                    lvTimer.GetComponent<Animator>().enabled = false;
                     Time.timeScale = 0.0f;
                     embox.SetActive(true);
                     resetR.GetComponent<ResetRice>().enabled = false;
@@ -520,12 +530,13 @@ public class GameManager : MonoBehaviour
         //Debug.Log("num : " + lvNum);
     }
 
-    public IEnumerator RiceDown(GameObject obj, float target)
+    public IEnumerator RiceDown(GameObject obj, float realY)
     {
         float duration = 0.4f;
         float currentTime = 0.0f;
         float currentTime2 = 0.0f;
-        float objY = obj.GetComponent<Transform>().position.y + target;
+        float target = 4.0f;
+        float objY = realY + target;
         float offset = (target - currentTime) / duration;
         float alpha = 1.0f / duration;
         obj.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 0);
@@ -556,7 +567,7 @@ public class GameManager : MonoBehaviour
             default:
                 big[a].sprite = sprites[b];
                 Bigri[a].SetActive(true);
-                if (chk == true) StartCoroutine(RiceDown(Bigri[a], 4));
+                if (chk == true) StartCoroutine(RiceDown(Bigri[a], realY[a]));
                 break;
         }
     }
