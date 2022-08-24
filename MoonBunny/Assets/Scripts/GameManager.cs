@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     private int[] ClickedB = new int[7];
     private int[] clickedS = new int[7];
     private float[] realY = new float[7];
+    private bool start = false;
     public int lvNum;
     public Sprite[] sprites = new Sprite[20];
     public GameObject[] buttons = new GameObject[4];
@@ -42,8 +43,8 @@ public class GameManager : MonoBehaviour
         titlePanel.SetActive(false);
         dark.SetActive(false);
         checkLv();
-        Invoke("guest", 1);
-        Invoke("randomRice", 1);
+        Invoke("guest", 0.01f);
+        Invoke("randomRice", 0.01f);
         num = 0;
         snum = 0;
         goBack.SetActive(true);
@@ -65,30 +66,37 @@ public class GameManager : MonoBehaviour
         //업적 텍스트 파일에 1이 없을 경우 업적 공개 효과인 Celarone함수 실행.
 
         character.SetActive(true);
-        //StartCoroutine(Fade(character));
+        StartCoroutine(Fade(character));
+        for (int i = 0; i < 3; i++)
+        {
+            StartCoroutine(Fade(re[i]));
+        }
+        Invoke("showTime", 0.5f);
     }
 
-    //public IEnumerator Fade(GameObject obj)
-    //{
-    //    float duration = 0.3f;
-    //    float currentTime = 0.0f;
-    //    float offset = (1 - currentTime) / duration;
-    //
-    //    Color color = obj.GetComponent<SpriteRenderer>().color;
-    //    color.a = Mathf.Lerp(start, end, currentTime);
-    //
-    //    while (color.a < 1f)
-    //    {
-    //        currentTime += Time.deltaTime / duration;
-    //        color.a = Mathf.Lerp(start, end, time);
-    //        // 계산한 알파 값 다시 설정.  
-    //        fadeImage.color = color;
-    //        yield return null;
-    //    }
-    //    obj.SetActive(false);
-    //    obj.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 1);
-    //    yield break;
-    //}
+    public void showTime()
+    {
+        GuestBar.SetActive(true);//시간 활성화
+        GuestBar.GetComponent<circleBar>().currentValue = 0;
+        start = true;
+    }
+
+    public IEnumerator Fade(GameObject obj)
+    {
+        float duration = 0.5f;
+        float currentTime = 0.0f;
+        float alpha = 1.0f / duration;
+        obj.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 0);
+
+        while (currentTime < 1.0f)
+        {
+            currentTime += alpha * Time.deltaTime;
+            obj.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, currentTime);
+            yield return null;
+        }
+        obj.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 1);
+        yield break;
+    }
 
     public void clearOne()
     {
@@ -100,7 +108,6 @@ public class GameManager : MonoBehaviour
         //여기서 "1"은 1번 업적을 의미함.
 
         //Destroy(Ab1, 10f);
-
     }
 
     public void goBackYes()
@@ -427,9 +434,12 @@ public class GameManager : MonoBehaviour
         character.SetActive(true);
         CharacterNum = Random.Range(1, 46); //함수가 실행될때마다 랜덤 수 초기화
         character.GetComponent<SpriteRenderer>().sprite = characterSprite[CharacterNum];
-        GuestBar.SetActive(true);//시간 활성화
-        GuestBar.GetComponent<circleBar>().currentValue = 0; //시간을 0으로 초기화해줌
-        //애니메이션 활성화
+        if (start)
+        {
+            GuestBar.SetActive(true);//시간 활성화
+            GuestBar.GetComponent<circleBar>().currentValue = 0; //시간을 0으로 초기화해줌
+                                                                 //애니메이션 활성화
+        }
     }
 
     public void checkLv()
