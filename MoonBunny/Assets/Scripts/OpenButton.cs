@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class OpenButton : MonoBehaviour
 {
-    public GameObject gm, timer, circle, level, life, open, score;
+    public GameObject gm, timer, circle, level, life, open, score, lvTimer;
     public GameObject loadingUp, loadingDown;
     private bool openChk = false;
     // Start is called before the first frame update
@@ -44,6 +44,9 @@ public class OpenButton : MonoBehaviour
                     gm.GetComponent<GameManager>().dark.SetActive(true);
                     gm.GetComponent<GameManager>().goBack.GetComponent<AudioSource>().Play();
                     gm.GetComponent<GameManager>().GuestBar.SetActive(false);
+                    lvTimer.GetComponent<Animator>().speed = 0.0f;
+                    lvTimer.GetComponent<Animator>().enabled = false;
+                    Time.timeScale = 0.0f;
                 }
             }
         }

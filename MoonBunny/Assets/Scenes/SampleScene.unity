@@ -2430,6 +2430,7 @@ MonoBehaviour:
   life: {fileID: 106595616}
   open: {fileID: 64262016}
   score: {fileID: 482931236}
+  lvTimer: {fileID: 1181181689}
   loadingUp: {fileID: 1305991782}
   loadingDown: {fileID: 2000161634}
 --- !u!20 &519420031

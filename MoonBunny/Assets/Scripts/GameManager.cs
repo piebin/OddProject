@@ -127,10 +127,12 @@ public class GameManager : MonoBehaviour
 
     public void goBackNo()
     {
+        lvTimer.GetComponent<Animator>().speed = 1.0f;
+        lvTimer.GetComponent<Animator>().enabled = true;
+        Time.timeScale = 1.0f;
         GuestBar.SetActive(true);
         multiBtnSound.GetComponent<AudioSource>().Play();
         GuestBar.GetComponent<AudioSource>().Play();
-        lvTimer.GetComponent<Animator>().Play("timer1");
         titlePanel.SetActive(false);
         dark.SetActive(false);
     }

@@ -13,7 +13,7 @@ public class ScrollView : MonoBehaviour
     private int num = 0, myCarrot;
     private int[] xPos = { 45, -150, -345, -536, -730, -922, -1113, -1306, -1500 };
     //private int[] clickPos = { 62, -227, -515, -805, -1093, -1382, -1670, -1959, -2248 }; //1.5 1.5
-    private float[] clickPos = { 67.8f, -249.7f, -565, -880.2f, -1196, -1511, -1826, -2141, -2458 }; //1.64 1.82
+    private float[] clickPos = { 66.8f, -248, -564.1f, -879.6f, -1195.5f, -1511, -1827, -2143, -2458 }; //1.64 1.82
     private int clickYPos = 19;
     private int yPos = 10;
 
@@ -22,10 +22,10 @@ public class ScrollView : MonoBehaviour
     public Sprite[] setBG = new Sprite[2]; //0:적용 1:구매
     public AudioSource[] audioSource = new AudioSource[3]; //1:적용, 구매  2:멀티
     public GameObject oriState, oriSet, BackGround;
-    public GameObject purchasePanel, setPanel, right, left, back;
+    public GameObject purchasePanel, setPanel, alreadySetPanel, right, left, back;
     public Text carrot, clickText;
     private bool check = false;
-    private bool panel1 = false, panel2 = false;
+    private bool panel1 = false, panel2 = false, panel3 = false;
     public static bool touchChk = false;
     private int[] priceBG = new int[9];
     private int[] state = new int[9]; //0:적용중 1:구매완료 2:가격 3:자물쇠
@@ -54,6 +54,7 @@ public class ScrollView : MonoBehaviour
         check = true;
         purchasePanel.SetActive(false);
         setPanel.SetActive(false);
+        alreadySetPanel.SetActive(false);
         Int32.TryParse(carrot.text, out myCarrot);
     }
 
@@ -85,7 +86,10 @@ public class ScrollView : MonoBehaviour
     {
         audioSource[1].Play();
 
-        if (state[num] == 0) { }
+        if (state[num] == 0) 
+        {
+            openPanel(alreadySetPanel);
+        }
 
         else if (state[num] == 1) //적용
         {
@@ -199,6 +203,7 @@ public class ScrollView : MonoBehaviour
     {
         if (nowPanel == purchasePanel)  panel1 = true;
         else if (nowPanel == setPanel)  panel2 = true;
+        else if (nowPanel == alreadySetPanel) panel3 = true;
         nowPanel.SetActive(true);
         right.SetActive(false);
         left.SetActive(false);
@@ -210,8 +215,10 @@ public class ScrollView : MonoBehaviour
     {
         panel1 = false;
         panel2 = false;
+        panel3 = false;
         setPanel.SetActive(false);
         purchasePanel.SetActive(false);
+        alreadySetPanel.SetActive(false);
         right.SetActive(true);
         left.SetActive(true);
         oriSet.SetActive(true);
@@ -290,10 +297,11 @@ public class ScrollView : MonoBehaviour
             check = false;
         }
 
-        if(panel1 || panel2)
+        if(panel1 || panel2 || panel3)
         {
             if (panel1) openPanel(purchasePanel);
             else if (panel2) openPanel(setPanel);
+            else if (panel3) openPanel(alreadySetPanel);
         }
 
         else if (touchChk)
