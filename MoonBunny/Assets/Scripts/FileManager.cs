@@ -129,6 +129,8 @@ public class FileManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("go_main", 0);
         }
+
+
     }
 
 

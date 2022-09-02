@@ -106,6 +106,8 @@ public class ScrollView : MonoBehaviour
             //
             //check = true;
             openPanel(setPanel);
+            PlayerPrefs.SetInt("ing_key", num);
+            Debug.Log("ing is" + PlayerPrefs.GetInt("ing_key"));
         }
 
         else if (state[num] == 2) //±¸¸Å

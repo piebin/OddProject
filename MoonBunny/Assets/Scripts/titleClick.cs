@@ -23,7 +23,7 @@ public class titleClick : MonoBehaviour
     public Sprite dark2;
     public Sprite dark3;
     public Sprite dark4;
-    public Sprite dark5;
+    public Sprite dark5; 
 
     public GameObject loadingUp, loadingDown;
 

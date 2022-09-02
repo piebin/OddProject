@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviour
     public GameObject embox;
     public GameObject resetR;
     public GameObject multiBtnSound;
+    public GameObject backGround;
+    public Sprite[] BgSprites = new Sprite[9];
 
     // Start is called before the first frame update
     void Start()
@@ -49,7 +51,12 @@ public class GameManager : MonoBehaviour
         snum = 0;
         goBack.SetActive(true);
 
-        for(int i=0; i<realY.Length; i++)
+
+        //배경적용
+        backGround.GetComponent<SpriteRenderer>().sprite = BgSprites[PlayerPrefs.GetInt("ing_key")];
+
+
+        for (int i=0; i<realY.Length; i++)
         {
             realY[i] = Bigri[i].GetComponent<Transform>().position.y;
         }

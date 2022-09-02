@@ -19,6 +19,8 @@ public class OpenButton : MonoBehaviour
         life.SetActive(false);
         open.SetActive(false);
         score.SetActive(false);
+
+        gm.GetComponent<GameManager>().backGround.GetComponent<SpriteRenderer>().sprite = gm.GetComponent<GameManager>().BgSprites[PlayerPrefs.GetInt("ing_key")];
     }
 
     public void quitLoading()
