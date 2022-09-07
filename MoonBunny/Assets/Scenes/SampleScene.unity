@@ -471,7 +471,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &86723279
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -713,6 +713,8 @@ MonoBehaviour:
   resetR: {fileID: 586357560}
   multiBtnSound: {fileID: 1567702975}
   backGround: {fileID: 447207058}
+  longOrder: {fileID: 86723278}
+  shortOrder: {fileID: 1420043684}
   BgSprites:
   - {fileID: 21300000, guid: 4f2e5c8160e0b5e45bf480c2b91f0cf3, type: 3}
   - {fileID: 21300000, guid: 2d3919e88fcbf9c40b709bea3b07f3ba, type: 3}
