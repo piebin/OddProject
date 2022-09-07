@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     public GameObject resetR;
     public GameObject multiBtnSound;
     public GameObject backGround;
+    public GameObject longOrder, shortOrder;
     public Sprite[] BgSprites = new Sprite[9];
 
     // Start is called before the first frame update
@@ -73,6 +74,7 @@ public class GameManager : MonoBehaviour
         //업적 텍스트 파일에 1이 없을 경우 업적 공개 효과인 Celarone함수 실행.
 
         character.SetActive(true);
+        shortOrder.SetActive(true);
         StartCoroutine(Fade(character));
         for (int i = 0; i < 3; i++)
         {
@@ -526,6 +528,16 @@ public class GameManager : MonoBehaviour
                 else
                     lvNum = 7;
                 break;
+        }
+        if(lvNum < 5)
+        {
+            shortOrder.SetActive(true);
+            longOrder.SetActive(false);
+        }
+        else
+        {
+            longOrder.SetActive(true);
+            shortOrder.SetActive(false);
         }
         BGroup.transform.position = new Vector3(0, -lvNum / 1.8f, 0);
         sGroup.transform.position = new Vector3(0, -lvNum / 3.5f, 0);

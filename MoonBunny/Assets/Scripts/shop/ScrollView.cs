@@ -15,7 +15,7 @@ public class ScrollView : MonoBehaviour
     //private int[] clickPos = { 62, -227, -515, -805, -1093, -1382, -1670, -1959, -2248 }; //1.5 1.5
     private float[] clickPos = { 66.8f, -248, -564.1f, -879.6f, -1195.5f, -1511, -1827, -2143, -2458 }; //1.64 1.82
     private int clickYPos = 19;
-    private int yPos = 10;
+    private int yPos = 3;
 
     public Sprite[] price = new Sprite[9]; //배경별 가격
     public Sprite[] stateBG = new Sprite[2]; //0:적용중 1:구매완료
@@ -106,7 +106,7 @@ public class ScrollView : MonoBehaviour
             //
             //check = true;
             openPanel(setPanel);
-            PlayerPrefs.SetInt("ing_key", num);
+            //PlayerPrefs.SetInt("ing_key", num);
             Debug.Log("ing is" + PlayerPrefs.GetInt("ing_key"));
         }
 
