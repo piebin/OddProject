@@ -68,7 +68,7 @@ public class ScoreCount : MonoBehaviour
             PlayerPrefs.SetInt("game_over", 1);
         }
 
-        if (totalscore == 150000)
+        if (ScoreManager.score == 150000)
         {
             GameManager gm = GameObject.Find("GameObject").GetComponent<GameManager>();
 

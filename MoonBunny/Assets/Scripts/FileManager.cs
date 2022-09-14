@@ -15,6 +15,12 @@ public class FileManager : MonoBehaviour
     {
         //PlayerPrefs.DeleteAll();
 
+        if (!PlayerPrefs.HasKey("losing_heart"))
+        {
+            PlayerPrefs.SetInt("losing_heart", 0);
+        }
+
+
         if (!PlayerPrefs.HasKey("score_key"))
         {
             PlayerPrefs.SetInt("score_key", 0);

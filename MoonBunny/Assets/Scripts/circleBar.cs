@@ -34,9 +34,14 @@ public class circleBar : MonoBehaviour
     private float ro = 180;
     private float[] levelValue = { 110, 110, 110, 110, 100, 100, 100, 100, 90, 90, 90, 90, 80, 80, 80 };
 
+    int losingHeart = 0;
+
+
+
     void Start()
     {
         audioSource[0].Play();
+        losingHeart = PlayerPrefs.GetInt("losing_heart");
     }
 
     void TimerSound()
@@ -82,6 +87,8 @@ public class circleBar : MonoBehaviour
         //시간오버시
         else if (!GameManager.success)
         {
+            losingHeart++;
+
             audioSource[0].Stop();
             int rand = Random.Range(1, 3);
             if (rand == 1)
@@ -121,10 +128,23 @@ public class circleBar : MonoBehaviour
 
             sauceCh.GetComponent<SauceChange>().enabled = false;
             scoreC.GetComponent<ScoreCount>().gameover = true;
-            
+
             //Destroy(guestTimer);
             //Invoke("gameOver", 2.0f);
 
+
+            PlayerPrefs.SetInt("losing_heart", losingHeart);
+
+            if(losingHeart == 20)//업적 2번 달성
+            {
+                if (PlayerPrefs.GetInt("achieve_key2") == 0)
+                {
+                    Debug.Log("achieve2 clear");
+                    gm.clearOne();
+                    PlayerPrefs.SetInt("achieve_key1", 1);
+                }
+
+            }
 
 
 

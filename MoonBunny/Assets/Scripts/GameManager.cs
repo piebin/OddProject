@@ -386,8 +386,6 @@ public class GameManager : MonoBehaviour
                     if (sn == lvNum)
                     {
                         ScoreManager.score += 10;
-                        Debug.Log("score up");
-                        
 
                         GuestBar.GetComponent<AudioSource>().Stop();
                         Invoke("TimerSound", 0.8f);
