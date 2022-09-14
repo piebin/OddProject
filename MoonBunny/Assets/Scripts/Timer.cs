@@ -72,7 +72,7 @@ public class Timer : MonoBehaviour
         if(num == 1)
         {
             Debug.Log("Game Over");
-
+            gm.enabled = false;
             guesttimer.SetActive(false);
             bgimage.SetActive(true);
             SCORE.SetActive(true);
@@ -81,7 +81,6 @@ public class Timer : MonoBehaviour
             totalcarrot.SetActive(true);
             restartb.SetActive(true);
             quitb.SetActive(true);
-            gm.enabled = false;
             sauceCh.GetComponent<SauceChange>().enabled = false;
             scoreC.GetComponent<ScoreCount>().gameover = true;
 

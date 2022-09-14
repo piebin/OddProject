@@ -149,6 +149,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (titlePanel.activeSelf == false)
         {
             Time.timeScale = 1.0f;
@@ -385,6 +386,9 @@ public class GameManager : MonoBehaviour
                     if (sn == lvNum)
                     {
                         ScoreManager.score += 10;
+                        Debug.Log("score up");
+                        
+
                         GuestBar.GetComponent<AudioSource>().Stop();
                         Invoke("TimerSound", 0.8f);
                         gameObject.GetComponent<AudioSource>().Play();

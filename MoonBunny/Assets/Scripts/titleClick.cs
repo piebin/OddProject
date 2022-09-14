@@ -213,7 +213,7 @@ public class titleClick : MonoBehaviour
 
     public void Option()
     {
-        //Debug.Log("옵션이 클릭됨");
+        Debug.Log("이전에 저장한 정보 삭제");
         PlayerPrefs.DeleteAll();
     }
 

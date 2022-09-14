@@ -18,7 +18,7 @@ public class OpenButton : MonoBehaviour
         level.SetActive(false);
         life.SetActive(false);
         open.SetActive(false);
-        score.SetActive(false);
+        //score.SetActive(false);
 
         gm.GetComponent<GameManager>().backGround.GetComponent<SpriteRenderer>().sprite = gm.GetComponent<GameManager>().BgSprites[PlayerPrefs.GetInt("ing_key")];
     }
@@ -27,7 +27,7 @@ public class OpenButton : MonoBehaviour
     {
         loadingUp.SetActive(false);
         open.SetActive(true);
-        score.SetActive(true);
+        //score.SetActive(true);
     }
 
 
@@ -56,19 +56,19 @@ public class OpenButton : MonoBehaviour
         if (loadingDown.activeSelf == true || loadingUp.activeSelf == true)
         {
             open.SetActive(false);
-            score.SetActive(false);
+            //score.SetActive(false);
         }
 
         else if(!openChk)
         {
             open.SetActive(true);
-            score.SetActive(true);
+            //score.SetActive(true);
         }
 
         else
         {
             open.SetActive(false);
-            score.SetActive(false);
+            //score.SetActive(false);
         }
     }
 
@@ -82,6 +82,7 @@ public class OpenButton : MonoBehaviour
         life.SetActive(true);
         open.SetActive(false);
         openChk = true;
+        //score.SetActive(true);
     }
 
     // Update is called once per frame

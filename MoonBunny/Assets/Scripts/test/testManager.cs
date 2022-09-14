@@ -236,8 +236,10 @@ public class testManager : MonoBehaviour
                     {
                         if(i == lvNum - 1 && clickedS[i] == randoms[i])
                         {
-                            //Debug.Log("congraturation");
+                            
                             ScoreManager.score += 10;
+                            Debug.Log("score up");
+                            Debug.Log("score : "+ScoreManager.score);
                             success = true;
                             ChangeGuest();
                             num = 0;

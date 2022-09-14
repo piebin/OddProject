@@ -27,6 +27,7 @@ public class ScoreCount : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         totalscore = LastScoreInt+ScoreManager.score;//최종점수
 
         //ui텍스트 입력
@@ -39,6 +40,8 @@ public class ScoreCount : MonoBehaviour
         totalC.text = totalscore.ToString();//최종점수
 
         scoreUD();//최종 점수 파일 저장
+
+        //Debug.Log("total score : " + totalscore);
 
 
         if (Input.GetMouseButtonDown(0))
@@ -53,7 +56,7 @@ public class ScoreCount : MonoBehaviour
 
             newcarrot.text = "+" + ScoreManager.score.ToString(); //현재 획득 점수
 
-            totalC.text = totalscore.ToString();//최종점수
+            totalC.text = totalscore.ToString();//최종점수 
 
         }
 
@@ -65,11 +68,11 @@ public class ScoreCount : MonoBehaviour
             PlayerPrefs.SetInt("game_over", 1);
         }
 
-        if(totalscore==150000)
+        if (totalscore == 150000)
         {
             GameManager gm = GameObject.Find("GameObject").GetComponent<GameManager>();
 
-            if (PlayerPrefs.GetInt("achieve_key2")==0)
+            if (PlayerPrefs.GetInt("achieve_key2") == 0)
             {
                 Debug.Log("achieve3 clear");
                 gm.clearOne();
@@ -77,9 +80,6 @@ public class ScoreCount : MonoBehaviour
             }
         }
         //업적 3번 달성
-
-
-
 
     }
 
@@ -152,7 +152,6 @@ public class ScoreCount : MonoBehaviour
 
     void scoreUD()
     {
-
         PlayerPrefs.SetInt("score_key", totalscore);
     }
 

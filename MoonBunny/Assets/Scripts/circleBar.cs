@@ -106,6 +106,7 @@ public class circleBar : MonoBehaviour
 
         if (num == 3)
         {
+            gm.enabled = false;
             bgimage.GetComponent<AudioSource>().Play();
             guestTimer.SetActive(false);
             bgimage.SetActive(true);
@@ -117,13 +118,17 @@ public class circleBar : MonoBehaviour
             quitb.SetActive(true);
             timer.GetComponent<Timer>().enabled = false;
             //Time.timeScale = 0.0f;
-            gm.enabled = false;
 
             sauceCh.GetComponent<SauceChange>().enabled = false;
             scoreC.GetComponent<ScoreCount>().gameover = true;
             
             //Destroy(guestTimer);
             //Invoke("gameOver", 2.0f);
+
+
+
+
+
         }
 
         LoadingBar.fillAmount = currentValue / i;
@@ -137,7 +142,7 @@ public class circleBar : MonoBehaviour
         if (num == 3)
         {
             GameManager gm = GameObject.Find("GameObject").GetComponent<GameManager>();
-
+            gm.enabled = false;
             guestTimer.SetActive(false);
             bgimage.SetActive(true);
             SCORE.SetActive(true);
@@ -148,7 +153,6 @@ public class circleBar : MonoBehaviour
             quitb.SetActive(true);
             timer.GetComponent<Timer>().enabled = false;
             //Time.timeScale = 0.0f;
-            gm.enabled = false;
 
             sauceCh.GetComponent<SauceChange>().enabled = false;
             scoreC.GetComponent<ScoreCount>().gameover = true;
