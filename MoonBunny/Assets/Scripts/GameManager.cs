@@ -46,10 +46,10 @@ public class GameManager : MonoBehaviour
         titlePanel.SetActive(false);
         dark.SetActive(false);
         checkLv();
-        Invoke("guest", 0.01f);
-        Invoke("randomRice", 0.01f);
-        num = 0;
-        snum = 0;
+        guest();
+        randomRice();
+        num = 10;
+        snum = 10;
         goBack.SetActive(true);
 
 
@@ -73,9 +73,13 @@ public class GameManager : MonoBehaviour
             clearOne();
         //업적 텍스트 파일에 1이 없을 경우 업적 공개 효과인 Celarone함수 실행.
 
-        character.SetActive(true);
-        shortOrder.SetActive(true);
+        Invoke("FadeInvoke", 1.0f);
+    }
+
+    public void FadeInvoke()
+    {
         StartCoroutine(Fade(character));
+        StartCoroutine(Fade(shortOrder));
         for (int i = 0; i < 3; i++)
         {
             StartCoroutine(Fade(re[i]));
@@ -87,14 +91,17 @@ public class GameManager : MonoBehaviour
     {
         GuestBar.SetActive(true);//시간 활성화
         GuestBar.GetComponent<circleBar>().currentValue = 0;
+        num = 0;
+        snum = 0;
         start = true;
     }
 
     public IEnumerator Fade(GameObject obj)
     {
-        float duration = 0.5f;
+        float duration = 1.0f;
         float currentTime = 0.0f;
         float alpha = 1.0f / duration;
+        obj.SetActive(true);
         obj.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 0);
 
         while (currentTime < 1.0f)
@@ -392,8 +399,6 @@ public class GameManager : MonoBehaviour
                         gameObject.GetComponent<AudioSource>().Play();
                         success = true;
                         ChangeGuest();
-                        num = 0;
-                        snum = 0;
                     }
 
                     //checkLv();
@@ -444,15 +449,16 @@ public class GameManager : MonoBehaviour
 
     public void guest()
     {
-        character.SetActive(true);
         CharacterNum = Random.Range(1, 46); //함수가 실행될때마다 랜덤 수 초기화
         character.GetComponent<SpriteRenderer>().sprite = characterSprite[CharacterNum];
         if (start)
         {
+            character.SetActive(true);
             GuestBar.SetActive(true);//시간 활성화
             GuestBar.GetComponent<circleBar>().currentValue = 0; //시간을 0으로 초기화해줌
-                                                                 //애니메이션 활성화
         }
+        num = 0;
+        snum = 0;
     }
 
     public void checkLv()
@@ -533,7 +539,7 @@ public class GameManager : MonoBehaviour
         }
         if(lvNum < 5)
         {
-            shortOrder.SetActive(true);
+            if(start) shortOrder.SetActive(true);
             longOrder.SetActive(false);
         }
         else
@@ -553,7 +559,7 @@ public class GameManager : MonoBehaviour
             ren[i] = re[i].GetComponent<SpriteRenderer>();
             randoms[i] = Random.Range(4, 19);
             ren[i].sprite = sprites[randoms[i]];
-            re[i].SetActive(true);
+            if(start) re[i].SetActive(true);
         }
         //스프라이트 받아옴
         //랜덤숫자들->얘랑 누른거랑 비교하기.

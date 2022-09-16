@@ -101,8 +101,8 @@ public class circleBar : MonoBehaviour
                 audioSource[2].Play();
                 Invoke("TimerSound", 1f);
             }
-            gm.num = 0;
-            gm.snum = 0;
+            //gm.num = 0;
+            //gm.snum = 0;
             gm.ChangeGuest();
             Debug.Log("num : " + num);
             life[num].GetComponent<SpriteRenderer>().sprite = emptyLife;
