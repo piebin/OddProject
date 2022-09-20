@@ -40,6 +40,8 @@ public class GameManager : MonoBehaviour
     public GameObject longOrder, shortOrder;
     public Sprite[] BgSprites = new Sprite[9];
 
+    public int level = (ScoreManager.score / 100) + 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -464,7 +466,7 @@ public class GameManager : MonoBehaviour
     public void checkLv()
     {
         int randomInt = Random.Range(0, 2);
-        int level = (ScoreManager.score / 100) + 1;
+        //int level = (ScoreManager.score / 100) + 1;
 
         if(PlayerPrefs.GetInt("game_over")==1)
         {

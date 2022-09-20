@@ -113,6 +113,9 @@ public class circleBar : MonoBehaviour
 
         if (num == 3)
         {
+
+          
+
             gm.enabled = false;
             bgimage.GetComponent<AudioSource>().Play();
             guestTimer.SetActive(false);
