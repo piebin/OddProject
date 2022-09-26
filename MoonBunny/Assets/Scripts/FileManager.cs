@@ -51,25 +51,125 @@ public class FileManager : MonoBehaviour
             PlayerPrefs.SetInt("achieve_key4", 0);
         }
 
+
         if (!PlayerPrefs.HasKey("achieve_key5"))
         {
             PlayerPrefs.SetInt("achieve_key5", 0);
         }
+
+        if (!PlayerPrefs.HasKey("achieve_key5-1"))
+        {
+            PlayerPrefs.SetInt("achieve_key5-1", 0);
+        }
+
+        if (!PlayerPrefs.HasKey("achieve_key5-2"))
+        {
+            PlayerPrefs.SetInt("achieve_key5-2", 0);
+        }
+
+        if (!PlayerPrefs.HasKey("achieve_key5-3"))
+        {
+            PlayerPrefs.SetInt("achieve_key5-3", 0);
+        }
+
+        if (!PlayerPrefs.HasKey("achieve_key5-4"))
+        {
+            PlayerPrefs.SetInt("achieve_key6-4", 0);
+        }
+
+        if (!PlayerPrefs.HasKey("achieve_key5-5"))
+        {
+            PlayerPrefs.SetInt("achieve_key5-5", 0);
+        }
+
+        if (!PlayerPrefs.HasKey("achieve_key5-6"))
+        {
+            PlayerPrefs.SetInt("achieve_key5-6", 0);
+        }
+
+        if (!PlayerPrefs.HasKey("achieve_key5-7"))
+        {
+            PlayerPrefs.SetInt("achieve_key5-7", 0);
+        }
+
+        if (!PlayerPrefs.HasKey("achieve_key5-8"))
+        {
+            PlayerPrefs.SetInt("achieve_key5-8", 0);
+        }
+
+        if (!PlayerPrefs.HasKey("achieve_key5-9"))
+        {
+            PlayerPrefs.SetInt("achieve_key5-9", 0);
+        }
+
+        if (!PlayerPrefs.HasKey("achieve_key5-10"))
+        {
+            PlayerPrefs.SetInt("achieve_key5-10", 0);
+        }
+
+        if (!PlayerPrefs.HasKey("achieve_key5-11"))
+        {
+            PlayerPrefs.SetInt("achieve_key5-11", 0);
+        }
+
+        if (!PlayerPrefs.HasKey("achieve_key5-12"))
+        {
+            PlayerPrefs.SetInt("achieve_key5-12", 0);
+        }
+
+        if (!PlayerPrefs.HasKey("achieve_key5-13"))
+        {
+            PlayerPrefs.SetInt("achieve_key5-13", 0);
+        }
+
+        if (!PlayerPrefs.HasKey("achieve_key5-14"))
+        {
+            PlayerPrefs.SetInt("achieve_key5-14", 0);
+        }
+
+        if (!PlayerPrefs.HasKey("achieve_key5-15"))
+        {
+            PlayerPrefs.SetInt("achieve_key5-15", 0);
+        }
+
+
 
         if (!PlayerPrefs.HasKey("achieve_key6"))
         {
             PlayerPrefs.SetInt("achieve_key6", 0);
         }
 
+
         if (!PlayerPrefs.HasKey("achieve_key7"))
         {
             PlayerPrefs.SetInt("achieve_key7", 0);
         }
 
-        if(!PlayerPrefs.HasKey("achieve_key8"))
+        if (!PlayerPrefs.HasKey("achieve_key7-1"))
+        {
+            PlayerPrefs.SetInt("achieve_key7-1", 0);
+        }
+
+        if (!PlayerPrefs.HasKey("achieve_key7-2"))
+        {
+            PlayerPrefs.SetInt("achieve_key7-2", 0);
+        }
+
+        if (!PlayerPrefs.HasKey("achieve_key7-3"))
+        {
+            PlayerPrefs.SetInt("achieve_key7-3", 0);
+        }
+
+
+
+
+        if (!PlayerPrefs.HasKey("achieve_key8"))
         {
             PlayerPrefs.SetInt("achieve_key8", 0);
         }
+
+
+
 
         if (!PlayerPrefs.HasKey("buy_key"))
         {
