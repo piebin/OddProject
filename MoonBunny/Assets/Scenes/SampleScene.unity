@@ -725,6 +725,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ca51e7bc69df5964da369b1893daf3a5, type: 3}
   - {fileID: 0}
   - {fileID: 0}
+  level: 1
 --- !u!4 &110919639
 Transform:
   m_ObjectHideFlags: 0
@@ -5505,7 +5506,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1305991782}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: bcdc761c743db0d40ab9bcb6291a0704, type: 3}
