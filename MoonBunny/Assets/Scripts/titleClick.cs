@@ -29,9 +29,10 @@ public class titleClick : MonoBehaviour
 
     private AudioSource audioSource;
     private bool click = false;
+    private GameObject BackgroundMusic;
+    private AudioSource backmusic;
 
     int one = 0;//중복방지
-
 
     void Start()
     {
@@ -182,6 +183,9 @@ public class titleClick : MonoBehaviour
 
     public void loadSample()
     {
+        BackgroundMusic = GameObject.Find("BGM");
+        backmusic = BackgroundMusic.GetComponent<AudioSource>();
+        if (backmusic.isPlaying) backmusic.Stop();
         SceneManager.LoadScene("SampleScene");
     }
 
