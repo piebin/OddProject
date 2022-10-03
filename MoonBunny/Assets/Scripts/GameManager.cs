@@ -41,6 +41,10 @@ public class GameManager : MonoBehaviour
     public GameObject longOrder, shortOrder;
     public Sprite[] BgSprites = new Sprite[9];
 
+    public GameObject spSauceB, spSaucePK, spSauceP, spSauceG;
+
+
+
     public int level = (ScoreManager.score / 100) + 1;
 
     // Start is called before the first frame update
@@ -156,6 +160,33 @@ public class GameManager : MonoBehaviour
         dark.SetActive(false);
     }
 
+
+    //엎질러진 소스 비활성화 함수
+    public void NoSpP()
+    {
+        spSauceP.SetActive(false);
+    }
+
+    public void NoSpPK()
+    {
+        spSaucePK.SetActive(false);
+
+    }
+
+    public void NoSpB()
+    {
+        spSauceB.SetActive(false);
+
+    }
+
+    public void NoSpG()
+    {
+        spSauceG.SetActive(false);
+
+    }
+
+
+
     // Update is called once per frame
     void Update()
     {
@@ -169,6 +200,8 @@ public class GameManager : MonoBehaviour
             //this.enabled = true;
             //GuestBar.SetActive(true);
         }
+
+
 
         //버튼 누르는거
         if (Input.GetMouseButtonDown(0))
@@ -251,10 +284,40 @@ public class GameManager : MonoBehaviour
                     }
                 }
 
+                if(hit.collider.gameObject==saucesB[0] && IsclickedDduk == 0)//보라
+                {
+                    spSauceP.SetActive(true);
+                    IsclickedDduk = 0;
+                    Invoke("NoSpP", 0.3f);
+                }
+
+                if (hit.collider.gameObject == saucesB[1] && IsclickedDduk == 0)//분홍
+                {
+                    spSaucePK.SetActive(true);
+                    IsclickedDduk = 0;
+                    Invoke("NoSpPK", 0.3f);
+                }
+
+                if (hit.collider.gameObject == saucesB[2] && IsclickedDduk == 0)//파랑
+                {
+                    spSauceB.SetActive(true);
+                    IsclickedDduk = 0;
+                    Invoke("NoSpB", 0.3f);
+                }
+
+                if (hit.collider.gameObject == saucesB[3] && IsclickedDduk == 0)//초록
+                {
+                    spSauceG.SetActive(true);
+                    IsclickedDduk = 0;
+                    Invoke("NoSpG", 0.3f);
+                }
+
+
+
 
                 //소스버튼 눌렀을 때
                 //모양4개, 색 4개->16개 if
-                if(hit.collider.gameObject == saucesB[0] && num > snum) //보라색
+                if (hit.collider.gameObject == saucesB[0] && num > snum) //보라색
                 {
                     saucesB[0].GetComponent<AudioSource>().Play();
                     for (int i=0; i<num; i++)//지금까지 누른 모양 확인
@@ -287,7 +350,7 @@ public class GameManager : MonoBehaviour
                     snum++; //소스 버튼을 누른 횟수
                 }
 
-                if (hit.collider.gameObject == saucesB[1] && num > snum) //빨간색
+                if (hit.collider.gameObject == saucesB[1] && num > snum) //분홍색
                 {
                     saucesB[1].GetComponent<AudioSource>().Play();
                     for (int i = 0; i < num; i++)//지금까지 누른 모양 확인
@@ -321,7 +384,7 @@ public class GameManager : MonoBehaviour
                     snum++; //소스 버튼을 누른 횟수
                 }
 
-                if (hit.collider.gameObject == saucesB[2] && num > snum) //노란색
+                if (hit.collider.gameObject == saucesB[2] && num > snum) //파란색
                 {
                     saucesB[2].GetComponent<AudioSource>().Play();
                     for (int i = 0; i < num; i++)//지금까지 누른 모양 확인
@@ -389,7 +452,7 @@ public class GameManager : MonoBehaviour
 
 
                 //클릭한거랑 랜덤수랑 비교해서 같은지 확인
-                if (num >= lvNum && snum >= lvNum)
+                if (num >= lvNum && snum >= lvNum && snum>2)
                 {
                     int sn = 0;
 
@@ -408,8 +471,8 @@ public class GameManager : MonoBehaviour
                             sn++;
                         }
 
-                        if (clickedS[i] == randoms[i])
-                            continue;
+/*                        if (clickedS[i] == randoms[i])
+                            continue;*/
                     }
 
                     if (sn == lvNum)
@@ -420,7 +483,10 @@ public class GameManager : MonoBehaviour
                         Invoke("TimerSound", 0.8f);
                         gameObject.GetComponent<AudioSource>().Play();
                         success = true;
+
                         ChangeGuest();
+
+
                     }
 
                     //checkLv();
@@ -447,10 +513,18 @@ public class GameManager : MonoBehaviour
 
     public void ChangeGuest()
     {
+        sauceCh.GetComponent<BoxCollider2D>().enabled = false;
+
         Invoke("AnActive", 0.5f);
         Invoke("guest", 0.5f);
         Invoke("sauceChange", 0.5f);
         Invoke("randomRice", 0.6f);
+        Invoke("sauceChON", 0.6f);
+    }
+
+    public void sauceChON()
+    {
+        sauceCh.GetComponent<BoxCollider2D>().enabled = true;
     }
 
     //버튼 창을 떡 시작으로 바꿈.
@@ -474,49 +548,44 @@ public class GameManager : MonoBehaviour
         CharacterNum = Random.Range(1, 46); //함수가 실행될때마다 랜덤 수 초기화     
         character.GetComponent<SpriteRenderer>().sprite = characterSprite[CharacterNum];
 
-        //업적 6번
+        //업적 6번 우주복
 
         if(CharacterNum==1)
             PlayerPrefs.SetInt("achieve_key5-1", 1);
-        if (CharacterNum == 2)
-            PlayerPrefs.SetInt("achieve_key5-2", 1);
-        if (CharacterNum == 3)
-            PlayerPrefs.SetInt("achieve_key5-3", 1);
         if (CharacterNum == 4)
-            PlayerPrefs.SetInt("achieve_key5-4", 1);
-        if (CharacterNum == 5)
-            PlayerPrefs.SetInt("achieve_key5-5", 1);
-        if (CharacterNum == 6)
-            PlayerPrefs.SetInt("achieve_key5-6", 1);
+            PlayerPrefs.SetInt("achieve_key5-2", 1);
         if (CharacterNum == 7)
-            PlayerPrefs.SetInt("achieve_key5-7", 1);
-        if (CharacterNum == 8)
-            PlayerPrefs.SetInt("achieve_key5-8", 1);
-        if (CharacterNum == 9)
-            PlayerPrefs.SetInt("achieve_key5-9", 1);
+            PlayerPrefs.SetInt("achieve_key5-3", 1);
         if (CharacterNum == 10)
-            PlayerPrefs.SetInt("achieve_key5-10", 1);
-        if (CharacterNum == 11)
-            PlayerPrefs.SetInt("achieve_key5-11", 1);
-        if (CharacterNum == 12)
-            PlayerPrefs.SetInt("achieve_key5-12", 1);
+            PlayerPrefs.SetInt("achieve_key5-4", 1);
         if (CharacterNum == 13)
+            PlayerPrefs.SetInt("achieve_key5-5", 1);
+        if (CharacterNum == 16)
+            PlayerPrefs.SetInt("achieve_key5-6", 1);
+        if (CharacterNum == 19)
+            PlayerPrefs.SetInt("achieve_key5-7", 1);
+        if (CharacterNum == 22)
+            PlayerPrefs.SetInt("achieve_key5-8", 1);
+        if (CharacterNum == 25)
+            PlayerPrefs.SetInt("achieve_key5-9", 1);
+        if (CharacterNum == 28)
+            PlayerPrefs.SetInt("achieve_key5-10", 1);
+        if (CharacterNum == 31)
+            PlayerPrefs.SetInt("achieve_key5-11", 1);
+        if (CharacterNum == 34)
+            PlayerPrefs.SetInt("achieve_key5-12", 1);
+        if (CharacterNum == 37)
             PlayerPrefs.SetInt("achieve_key5-13", 1);
-        if (CharacterNum == 14)
+        if (CharacterNum == 40)
             PlayerPrefs.SetInt("achieve_key5-14", 1);
-        if (CharacterNum == 15)
+        if (CharacterNum == 43)
             PlayerPrefs.SetInt("achieve_key5-15", 1);
 
-        if(PlayerPrefs.GetInt("achieve_key5-1")==1 && PlayerPrefs.GetInt("achieve_key5-2") == 1 && PlayerPrefs.GetInt("achieve_key5-3") == 1 
+        if(PlayerPrefs.GetInt("achieve_key5") == 0 && PlayerPrefs.GetInt("achieve_key5-1")==1 && PlayerPrefs.GetInt("achieve_key5-2") == 1 && PlayerPrefs.GetInt("achieve_key5-3") == 1 
             && PlayerPrefs.GetInt("achieve_key5-4") == 1 && PlayerPrefs.GetInt("achieve_key5-5") == 1 && PlayerPrefs.GetInt("achieve_key5-6") == 1 
             && PlayerPrefs.GetInt("achieve_key5-7") == 1 && PlayerPrefs.GetInt("achieve_key5-8") == 1 && PlayerPrefs.GetInt("achieve_key5-9") == 1 
             && PlayerPrefs.GetInt("achieve_key5-10") == 1 && PlayerPrefs.GetInt("achieve_key5-11") == 1 && PlayerPrefs.GetInt("achieve_key5-12") == 1 
             && PlayerPrefs.GetInt("achieve_key5-13") == 1 && PlayerPrefs.GetInt("achieve_key5-14") == 1 && PlayerPrefs.GetInt("achieve_key5-15") == 1)
-        {
-            PlayerPrefs.SetInt("achieve_key5", 2);
-        }
-
-        if (PlayerPrefs.GetInt("achieve_key5") == 2)
         {
             Debug.Log("achieve6 clear");
             clearOne();
@@ -524,7 +593,52 @@ public class GameManager : MonoBehaviour
         }
 
 
-        //업적 7번
+
+        //업적 7번 일상복a
+
+        if (CharacterNum == 2)
+            PlayerPrefs.SetInt("achieve_key6-1", 1);
+        if (CharacterNum == 5)
+            PlayerPrefs.SetInt("achieve_key6-2", 1);
+        if (CharacterNum == 8)
+            PlayerPrefs.SetInt("achieve_key6-3", 1);
+        if (CharacterNum == 11)
+            PlayerPrefs.SetInt("achieve_key6-4", 1);
+        if (CharacterNum == 14)
+            PlayerPrefs.SetInt("achieve_key6-5", 1);
+        if (CharacterNum == 17)
+            PlayerPrefs.SetInt("achieve_key6-6", 1);
+        if (CharacterNum == 20)
+            PlayerPrefs.SetInt("achieve_key6-7", 1);
+        if (CharacterNum == 23)
+            PlayerPrefs.SetInt("achieve_key6-8", 1);
+        if (CharacterNum == 26)
+            PlayerPrefs.SetInt("achieve_key6-9", 1);
+        if (CharacterNum == 29)
+            PlayerPrefs.SetInt("achieve_key6-10", 1);
+        if (CharacterNum == 32)
+            PlayerPrefs.SetInt("achieve_key6-11", 1);
+        if (CharacterNum == 35)
+            PlayerPrefs.SetInt("achieve_key6-12", 1);
+        if (CharacterNum == 38)
+            PlayerPrefs.SetInt("achieve_key6-13", 1);
+        if (CharacterNum == 41)
+            PlayerPrefs.SetInt("achieve_key6-14", 1);
+        if (CharacterNum == 44)
+            PlayerPrefs.SetInt("achieve_key6-15", 1);
+
+        if (PlayerPrefs.GetInt("achieve_key6") == 0 && PlayerPrefs.GetInt("achieve_key6-1") == 1 && PlayerPrefs.GetInt("achieve_key6-2") == 1 && PlayerPrefs.GetInt("achieve_key6-3") == 1
+            && PlayerPrefs.GetInt("achieve_key6-4") == 1 && PlayerPrefs.GetInt("achieve_key6-5") == 1 && PlayerPrefs.GetInt("achieve_key6-6") == 1
+            && PlayerPrefs.GetInt("achieve_key6-7") == 1 && PlayerPrefs.GetInt("achieve_key6-8") == 1 && PlayerPrefs.GetInt("achieve_key6-9") == 1
+            && PlayerPrefs.GetInt("achieve_key6-10") == 1 && PlayerPrefs.GetInt("achieve_key6-11") == 1 && PlayerPrefs.GetInt("achieve_key6-12") == 1
+            && PlayerPrefs.GetInt("achieve_key6-13") == 1 && PlayerPrefs.GetInt("achieve_key6-14") == 1 && PlayerPrefs.GetInt("achieve_key6-15") == 1)
+        {
+            Debug.Log("achieve7 clear");
+            clearOne();
+            PlayerPrefs.SetInt("achieve_key6", 1);
+        }
+
+
 
 
 
@@ -538,12 +652,7 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("achieve_key7-3", 1);
 
 
-        if (PlayerPrefs.GetInt("achieve_key7-1") == 1 && PlayerPrefs.GetInt("achieve_key7-2") == 1 && PlayerPrefs.GetInt("achieve_key7-3") == 1)
-        {
-            PlayerPrefs.SetInt("achieve_key7", 2);
-        }
-
-        if (PlayerPrefs.GetInt("achieve_key7") == 2)
+        if (PlayerPrefs.GetInt("achieve_key7") == 0 && PlayerPrefs.GetInt("achieve_key7-1") == 1 && PlayerPrefs.GetInt("achieve_key7-2") == 1 && PlayerPrefs.GetInt("achieve_key7-3") == 1)
         {
             Debug.Log("achieve8 clear");
             clearOne();
