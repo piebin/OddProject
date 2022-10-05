@@ -40,19 +40,12 @@ public class circleBar : MonoBehaviour
 
     void Start()
     {
-        audioSource[0].Play();
         losingHeart = PlayerPrefs.GetInt("losing_heart");
-    }
-
-    void TimerSound()
-    {
-        audioSource[0].Play();
     }
 
     // Update is called once per frame
     void Update()
     {
-
         GameManager gm = GameObject.Find("GameObject").GetComponent<GameManager>();
 
         float i;
@@ -89,17 +82,14 @@ public class circleBar : MonoBehaviour
         {
             losingHeart++;
 
-            audioSource[0].Stop();
             int rand = Random.Range(1, 3);
             if (rand == 1)
             {
                 audioSource[1].Play();
-                Invoke("TimerSound", 1f);
             }
             else if (rand == 2)
             {
                 audioSource[2].Play();
-                Invoke("TimerSound", 1f);
             }
             //gm.num = 0;
             //gm.snum = 0;
@@ -113,9 +103,6 @@ public class circleBar : MonoBehaviour
 
         if (num == 3)
         {
-
-          
-
             gm.enabled = false;
             bgimage.GetComponent<AudioSource>().Play();
             guestTimer.SetActive(false);
@@ -148,10 +135,6 @@ public class circleBar : MonoBehaviour
                 }
 
             }
-
-
-
-
         }
 
         LoadingBar.fillAmount = currentValue / i;

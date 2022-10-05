@@ -40,11 +40,8 @@ public class GameManager : MonoBehaviour
     public GameObject backGround;
     public GameObject longOrder, shortOrder;
     public Sprite[] BgSprites = new Sprite[9];
-
+    public GameObject BGM2, openBtn;
     public GameObject spSauceB, spSaucePK, spSauceP, spSauceG;
-
-
-
     public int level = (ScoreManager.score / 100) + 1;
 
     // Start is called before the first frame update
@@ -58,7 +55,6 @@ public class GameManager : MonoBehaviour
         num = 10;
         snum = 10;
         goBack.SetActive(true);
-
 
         //배경적용
         backGround.GetComponent<SpriteRenderer>().sprite = BgSprites[PlayerPrefs.GetInt("ing_key")];
@@ -80,7 +76,13 @@ public class GameManager : MonoBehaviour
             clearOne();
         //업적 텍스트 파일에 1이 없을 경우 업적 공개 효과인 Celarone함수 실행.
 
-        Invoke("FadeInvoke", 1.0f);
+        Invoke("OpenBtnFalse", 1.6f);
+        Invoke("FadeInvoke", 2.0f);
+    }
+
+    public void OpenBtnFalse()
+    {
+        openBtn.SetActive(false);
     }
 
     public void FadeInvoke()
@@ -133,6 +135,18 @@ public class GameManager : MonoBehaviour
         //Destroy(Ab1, 10f);
     }
 
+    public static IEnumerator FadeOut(GameObject source, float FadeTime)
+    {
+        AudioSource audioSource = source.GetComponent<AudioSource>();
+        float startVolume = audioSource.volume;
+        while (audioSource.volume > 0)
+        {
+            audioSource.volume -= startVolume * Time.deltaTime / FadeTime;
+            yield return null;
+        }
+        audioSource.Stop();
+    }
+
     public void goBackYes()
     {
         GuestBar.SetActive(false);
@@ -140,6 +154,7 @@ public class GameManager : MonoBehaviour
         multiBtnSound.GetComponent<AudioSource>().Play();
         loadingDown.SetActive(true);
         titlePanel.SetActive(false);
+        StartCoroutine(FadeOut(BGM2, 1.5f));
         Invoke("loadTitle", 1.8f);
     }
 
@@ -189,8 +204,7 @@ public class GameManager : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-
+    { 
         if (titlePanel.activeSelf == false)
         {
             Time.timeScale = 1.0f;
@@ -200,8 +214,6 @@ public class GameManager : MonoBehaviour
             //this.enabled = true;
             //GuestBar.SetActive(true);
         }
-
-
 
         //버튼 누르는거
         if (Input.GetMouseButtonDown(0))

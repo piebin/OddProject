@@ -65,11 +65,11 @@ public class OpenButton : MonoBehaviour
             //score.SetActive(true);
         }
 
-        else
-        {
-            open.SetActive(false);
-            //score.SetActive(false);
-        }
+        //else
+        //{
+        //    open.SetActive(false);
+        //    //score.SetActive(false);
+        //}
     }
 
     public void openBtn()
@@ -80,7 +80,7 @@ public class OpenButton : MonoBehaviour
         circle.SetActive(true);
         level.SetActive(true);
         life.SetActive(true);
-        open.SetActive(false);
+        //open.SetActive(false);
         openChk = true;
         BGM1.GetComponent<AudioSource>().Stop();
         BGM1.SetActive(false);
