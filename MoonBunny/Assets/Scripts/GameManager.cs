@@ -30,7 +30,20 @@ public class GameManager : MonoBehaviour
     private int CharacterNum;
     private int IsclickedDduk = 0;
     public GameObject GuestBar;
-    public GameObject Ab1;
+
+    public GameObject ac1;
+    public GameObject ac2;
+    public GameObject ac3;
+    public GameObject ac4;
+    public GameObject ac5;
+    public GameObject ac6;
+    public GameObject ac7;
+    public GameObject ac8;
+    public GameObject ac9;
+
+    public int TestAc;
+
+
     public static bool success = false;
     public GameObject sauceCh;
     bool exist1=false;
@@ -125,15 +138,63 @@ public class GameManager : MonoBehaviour
 
     public void clearOne()
     {
-        Ab1.SetActive(true);
-        Ab1.GetComponent<Animation>().Play();
-        Ab1.GetComponent<AudioSource>().Play();
-
-        //업적 텍스트 파일에 업적 공개 효과가 실행됐음을 알리기 위해 텍스트 파일에 "1" 입력.
-        //여기서 "1"은 1번 업적을 의미함.
-
-        //Destroy(Ab1, 10f);
+        ac1.SetActive(true);
+        ac1.GetComponent<Animation>().Play();
+        ac1.GetComponent<AudioSource>().Play();
     }
+    public void clearTwo()
+    {
+        ac2.SetActive(true);
+        ac2.GetComponent<Animation>().Play();
+        ac2.GetComponent<AudioSource>().Play();
+    }
+    public void clearThree()
+    {
+        ac3.SetActive(true);
+        ac3.GetComponent<Animation>().Play();
+        ac3.GetComponent<AudioSource>().Play();
+    }
+    public void clearFour()
+    {
+        ac4.SetActive(true);
+        ac4.GetComponent<Animation>().Play();
+        ac4.GetComponent<AudioSource>().Play();
+    }
+    public void clearFive()
+    {
+        ac5.SetActive(true);
+        ac5.GetComponent<Animation>().Play();
+        ac5.GetComponent<AudioSource>().Play();
+    }
+    public void clearSix()
+    {
+        ac6.SetActive(true);
+        ac6.GetComponent<Animation>().Play();
+        ac6.GetComponent<AudioSource>().Play();
+    }
+    public void clearSeven()
+    {
+        ac7.SetActive(true);
+        ac7.GetComponent<Animation>().Play();
+        ac7.GetComponent<AudioSource>().Play();
+    }
+    public void clearEight()
+    {
+        ac8.SetActive(true);
+        ac8.GetComponent<Animation>().Play();
+        ac8.GetComponent<AudioSource>().Play();
+    }
+    public void clearNine()
+    {
+        ac9.SetActive(true);
+        ac9.GetComponent<Animation>().Play();
+        ac9.GetComponent<AudioSource>().Play();
+    }
+
+
+
+
+
 
     public static IEnumerator FadeOut(GameObject source, float FadeTime)
     {
@@ -204,7 +265,48 @@ public class GameManager : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    { 
+    {
+
+        if (TestAc == 1)
+        {
+            clearOne();
+            PlayerPrefs.SetInt("achieve_key0", 1);
+        }
+        if (TestAc == 2)
+        { clearTwo();
+            PlayerPrefs.SetInt("achieve_key1", 1);
+        }
+        if (TestAc == 3)
+        { clearThree();
+            PlayerPrefs.SetInt("achieve_key2", 1);
+        }
+        if (TestAc == 4)
+        { clearFour();
+            PlayerPrefs.SetInt("achieve_key3", 1);
+        }
+        if (TestAc == 5)
+        { clearFive();
+            PlayerPrefs.SetInt("achieve_key4", 1);
+        }
+        if (TestAc == 6)
+        { clearSix();
+            PlayerPrefs.SetInt("achieve_key5", 1);
+        }
+        if (TestAc == 7)
+        { clearSeven();
+            PlayerPrefs.SetInt("achieve_key6", 1);
+        }
+        if (TestAc == 8)
+        { clearEight();
+            PlayerPrefs.SetInt("achieve_key7", 1);
+        }
+        if (TestAc == 9)
+        { clearNine();
+            PlayerPrefs.SetInt("achieve_key8", 1);
+        }
+
+
+
         if (titlePanel.activeSelf == false)
         {
             Time.timeScale = 1.0f;
@@ -291,7 +393,7 @@ public class GameManager : MonoBehaviour
                     if (PlayerPrefs.GetInt("achieve_key3") == 0)
                     {
                         Debug.Log("achieve4 clear");
-                        clearOne();
+                        clearFour();
                         PlayerPrefs.SetInt("achieve_key3", 1);
                     }
                 }
@@ -600,7 +702,7 @@ public class GameManager : MonoBehaviour
             && PlayerPrefs.GetInt("achieve_key5-13") == 1 && PlayerPrefs.GetInt("achieve_key5-14") == 1 && PlayerPrefs.GetInt("achieve_key5-15") == 1)
         {
             Debug.Log("achieve6 clear");
-            clearOne();
+            clearSix();
             PlayerPrefs.SetInt("achieve_key5", 1);
         }
 
@@ -646,7 +748,7 @@ public class GameManager : MonoBehaviour
             && PlayerPrefs.GetInt("achieve_key6-13") == 1 && PlayerPrefs.GetInt("achieve_key6-14") == 1 && PlayerPrefs.GetInt("achieve_key6-15") == 1)
         {
             Debug.Log("achieve7 clear");
-            clearOne();
+            clearSeven();
             PlayerPrefs.SetInt("achieve_key6", 1);
         }
 
@@ -667,7 +769,7 @@ public class GameManager : MonoBehaviour
         if (PlayerPrefs.GetInt("achieve_key7") == 0 && PlayerPrefs.GetInt("achieve_key7-1") == 1 && PlayerPrefs.GetInt("achieve_key7-2") == 1 && PlayerPrefs.GetInt("achieve_key7-3") == 1)
         {
             Debug.Log("achieve8 clear");
-            clearOne();
+            clearEight();
             PlayerPrefs.SetInt("achieve_key7", 1);
         }
 
@@ -695,7 +797,7 @@ public class GameManager : MonoBehaviour
                 if(PlayerPrefs.GetInt("achieve_key8") == 0)
                 {
                     Debug.Log("achieve9 clear");
-                    clearOne();
+                    clearNine();
                     PlayerPrefs.SetInt("achieve_key8", 1);
                 }
             }
@@ -706,7 +808,7 @@ public class GameManager : MonoBehaviour
             if(PlayerPrefs.GetInt("achieve_key4") ==0)
             {
                 Debug.Log("achieve5 clear");
-                clearOne();
+                clearFive();
                 PlayerPrefs.SetInt("achieve_key4", 1);
             }
         }

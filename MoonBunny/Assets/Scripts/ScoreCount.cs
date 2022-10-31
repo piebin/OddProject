@@ -75,7 +75,7 @@ public class ScoreCount : MonoBehaviour
             if (PlayerPrefs.GetInt("achieve_key2") == 0)
             {
                 Debug.Log("achieve3 clear");
-                gm.clearOne();
+                gm.clearThree();
                 PlayerPrefs.SetInt("achieve_key2", 1);
             }
         }

@@ -7,11 +7,19 @@ public class circleBar : MonoBehaviour
 {
     // Start is called before the first frame update
     public Image LoadingBar;
-    public Sprite greenBar;
-    public Sprite yellowBar;
-    public Sprite redBar;
+
+    public Sprite red1;
+    public Sprite red2;
+    public Sprite red3;
+    public Sprite red4;
+    public Sprite red5;
+    public Sprite red6;
+    public Sprite red7;
+    public Sprite red8;
+
     public float currentValue;
     public float speed;
+    public float FA;
     public int num = 0;
     public GameObject[] life = new GameObject[3];
     public Sprite emptyLife;
@@ -59,20 +67,40 @@ public class circleBar : MonoBehaviour
         {
             currentValue += speed * Time.deltaTime;
 
-            if (currentValue >=0 && currentValue <= 30)
+            FA = currentValue / i;
+
+            if (FA >=0 && FA <= 0.127)
             {
-                GameObject.Find("BackBar").GetComponent<Image>().sprite = greenBar; //green
+                GameObject.Find("Bar").GetComponent<Image>().sprite = red1;
             }
 
-            if(currentValue > 30 && currentValue <= 60)
+            if(FA > 0.127 && FA <= 0.255)
             {
-                GameObject.Find("BackBar").GetComponent<Image>().sprite = yellowBar;
-                //GameObject.Find("BackBar").GetComponent<Image>().color = new Color(255 / 255, 255 / 255, 90 / 255); //yellow
+                GameObject.Find("Bar").GetComponent<Image>().sprite = red2;
             }
-            if(currentValue >60 && currentValue < 100)
+            if(FA >0.255 && FA < 0.389)
             {
-                GameObject.Find("BackBar").GetComponent<Image>().sprite = redBar;
-                //GameObject.Find("BackBar").GetComponent<Image>().color = new Color(255 / 255, 0, 0); //red
+                GameObject.Find("Bar").GetComponent<Image>().sprite = red3;
+            }
+            if (FA > 0.389 && FA < 0.505)
+            {
+                GameObject.Find("Bar").GetComponent<Image>().sprite = red4;
+            }
+            if (FA > 0.505 && FA < 0.622)
+            {
+                GameObject.Find("Bar").GetComponent<Image>().sprite = red5;
+            }
+            if (FA > 0.622 && FA < 0.755)
+            {
+                GameObject.Find("Bar").GetComponent<Image>().sprite = red6;
+            }
+            if (FA > 0.755 && FA < 0.867)
+            {
+                GameObject.Find("Bar").GetComponent<Image>().sprite = red7;
+            }
+            if (FA > 0.867 && FA < 1)
+            {
+                GameObject.Find("Bar").GetComponent<Image>().sprite = red8;
             }
 
         }
@@ -130,7 +158,7 @@ public class circleBar : MonoBehaviour
                 if (PlayerPrefs.GetInt("achieve_key2") == 0)
                 {
                     Debug.Log("achieve2 clear");
-                    gm.clearOne();
+                    gm.clearTwo();
                     PlayerPrefs.SetInt("achieve_key1", 1);
                 }
 
