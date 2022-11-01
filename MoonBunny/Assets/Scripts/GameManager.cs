@@ -43,7 +43,6 @@ public class GameManager : MonoBehaviour
 
     public int TestAc;
 
-
     public static bool success = false;
     public GameObject sauceCh;
     bool exist1=false;
@@ -192,10 +191,6 @@ public class GameManager : MonoBehaviour
     }
 
 
-
-
-
-
     public static IEnumerator FadeOut(GameObject source, float FadeTime)
     {
         AudioSource audioSource = source.GetComponent<AudioSource>();
@@ -246,21 +241,17 @@ public class GameManager : MonoBehaviour
     public void NoSpPK()
     {
         spSaucePK.SetActive(false);
-
     }
 
     public void NoSpB()
     {
         spSauceB.SetActive(false);
-
     }
 
     public void NoSpG()
     {
         spSauceG.SetActive(false);
-
     }
-
 
 
     // Update is called once per frame
@@ -427,8 +418,6 @@ public class GameManager : MonoBehaviour
                 }
 
 
-
-
                 //소스버튼 눌렀을 때
                 //모양4개, 색 4개->16개 if
                 if (hit.collider.gameObject == saucesB[0] && num > snum) //보라색
@@ -572,7 +561,7 @@ public class GameManager : MonoBehaviour
 
                     for (int i = 0; i < lvNum; i++)
                     {
-/*                        if(i == lvNum - 1 && clickedS[i] == randoms[i])
+                        /*if(i == lvNum - 1 && clickedS[i] == randoms[i])
                         {
                             sn++;
                             Debug.Log("sn is " + sn);
@@ -585,7 +574,7 @@ public class GameManager : MonoBehaviour
                             sn++;
                         }
 
-/*                        if (clickedS[i] == randoms[i])
+                        /*if (clickedS[i] == randoms[i])
                             continue;*/
                     }
 
@@ -599,8 +588,6 @@ public class GameManager : MonoBehaviour
                         success = true;
 
                         ChangeGuest();
-
-
                     }
 
                     //checkLv();
@@ -753,9 +740,6 @@ public class GameManager : MonoBehaviour
         }
 
 
-
-
-
         //업적 8번
 
         if (CharacterNum == 7)
@@ -772,8 +756,6 @@ public class GameManager : MonoBehaviour
             clearEight();
             PlayerPrefs.SetInt("achieve_key7", 1);
         }
-
-
 
         if (start)
         {

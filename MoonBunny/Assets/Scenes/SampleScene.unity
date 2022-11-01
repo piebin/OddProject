@@ -854,10 +854,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 20e5bce499b2abf418f44bdcc3d70880, type: 3}
   - {fileID: 21300000, guid: 94ea40081e05daa4c9b1de71b6d9abf9, type: 3}
   - {fileID: 21300000, guid: cf5cdee6b8cea794db15dfbe9cc25d59, type: 3}
-  - {fileID: 21300000, guid: 356818d2a4c383b498049ff8becd9768, type: 3}
-  - {fileID: 21300000, guid: 756e1da2f677ce04086ae8a01065fc46, type: 3}
-  - {fileID: 21300000, guid: 7b163d0c448f22f41b10217af6e9a27d, type: 3}
-  - {fileID: 21300000, guid: d8f0ca6afa9debb47b854f97cab88e82, type: 3}
+  - {fileID: 21300000, guid: 9a72616699dd4ae4f9cc23b02f202185, type: 3}
+  - {fileID: 21300000, guid: 9b9008bfe37662244a53d580ee83df2e, type: 3}
+  - {fileID: 21300000, guid: 758d965574bd58a4da6cd506635e001c, type: 3}
+  - {fileID: 21300000, guid: 24432412fa2068a4b8ad40ca4d4937e2, type: 3}
   - {fileID: 21300000, guid: 4dc2792145edd444588fa3529c9c010b, type: 3}
   - {fileID: 21300000, guid: a5985b5247271a74796994cc16edeeb0, type: 3}
   - {fileID: 21300000, guid: ac1704450a1426d4680f39e7c632bd2a, type: 3}
@@ -3167,7 +3167,7 @@ SpriteRenderer:
   m_Size: {x: 12, y: 24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &569816224
