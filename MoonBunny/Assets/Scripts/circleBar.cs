@@ -109,7 +109,6 @@ public class circleBar : MonoBehaviour
         else if (!GameManager.success)
         {
             losingHeart++;
-
             int rand = Random.Range(1, 3);
             if (rand == 1)
             {

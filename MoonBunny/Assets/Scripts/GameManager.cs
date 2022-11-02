@@ -226,7 +226,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1.0f;
         GuestBar.SetActive(true);
         multiBtnSound.GetComponent<AudioSource>().Play();
-        GuestBar.GetComponent<AudioSource>().Play();
+        //GuestBar.GetComponent<AudioSource>().Play();
         titlePanel.SetActive(false);
         dark.SetActive(false);
     }
@@ -582,8 +582,8 @@ public class GameManager : MonoBehaviour
                     {
                         ScoreManager.score += 10;
 
-                        GuestBar.GetComponent<AudioSource>().Stop();
-                        Invoke("TimerSound", 0.8f);
+                        //GuestBar.GetComponent<AudioSource>().Stop();
+                        //Invoke("TimerSound", 0.8f);
                         gameObject.GetComponent<AudioSource>().Play();
                         success = true;
 
@@ -596,10 +596,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void TimerSound()
-    {
-        GuestBar.GetComponent<AudioSource>().Play();
-    }
+    //public void TimerSound()
+    //{
+    //    GuestBar.GetComponent<AudioSource>().Play();
+    //}
 
     public void AnActive()
     {
