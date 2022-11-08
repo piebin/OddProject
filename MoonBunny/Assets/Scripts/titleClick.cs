@@ -217,8 +217,9 @@ public class titleClick : MonoBehaviour
 
     public void Option()
     {
-        Debug.Log("이전에 저장한 정보 삭제");
-        PlayerPrefs.DeleteAll();
+        SceneManager.LoadScene("Setting");
+        //Debug.Log("이전에 저장한 정보 삭제");
+        //PlayerPrefs.DeleteAll();
     }
 
     public void GameQuit()
