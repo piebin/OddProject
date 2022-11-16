@@ -13,8 +13,8 @@ public class VolumMG : MonoBehaviour
 
     public void Start()
     {
-        bgm.value = 0.5f;
-        sfx.value = 0.5f;
+        bgm.value = PlayerPrefs.GetFloat("bgm_sound");
+        sfx.value = PlayerPrefs.GetFloat("sfx_sound");
 
         mixer.SetFloat("bgmv", Mathf.Log10(bgm.value) * 20);
         mixer.SetFloat("sfxv", Mathf.Log10(sfx.value) * 20);
@@ -23,11 +23,13 @@ public class VolumMG : MonoBehaviour
     public void setBGM(float sliderVal)
     {
         mixer.SetFloat("bgmv", Mathf.Log10(sliderVal) * 20);
+        PlayerPrefs.SetFloat("bgm_sound", sliderVal);
     }
 
     public void setSFX(float sliderVal)
     {
         mixer.SetFloat("sfxv", Mathf.Log10(sliderVal) * 20);
+        PlayerPrefs.SetFloat("sfx_sound", sliderVal);
     }
 
 }

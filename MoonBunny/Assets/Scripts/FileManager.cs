@@ -236,6 +236,16 @@ public class FileManager : MonoBehaviour
             PlayerPrefs.SetInt("go_main", 0);
         }
 
+        if (!PlayerPrefs.HasKey("bgm_sound"))
+        {
+            PlayerPrefs.SetFloat("bgm_sound", 0.5f);
+        }
+
+        if (!PlayerPrefs.HasKey("sfx_sound"))
+        {
+            PlayerPrefs.SetFloat("sfx_sound", 0.5f);
+        }
+
 
     }
 

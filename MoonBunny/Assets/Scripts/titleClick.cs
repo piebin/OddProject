@@ -223,6 +223,12 @@ public class titleClick : MonoBehaviour
         //PlayerPrefs.DeleteAll();
     }
 
+    public void resetB()
+    {
+        Debug.Log("이전에 저장한 정보 삭제");
+        PlayerPrefs.DeleteAll();
+    }
+
     public void GameQuit()
     {
 #if UNITY_EDITOR
