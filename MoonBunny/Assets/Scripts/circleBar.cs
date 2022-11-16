@@ -80,6 +80,11 @@ public class circleBar : MonoBehaviour
             }
             if(FA >0.255 && FA < 0.389)
             {
+                if (FA > 0.333 && FA < 0.334)
+                {
+                    //Vibration.Cancel();
+                    if(!Timer.chkVibe) Vibration.Vibrate((long)330);
+                }
                 GameObject.Find("Bar").GetComponent<Image>().sprite = red3;
             }
             if (FA > 0.389 && FA < 0.505)
@@ -92,6 +97,11 @@ public class circleBar : MonoBehaviour
             }
             if (FA > 0.622 && FA < 0.755)
             {
+                if (FA > 0.666 && FA < 0.667)
+                {
+                    //Vibration.Cancel();
+                    if(!Timer.chkVibe) Vibration.Vibrate((long)330);
+                }
                 GameObject.Find("Bar").GetComponent<Image>().sprite = red6;
             }
             if (FA > 0.755 && FA < 0.867)
@@ -122,6 +132,8 @@ public class circleBar : MonoBehaviour
             //gm.snum = 0;
             gm.ChangeGuest();
             Debug.Log("num : " + num);
+            Vibration.Cancel();
+            Vibration.Vibrate((long)600);
             life[num].GetComponent<SpriteRenderer>().sprite = emptyLife;
             num++;
             //this.gameObject.SetActive(false);

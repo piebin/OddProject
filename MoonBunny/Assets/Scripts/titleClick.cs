@@ -36,6 +36,7 @@ public class titleClick : MonoBehaviour
 
     void Start()
     {
+        Vibration.Cancel();
         bright1 = t1.GetComponent<SpriteRenderer>().sprite;
         bright2 = t2.GetComponent<SpriteRenderer>().sprite;
         bright3 = t3.GetComponent<SpriteRenderer>().sprite;

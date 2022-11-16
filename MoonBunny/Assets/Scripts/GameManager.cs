@@ -581,7 +581,8 @@ public class GameManager : MonoBehaviour
                     if (sn == lvNum)
                     {
                         ScoreManager.score += 10;
-
+                        Vibration.Cancel();
+                        Vibration.Vibrate((long)400);
                         //GuestBar.GetComponent<AudioSource>().Stop();
                         //Invoke("TimerSound", 0.8f);
                         gameObject.GetComponent<AudioSource>().Play();
@@ -770,7 +771,7 @@ public class GameManager : MonoBehaviour
     public void checkLv()
     {
         int randomInt = Random.Range(0, 2);
-        //int level = (ScoreManager.score / 100) + 1;
+        level = (ScoreManager.score / 100) + 1;
 
         if(PlayerPrefs.GetInt("game_over")==1)
         {
