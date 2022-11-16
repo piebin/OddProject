@@ -83,7 +83,10 @@ public class circleBar : MonoBehaviour
                 if (FA > 0.333 && FA < 0.334)
                 {
                     //Vibration.Cancel();
-                    if(!Timer.chkVibe) Vibration.Vibrate((long)330);
+                    if (!Timer.chkVibe)
+                    {
+                        Vibration.Vibrate((long)330);
+                    }
                 }
                 GameObject.Find("Bar").GetComponent<Image>().sprite = red3;
             }
@@ -100,7 +103,10 @@ public class circleBar : MonoBehaviour
                 if (FA > 0.666 && FA < 0.667)
                 {
                     //Vibration.Cancel();
-                    if(!Timer.chkVibe) Vibration.Vibrate((long)330);
+                    if (!Timer.chkVibe)
+                    {
+                        Vibration.Vibrate((long)330);
+                    }
                 }
                 GameObject.Find("Bar").GetComponent<Image>().sprite = red6;
             }

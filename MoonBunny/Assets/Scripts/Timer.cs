@@ -95,7 +95,11 @@ public class Timer : MonoBehaviour
         if(chkVibe)
         {
             timer += Time.deltaTime;
-            if (timer > 3100) chkVibe = false;
+            if (timer > 3.1)
+            {
+                chkVibe = false;
+                timer = 0.0f;
+            }
         }
 
         if(num == 1)

@@ -46,6 +46,9 @@ public class OpenButton : MonoBehaviour
             {
                 if (hit.collider.gameObject == gm.GetComponent<GameManager>().goBack)
                 {
+                    lvTimer.GetComponent<Animator>().speed = 0.0f;
+                    lvTimer.GetComponent<Animator>().enabled = false;
+                    Time.timeScale = 0.0f;
                     gm.GetComponent<GameManager>().titlePanel.SetActive(true);
                     gm.GetComponent<GameManager>().dark.SetActive(true);
                     gm.GetComponent<GameManager>().goBack.GetComponent<AudioSource>().Play();

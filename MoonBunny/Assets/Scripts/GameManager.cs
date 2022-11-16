@@ -205,6 +205,7 @@ public class GameManager : MonoBehaviour
 
     public void goBackYes()
     {
+        Time.timeScale = 1.0f;
         GuestBar.SetActive(false);
         PlayerPrefs.SetInt("go_title", 1);
         multiBtnSound.GetComponent<AudioSource>().Play();
