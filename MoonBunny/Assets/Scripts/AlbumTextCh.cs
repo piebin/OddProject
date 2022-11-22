@@ -16,6 +16,7 @@ public class AlbumTextCh : MonoBehaviour
     public GameObject card9;
 
     public AudioSource[] audioSource;
+    private bool[] chkCenter = new bool[10];
     private Text coordinate;
     private string coor_format = "({0}, {1})";
 
@@ -44,12 +45,17 @@ public class AlbumTextCh : MonoBehaviour
 
         if(X<0.07)
         {
-            if(X > 0.03) audioSource[1].Play();
+            if (chkCenter[1] == false)
+            {
+                resetArray();
+                chkCenter[1] = true;
+                audioSource[1].Play();
+                Vibration.Vibrate((long)100);
+            }
             nameT.text = nameA[0];
             contentT.text = contentA[0];
 
             card1r.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 270);//2번 사이즈 감소
-
             card2r.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 230);//2번 사이즈 감소
 
 
@@ -59,7 +65,13 @@ public class AlbumTextCh : MonoBehaviour
 
         else if(X>=0.07 && X<0.19)
         {
-            audioSource[2].Play();
+            if (chkCenter[2] == false)
+            {
+                resetArray();
+                chkCenter[2] = true;
+                audioSource[2].Play();
+                Vibration.Vibrate((long)100);
+            }
             nameT.text = nameA[1];
             contentT.text = contentA[1];
 
@@ -72,7 +84,13 @@ public class AlbumTextCh : MonoBehaviour
 
         else if (X >= 0.19 && X < 0.35)
         {
-            audioSource[3].Play();
+            if (chkCenter[3] == false)
+            {
+                resetArray();
+                chkCenter[3] = true;
+                audioSource[3].Play();
+                Vibration.Vibrate((long)100);
+            }
             nameT.text = nameA[2];
             contentT.text = contentA[2];
 
@@ -85,7 +103,13 @@ public class AlbumTextCh : MonoBehaviour
 
         else if (X >= 0.35 && X < 0.45)
         {
-            audioSource[4].Play();
+            if (chkCenter[4] == false)
+            {
+                resetArray();
+                chkCenter[4] = true;
+                audioSource[4].Play();
+                Vibration.Vibrate((long)100);
+            }
             nameT.text = nameA[3];
             contentT.text = contentA[3];
 
@@ -98,7 +122,13 @@ public class AlbumTextCh : MonoBehaviour
 
         else if (X >= 0.45 && X < 0.58)
         {
-            audioSource[5].Play();
+            if (chkCenter[5] == false)
+            {
+                resetArray();
+                chkCenter[5] = true;
+                audioSource[5].Play();
+                Vibration.Vibrate((long)100);
+            }
             nameT.text = nameA[4];
             contentT.text = contentA[4];
 
@@ -111,7 +141,13 @@ public class AlbumTextCh : MonoBehaviour
 
         else if (X >= 0.58 && X < 0.71)
         {
-            audioSource[6].Play();
+            if (chkCenter[6] == false)
+            {
+                resetArray();
+                chkCenter[6] = true;
+                audioSource[6].Play();
+                Vibration.Vibrate((long)100);
+            }
             nameT.text = nameA[5];
             contentT.text = contentA[5];
 
@@ -124,7 +160,13 @@ public class AlbumTextCh : MonoBehaviour
 
         else if (X >= 0.71 && X < 0.86)
         {
-            audioSource[7].Play();
+            if (chkCenter[7] == false)
+            {
+                resetArray();
+                chkCenter[7] = true;
+                audioSource[7].Play();
+                Vibration.Vibrate((long)100);
+            }
             nameT.text = nameA[6];
             contentT.text = contentA[6];
 
@@ -137,7 +179,13 @@ public class AlbumTextCh : MonoBehaviour
 
         else if (X >= 0.86 && X < 0.97)
         {
-            audioSource[8].Play();
+            if (chkCenter[8] == false)
+            {
+                resetArray();
+                chkCenter[8] = true;
+                audioSource[8].Play();
+                Vibration.Vibrate((long)100);
+            }
             nameT.text = nameA[7];
             contentT.text = contentA[7];
 
@@ -150,22 +198,23 @@ public class AlbumTextCh : MonoBehaviour
 
         else if (X >= 0.97)
         {
-            if(X < 1.0) audioSource[9].Play();
+            if (chkCenter[9] == false)
+            {
+                resetArray();
+                chkCenter[9] = true;
+                audioSource[9].Play();
+                Vibration.Vibrate((long)100);
+            }
             nameT.text = nameA[8];
             contentT.text = contentA[8];
 
             card9r.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 270);//9번 사이즈 증가
             card8r.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 230);//8번 사이즈 감소
 
-
-
         }//9번
             
         //coordinate.text = string.Format(coor_format, X.ToString(),Y.ToString());
     }
-
-
-
 
 
 
@@ -175,10 +224,19 @@ public class AlbumTextCh : MonoBehaviour
         //coordinate.text = string.Format(coor_format, X.ToString(), Y.ToString());
     }
 
+    public void resetArray()
+    {
+        for(int i=1; i< chkCenter.Length; i++)
+        {
+            chkCenter[i] = false;
+        }
+    }
+
 
     // Start is called before the first frame update
     void Start()
     {
+        resetArray();
         coordinate = GetComponent<Text>();
     }
 
