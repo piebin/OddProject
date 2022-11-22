@@ -60,6 +60,7 @@ public class OpenButton : MonoBehaviour
         if (loadingDown.activeSelf == true || loadingUp.activeSelf == true)
         {
             open.SetActive(false);
+            gm.GetComponent<GameManager>().GuestBar.SetActive(false);
             //score.SetActive(false);
         }
 

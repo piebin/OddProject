@@ -226,7 +226,6 @@ public class GameManager : MonoBehaviour
         lvTimer.GetComponent<Animator>().speed = 1.0f;
         lvTimer.GetComponent<Animator>().enabled = true;
         Time.timeScale = 1.0f;
-        GuestBar.SetActive(true);
         multiBtnSound.GetComponent<AudioSource>().Play();
         Vibration.Vibrate((long)20);
         //GuestBar.GetComponent<AudioSource>().Play();
@@ -331,7 +330,7 @@ public class GameManager : MonoBehaviour
                     resetR.GetComponent<ResetRice>().enabled = false;
                     goBack.GetComponent<AudioSource>().Play();
                     //this.enabled = false;
-                    GuestBar.SetActive(false);
+                    //GuestBar.SetActive(false);
                 }
 
                 if (hit.collider.gameObject == buttons[0] && num < lvNum)
