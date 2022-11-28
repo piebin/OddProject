@@ -29,7 +29,7 @@ public class VolumMG : MonoBehaviour
     public void setSFX(float sliderVal)
     {
         mixer.SetFloat("sfxv", Mathf.Log10(sliderVal) * 20);
-        PlayerPrefs.SetFloat("_sound", sliderVal);
+        PlayerPrefs.SetFloat("sfx_sound", sliderVal);
     }
 
 }
