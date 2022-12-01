@@ -56,6 +56,9 @@ public class GameManager : MonoBehaviour
     public GameObject spSauceB, spSaucePK, spSauceP, spSauceG;
     public int level = (ScoreManager.score / 100) + 1;
 
+    public GameObject shortHand;
+    public Sprite longHand;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -788,9 +791,9 @@ public class GameManager : MonoBehaviour
             }
         }//업적 9번 달성
 
-        if(level==12)
+        if (level == 12)
         {
-            if(PlayerPrefs.GetInt("achieve_key4") ==0)
+            if (PlayerPrefs.GetInt("achieve_key4") == 0)
             {
                 Debug.Log("achieve5 clear");
                 clearFive();
@@ -798,6 +801,13 @@ public class GameManager : MonoBehaviour
             }
         }
         //업적 5번 달성
+
+
+        if (level==2)
+        {
+            Debug.Log("level 2");
+        }
+
 
         switch(level)
         {
@@ -846,7 +856,7 @@ public class GameManager : MonoBehaviour
                     lvNum = 7;
                 break;
         }
-        if(lvNum < 5)
+        if(lvNum < 4)
         {
             if(start) shortOrder.SetActive(true);
             longOrder.SetActive(false);
