@@ -11,7 +11,7 @@ public class ScrollView : MonoBehaviour
     public Sprite lockSprite;
     public GameObject content;
     private int num = 0, myCarrot;
-    private int[] xPos = { 45, -150, -345, -536, -730, -922, -1113, -1306, -1500 };
+    private float[] xPos = { 41, -151.6f, -344, -536.6f, -729, -921.6f, -1114, -1306.6f, -1499 };
     //private int[] clickPos = { 62, -227, -515, -805, -1093, -1382, -1670, -1959, -2248 }; //1.5 1.5
     private float[] clickPos = { 66.8f, -248, -564.1f, -879.6f, -1195.5f, -1511, -1827, -2143, -2458 }; //1.64 1.82
     private int clickYPos = 19;
@@ -48,8 +48,10 @@ public class ScrollView : MonoBehaviour
         //state[0] = 0;
         state[PlayerPrefs.GetInt("ing_key")] = 0;
         priceBG[0] = 50000; //수정 필요
-        priceBG[1] = 50000; //수정 필요
-        priceBG[4] = 60000; //수정 필요
+        priceBG[1] = 40000; //수정 필요
+        priceBG[2] = 30000; //수정 필요
+        priceBG[4] = 70000; //수정 필요
+        priceBG[6] = 70000; //수정 필요
 
         check = true;
         purchasePanel.SetActive(false);
@@ -218,6 +220,7 @@ public class ScrollView : MonoBehaviour
         right.SetActive(false);
         left.SetActive(false);
         oriSet.SetActive(false);
+        oriState.SetActive(false);
         back.SetActive(false);
     }
 
@@ -232,6 +235,7 @@ public class ScrollView : MonoBehaviour
         right.SetActive(true);
         left.SetActive(true);
         oriSet.SetActive(true);
+        oriState.SetActive(true);
         back.SetActive(true);
     }
 
@@ -272,7 +276,7 @@ public class ScrollView : MonoBehaviour
             oriSet.SetActive(true);
             oriState.SetActive(true);
             oriSet.GetComponent<Image>().sprite = setBG[0];
-            oriState.GetComponent<SpriteRenderer>().sprite = stateBG[0];
+            oriState.GetComponent<Image>().sprite = stateBG[0];
         }
 
         else if (state[num] == 1)
@@ -280,7 +284,7 @@ public class ScrollView : MonoBehaviour
             oriSet.SetActive(true);
             oriState.SetActive(true);
             oriSet.GetComponent<Image>().sprite = setBG[0];
-            oriState.GetComponent<SpriteRenderer>().sprite = stateBG[1];
+            oriState.GetComponent<Image>().sprite = stateBG[1];
         }
 
         else if (state[num] == 2)
@@ -288,7 +292,7 @@ public class ScrollView : MonoBehaviour
             oriSet.SetActive(true);
             oriState.SetActive(true);
             oriSet.GetComponent<Image>().sprite = setBG[1];
-            oriState.GetComponent<SpriteRenderer>().sprite = price[num];
+            oriState.GetComponent<Image>().sprite = price[num];
         }
 
         else if (state[num] == 3)
