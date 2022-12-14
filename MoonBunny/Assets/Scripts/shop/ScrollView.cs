@@ -87,7 +87,7 @@ public class ScrollView : MonoBehaviour
     public void setBtn()
     {
         audioSource[1].Play();
-        Vibration.Vibrate((long)20);
+        Vibration.Vibrate((long)50);
 
         if (state[num] == 0) 
         {
@@ -127,7 +127,7 @@ public class ScrollView : MonoBehaviour
     public void purchaseOK()
     {
         audioSource[2].Play();
-        Vibration.Vibrate((long)20);
+        Vibration.Vibrate((long)50);
 
         if (myCarrot >= priceBG[num])
         {
@@ -181,14 +181,14 @@ public class ScrollView : MonoBehaviour
     public void purchaseCancel()
     {
         audioSource[2].Play();
-        Vibration.Vibrate((long)20);
+        Vibration.Vibrate((long)50);
         closePanel();
     }
 
     public void setOK()
     {
         audioSource[2].Play();
-        Vibration.Vibrate((long)20);
+        Vibration.Vibrate((long)50);
         for (int i = 0; i < state.Length; i++)
         {
             if (state[i] == 0)
@@ -207,7 +207,7 @@ public class ScrollView : MonoBehaviour
     public void setCancel()
     {
         audioSource[2].Play();
-        Vibration.Vibrate((long)20);
+        Vibration.Vibrate((long)50);
         closePanel();
     }
 
