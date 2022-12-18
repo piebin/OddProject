@@ -40,6 +40,8 @@ public class GameManager : MonoBehaviour
     public GameObject ac7;
     public GameObject ac8;
     public GameObject ac9;
+    public GameObject ac10;
+
 
     public int TestAc;
 
@@ -191,6 +193,13 @@ public class GameManager : MonoBehaviour
         ac9.SetActive(true);
         ac9.GetComponent<Animation>().Play();
         ac9.GetComponent<AudioSource>().Play();
+    }
+
+    public void clearTen()
+    {
+        ac10.SetActive(true);
+        ac10.GetComponent<Animation>().Play();
+        ac10.GetComponent<AudioSource>().Play();
     }
 
 

@@ -81,6 +81,20 @@ public class ScoreCount : MonoBehaviour
         }
         //업적 3번 달성
 
+
+        if (ScoreManager.score == 300000)
+        {
+            GameManager gm = GameObject.Find("GameObject").GetComponent<GameManager>();
+
+            if (PlayerPrefs.GetInt("achieve_key9") == 0)
+            {
+                Debug.Log("achieve10 clear");
+                gm.clearTen();
+                PlayerPrefs.SetInt("achieve_key9", 1);
+            }
+        }
+        //업적 10번 달성
+
     }
 
 

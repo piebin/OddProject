@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class clickContent : MonoBehaviour
 {
-    public GameObject scrollbar, nameT, contentT, collectT, BackGround, showImg, clickText, back;
+    public GameObject scrollbar, nameT, contentT, BackGround, showImg, clickText, back;
     private bool touchChk = false;
     private Sprite clickImg, bgReal;
     public Sprite bgChange;
@@ -75,7 +75,6 @@ public class clickContent : MonoBehaviour
             nameT.SetActive(false);
             contentT.SetActive(false);
             back.SetActive(false);
-            collectT.gameObject.SetActive(false);
             showImg.SetActive(true);
             clickText.SetActive(true);
             BackGround.GetComponent<SpriteRenderer>().sprite = bgChange;
@@ -90,7 +89,6 @@ public class clickContent : MonoBehaviour
             nameT.SetActive(true);
             contentT.SetActive(true);
             back.SetActive(true);
-            collectT.gameObject.SetActive(true);
             BackGround.GetComponent<SpriteRenderer>().sprite = bgReal;
             showImg.gameObject.GetComponent<Image>().sprite = null;
             showImg.SetActive(false);

@@ -168,6 +168,11 @@ public class FileManager : MonoBehaviour
             PlayerPrefs.SetInt("achieve_key8", 0);
         }
 
+        if (!PlayerPrefs.HasKey("achieve_key9"))
+        {
+            PlayerPrefs.SetInt("achieve_key9", 0);
+        }
+
 
 
 
