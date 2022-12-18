@@ -1367,9 +1367,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1865769687}
         m_TargetAssemblyTypeName: AlbumTextCh, Assembly-CSharp
-        m_MethodName: OnclickleftB
+        m_MethodName: LeftB
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1843,9 +1843,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1865769687}
         m_TargetAssemblyTypeName: AlbumTextCh, Assembly-CSharp
-        m_MethodName: OnClickrightB
+        m_MethodName: RightB
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2817,19 +2817,7 @@ MonoBehaviour:
   m_VerticalScrollbarSpacing: -3
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: AlbumTextCh, Assembly-CSharp
-        m_MethodName: SetX
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1407382898}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Scrollbar, UnityEngine.UI
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1537018540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3442,8 +3430,6 @@ MonoBehaviour:
   card7: {fileID: 1106315133}
   card8: {fileID: 365180698}
   card9: {fileID: 1443964001}
-  card10: {fileID: 885321654}
-  sr: {fileID: 0}
   audioSource:
   - {fileID: 0}
   - {fileID: 1865769690}
@@ -3457,8 +3443,8 @@ MonoBehaviour:
   - {fileID: 1865769691}
   nameT: {fileID: 834744668}
   contentT: {fileID: 608425778}
-  X: 0
   position: 0
+  sr: {fileID: 1537018539}
 --- !u!114 &1865769688
 MonoBehaviour:
   m_ObjectHideFlags: 0

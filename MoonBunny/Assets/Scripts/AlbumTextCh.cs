@@ -28,6 +28,27 @@ public class AlbumTextCh : MonoBehaviour
     private float X;
     private float Y;
 
+    public float position = 0f;
+    public float now = 0f;
+
+    public ScrollRect sr;
+
+    public void RightB()
+    {
+        position -= 200f;
+        sr.content.localPosition = new Vector3(position, -0.9f, 0);
+
+
+    }
+
+    public void LeftB()
+    {
+        position += 200f;
+        sr.content.localPosition = new Vector3(position, -0.9f, 0);
+    }
+
+
+
     public void SetX(Scrollbar sb)
     {
         RectTransform card2r = card2.GetComponent<RectTransform>();
@@ -238,6 +259,12 @@ public class AlbumTextCh : MonoBehaviour
     {
         resetArray();
         coordinate = GetComponent<Text>();
+        //sr.content.localPosition = new Vector3(0f, -0.9f, 0);
+    }
+
+    private void Update()
+    {
+        //Debug.Log("position : " + sr.content.localPosition);
     }
 
 
