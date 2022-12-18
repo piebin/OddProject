@@ -229,6 +229,11 @@ public class titleClick : MonoBehaviour
         PlayerPrefs.DeleteAll();
     }
 
+    public void goTest()
+    {
+        Debug.Log("테스트 씬으로 이동");
+        SceneManager.LoadScene("TestSceen(achieve)");
+    }
     public void GameQuit()
     {
 #if UNITY_EDITOR
