@@ -14,6 +14,10 @@ public class AlbumTextCh : MonoBehaviour
     public GameObject card7;
     public GameObject card8;
     public GameObject card9;
+    
+
+    public GameObject RB;
+    public GameObject LB;
 
     public AudioSource[] audioSource;
     private bool[] chkCenter = new bool[10];
@@ -22,8 +26,8 @@ public class AlbumTextCh : MonoBehaviour
 
     public Text nameT;
     public Text contentT;
-    private string[] nameA = new string[9] { "두둥, 첫 개시!", "이러다 짤리겠어!", "오늘도 부지런히", "앗, 내 정신 좀 봐", "베테랑 꼬치꾼", "그대는 어느별에서?", "참 멋진 패션이네요!", "묘하게 열받는 표정", "이런 걸 왜 실패하냐?" };//업적 이름 표시
-    private string[] contentA = new string[9] { "가게 첫 오픈 시 달성", "잃은 하트 20개 돌파 시 달성", "당근 150,000개 소지 시 달성", "떡을 끼우지 않고 소스 먼저 칠할 때 달성", "12레벨 돌파 시 달성", "모든 케릭터 우주복 구경 시 달성", "모든 캐릭터 일상복A 구경 시 달성", "고슴도치 모든 복장 구경 시 달성", "Lv 1~3 도중 실패 시 달성" };//업적 내용 표시
+    private string[] nameA = new string[10] { "두둥, 첫 개시!", "이러다 짤리겠어!", "오늘도 부지런히", "앗, 내 정신 좀 봐", "베테랑 꼬치꾼", "그대는 어느별에서?", "참 멋진 패션이네요!", "묘하게 열받는 표정", "이런 걸 왜 실패하냐...?", "노련한 자의 여유란..." };//업적 이름 표시
+    private string[] contentA = new string[10] { "가게 첫 오픈 시 달성", "잃은 하트 20개 돌파 시 달성", "당근 150,000개 소지 시 달성", "떡을 끼우지 않고 소스 먼저 칠할 때 달성", "12레벨 돌파 시 달성", "모든 케릭터 우주복 구경 시 달성", "모든 캐릭터 일상복A 구경 시 달성", "고슴도치 모든 복장 구경 시 달성", "Lv 1~3 도중 실패 시 달성", "당근 300,000개 소지 시 달성" };//업적 내용 표시
 
     private float X;
     private float Y;
@@ -33,25 +37,37 @@ public class AlbumTextCh : MonoBehaviour
 
     public ScrollRect sr;
 
+    public int texN = 0;
+
+
+
     public void RightB()
     {
         position -= 200f;
         sr.content.localPosition = new Vector3(position, -0.9f, 0);
 
+        texN++;
 
+        nameT.text = nameA[texN];
+        contentT.text = contentA[texN];
     }
 
     public void LeftB()
     {
         position += 200f;
         sr.content.localPosition = new Vector3(position, -0.9f, 0);
+
+        texN--;
+
+        nameT.text = nameA[texN];
+        contentT.text = contentA[texN];
     }
 
 
 
     public void SetX(Scrollbar sb)
     {
-        RectTransform card2r = card2.GetComponent<RectTransform>();
+        /*RectTransform card2r = card2.GetComponent<RectTransform>();
         RectTransform card3r = card3.GetComponent<RectTransform>();
         RectTransform card4r = card4.GetComponent<RectTransform>();
         RectTransform card5r = card5.GetComponent<RectTransform>();
@@ -232,7 +248,7 @@ public class AlbumTextCh : MonoBehaviour
             card9r.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 270);//9번 사이즈 증가
             card8r.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 230);//8번 사이즈 감소
 
-        }//9번
+        }//9번*/
             
         //coordinate.text = string.Format(coor_format, X.ToString(),Y.ToString());
     }
@@ -260,10 +276,26 @@ public class AlbumTextCh : MonoBehaviour
         resetArray();
         coordinate = GetComponent<Text>();
         //sr.content.localPosition = new Vector3(0f, -0.9f, 0);
+
+        nameT.text = nameA[texN];
+        contentT.text = contentA[texN];
     }
 
     private void Update()
     {
+
+        if (position == 0)
+            LB.SetActive(false);
+        else
+            LB.SetActive(true);
+
+        if (position == -1800)
+            RB.SetActive(false);
+        else
+            RB.SetActive(true);
+
+
+
         //Debug.Log("position : " + sr.content.localPosition);
     }
 
