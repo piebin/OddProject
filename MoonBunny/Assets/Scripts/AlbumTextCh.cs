@@ -50,6 +50,14 @@ public class AlbumTextCh : MonoBehaviour
 
         nameT.text = nameA[texN];
         contentT.text = contentA[texN];
+
+        if (chkCenter[texN] == false)
+        {
+            resetArray();
+            chkCenter[texN] = true;
+            audioSource[texN].Play();
+            Vibration.Vibrate((long)100);
+        }
     }
 
     public void LeftB()
@@ -61,6 +69,14 @@ public class AlbumTextCh : MonoBehaviour
 
         nameT.text = nameA[texN];
         contentT.text = contentA[texN];
+
+        if (chkCenter[texN] == false)
+        {
+            resetArray();
+            chkCenter[texN] = true;
+            audioSource[texN].Play();
+            Vibration.Vibrate((long)100);
+        }
     }
 
 
