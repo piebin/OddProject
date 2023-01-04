@@ -74,7 +74,7 @@ public class Timer : MonoBehaviour
         pattern[4] = 500;
         pattern[5] = 700;
 
-        Vibration.Vibrate(pattern, -1);
+        if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate(pattern, -1);
     }
 
     // Update is called once per frame

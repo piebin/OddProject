@@ -56,7 +56,7 @@ public class AlbumTextCh : MonoBehaviour
             resetArray();
             chkCenter[texN] = true;
             audioSource[texN].Play();
-            Vibration.Vibrate((long)100);
+            if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)100);
         }
     }
 
@@ -75,7 +75,7 @@ public class AlbumTextCh : MonoBehaviour
             resetArray();
             chkCenter[texN] = true;
             audioSource[texN].Play();
-            Vibration.Vibrate((long)100);
+            if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)100);
         }
     }
 
@@ -103,7 +103,7 @@ public class AlbumTextCh : MonoBehaviour
                 resetArray();
                 chkCenter[1] = true;
                 audioSource[1].Play();
-                Vibration.Vibrate((long)100);
+                if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)100);
             }
             nameT.text = nameA[0];
             contentT.text = contentA[0];
@@ -123,7 +123,7 @@ public class AlbumTextCh : MonoBehaviour
                 resetArray();
                 chkCenter[2] = true;
                 audioSource[2].Play();
-                Vibration.Vibrate((long)100);
+                if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)100);
             }
             nameT.text = nameA[1];
             contentT.text = contentA[1];
@@ -142,7 +142,7 @@ public class AlbumTextCh : MonoBehaviour
                 resetArray();
                 chkCenter[3] = true;
                 audioSource[3].Play();
-                Vibration.Vibrate((long)100);
+                if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)100);
             }
             nameT.text = nameA[2];
             contentT.text = contentA[2];
@@ -161,7 +161,7 @@ public class AlbumTextCh : MonoBehaviour
                 resetArray();
                 chkCenter[4] = true;
                 audioSource[4].Play();
-                Vibration.Vibrate((long)100);
+                if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)100);
             }
             nameT.text = nameA[3];
             contentT.text = contentA[3];
@@ -180,7 +180,7 @@ public class AlbumTextCh : MonoBehaviour
                 resetArray();
                 chkCenter[5] = true;
                 audioSource[5].Play();
-                Vibration.Vibrate((long)100);
+                if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)100);
             }
             nameT.text = nameA[4];
             contentT.text = contentA[4];
@@ -199,7 +199,7 @@ public class AlbumTextCh : MonoBehaviour
                 resetArray();
                 chkCenter[6] = true;
                 audioSource[6].Play();
-                Vibration.Vibrate((long)100);
+                if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)100);
             }
             nameT.text = nameA[5];
             contentT.text = contentA[5];
@@ -218,7 +218,7 @@ public class AlbumTextCh : MonoBehaviour
                 resetArray();
                 chkCenter[7] = true;
                 audioSource[7].Play();
-                Vibration.Vibrate((long)100);
+                if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)100);
             }
             nameT.text = nameA[6];
             contentT.text = contentA[6];
@@ -237,7 +237,7 @@ public class AlbumTextCh : MonoBehaviour
                 resetArray();
                 chkCenter[8] = true;
                 audioSource[8].Play();
-                Vibration.Vibrate((long)100);
+                if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)100);
             }
             nameT.text = nameA[7];
             contentT.text = contentA[7];
@@ -256,7 +256,7 @@ public class AlbumTextCh : MonoBehaviour
                 resetArray();
                 chkCenter[9] = true;
                 audioSource[9].Play();
-                Vibration.Vibrate((long)100);
+                if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)100);
             }
             nameT.text = nameA[8];
             contentT.text = contentA[8];

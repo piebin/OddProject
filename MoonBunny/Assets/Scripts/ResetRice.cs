@@ -100,7 +100,7 @@ public class ResetRice : MonoBehaviour
                 downAnim.enabled = true;
                 GetComponent<AudioSource>().Play();
                 downAnim.Play("Down", -1, 0f);
-                Vibration.Vibrate((long)50);
+                if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)50);
 
                 Invoke("stopAnimation", 0.4f);
             }

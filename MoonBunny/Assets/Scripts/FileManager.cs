@@ -251,6 +251,10 @@ public class FileManager : MonoBehaviour
             PlayerPrefs.SetFloat("sfx_sound", 0.5f);
         }
 
+        if (!PlayerPrefs.HasKey("vibe"))
+        {
+            PlayerPrefs.SetInt("vibe", 0); //0 : 진동 해제, 1 : 진동 설정
+        }
 
     }
 

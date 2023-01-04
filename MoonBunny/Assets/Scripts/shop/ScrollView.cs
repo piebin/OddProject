@@ -102,12 +102,12 @@ public class ScrollView : MonoBehaviour
     public void setBtn()
     {
         audioSource[1].Play();
-        Vibration.Vibrate((long)50);
+        if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)50);
 
         if (state[num] == 0) 
         {
             openPanel(alreadySetPanel);
-            Vibration.Vibrate((long)200);
+            if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)200);
         }
 
         else if (state[num] == 1) //적용
@@ -125,7 +125,7 @@ public class ScrollView : MonoBehaviour
             //
             //check = true;
             openPanel(setPanel);
-            Vibration.Vibrate((long)200);
+            if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)200);
             //PlayerPrefs.SetInt("ing_key", num);
             Debug.Log("ing is" + PlayerPrefs.GetInt("ing_key"));
         }
@@ -133,7 +133,7 @@ public class ScrollView : MonoBehaviour
         else if (state[num] == 2) //구매
         {
             openPanel(purchasePanel);
-            Vibration.Vibrate((long)200);
+            if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)200);
         }
 
         else if (state[num] == 3) { }
@@ -142,7 +142,7 @@ public class ScrollView : MonoBehaviour
     public void purchaseOK()
     {
         audioSource[2].Play();
-        Vibration.Vibrate((long)50);
+        if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)50);
 
         if (myCarrot >= priceBG[num])
         {
@@ -207,14 +207,14 @@ public class ScrollView : MonoBehaviour
     public void purchaseCancel()
     {
         audioSource[2].Play();
-        Vibration.Vibrate((long)50);
+        if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)50);
         closePanel();
     }
 
     public void setOK()
     {
         audioSource[2].Play();
-        Vibration.Vibrate((long)50);
+        if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)50);
         for (int i = 0; i < state.Length; i++)
         {
             if (state[i] == 0)
@@ -233,7 +233,7 @@ public class ScrollView : MonoBehaviour
     public void setCancel()
     {
         audioSource[2].Play();
-        Vibration.Vibrate((long)50);
+        if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)50);
         closePanel();
     }
 

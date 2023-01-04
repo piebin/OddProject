@@ -221,7 +221,7 @@ public class GameManager : MonoBehaviour
         GuestBar.SetActive(false);
         PlayerPrefs.SetInt("go_title", 1);
         multiBtnSound.GetComponent<AudioSource>().Play();
-        Vibration.Vibrate((long)20);
+        if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)20);
         loadingDown.SetActive(true);
         titlePanel.SetActive(false);
         StartCoroutine(FadeOut(BGM2, 1.5f));
@@ -239,7 +239,7 @@ public class GameManager : MonoBehaviour
         lvTimer.GetComponent<Animator>().enabled = true;
         Time.timeScale = 1.0f;
         multiBtnSound.GetComponent<AudioSource>().Play();
-        Vibration.Vibrate((long)20);
+        if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)20);
         //GuestBar.GetComponent<AudioSource>().Play();
         titlePanel.SetActive(false);
         dark.SetActive(false);

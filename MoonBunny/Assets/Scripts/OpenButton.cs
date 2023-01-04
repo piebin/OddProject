@@ -50,7 +50,7 @@ public class OpenButton : MonoBehaviour
                     lvTimer.GetComponent<Animator>().enabled = false;
                     Time.timeScale = 0.0f;
                     gm.GetComponent<GameManager>().titlePanel.SetActive(true);
-                    Vibration.Vibrate((long)200);
+                    if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)200);
                     gm.GetComponent<GameManager>().dark.SetActive(true);
                     gm.GetComponent<GameManager>().goBack.GetComponent<AudioSource>().Play();
                 }
