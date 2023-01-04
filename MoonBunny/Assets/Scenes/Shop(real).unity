@@ -351,7 +351,11 @@ MonoBehaviour:
   right: {fileID: 942466614}
   left: {fileID: 1116849025}
   back: {fileID: 860753575}
-  carrot: {fileID: 143969174}
+  carrot: {fileID: 1709226674}
+  carrotSprite:
+  - {fileID: 21300000, guid: 065a8b2e85a8ae04b82dc50adcebc509, type: 3}
+  - {fileID: 21300000, guid: 07f2cfa6874957344af63aaca7a0d56a, type: 3}
+  carrotText: {fileID: 143969174}
   clickText: {fileID: 1991218005}
 --- !u!82 &3290206
 AudioSource:
@@ -722,8 +726,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 84, y: 231.3}
-  m_SizeDelta: {x: 1000, y: 80}
+  m_AnchoredPosition: {x: -10, y: 231.3}
+  m_SizeDelta: {x: 300, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &143969174
 MonoBehaviour:
@@ -752,13 +756,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 5
     m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 100000
+  m_Text: 100000000
 --- !u!222 &143969175
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4188,7 +4192,7 @@ GameObject:
   - component: {fileID: 1709226675}
   - component: {fileID: 1709226676}
   m_Layer: 0
-  m_Name: 3
+  m_Name: Carrot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

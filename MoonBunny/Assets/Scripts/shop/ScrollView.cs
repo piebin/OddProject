@@ -23,7 +23,10 @@ public class ScrollView : MonoBehaviour
     public AudioSource[] audioSource = new AudioSource[3]; //1:적용, 구매  2:멀티
     public GameObject oriState, oriSet, BackGround;
     public GameObject purchasePanel, setPanel, alreadySetPanel, right, left, back;
-    public Text carrot, clickText;
+    public GameObject carrot;
+    public Sprite[] carrotSprite = new Sprite[2]; //0:short 1:long
+    private float[] carrotSpriteXPos = { 2.97f, 2.34f };
+    public Text carrotText, clickText;
     private bool check = false;
     private bool panel1 = false, panel2 = false, panel3 = false;
     public static bool touchChk = false;
@@ -57,7 +60,19 @@ public class ScrollView : MonoBehaviour
         purchasePanel.SetActive(false);
         setPanel.SetActive(false);
         alreadySetPanel.SetActive(false);
-        Int32.TryParse(carrot.text, out myCarrot);
+        Int32.TryParse(carrotText.text, out myCarrot);
+        if (myCarrot > 999999999) myCarrot = 999999999;
+        if (myCarrot.ToString().Length <= 6)
+        {
+            carrot.GetComponent<Transform>().position = new Vector3 (carrotSpriteXPos[0], 9.15f ,0);
+            carrot.GetComponent<SpriteRenderer>().sprite = carrotSprite[0];
+        }
+        else
+        {
+            carrot.GetComponent<Transform>().position = new Vector3(carrotSpriteXPos[1], 9.15f, 0);
+            carrot.GetComponent<SpriteRenderer>().sprite = carrotSprite[1];
+        }
+        carrotText.text = string.Format("{0:#,###}", myCarrot);
     }
 
     public void ScrollLeft()
@@ -132,7 +147,18 @@ public class ScrollView : MonoBehaviour
         if (myCarrot >= priceBG[num])
         {
             myCarrot -= priceBG[num];
-            carrot.text = myCarrot.ToString();
+            //carrot.text = myCarrot.ToString();
+            if (myCarrot.ToString().Length <= 6)
+            {
+                carrot.GetComponent<Transform>().position = new Vector3(carrotSpriteXPos[0], 9.15f, 0);
+                carrot.GetComponent<SpriteRenderer>().sprite = carrotSprite[0];
+            }
+            else
+            {
+                carrot.GetComponent<Transform>().position = new Vector3(carrotSpriteXPos[1], 9.15f, 0);
+                carrot.GetComponent<SpriteRenderer>().sprite = carrotSprite[1];
+            }
+            carrotText.text = string.Format("{0:#,###}", myCarrot);
             state[num] = 1;
             check = true;
             closePanel();
@@ -324,7 +350,7 @@ public class ScrollView : MonoBehaviour
             left.SetActive(false);
             oriSet.SetActive(false);
             oriState.SetActive(false);
-            carrot.gameObject.SetActive(false);
+            carrotText.gameObject.SetActive(false);
             back.SetActive(false);
             clickText.gameObject.SetActive(true);
             gameObject.GetComponent<Transform>().localScale = new Vector3(1.64f, 1.82f);
@@ -336,7 +362,7 @@ public class ScrollView : MonoBehaviour
         {
             right.SetActive(true);
             left.SetActive(true);
-            carrot.gameObject.SetActive(true);
+            carrotText.gameObject.SetActive(true);
             back.SetActive(true);
             clickText.gameObject.SetActive(false);
             check = true;
