@@ -13,12 +13,17 @@ public class OptionVibe : MonoBehaviour
     // Update is called once per frame
     public void VibeOff()
     {
-        PlayerPrefs.SetFloat("vibe", 0);
+        PlayerPrefs.SetInt("vibe", 0);
     }
 
     public void VibeOn()
     {
-        PlayerPrefs.SetFloat("vibe", 1);
-        Vibration.Vibrate((long)50);
+        PlayerPrefs.SetInt("vibe", 1);
+        Vibration.Vibrate((long) 120);
+    }
+
+    public void OK()
+    {
+        if (PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)50);
     }
 }
