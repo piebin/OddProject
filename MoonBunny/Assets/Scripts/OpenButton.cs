@@ -7,10 +7,13 @@ public class OpenButton : MonoBehaviour
     public GameObject gm, timer, circle, level, life, open, score, lvTimer;
     public GameObject loadingUp, loadingDown;
     public GameObject BGM1, BGM2;
+    public GameObject openAnim1;
     private bool openChk = false;
     // Start is called before the first frame update
     void Start()
     {
+        openAnim1.GetComponent<Animator>().enabled = false;
+        open.GetComponent<Animator>().enabled = false;
         loadingUp.SetActive(true);
         Invoke("quitLoading", 1.0f);
         gm.SetActive(false);
@@ -91,6 +94,8 @@ public class OpenButton : MonoBehaviour
         BGM1.SetActive(false);
         BGM2.SetActive(true);
         BGM2.GetComponent<AudioSource>().Play();
+        openAnim1.GetComponent<Animator>().enabled = true;
+        open.GetComponent<Animator>().enabled = true;
         //score.SetActive(true);
     }
 
