@@ -42,6 +42,6 @@ public class OptionVibe : MonoBehaviour
 
     public void OK()
     {
-        if (PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)50);
+        if (PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)100);
     }
 }

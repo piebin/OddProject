@@ -102,7 +102,7 @@ public class ScrollView : MonoBehaviour
     public void setBtn()
     {
         audioSource[1].Play();
-        if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)50);
+        if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)100);
 
         if (state[num] == 0) 
         {
@@ -142,7 +142,7 @@ public class ScrollView : MonoBehaviour
     public void purchaseOK()
     {
         audioSource[2].Play();
-        if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)50);
+        if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)100);
 
         if (myCarrot >= priceBG[num])
         {
@@ -207,14 +207,14 @@ public class ScrollView : MonoBehaviour
     public void purchaseCancel()
     {
         audioSource[2].Play();
-        if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)50);
+        if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)100);
         closePanel();
     }
 
     public void setOK()
     {
         audioSource[2].Play();
-        if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)50);
+        if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)100);
         for (int i = 0; i < state.Length; i++)
         {
             if (state[i] == 0)
@@ -233,7 +233,7 @@ public class ScrollView : MonoBehaviour
     public void setCancel()
     {
         audioSource[2].Play();
-        if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)50);
+        if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)100);
         closePanel();
     }
 
