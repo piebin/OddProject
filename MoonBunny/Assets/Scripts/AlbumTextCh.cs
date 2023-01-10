@@ -19,15 +19,18 @@ public class AlbumTextCh : MonoBehaviour
     public GameObject RB;
     public GameObject LB;
 
+    public GameObject acName;
+    public GameObject acContent;
+
+    public Sprite[] acNames;
+    public Sprite[] acContents;
+
+
+
     public AudioSource[] audioSource;
     private bool[] chkCenter = new bool[10];
     private Text coordinate;
     private string coor_format = "({0}, {1})";
-
-    public Text nameT;
-    public Text contentT;
-    private string[] nameA = new string[10] { "두둥, 첫 개시!", "이러다 짤리겠어!", "오늘도 부지런히", "앗, 내 정신 좀 봐", "베테랑 꼬치꾼", "그대는 어느별에서?", "참 멋진 패션이네요!", "묘하게 열받는 표정", "이런 걸 왜 실패하냐...?", "노련한 자의 여유란..." };//업적 이름 표시
-    private string[] contentA = new string[10] { "가게 첫 오픈 시 달성", "잃은 하트 20개 돌파 시 달성", "당근 150,000개 소지 시 달성", "떡을 끼우지 않고 소스 먼저 칠할 때 달성", "12레벨 돌파 시 달성", "모든 케릭터 우주복 구경 시 달성", "모든 캐릭터 일상복A 구경 시 달성", "고슴도치 모든 복장 구경 시 달성", "Lv 1~3 도중 실패 시 달성", "당근 300,000개 소지 시 달성" };//업적 내용 표시
 
     private float X;
     private float Y;
@@ -43,13 +46,11 @@ public class AlbumTextCh : MonoBehaviour
 
     public void RightB()
     {
-        position -= 200f;
+        position -= 170f;
         sr.content.localPosition = new Vector3(position, -0.9f, 0);
 
         texN++;
 
-        nameT.text = nameA[texN];
-        contentT.text = contentA[texN];
 
         if (chkCenter[texN] == false)
         {
@@ -62,13 +63,11 @@ public class AlbumTextCh : MonoBehaviour
 
     public void LeftB()
     {
-        position += 200f;
+        position += 170f;
         sr.content.localPosition = new Vector3(position, -0.9f, 0);
 
         texN--;
 
-        nameT.text = nameA[texN];
-        contentT.text = contentA[texN];
 
         if (chkCenter[texN] == false)
         {
@@ -293,8 +292,6 @@ public class AlbumTextCh : MonoBehaviour
         coordinate = GetComponent<Text>();
         //sr.content.localPosition = new Vector3(0f, -0.9f, 0);
 
-        nameT.text = nameA[texN];
-        contentT.text = contentA[texN];
     }
 
     private void Update()
@@ -305,11 +302,13 @@ public class AlbumTextCh : MonoBehaviour
         else
             LB.SetActive(true);
 
-        if (position == -1800)
+        if (position == -1530)
             RB.SetActive(false);
         else
             RB.SetActive(true);
 
+        acName.GetComponent<Image>().sprite = acNames[texN];
+        acContent.GetComponent<Image>().sprite = acContents[texN];
 
 
         //Debug.Log("position : " + sr.content.localPosition);
