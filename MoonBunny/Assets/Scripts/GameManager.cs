@@ -390,10 +390,15 @@ public class GameManager : MonoBehaviour
 
                 if(hit.collider.gameObject == buttons[0] || hit.collider.gameObject == buttons[1] || hit.collider.gameObject == buttons[2] || hit.collider.gameObject == buttons[3])
                 {
-                    IsclickedDduk = 1;
+                    if (IsclickedDduk < 0)
+                        IsclickedDduk = 0;
+
+                    IsclickedDduk += 1;
+                    Debug.Log("IsclickedDduk is " + IsclickedDduk);
+
                 }
 
-                if((hit.collider.gameObject == saucesB[0] || hit.collider.gameObject == saucesB[1] || hit.collider.gameObject == saucesB[1] || hit.collider.gameObject == saucesB[3])&&IsclickedDduk==0)
+                if ((hit.collider.gameObject == saucesB[0] || hit.collider.gameObject == saucesB[1] || hit.collider.gameObject == saucesB[1] || hit.collider.gameObject == saucesB[3])&&IsclickedDduk==0)
                 {
                     if (PlayerPrefs.GetInt("achieve_key3") == 0)
                     {
@@ -403,31 +408,63 @@ public class GameManager : MonoBehaviour
                     }
                 }
 
-                if(hit.collider.gameObject==saucesB[0] && IsclickedDduk == 0)//∫∏∂Û
+
+                if (hit.collider.gameObject == saucesB[0])//∫∏∂Û
+                {
+                    IsclickedDduk--;
+                    Debug.Log("IsclickedDduk is "+IsclickedDduk);
+
+                }
+
+                if (hit.collider.gameObject == saucesB[1])//∫–»´
+                {
+                    IsclickedDduk--;
+                    Debug.Log("IsclickedDduk is " + IsclickedDduk);
+
+                }
+
+                if (hit.collider.gameObject == saucesB[2])//∆ƒ∂˚
+                {
+                    IsclickedDduk--;
+                    Debug.Log("IsclickedDduk is " + IsclickedDduk);
+
+                }
+
+                if (hit.collider.gameObject == saucesB[3])//√ ∑œ
+                {
+                    IsclickedDduk--;
+                    Debug.Log("IsclickedDduk is " + IsclickedDduk);
+
+                }
+
+
+
+
+                if (hit.collider.gameObject==saucesB[0] && IsclickedDduk < 0)//∫∏∂Û
                 {
                     spSauceP.SetActive(true);
-                    IsclickedDduk = 0;
+                    //IsclickedDduk = 0;
                     Invoke("NoSpP", 0.3f);
                 }
 
-                if (hit.collider.gameObject == saucesB[1] && IsclickedDduk == 0)//∫–»´
+                if (hit.collider.gameObject == saucesB[1] && IsclickedDduk < 0)//∫–»´
                 {
                     spSaucePK.SetActive(true);
-                    IsclickedDduk = 0;
+                    //IsclickedDduk = 0;
                     Invoke("NoSpPK", 0.3f);
                 }
 
-                if (hit.collider.gameObject == saucesB[2] && IsclickedDduk == 0)//∆ƒ∂˚
+                if (hit.collider.gameObject == saucesB[2] && IsclickedDduk < 0)//∆ƒ∂˚
                 {
                     spSauceB.SetActive(true);
-                    IsclickedDduk = 0;
+                    //IsclickedDduk = 0;
                     Invoke("NoSpB", 0.3f);
                 }
 
-                if (hit.collider.gameObject == saucesB[3] && IsclickedDduk == 0)//√ ∑œ
+                if (hit.collider.gameObject == saucesB[3] && IsclickedDduk < 0)//√ ∑œ
                 {
                     spSauceG.SetActive(true);
-                    IsclickedDduk = 0;
+                    //IsclickedDduk = 0;
                     Invoke("NoSpG", 0.3f);
                 }
 
@@ -630,17 +667,36 @@ public class GameManager : MonoBehaviour
     public void ChangeGuest()
     {
         sauceCh.GetComponent<BoxCollider2D>().enabled = false;
+        buttons[0].GetComponent<BoxCollider2D>().enabled = false;
+        saucesB[0].GetComponent<BoxCollider2D>().enabled = false;
+        buttons[1].GetComponent<BoxCollider2D>().enabled = false;
+        saucesB[1].GetComponent<BoxCollider2D>().enabled = false;
+        buttons[2].GetComponent<BoxCollider2D>().enabled = false;
+        saucesB[2].GetComponent<BoxCollider2D>().enabled = false;
+        buttons[3].GetComponent<BoxCollider2D>().enabled = false;
+        saucesB[3].GetComponent<BoxCollider2D>().enabled = false;
 
         Invoke("AnActive", 0.5f);
         Invoke("guest", 0.5f);
         Invoke("sauceChange", 0.5f);
         Invoke("randomRice", 0.6f);
         Invoke("sauceChON", 0.6f);
+
+        IsclickedDduk = 0;
+
     }
 
     public void sauceChON()
     {
         sauceCh.GetComponent<BoxCollider2D>().enabled = true;
+        buttons[0].GetComponent<BoxCollider2D>().enabled = true;
+        saucesB[0].GetComponent<BoxCollider2D>().enabled = true;
+        buttons[1].GetComponent<BoxCollider2D>().enabled = true;
+        saucesB[1].GetComponent<BoxCollider2D>().enabled = true;
+        buttons[2].GetComponent<BoxCollider2D>().enabled = true;
+        saucesB[2].GetComponent<BoxCollider2D>().enabled = true;
+        buttons[3].GetComponent<BoxCollider2D>().enabled = true;
+        saucesB[3].GetComponent<BoxCollider2D>().enabled = true;
     }
 
     //πˆ∆∞ √¢¿ª ∂± Ω√¿€¿∏∑Œ πŸ≤ﬁ.

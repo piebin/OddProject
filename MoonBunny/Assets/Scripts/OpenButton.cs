@@ -34,6 +34,7 @@ public class OpenButton : MonoBehaviour
         BGM1.SetActive(true);
         BGM1.GetComponent<AudioSource>().Play();
         loadingUp.SetActive(false);
+        //open.GetComponent<Animation>().Play();
         open.SetActive(true);
         //score.SetActive(true);
     }
@@ -97,7 +98,10 @@ public class OpenButton : MonoBehaviour
         openAnim1.GetComponent<Animator>().enabled = true;
         open.GetComponent<Animator>().enabled = true;
         //score.SetActive(true);
+
+
     }
+
 
     // Update is called once per frame
 }
