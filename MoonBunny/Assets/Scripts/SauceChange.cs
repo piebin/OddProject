@@ -8,7 +8,6 @@ public class SauceChange : MonoBehaviour
     public GameObject Sbutton;
     public Sprite sauceB;
     public Sprite ddukB;
-   
 
     private void Start()
     {
@@ -18,7 +17,7 @@ public class SauceChange : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && GameManager.start)
         {
             Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero);

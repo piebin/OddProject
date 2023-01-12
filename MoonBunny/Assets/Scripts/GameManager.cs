@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     private int[] ClickedB = new int[7];
     private int[] clickedS = new int[7];
     private float[] realY = new float[7];
-    private bool start = false;
+    public static bool start = false;
     public int lvNum;
     public Sprite[] sprites = new Sprite[20];
     public GameObject[] buttons = new GameObject[4];
