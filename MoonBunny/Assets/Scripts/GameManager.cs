@@ -115,7 +115,6 @@ public class GameManager : MonoBehaviour
 
     public void FadeInvoke2()
     {
-        StartCoroutine(Fade(shortOrder));
         for (int i = 0; i < 3; i++)
         {
             StartCoroutine(Fade(re[i]));
@@ -662,6 +661,8 @@ public class GameManager : MonoBehaviour
     public void AnActive()
     {
         character.SetActive(false);
+        shortOrder.SetActive(false);
+        longOrder.SetActive(false);
         for (int i = 0; i < Bigri.Length; i++)
         {
             Bigri[i].SetActive(false);
@@ -838,6 +839,7 @@ public class GameManager : MonoBehaviour
         if (start)
         {
             character.SetActive(true);
+            shortOrder.SetActive(true);
             GuestBar.SetActive(true);//시간 활성화
             GuestBar.GetComponent<circleBar>().currentValue = 0; //시간을 0으로 초기화해줌
         }
