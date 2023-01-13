@@ -444,28 +444,28 @@ public class GameManager : MonoBehaviour
                 {
                     spSauceP.SetActive(true);
                     //IsclickedDduk = 0;
-                    Invoke("NoSpP", 0.3f);
+                    Invoke("NoSpP", 1.2f);
                 }
 
                 if (hit.collider.gameObject == saucesB[1] && IsclickedDduk < 0)//ºÐÈ«
                 {
                     spSaucePK.SetActive(true);
                     //IsclickedDduk = 0;
-                    Invoke("NoSpPK", 0.3f);
+                    Invoke("NoSpPK", 1.2f);
                 }
 
                 if (hit.collider.gameObject == saucesB[2] && IsclickedDduk < 0)//ÆÄ¶û
                 {
                     spSauceB.SetActive(true);
                     //IsclickedDduk = 0;
-                    Invoke("NoSpB", 0.3f);
+                    Invoke("NoSpB", 1.2f);
                 }
 
                 if (hit.collider.gameObject == saucesB[3] && IsclickedDduk < 0)//ÃÊ·Ï
                 {
                     spSauceG.SetActive(true);
                     //IsclickedDduk = 0;
-                    Invoke("NoSpG", 0.3f);
+                    Invoke("NoSpG", 1.2f);
                 }
 
 
