@@ -113,6 +113,15 @@ public class GameManager : MonoBehaviour
         Invoke("showTime", 0.5f);
     }
 
+    public void FadeInvoke2()
+    {
+        StartCoroutine(Fade(shortOrder));
+        for (int i = 0; i < 3; i++)
+        {
+            StartCoroutine(Fade(re[i]));
+        }
+    }
+
     public void showTime()
     {
         GuestBar.SetActive(true);//½Ã°£ È°¼ºÈ­
@@ -437,31 +446,28 @@ public class GameManager : MonoBehaviour
 
                 }
 
-
-
-
-                if (hit.collider.gameObject==saucesB[0] && IsclickedDduk < 0)//º¸¶ó
+                if (hit.collider.gameObject==saucesB[0] && IsclickedDduk < 0 && !spSauceP.activeSelf)//º¸¶ó
                 {
                     spSauceP.SetActive(true);
                     //IsclickedDduk = 0;
                     Invoke("NoSpP", 1.2f);
                 }
 
-                if (hit.collider.gameObject == saucesB[1] && IsclickedDduk < 0)//ºÐÈ«
+                if (hit.collider.gameObject == saucesB[1] && IsclickedDduk < 0 && !spSaucePK.activeSelf)//ºÐÈ«
                 {
                     spSaucePK.SetActive(true);
                     //IsclickedDduk = 0;
                     Invoke("NoSpPK", 1.2f);
                 }
 
-                if (hit.collider.gameObject == saucesB[2] && IsclickedDduk < 0)//ÆÄ¶û
+                if (hit.collider.gameObject == saucesB[2] && IsclickedDduk < 0 && !spSauceB.activeSelf)//ÆÄ¶û
                 {
                     spSauceB.SetActive(true);
                     //IsclickedDduk = 0;
                     Invoke("NoSpB", 1.2f);
                 }
 
-                if (hit.collider.gameObject == saucesB[3] && IsclickedDduk < 0)//ÃÊ·Ï
+                if (hit.collider.gameObject == saucesB[3] && IsclickedDduk < 0 && !spSauceG.activeSelf)//ÃÊ·Ï
                 {
                     spSauceG.SetActive(true);
                     //IsclickedDduk = 0;
@@ -678,6 +684,7 @@ public class GameManager : MonoBehaviour
 
         Invoke("AnActive", 0.5f);
         Invoke("guest", 0.5f);
+        Invoke("FadeInvoke2", 0.5f);
         Invoke("sauceChange", 0.5f);
         Invoke("randomRice", 0.6f);
         Invoke("sauceChON", 0.6f);
