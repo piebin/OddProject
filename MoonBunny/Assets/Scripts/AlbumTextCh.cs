@@ -57,7 +57,7 @@ public class AlbumTextCh : MonoBehaviour
             resetArray();
             chkCenter[texN] = true;
             audioSource[texN].Play();
-            if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)100);
+            //if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)100);
         }
     }
 
@@ -74,7 +74,7 @@ public class AlbumTextCh : MonoBehaviour
             resetArray();
             chkCenter[texN] = true;
             audioSource[texN].Play();
-            if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)100);
+            //if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)100);
         }
     }
 
