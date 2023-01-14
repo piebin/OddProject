@@ -839,7 +839,6 @@ public class GameManager : MonoBehaviour
         if (start)
         {
             character.SetActive(true);
-            shortOrder.SetActive(true);
             GuestBar.SetActive(true);//시간 활성화
             GuestBar.GetComponent<circleBar>().currentValue = 0; //시간을 0으로 초기화해줌
         }
