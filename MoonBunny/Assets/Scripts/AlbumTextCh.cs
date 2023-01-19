@@ -46,8 +46,8 @@ public class AlbumTextCh : MonoBehaviour
 
     public void RightB()
     {
-        position -= 170f;
-        sr.content.localPosition = new Vector3(position, -0.9f, 0);
+        position -= 250f;
+        sr.content.localPosition = new Vector3(position, 0.1f, 0);
 
         texN++;
 
@@ -63,8 +63,8 @@ public class AlbumTextCh : MonoBehaviour
 
     public void LeftB()
     {
-        position += 170f;
-        sr.content.localPosition = new Vector3(position, -0.9f, 0);
+        position += 250f;
+        sr.content.localPosition = new Vector3(position, 0.1f, 0);
 
         texN--;
 
@@ -290,6 +290,7 @@ public class AlbumTextCh : MonoBehaviour
     {
         resetArray();
         coordinate = GetComponent<Text>();
+        //sr.content.localPosition = new Vector3(0, 150f, 0);
         //sr.content.localPosition = new Vector3(0f, -0.9f, 0);
 
     }
@@ -302,7 +303,7 @@ public class AlbumTextCh : MonoBehaviour
         else
             LB.SetActive(true);
 
-        if (position == -1530)
+        if (position == -2250)
             RB.SetActive(false);
         else
             RB.SetActive(true);

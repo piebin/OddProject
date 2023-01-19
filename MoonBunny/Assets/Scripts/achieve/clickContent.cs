@@ -14,6 +14,8 @@ public class clickContent : MonoBehaviour
     private List<RaycastResult> results;
     private PointerEventData downPed = new PointerEventData(null);
     public AudioSource[] audioSource;
+    public GameObject rightB;
+    public GameObject leftB;
 
     // Start is called before the first frame update
     void Start()
@@ -77,6 +79,8 @@ public class clickContent : MonoBehaviour
             back.SetActive(false);
             showImg.SetActive(true);
             clickText.SetActive(true);
+            leftB.SetActive(false);
+            rightB.SetActive(false);
             BackGround.GetComponent<SpriteRenderer>().sprite = bgChange;
             try { clickImg = results[0].gameObject.GetComponent<Image>().sprite; }
             catch { }
@@ -93,6 +97,8 @@ public class clickContent : MonoBehaviour
             showImg.gameObject.GetComponent<Image>().sprite = null;
             showImg.SetActive(false);
             clickText.SetActive(false);
+            leftB.SetActive(true);
+            rightB.SetActive(true);
             try
             {
                 results[0].gameObject.GetComponent<Transform>().localScale = new Vector3(1.0f, 1.0f);
