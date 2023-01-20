@@ -279,7 +279,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        //업적달성
         if (TestAc == 1)
         {
             clearOne();
@@ -634,7 +634,7 @@ public class GameManager : MonoBehaviour
                             continue;*/
                     }
 
-                    if (sn == lvNum)
+                    if (sn == lvNum)//성공
                     {
                         ScoreManager.score += 10;
                         //Vibration.Cancel();
@@ -643,6 +643,7 @@ public class GameManager : MonoBehaviour
                         //Invoke("TimerSound", 0.8f);
                         gameObject.GetComponent<AudioSource>().Play();
                         success = true;
+                        character.GetComponent<Animator>().SetTrigger("success");
 
                         ChangeGuest();
                     }
@@ -660,9 +661,27 @@ public class GameManager : MonoBehaviour
 
     public void AnActive()
     {
-        character.SetActive(false);
+       shortOrder.GetComponent<Animator>().SetTrigger("Success");
+       longOrder.GetComponent<Animator>().SetTrigger("success");
+
+        if(shortOrder.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("successSH"))
+        {
+            character.SetActive(false);
+            shortOrder.SetActive(false);
+            longOrder.SetActive(false);
+        }
+
+        if (shortOrder.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("successLong"))
+        {
+            character.SetActive(false);
+            shortOrder.SetActive(false);
+            longOrder.SetActive(false);
+        }
+
+        /*character.SetActive(false);
         shortOrder.SetActive(false);
-        longOrder.SetActive(false);
+        longOrder.SetActive(false)*/;
+
         for (int i = 0; i < Bigri.Length; i++)
         {
             Bigri[i].SetActive(false);
