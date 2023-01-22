@@ -134,9 +134,14 @@ public class circleBar : MonoBehaviour
             {
                 audioSource[2].Play();
             }
-            //gm.num = 0;
-            //gm.snum = 0;
-            gm.ChangeGuest();
+
+
+
+            gm.TimerFail();
+            //gm.ChangeGuest();
+
+
+
             Debug.Log("num : " + num);
             Vibration.Cancel();
             if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)600);

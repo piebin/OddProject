@@ -60,6 +60,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject shortHand;
     public Sprite longHand;
+    public GameObject sad;
+    public GameObject fury;
 
     // Start is called before the first frame update
     void Start()
@@ -643,7 +645,28 @@ public class GameManager : MonoBehaviour
                         //Invoke("TimerSound", 0.8f);
                         gameObject.GetComponent<AudioSource>().Play();
                         success = true;
+
                         character.GetComponent<Animator>().SetTrigger("success");
+
+                        shortOrder.GetComponent<Animator>().SetTrigger("Success");
+                        longOrder.GetComponent<Animator>().SetTrigger("success");
+
+                        if (shortOrder.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("successSH"))
+                        {
+                            character.SetActive(false);
+                            shortOrder.SetActive(false);
+                            longOrder.SetActive(false);
+                        }
+
+                        if (shortOrder.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("successLong"))
+                        {
+                            character.SetActive(false);
+                            shortOrder.SetActive(false);
+                            longOrder.SetActive(false);
+                        }
+
+                        
+                        checkLv();
 
                         ChangeGuest();
                     }
@@ -659,35 +682,37 @@ public class GameManager : MonoBehaviour
     //    GuestBar.GetComponent<AudioSource>().Play();
     //}
 
-    public void AnActive()
+    public void TimerFail()
     {
-       shortOrder.GetComponent<Animator>().SetTrigger("Success");
-       longOrder.GetComponent<Animator>().SetTrigger("success");
 
-        if(shortOrder.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("successSH"))
+        //fail·Î ¼öÁ¤
+
+
+
+        character.GetComponent<Animator>().SetTrigger("fail");
+
+        shortOrder.GetComponent<Animator>().SetTrigger("Fail");
+        longOrder.GetComponent<Animator>().SetTrigger("fail");
+
+
+        if (shortOrder.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Failshort"))
         {
             character.SetActive(false);
             shortOrder.SetActive(false);
             longOrder.SetActive(false);
         }
 
-        if (shortOrder.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("successLong"))
+        if (shortOrder.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Faillong"))
         {
             character.SetActive(false);
             shortOrder.SetActive(false);
             longOrder.SetActive(false);
         }
 
-        /*character.SetActive(false);
-        shortOrder.SetActive(false);
-        longOrder.SetActive(false)*/;
+        
 
-        for (int i = 0; i < Bigri.Length; i++)
-        {
-            Bigri[i].SetActive(false);
-            re[i].SetActive(false);
-        }
-        checkLv();
+        ChangeGuest();
+
     }
 
     public void ChangeGuest()
@@ -702,7 +727,12 @@ public class GameManager : MonoBehaviour
         buttons[3].GetComponent<BoxCollider2D>().enabled = false;
         saucesB[3].GetComponent<BoxCollider2D>().enabled = false;
 
-        Invoke("AnActive", 0.5f);
+        for (int i = 0; i < Bigri.Length; i++)
+        {
+            Bigri[i].SetActive(false);
+            re[i].SetActive(false);
+        }
+
         Invoke("guest", 0.5f);
         Invoke("FadeInvoke2", 0.5f);
         Invoke("sauceChange", 0.5f);

@@ -1000,6 +1000,8 @@ MonoBehaviour:
   level: 1
   shortHand: {fileID: 1420043684}
   longHand: {fileID: 21300000, guid: e4c8fa4d20395a947a799095d698be94, type: 3}
+  sad: {fileID: 0}
+  fury: {fileID: 0}
 --- !u!4 &110919639
 Transform:
   m_ObjectHideFlags: 0
