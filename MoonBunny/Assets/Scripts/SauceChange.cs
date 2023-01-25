@@ -12,7 +12,6 @@ public class SauceChange : MonoBehaviour
     private void Start()
     {
         Debug.Log("start ");
-
     }
 
     private void Update()

@@ -136,10 +136,8 @@ public class circleBar : MonoBehaviour
             }
 
 
-
             gm.TimerFail();
             //gm.ChangeGuest();
-
 
 
             Debug.Log("num : " + num);

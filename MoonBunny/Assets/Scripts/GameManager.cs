@@ -58,8 +58,6 @@ public class GameManager : MonoBehaviour
     public GameObject spSauceB, spSaucePK, spSauceP, spSauceG;
     public int level = (ScoreManager.score / 100) + 1;
 
-    public GameObject shortHand;
-    public Sprite longHand;
     public GameObject sad;
     public GameObject fury;
 
@@ -68,12 +66,10 @@ public class GameManager : MonoBehaviour
     {
         titlePanel.SetActive(false);
         dark.SetActive(false);
-        checkLv();
-        guest();
-        randomRice();
         num = 10;
         snum = 10;
         goBack.SetActive(true);
+        checkLv();
 
         //배경적용
         backGround.GetComponent<SpriteRenderer>().sprite = BgSprites[PlayerPrefs.GetInt("ing_key")];
@@ -106,6 +102,8 @@ public class GameManager : MonoBehaviour
 
     public void FadeInvoke()
     {
+        guest();
+        randomRice();
         StartCoroutine(Fade(character));
         StartCoroutine(Fade(shortOrder));
         for (int i = 0; i < 3; i++)
@@ -647,7 +645,6 @@ public class GameManager : MonoBehaviour
                         success = true;
 
                         character.GetComponent<Animator>().SetTrigger("success");
-
                         shortOrder.GetComponent<Animator>().SetTrigger("Success");
                         longOrder.GetComponent<Animator>().SetTrigger("success");
 
@@ -665,12 +662,13 @@ public class GameManager : MonoBehaviour
                             longOrder.SetActive(false);
                         }
 
-                        
                         checkLv();
-
                         ChangeGuest();
                     }
-
+                    else
+                    {
+                        if (PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)600);
+                    }
                     //checkLv();
                 }
             }
@@ -686,14 +684,9 @@ public class GameManager : MonoBehaviour
     {
 
         //fail로 수정
-
-
-
         character.GetComponent<Animator>().SetTrigger("fail");
-
         shortOrder.GetComponent<Animator>().SetTrigger("Fail");
         longOrder.GetComponent<Animator>().SetTrigger("fail");
-
 
         if (shortOrder.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Failshort"))
         {
@@ -709,10 +702,7 @@ public class GameManager : MonoBehaviour
             longOrder.SetActive(false);
         }
 
-        
-
         ChangeGuest();
-
     }
 
     public void ChangeGuest()

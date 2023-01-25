@@ -13,7 +13,8 @@ public class OpenButton : MonoBehaviour
     void Start()
     {
         openAnim1.GetComponent<Animator>().enabled = false;
-
+        openChk = false;
+        GameManager.start = false;
         //open.GetComponent<Animator>().enabled = false;
 
         loadingUp.SetActive(true);
@@ -104,17 +105,9 @@ public class OpenButton : MonoBehaviour
         BGM2.SetActive(true);
         BGM2.GetComponent<AudioSource>().Play();
         openAnim1.GetComponent<Animator>().enabled = true;
-
         //open.GetComponent<Animator>().enabled = true;
-
         open.GetComponent<Animator>().SetTrigger("clicked");
-        
-        
-        
-
         //score.SetActive(true);
-
-
     }
 
 
