@@ -17,6 +17,9 @@ public class clickContent : MonoBehaviour
     public GameObject rightB;
     public GameObject leftB;
 
+    public GameObject textob;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,10 +65,30 @@ public class clickContent : MonoBehaviour
                 if (results[0].gameObject.tag == "content" && results[0].gameObject.GetComponent<Image>().sprite.name != "rock")
                 {
                     if(!touchChk)
+                    {
                         audioSource[0].Play();
+                        
+                    }
+                        
                     else
+                    {
                         audioSource[1].Play();
+                    }
+                        
                     touchChk = !touchChk;
+                    if(textob.GetComponent<AlbumTextCh>().position!=0)
+                    {
+                        
+                        leftB.SetActive(true);
+                    }
+
+                    if (textob.GetComponent<AlbumTextCh>().position != -2250)
+                    {
+                        rightB.SetActive(true);
+                        
+                    }
+
+
                 }
             }
             //results[0].gameObject.transform.position = ped.position;
@@ -73,14 +96,16 @@ public class clickContent : MonoBehaviour
 
         if (touchChk)
         {
+            leftB.SetActive(false);
+            rightB.SetActive(false);
+
             scrollbar.gameObject.SetActive(false);
             nameT.SetActive(false);
             contentT.SetActive(false);
             back.SetActive(false);
             showImg.SetActive(true);
             clickText.SetActive(true);
-            leftB.SetActive(false);
-            rightB.SetActive(false);
+
             BackGround.GetComponent<SpriteRenderer>().sprite = bgChange;
             try { clickImg = results[0].gameObject.GetComponent<Image>().sprite; }
             catch { }
@@ -89,6 +114,7 @@ public class clickContent : MonoBehaviour
 
         if (!touchChk)
         {
+            
             scrollbar.gameObject.SetActive(true);
             nameT.SetActive(true);
             contentT.SetActive(true);
@@ -97,8 +123,7 @@ public class clickContent : MonoBehaviour
             showImg.gameObject.GetComponent<Image>().sprite = null;
             showImg.SetActive(false);
             clickText.SetActive(false);
-            leftB.SetActive(true);
-            rightB.SetActive(true);
+
             try
             {
                 results[0].gameObject.GetComponent<Transform>().localScale = new Vector3(1.0f, 1.0f);

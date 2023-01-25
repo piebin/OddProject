@@ -598,6 +598,7 @@ MonoBehaviour:
   audioSource: []
   rightB: {fileID: 0}
   leftB: {fileID: 0}
+  textob: {fileID: 0}
 --- !u!114 &365180704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1481,6 +1482,7 @@ MonoBehaviour:
   audioSource: []
   rightB: {fileID: 0}
   leftB: {fileID: 0}
+  textob: {fileID: 0}
 --- !u!114 &728302047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1572,6 +1574,7 @@ MonoBehaviour:
   audioSource: []
   rightB: {fileID: 0}
   leftB: {fileID: 0}
+  textob: {fileID: 0}
 --- !u!65 &885321658
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2002,6 +2005,7 @@ MonoBehaviour:
   - {fileID: 1063527213}
   rightB: {fileID: 1028338737}
   leftB: {fileID: 691036258}
+  textob: {fileID: 1865769685}
 --- !u!114 &1063527212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2320,6 +2324,7 @@ MonoBehaviour:
   audioSource: []
   rightB: {fileID: 0}
   leftB: {fileID: 0}
+  textob: {fileID: 0}
 --- !u!114 &1106315139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2420,7 +2425,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1148748713}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 100, y: 250, z: 30}
@@ -2448,6 +2453,7 @@ MonoBehaviour:
   audioSource: []
   rightB: {fileID: 0}
   leftB: {fileID: 0}
+  textob: {fileID: 0}
 --- !u!114 &1148748719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2852,6 +2858,7 @@ MonoBehaviour:
   audioSource: []
   rightB: {fileID: 0}
   leftB: {fileID: 0}
+  textob: {fileID: 0}
 --- !u!114 &1443964007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2943,7 +2950,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1537018537}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -3088,6 +3095,7 @@ MonoBehaviour:
   audioSource: []
   rightB: {fileID: 0}
   leftB: {fileID: 0}
+  textob: {fileID: 0}
 --- !u!114 &1540758927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3482,6 +3490,7 @@ MonoBehaviour:
   audioSource: []
   rightB: {fileID: 0}
   leftB: {fileID: 0}
+  textob: {fileID: 0}
 --- !u!114 &1826680386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4848,6 +4857,7 @@ MonoBehaviour:
   audioSource: []
   rightB: {fileID: 0}
   leftB: {fileID: 0}
+  textob: {fileID: 0}
 --- !u!114 &2072267911
 MonoBehaviour:
   m_ObjectHideFlags: 0

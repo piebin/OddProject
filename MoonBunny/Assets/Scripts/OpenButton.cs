@@ -30,6 +30,7 @@ public class OpenButton : MonoBehaviour
         //score.SetActive(false);
 
         gm.GetComponent<GameManager>().backGround.GetComponent<SpriteRenderer>().sprite = gm.GetComponent<GameManager>().BgSprites[PlayerPrefs.GetInt("ing_key")];
+        gm.GetComponent<GameManager>().backGround_desk.GetComponent<SpriteRenderer>().sprite = gm.GetComponent<GameManager>().BgDesksprites[PlayerPrefs.GetInt("ing_key")];
     }
 
     public void quitLoading()

@@ -14,6 +14,7 @@ public class AlbumTextCh : MonoBehaviour
     public GameObject card7;
     public GameObject card8;
     public GameObject card9;
+
     
 
     public GameObject RB;
@@ -59,6 +60,8 @@ public class AlbumTextCh : MonoBehaviour
             audioSource[texN].Play();
             //if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)100);
         }
+
+        checkArrow();
     }
 
     public void LeftB()
@@ -76,6 +79,8 @@ public class AlbumTextCh : MonoBehaviour
             audioSource[texN].Play();
             //if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)100);
         }
+
+        checkArrow();
     }
 
 
@@ -293,11 +298,12 @@ public class AlbumTextCh : MonoBehaviour
         //sr.content.localPosition = new Vector3(0, 150f, 0);
         //sr.content.localPosition = new Vector3(0f, -0.9f, 0);
 
+        checkArrow();
+
     }
 
-    private void Update()
+    public void checkArrow()
     {
-
         if (position == 0)
             LB.SetActive(false);
         else
@@ -307,6 +313,12 @@ public class AlbumTextCh : MonoBehaviour
             RB.SetActive(false);
         else
             RB.SetActive(true);
+    }
+
+    private void Update()
+    {
+
+        
 
         acName.GetComponent<Image>().sprite = acNames[texN];
         acContent.GetComponent<Image>().sprite = acContents[texN];

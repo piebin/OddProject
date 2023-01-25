@@ -52,8 +52,11 @@ public class GameManager : MonoBehaviour
     public GameObject resetR;
     public GameObject multiBtnSound;
     public GameObject backGround;
+    public GameObject backGround_desk;
     public GameObject longOrder, shortOrder;
     public Sprite[] BgSprites = new Sprite[9];
+    public Sprite[] BgDesksprites = new Sprite[9];
+
     public GameObject BGM2, openBtn;
     public GameObject spSauceB, spSaucePK, spSauceP, spSauceG;
     public int level = (ScoreManager.score / 100) + 1;
@@ -64,6 +67,12 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        //배경적용&책상변경
+        
+        backGround_desk.GetComponent<SpriteRenderer>().sprite = BgDesksprites[PlayerPrefs.GetInt("ing_key")];
+        backGround.GetComponent<SpriteRenderer>().sprite = BgSprites[PlayerPrefs.GetInt("ing_key")];
+
         titlePanel.SetActive(false);
         dark.SetActive(false);
         num = 10;
@@ -71,8 +80,7 @@ public class GameManager : MonoBehaviour
         goBack.SetActive(true);
         checkLv();
 
-        //배경적용
-        backGround.GetComponent<SpriteRenderer>().sprite = BgSprites[PlayerPrefs.GetInt("ing_key")];
+
 
 
         for (int i=0; i<realY.Length; i++)
