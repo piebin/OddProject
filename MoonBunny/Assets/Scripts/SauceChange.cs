@@ -23,7 +23,6 @@ public class SauceChange : MonoBehaviour
 
             if (hit.collider != null && hit.collider.gameObject==Sbutton)
             {
-                //Debug.Log("clicked");
                 if (buttons[0].activeSelf == true)
                 {
                     Sbutton.GetComponent<SpriteRenderer>().sprite = ddukB;

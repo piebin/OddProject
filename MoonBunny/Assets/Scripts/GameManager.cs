@@ -64,6 +64,10 @@ public class GameManager : MonoBehaviour
     public GameObject sad;
     public GameObject fury;
 
+    public int selF = 0;
+
+    public GameObject gm;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -72,6 +76,7 @@ public class GameManager : MonoBehaviour
         
         backGround_desk.GetComponent<SpriteRenderer>().sprite = BgDesksprites[PlayerPrefs.GetInt("ing_key")];
         backGround.GetComponent<SpriteRenderer>().sprite = BgSprites[PlayerPrefs.GetInt("ing_key")];
+
 
         titlePanel.SetActive(false);
         dark.SetActive(false);
@@ -239,6 +244,7 @@ public class GameManager : MonoBehaviour
         multiBtnSound.GetComponent<AudioSource>().Play();
         if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)20);
         loadingDown.SetActive(true);
+
         titlePanel.SetActive(false);
         StartCoroutine(FadeOut(BGM2, 1.5f));
         Invoke("loadTitle", 1.8f);
@@ -258,6 +264,8 @@ public class GameManager : MonoBehaviour
         if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)20);
         //GuestBar.GetComponent<AudioSource>().Play();
         titlePanel.SetActive(false);
+
+
         dark.SetActive(false);
     }
 
@@ -326,14 +334,13 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("achieve_key8", 1);
         }
 
-
-
         if (titlePanel.activeSelf == false)
         {
             Time.timeScale = 1.0f;
             embox.SetActive(false);
             resetR.GetComponent<ResetRice>().enabled = true;
             dark.SetActive(false);
+
             //this.enabled = true;
             //GuestBar.SetActive(true);
         }
@@ -349,6 +356,7 @@ public class GameManager : MonoBehaviour
             {
                 if (hit.collider.gameObject == goBack && Input.GetMouseButtonUp(0))
                 {
+                    
                     titlePanel.SetActive(true);
                     dark.SetActive(true);
                     lvTimer.GetComponent<Animator>().speed = 0.0f;
@@ -357,6 +365,8 @@ public class GameManager : MonoBehaviour
                     embox.SetActive(true);
                     resetR.GetComponent<ResetRice>().enabled = false;
                     goBack.GetComponent<AudioSource>().Play();
+
+
                     //this.enabled = false;
                     //GuestBar.SetActive(false);
                 }
@@ -645,6 +655,7 @@ public class GameManager : MonoBehaviour
                     if (sn == lvNum)//성공
                     {
                         ScoreManager.score += 10;
+                        selF = 0;
                         //Vibration.Cancel();
                         //Vibration.Vibrate((long)400);
                         //GuestBar.GetComponent<AudioSource>().Stop();
@@ -688,19 +699,46 @@ public class GameManager : MonoBehaviour
     //    GuestBar.GetComponent<AudioSource>().Play();
     //}
 
-    public void TimerFail()
+    public void TimerFail()//실패했을때
     {
+        int randomFace = Random.Range(1, 2);
+        
 
         //fail로 수정
+        selF++;
+        Debug.Log("selF = " + selF);
+
+        if(selF>=2)
+        {
+            fury.SetActive(true);
+            fury.GetComponent<Animator>().SetTrigger("fup");
+        }//연속2회이상 실패시
+
+        else if(randomFace==1)
+        {
+            sad.SetActive(true);
+            sad.GetComponent<Animator>().SetTrigger("fup");
+        }
+
+        else if (randomFace == 2)
+        {
+            sad.SetActive(true);
+            sad.GetComponent<Animator>().SetTrigger("fup");
+        }
+
         character.GetComponent<Animator>().SetTrigger("fail");
         shortOrder.GetComponent<Animator>().SetTrigger("Fail");
         longOrder.GetComponent<Animator>().SetTrigger("fail");
+
+
+
 
         if (shortOrder.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Failshort"))
         {
             character.SetActive(false);
             shortOrder.SetActive(false);
             longOrder.SetActive(false);
+            
         }
 
         if (shortOrder.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Faillong"))
@@ -708,22 +746,18 @@ public class GameManager : MonoBehaviour
             character.SetActive(false);
             shortOrder.SetActive(false);
             longOrder.SetActive(false);
+           
         }
 
         ChangeGuest();
+        
     }
 
     public void ChangeGuest()
     {
-        sauceCh.GetComponent<BoxCollider2D>().enabled = false;
-        buttons[0].GetComponent<BoxCollider2D>().enabled = false;
-        saucesB[0].GetComponent<BoxCollider2D>().enabled = false;
-        buttons[1].GetComponent<BoxCollider2D>().enabled = false;
-        saucesB[1].GetComponent<BoxCollider2D>().enabled = false;
-        buttons[2].GetComponent<BoxCollider2D>().enabled = false;
-        saucesB[2].GetComponent<BoxCollider2D>().enabled = false;
-        buttons[3].GetComponent<BoxCollider2D>().enabled = false;
-        saucesB[3].GetComponent<BoxCollider2D>().enabled = false;
+        sauceChOFF();
+
+        
 
         for (int i = 0; i < Bigri.Length; i++)
         {
@@ -743,6 +777,7 @@ public class GameManager : MonoBehaviour
 
     public void sauceChON()
     {
+        Debug.Log("sauce on");
         sauceCh.GetComponent<BoxCollider2D>().enabled = true;
         buttons[0].GetComponent<BoxCollider2D>().enabled = true;
         saucesB[0].GetComponent<BoxCollider2D>().enabled = true;
@@ -752,6 +787,20 @@ public class GameManager : MonoBehaviour
         saucesB[2].GetComponent<BoxCollider2D>().enabled = true;
         buttons[3].GetComponent<BoxCollider2D>().enabled = true;
         saucesB[3].GetComponent<BoxCollider2D>().enabled = true;
+    }
+
+    public void sauceChOFF()
+    {
+        Debug.Log("sauce off");
+        sauceCh.GetComponent<BoxCollider2D>().enabled = false;
+        buttons[0].GetComponent<BoxCollider2D>().enabled = false;
+        saucesB[0].GetComponent<BoxCollider2D>().enabled = false;
+        buttons[1].GetComponent<BoxCollider2D>().enabled = false;
+        saucesB[1].GetComponent<BoxCollider2D>().enabled = false;
+        buttons[2].GetComponent<BoxCollider2D>().enabled = false;
+        saucesB[2].GetComponent<BoxCollider2D>().enabled = false;
+        buttons[3].GetComponent<BoxCollider2D>().enabled = false;
+        saucesB[3].GetComponent<BoxCollider2D>().enabled = false;
     }
 
     //버튼 창을 떡 시작으로 바꿈.
