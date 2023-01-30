@@ -86,8 +86,6 @@ public class GameManager : MonoBehaviour
         checkLv();
 
 
-
-
         for (int i=0; i<realY.Length; i++)
         {
             realY[i] = Bigri[i].GetComponent<Transform>().position.y;
@@ -117,7 +115,8 @@ public class GameManager : MonoBehaviour
     {
         guest();
         randomRice();
-        StartCoroutine(Fade(character));
+        //StartCoroutine(Fade(character));
+        character.SetActive(true);
         StartCoroutine(Fade(shortOrder));
         for (int i = 0; i < 3; i++)
         {
