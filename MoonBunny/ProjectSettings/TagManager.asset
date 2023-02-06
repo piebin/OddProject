@@ -10,6 +10,7 @@ TagManager:
   - BG
   - content
   - ui
+  - btn
   layers:
   - Default
   - TransparentFX

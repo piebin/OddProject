@@ -60,11 +60,17 @@ public class clickContent : MonoBehaviour
             results = new List<RaycastResult>();
             gr.Raycast(ped, results);
 
+
             if (results.Count <= 0) return;
             if (downPed.position == ped.position) {
+
+                Debug.Log(results[0].gameObject.name);
+
                 if (results[0].gameObject.tag == "content" && results[0].gameObject.GetComponent<Image>().sprite.name != "rock")
                 {
-                    if(!touchChk)
+                    
+
+                    if (!touchChk)
                     {
                         audioSource[0].Play();
                         
