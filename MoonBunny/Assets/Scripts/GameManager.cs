@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviour
     public Sprite[] BgDesksprites = new Sprite[9];
 
     public GameObject BGM2, openBtn;
+    public GameObject openAnimRice;
     public GameObject spSauceB, spSaucePK, spSauceP, spSauceG;
     public int level = (ScoreManager.score / 100) + 1;
 
@@ -106,6 +107,11 @@ public class GameManager : MonoBehaviour
     public void OpenBtnFalse()
     {
         openBtn.SetActive(false);
+        for (int i = 0; i < buttons.Length; i++)
+        {
+            buttons[i].SetActive(true);
+        }
+        openAnimRice.SetActive(false);
     }
 
     public void FadeInvoke()
