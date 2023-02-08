@@ -36,7 +36,7 @@ public class circleBar : MonoBehaviour
     public GameObject timer;
 
     public GameObject scoreC;
-    public AudioSource[] audioSource = new AudioSource[3]; //패시브, 종료1, 종료2
+    public AudioSource audioSource; //패시브, 종료1, 종료2
 
     private int level = 0;
     private float ro = 180;
@@ -125,20 +125,10 @@ public class circleBar : MonoBehaviour
         else if (!GameManager.success)
         {
             losingHeart++;
-            int rand = Random.Range(1, 3);
-            if (rand == 1)
-            {
-                audioSource[1].Play();
-            }
-            else if (rand == 2)
-            {
-                audioSource[2].Play();
-            }
-
+            audioSource.Play();
 
             gm.TimerFail();
             //gm.ChangeGuest();
-
 
             Debug.Log("num : " + num);
             Vibration.Cancel();
