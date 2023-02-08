@@ -16,7 +16,7 @@ public class SauceChange : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && GameManager.start)
+        if (Input.GetMouseButtonDown(0) && GameManager.gameStart && GameManager.gamePlay)
         {
             Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero);

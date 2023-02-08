@@ -70,14 +70,14 @@ public class ResetRice : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) && GameManager.gamePlay)
         {
             mousePos1 = Input.mousePosition;
             mousePos1 = Camera.ScreenToWorldPoint(mousePos1);
             count = 1;
         }
 
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) && GameManager.gamePlay)
         {
             count = 0;
             mousePos2 = Input.mousePosition;

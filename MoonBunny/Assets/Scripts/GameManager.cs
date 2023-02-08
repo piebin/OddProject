@@ -13,7 +13,8 @@ public class GameManager : MonoBehaviour
     private int[] ClickedB = new int[7];
     private int[] clickedS = new int[7];
     private float[] realY = new float[7];
-    public static bool start = false;
+    public static bool gamePlay = false;
+    public static bool gameStart = false;
     public int lvNum;
     public Sprite[] sprites = new Sprite[20];
     public GameObject[] buttons = new GameObject[4];
@@ -41,7 +42,6 @@ public class GameManager : MonoBehaviour
     public GameObject ac8;
     public GameObject ac9;
     public GameObject ac10;
-
 
     public int TestAc;
 
@@ -71,12 +71,10 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         //배경적용&책상변경
         
         backGround_desk.GetComponent<SpriteRenderer>().sprite = BgDesksprites[PlayerPrefs.GetInt("ing_key")];
         backGround.GetComponent<SpriteRenderer>().sprite = BgSprites[PlayerPrefs.GetInt("ing_key")];
-
 
         titlePanel.SetActive(false);
         dark.SetActive(false);
@@ -84,7 +82,6 @@ public class GameManager : MonoBehaviour
         snum = 10;
         goBack.SetActive(true);
         checkLv();
-
 
         for (int i=0; i<realY.Length; i++)
         {
@@ -139,7 +136,8 @@ public class GameManager : MonoBehaviour
         GuestBar.GetComponent<circleBar>().currentValue = 0;
         num = 0;
         snum = 0;
-        start = true;
+        gameStart = true;
+        gamePlay = true;
     }
 
     public IEnumerator Fade(GameObject obj)
@@ -256,6 +254,7 @@ public class GameManager : MonoBehaviour
 
     public void goBackNo()
     {
+        if(gameStart) gamePlay = true;
         lvTimer.GetComponent<Animator>().speed = 1.0f;
         lvTimer.GetComponent<Animator>().enabled = true;
         Time.timeScale = 1.0f;
@@ -351,11 +350,11 @@ public class GameManager : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero);
 
 
-            if (hit.collider != null)
+            if (hit.collider != null && gamePlay)
             {
                 if (hit.collider.gameObject == goBack && Input.GetMouseButtonUp(0))
                 {
-                    
+                    gamePlay = false;
                     titlePanel.SetActive(true);
                     dark.SetActive(true);
                     lvTimer.GetComponent<Animator>().speed = 0.0f;
@@ -364,7 +363,6 @@ public class GameManager : MonoBehaviour
                     embox.SetActive(true);
                     resetR.GetComponent<ResetRice>().enabled = false;
                     goBack.GetComponent<AudioSource>().Play();
-
 
                     //this.enabled = false;
                     //GuestBar.SetActive(false);
@@ -730,8 +728,6 @@ public class GameManager : MonoBehaviour
         longOrder.GetComponent<Animator>().SetTrigger("fail");
 
 
-
-
         if (shortOrder.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Failshort"))
         {
             character.SetActive(false);
@@ -748,15 +744,12 @@ public class GameManager : MonoBehaviour
            
         }
 
-        ChangeGuest();
-        
+        ChangeGuest(); 
     }
 
     public void ChangeGuest()
     {
-        sauceChOFF();
-
-        
+        sauceChOFF();  
 
         for (int i = 0; i < Bigri.Length; i++)
         {
@@ -868,7 +861,6 @@ public class GameManager : MonoBehaviour
         }
 
 
-
         //업적 7번 일상복a
 
         if (CharacterNum == 2)
@@ -931,7 +923,7 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("achieve_key7", 1);
         }
 
-        if (start)
+        if (gameStart)
         {
             character.SetActive(true);
             GuestBar.SetActive(true);//시간 활성화
@@ -1026,7 +1018,7 @@ public class GameManager : MonoBehaviour
         }
         if(lvNum < 4)
         {
-            if(start) shortOrder.SetActive(true);
+            if(gameStart) shortOrder.SetActive(true);
             longOrder.SetActive(false);
         }
         else
@@ -1046,7 +1038,7 @@ public class GameManager : MonoBehaviour
             ren[i] = re[i].GetComponent<SpriteRenderer>();
             randoms[i] = Random.Range(4, 19);
             ren[i].sprite = sprites[randoms[i]];
-            if(start) re[i].SetActive(true);
+            if(gameStart) re[i].SetActive(true);
         }
         //스프라이트 받아옴
         //랜덤숫자들->얘랑 누른거랑 비교하기.

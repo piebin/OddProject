@@ -14,7 +14,7 @@ public class OpenButton : MonoBehaviour
     {
         openAnim1.GetComponent<Animator>().enabled = false;
         openChk = false;
-        GameManager.start = false;
+        GameManager.gamePlay = false;
         //open.GetComponent<Animator>().enabled = false;
 
         loadingUp.SetActive(true);
@@ -57,6 +57,7 @@ public class OpenButton : MonoBehaviour
             {
                 if (hit.collider.gameObject == gm.GetComponent<GameManager>().goBack)
                 {
+                    GameManager.gamePlay = false;
                     lvTimer.GetComponent<Animator>().speed = 0.0f;
                     lvTimer.GetComponent<Animator>().enabled = false;
                     Time.timeScale = 0.0f;
