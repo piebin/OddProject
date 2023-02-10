@@ -60,6 +60,7 @@ public class ScrollView : MonoBehaviour
         purchasePanel.SetActive(false);
         setPanel.SetActive(false);
         alreadySetPanel.SetActive(false);
+        carrotText.text = PlayerPrefs.GetInt("score_key").ToString();
         Int32.TryParse(carrotText.text, out myCarrot);
         if (myCarrot > 999999999) myCarrot = 999999999;
         if (myCarrot.ToString().Length <= 6)
