@@ -73,8 +73,9 @@ public class GameManager : MonoBehaviour
 
     public AudioMixer mixer;
 
-    public float waitingTime;
-    public int waitingCH = 0;
+    public GameObject numberAni;
+
+    public GameObject check;
 
 
     // Start is called before the first frame update
@@ -268,33 +269,29 @@ public class GameManager : MonoBehaviour
 
     public void goBackNo()
     {
-        while(true)
-        {
-            waitingTime += Time.deltaTime;
-            Debug.Log(waitingTime);
-
-            if (waitingTime >= 3f)
-            {
-                if (gameStart) gamePlay = true;
-
-                Debug.Log("ingame");
-                lvTimer.GetComponent<Animator>().speed = 1.0f;
-                lvTimer.GetComponent<Animator>().enabled = true;
-                Time.timeScale = 1.0f;
-                multiBtnSound.GetComponent<AudioSource>().Play();
-                if (PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)20);
-                //GuestBar.GetComponent<AudioSource>().Play();
-                titlePanel.SetActive(false);
-
-                float sound = PlayerPrefs.GetFloat("bgm_sound");
-                mixer.SetFloat("bgmv", Mathf.Log10(sound) * 20);
-
-                dark.SetActive(false);
-
-                break;
-            }
-        }
+        check.SetActive(true);
+        titlePanel.SetActive(false);
         
+        dark.SetActive(false);
+
+        numberAni.SetActive(true);
+
+       
+    }
+
+    public void goBackNoF()
+    {
+        check.SetActive(false);
+        if (gameStart) gamePlay = true;
+        lvTimer.GetComponent<Animator>().speed = 1.0f;
+        lvTimer.GetComponent<Animator>().enabled = true;
+        Time.timeScale = 1.0f;
+        multiBtnSound.GetComponent<AudioSource>().Play();
+        if (PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)20);
+        float sound = PlayerPrefs.GetFloat("bgm_sound");
+        mixer.SetFloat("bgmv", Mathf.Log10(sound) * 20);
+        Debug.Log("ingame");
+        numberAni.SetActive(false);
     }
 
 
@@ -363,7 +360,7 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("achieve_key8", 1);
         }
 
-        if (titlePanel.activeSelf == false)
+        if (titlePanel.activeSelf == false && check.activeSelf==false)
         {
             Time.timeScale = 1.0f;
             embox.SetActive(false);
