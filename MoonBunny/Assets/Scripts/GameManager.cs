@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.IO;
+using UnityEngine.Audio;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -68,6 +70,12 @@ public class GameManager : MonoBehaviour
     public int selF = 0;
 
     public GameObject gm;
+
+    public AudioMixer mixer;
+
+    public float waitingTime;
+    public int waitingCH = 0;
+
 
     // Start is called before the first frame update
     void Start()
@@ -260,17 +268,33 @@ public class GameManager : MonoBehaviour
 
     public void goBackNo()
     {
-        if(gameStart) gamePlay = true;
-        lvTimer.GetComponent<Animator>().speed = 1.0f;
-        lvTimer.GetComponent<Animator>().enabled = true;
-        Time.timeScale = 1.0f;
-        multiBtnSound.GetComponent<AudioSource>().Play();
-        if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)20);
-        //GuestBar.GetComponent<AudioSource>().Play();
-        titlePanel.SetActive(false);
+        while(true)
+        {
+            waitingTime += Time.deltaTime;
+            Debug.Log(waitingTime);
 
+            if (waitingTime >= 3f)
+            {
+                if (gameStart) gamePlay = true;
 
-        dark.SetActive(false);
+                Debug.Log("ingame");
+                lvTimer.GetComponent<Animator>().speed = 1.0f;
+                lvTimer.GetComponent<Animator>().enabled = true;
+                Time.timeScale = 1.0f;
+                multiBtnSound.GetComponent<AudioSource>().Play();
+                if (PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)20);
+                //GuestBar.GetComponent<AudioSource>().Play();
+                titlePanel.SetActive(false);
+
+                float sound = PlayerPrefs.GetFloat("bgm_sound");
+                mixer.SetFloat("bgmv", Mathf.Log10(sound) * 20);
+
+                dark.SetActive(false);
+
+                break;
+            }
+        }
+        
     }
 
 
@@ -299,6 +323,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      
         //업적달성
         if (TestAc == 1)
         {
@@ -369,6 +394,9 @@ public class GameManager : MonoBehaviour
                     embox.SetActive(true);
                     resetR.GetComponent<ResetRice>().enabled = false;
                     goBack.GetComponent<AudioSource>().Play();
+
+                    
+
 
                     //this.enabled = false;
                     //GuestBar.SetActive(false);

@@ -496,7 +496,6 @@ GameObject:
   - component: {fileID: 365180701}
   - component: {fileID: 365180700}
   - component: {fileID: 365180702}
-  - component: {fileID: 365180703}
   - component: {fileID: 365180704}
   m_Layer: 5
   m_Name: n8
@@ -573,32 +572,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 100, y: 250, z: 30}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &365180703
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 365180698}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 112f985fb0df98142a469d51a5917f42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollbar: {fileID: 1407382896}
-  nameT: {fileID: 0}
-  contentT: {fileID: 0}
-  BackGround: {fileID: 51878276}
-  showImg: {fileID: 0}
-  clickText: {fileID: 0}
-  back: {fileID: 0}
-  bgChange: {fileID: 0}
-  audioSource: []
-  rightB: {fileID: 0}
-  leftB: {fileID: 0}
-  textob: {fileID: 0}
+  m_Size: {x: 216.16663, y: 306.3233, z: 30}
+  m_Center: {x: 0.35198975, y: 2.8161697, z: 0}
 --- !u!114 &365180704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1108,8 +1083,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 100, y: 250, z: 30}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 213.6453, y: 308.1756, z: 30}
+  m_Center: {x: 0, y: 1.3529129, z: 0}
 --- !u!54 &606566036
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1367,7 +1342,6 @@ GameObject:
   - component: {fileID: 728302044}
   - component: {fileID: 728302043}
   - component: {fileID: 728302045}
-  - component: {fileID: 728302046}
   - component: {fileID: 728302047}
   m_Layer: 5
   m_Name: n4
@@ -1444,32 +1418,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 100, y: 250, z: 30}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &728302046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 728302041}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 112f985fb0df98142a469d51a5917f42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollbar: {fileID: 1407382896}
-  nameT: {fileID: 0}
-  contentT: {fileID: 0}
-  BackGround: {fileID: 51878276}
-  showImg: {fileID: 0}
-  clickText: {fileID: 0}
-  back: {fileID: 0}
-  bgChange: {fileID: 0}
-  audioSource: []
-  rightB: {fileID: 0}
-  leftB: {fileID: 0}
-  textob: {fileID: 0}
+  m_Size: {x: 214.99823, y: 307.4991, z: 30}
+  m_Center: {x: 0.000030517578, y: 1.6911469, z: 0}
 --- !u!114 &728302047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1496,7 +1446,6 @@ GameObject:
   - component: {fileID: 885321660}
   - component: {fileID: 885321659}
   - component: {fileID: 885321658}
-  - component: {fileID: 885321657}
   - component: {fileID: 885321656}
   m_Layer: 5
   m_Name: n10
@@ -1538,30 +1487,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newimage: {fileID: 21300000, guid: 55215801f3e3ff04daff19a1774f1ca6, type: 3}
   thisone: {fileID: 885321659}
---- !u!114 &885321657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 885321654}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 112f985fb0df98142a469d51a5917f42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollbar: {fileID: 1407382896}
-  nameT: {fileID: 0}
-  contentT: {fileID: 0}
-  BackGround: {fileID: 51878276}
-  showImg: {fileID: 0}
-  clickText: {fileID: 0}
-  back: {fileID: 0}
-  bgChange: {fileID: 0}
-  audioSource: []
-  rightB: {fileID: 0}
-  leftB: {fileID: 0}
-  textob: {fileID: 0}
 --- !u!65 &885321658
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1573,8 +1498,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 100, y: 250, z: 30}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 217.5752, y: 304.91516, z: 30}
+  m_Center: {x: 0.35205078, y: 2.112114, z: 0}
 --- !u!114 &885321659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2210,7 +2135,6 @@ GameObject:
   - component: {fileID: 1106315136}
   - component: {fileID: 1106315135}
   - component: {fileID: 1106315137}
-  - component: {fileID: 1106315138}
   - component: {fileID: 1106315139}
   m_Layer: 5
   m_Name: n7
@@ -2287,32 +2211,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 100, y: 250, z: 30}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1106315138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1106315133}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 112f985fb0df98142a469d51a5917f42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollbar: {fileID: 1407382896}
-  nameT: {fileID: 0}
-  contentT: {fileID: 0}
-  BackGround: {fileID: 51878276}
-  showImg: {fileID: 0}
-  clickText: {fileID: 0}
-  back: {fileID: 0}
-  bgChange: {fileID: 0}
-  audioSource: []
-  rightB: {fileID: 0}
-  leftB: {fileID: 0}
-  textob: {fileID: 0}
+  m_Size: {x: 213.35046, y: 307.73132, z: 30}
+  m_Center: {x: 0.35198975, y: 1.4080734, z: 0}
 --- !u!114 &1106315139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2339,7 +2239,6 @@ GameObject:
   - component: {fileID: 1148748716}
   - component: {fileID: 1148748715}
   - component: {fileID: 1148748717}
-  - component: {fileID: 1148748718}
   - component: {fileID: 1148748719}
   m_Layer: 5
   m_Name: n2
@@ -2416,32 +2315,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 100, y: 250, z: 30}
-  m_Center: {x: 4, y: 0, z: 0}
---- !u!114 &1148748718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1148748713}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 112f985fb0df98142a469d51a5917f42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollbar: {fileID: 1407382896}
-  nameT: {fileID: 0}
-  contentT: {fileID: 0}
-  BackGround: {fileID: 51878276}
-  showImg: {fileID: 0}
-  clickText: {fileID: 0}
-  back: {fileID: 0}
-  bgChange: {fileID: 0}
-  audioSource: []
-  rightB: {fileID: 0}
-  leftB: {fileID: 0}
-  textob: {fileID: 0}
+  m_Size: {x: 215.67471, y: 306.82266, z: 30}
+  m_Center: {x: -0.39698792, y: 1.3529205, z: 0}
 --- !u!114 &1148748719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2744,7 +2619,6 @@ GameObject:
   - component: {fileID: 1443964004}
   - component: {fileID: 1443964003}
   - component: {fileID: 1443964005}
-  - component: {fileID: 1443964006}
   - component: {fileID: 1443964007}
   m_Layer: 5
   m_Name: n9
@@ -2821,32 +2695,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 100, y: 250, z: 30}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1443964006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1443964001}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 112f985fb0df98142a469d51a5917f42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollbar: {fileID: 1407382896}
-  nameT: {fileID: 0}
-  contentT: {fileID: 0}
-  BackGround: {fileID: 51878276}
-  showImg: {fileID: 0}
-  clickText: {fileID: 0}
-  back: {fileID: 0}
-  bgChange: {fileID: 0}
-  audioSource: []
-  rightB: {fileID: 0}
-  leftB: {fileID: 0}
-  textob: {fileID: 0}
+  m_Size: {x: 214.75867, y: 307.73132, z: 30}
+  m_Center: {x: -0.35198975, y: 1.4080734, z: 0}
 --- !u!114 &1443964007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2981,7 +2831,6 @@ GameObject:
   - component: {fileID: 1540758924}
   - component: {fileID: 1540758923}
   - component: {fileID: 1540758925}
-  - component: {fileID: 1540758926}
   - component: {fileID: 1540758927}
   m_Layer: 5
   m_Name: n5
@@ -3058,32 +2907,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 100, y: 250, z: 30}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1540758926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1540758921}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 112f985fb0df98142a469d51a5917f42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollbar: {fileID: 1407382896}
-  nameT: {fileID: 0}
-  contentT: {fileID: 0}
-  BackGround: {fileID: 51878276}
-  showImg: {fileID: 0}
-  clickText: {fileID: 0}
-  back: {fileID: 0}
-  bgChange: {fileID: 0}
-  audioSource: []
-  rightB: {fileID: 0}
-  leftB: {fileID: 0}
-  textob: {fileID: 0}
+  m_Size: {x: 213.47717, y: 304.21118, z: 30}
+  m_Center: {x: -0.38604736, y: 2.4641418, z: 0}
 --- !u!114 &1540758927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3198,8 +3023,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 213.03642, y: 307.02216, z: 1}
+  m_Center: {x: 124.760735, y: -153.01108, z: 0}
 --- !u!54 &1655894002
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3376,7 +3201,6 @@ GameObject:
   - component: {fileID: 1826680383}
   - component: {fileID: 1826680382}
   - component: {fileID: 1826680384}
-  - component: {fileID: 1826680385}
   - component: {fileID: 1826680386}
   m_Layer: 5
   m_Name: n6
@@ -3453,32 +3277,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 100, y: 250, z: 30}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1826680385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1826680380}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 112f985fb0df98142a469d51a5917f42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollbar: {fileID: 1407382896}
-  nameT: {fileID: 0}
-  contentT: {fileID: 0}
-  BackGround: {fileID: 51878276}
-  showImg: {fileID: 0}
-  clickText: {fileID: 0}
-  back: {fileID: 0}
-  bgChange: {fileID: 0}
-  audioSource: []
-  rightB: {fileID: 0}
-  leftB: {fileID: 0}
-  textob: {fileID: 0}
+  m_Size: {x: 214.05469, y: 311.25153, z: 30}
+  m_Center: {x: 0, y: 2.4641418, z: 0}
 --- !u!114 &1826680386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4743,7 +4543,6 @@ GameObject:
   - component: {fileID: 2072267908}
   - component: {fileID: 2072267907}
   - component: {fileID: 2072267909}
-  - component: {fileID: 2072267910}
   - component: {fileID: 2072267911}
   m_Layer: 5
   m_Name: n3
@@ -4820,32 +4619,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 100, y: 250, z: 30}
-  m_Center: {x: 2, y: 0, z: 0}
---- !u!114 &2072267910
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2072267905}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 112f985fb0df98142a469d51a5917f42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollbar: {fileID: 1407382896}
-  nameT: {fileID: 0}
-  contentT: {fileID: 0}
-  BackGround: {fileID: 51878276}
-  showImg: {fileID: 0}
-  clickText: {fileID: 0}
-  back: {fileID: 0}
-  bgChange: {fileID: 0}
-  audioSource: []
-  rightB: {fileID: 0}
-  leftB: {fileID: 0}
-  textob: {fileID: 0}
+  m_Size: {x: 215.67468, y: 308.17557, z: 30}
+  m_Center: {x: 0.3088379, y: 1.3529205, z: 0}
 --- !u!114 &2072267911
 MonoBehaviour:
   m_ObjectHideFlags: 0

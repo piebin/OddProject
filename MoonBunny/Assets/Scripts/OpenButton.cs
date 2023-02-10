@@ -65,6 +65,10 @@ public class OpenButton : MonoBehaviour
                     if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)200);
                     gm.GetComponent<GameManager>().dark.SetActive(true);
                     gm.GetComponent<GameManager>().goBack.GetComponent<AudioSource>().Play();
+
+                    float sound = Mathf.Log10(PlayerPrefs.GetFloat("bgm_sound") * 20)-30f;
+
+                    gm.GetComponent<GameManager>().mixer.SetFloat("bgmv", sound);
                 }
             }
         }

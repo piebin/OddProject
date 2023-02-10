@@ -130,7 +130,6 @@ public class circleBar : MonoBehaviour
             gm.TimerFail();
             //gm.ChangeGuest();
 
-            Debug.Log("num : " + num);
             Vibration.Cancel();
             if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)600);
             life[num].GetComponent<SpriteRenderer>().sprite = emptyLife;

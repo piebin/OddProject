@@ -18,6 +18,7 @@ public class VolumMG : MonoBehaviour
 
         mixer.SetFloat("bgmv", Mathf.Log10(bgm.value) * 20);
         mixer.SetFloat("sfxv", Mathf.Log10(sfx.value) * 20);
+
     }
 
     public void setBGM(float sliderVal)

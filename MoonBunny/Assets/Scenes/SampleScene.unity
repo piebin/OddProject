@@ -1014,6 +1014,7 @@ MonoBehaviour:
   fury: {fileID: 2127423959}
   selF: 0
   gm: {fileID: 110919637}
+  mixer: {fileID: 24100000, guid: 04b284ae2d0e57e43bee73650219caa2, type: 2}
 --- !u!4 &110919639
 Transform:
   m_ObjectHideFlags: 0
