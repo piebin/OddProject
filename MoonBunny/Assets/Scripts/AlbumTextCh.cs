@@ -317,9 +317,6 @@ public class AlbumTextCh : MonoBehaviour
 
     private void Update()
     {
-
-        
-
         acName.GetComponent<Image>().sprite = acNames[texN];
         acContent.GetComponent<Image>().sprite = acContents[texN];
 

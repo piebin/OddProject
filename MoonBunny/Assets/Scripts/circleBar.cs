@@ -119,6 +119,16 @@ public class circleBar : MonoBehaviour
                 GameObject.Find("Bar").GetComponent<Image>().sprite = red8;
             }
 
+            if (FA > 0.97 && FA < 0.99)
+            {
+                this.GetComponent<Animator>().SetTrigger("Tover");
+            }
+
+            if (FA >= 0.99)
+            {
+                this.GetComponent<Animator>().SetTrigger("over");
+            }
+
         }
 
         //시간오버시
@@ -141,6 +151,7 @@ public class circleBar : MonoBehaviour
         if (num == 3)
         {
             gm.enabled = false;
+            
             bgimage.GetComponent<AudioSource>().Play();
             guestTimer.SetActive(false);
             bgimage.SetActive(true);

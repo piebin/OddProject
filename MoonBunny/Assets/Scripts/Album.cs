@@ -81,5 +81,6 @@ public class Album : MonoBehaviour
    public  void Open(int n)
     {
         locks[n].GetComponent<LockToImage>().open();
+        
     }
 }

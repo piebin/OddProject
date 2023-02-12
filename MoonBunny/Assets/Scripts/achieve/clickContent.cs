@@ -28,10 +28,23 @@ public class clickContent : MonoBehaviour
         bgReal = BackGround.GetComponent<SpriteRenderer>().sprite;
     }
 
+
+    public void clickCon()
+    {
+        touchChk = !touchChk;
+    }
+
+    public void clickT()
+    {
+        touchChk = !touchChk;
+    }
+
+
+
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonUp(0))
+        /*if (Input.GetMouseButtonUp(0))
         {
             Vector3 p = Input.mousePosition;
             Ray cast = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -46,7 +59,7 @@ public class clickContent : MonoBehaviour
                     //hit.collider.gameObject.GetComponent<Transform>().localScale = new Vector3(1.5f, 1.5f);
                 }
             }
-        }
+        }*/
         if(Input.GetMouseButtonDown(0))
         {
             downPed = new PointerEventData(null);
@@ -66,9 +79,15 @@ public class clickContent : MonoBehaviour
 
                 Debug.Log(results[0].gameObject.name);
 
+                /*if(results[0].gameObject == clickText)
+                {
+                    touchChk = !touchChk;
+                }*/
+
                 if (results[0].gameObject.tag == "content" && results[0].gameObject.GetComponent<Image>().sprite.name != "rock")
                 {
-                    
+
+                    Debug.Log(results[0].gameObject.name);
 
                     if (!touchChk)
                     {
@@ -80,11 +99,12 @@ public class clickContent : MonoBehaviour
                     {
                         audioSource[1].Play();
                     }
-                        
-                    touchChk = !touchChk;
+                     
+                    //touchChk = !touchChk;
+
+                   
                     if(textob.GetComponent<AlbumTextCh>().position!=0)
-                    {
-                        
+                    {    
                         leftB.SetActive(true);
                     }
 
@@ -102,6 +122,8 @@ public class clickContent : MonoBehaviour
 
         if (touchChk)
         {
+            
+
             leftB.SetActive(false);
             rightB.SetActive(false);
 
@@ -129,6 +151,11 @@ public class clickContent : MonoBehaviour
             showImg.gameObject.GetComponent<Image>().sprite = null;
             showImg.SetActive(false);
             clickText.SetActive(false);
+
+            leftB.SetActive(true);
+            rightB.SetActive(true);
+
+            GameObject.Find("Text").GetComponent<AlbumTextCh>().checkArrow();
 
             try
             {

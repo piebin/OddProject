@@ -24,5 +24,6 @@ public class LockToImage : MonoBehaviour
     public void open()
     {
         thisone.sprite = newimage;
+        thisone.GetComponent<Button>().interactable = true;
     }
 }
