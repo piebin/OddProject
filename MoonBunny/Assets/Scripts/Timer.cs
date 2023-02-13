@@ -14,6 +14,7 @@ public class Timer : MonoBehaviour
     public GameObject restartb;
     public GameObject quitb;
     public GameObject guesttimer;
+    public GameObject overCarrot;
     private int num = 0;
     private float timer = 0.0f;
     public GameObject sauceCh;
@@ -107,6 +108,7 @@ public class Timer : MonoBehaviour
             Debug.Log("Game Over");
             gm.enabled = false;
             guesttimer.SetActive(false);
+            overCarrot.SetActive(true);
             bgimage.SetActive(true);
             SCORE.SetActive(true);
             nowscore.SetActive(true);

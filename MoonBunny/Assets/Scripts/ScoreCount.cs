@@ -11,6 +11,7 @@ public class ScoreCount : MonoBehaviour
     public Text nowscore;
     public Text newcarrot;
     public Text totalC;
+    public GameObject newcarrotO;
     int LastScoreInt = 0;
     int totalscore = 0;
     public bool gameover = false;
@@ -100,8 +101,9 @@ public class ScoreCount : MonoBehaviour
 
     public void GOver()
     {
-        StartCoroutine(Fade());
-        StartCoroutine(countnew((float)ScoreManager.score, 0f));
+        //StartCoroutine(Fade());
+        //StartCoroutine(countnew((float)ScoreManager.score, 0f));
+        newcarrotO.GetComponent<Animator>().SetTrigger("newup");
         StartCoroutine(counttotal((float)totalscore, 0f));
     }
 

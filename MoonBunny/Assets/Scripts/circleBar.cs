@@ -34,6 +34,7 @@ public class circleBar : MonoBehaviour
     public GameObject guestTimer;
     public GameObject sauceCh;
     public GameObject timer;
+    public GameObject overCarrot;
 
     public GameObject scoreC;
     public AudioSource audioSource; //패시브, 종료1, 종료2
@@ -151,8 +152,10 @@ public class circleBar : MonoBehaviour
         if (num == 3)
         {
             gm.enabled = false;
-            
+
+            overCarrot.SetActive(true);
             bgimage.GetComponent<AudioSource>().Play();
+
             guestTimer.SetActive(false);
             bgimage.SetActive(true);
             SCORE.SetActive(true);
@@ -161,6 +164,7 @@ public class circleBar : MonoBehaviour
             totalcarrot.SetActive(true);
             restartb.SetActive(true);
             quitb.SetActive(true);
+
             timer.GetComponent<Timer>().enabled = false;
             //Time.timeScale = 0.0f;
 
