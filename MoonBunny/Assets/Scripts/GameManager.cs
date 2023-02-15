@@ -82,7 +82,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         //배경적용&책상변경
-        
         backGround_desk.GetComponent<SpriteRenderer>().sprite = BgDesksprites[PlayerPrefs.GetInt("ing_key")];
         backGround.GetComponent<SpriteRenderer>().sprite = BgSprites[PlayerPrefs.GetInt("ing_key")];
 
@@ -129,7 +128,8 @@ public class GameManager : MonoBehaviour
         randomRice();
         //StartCoroutine(Fade(character));
         character.SetActive(true);
-        StartCoroutine(Fade(shortOrder));
+        //StartCoroutine(Fade(shortOrder));
+        shortOrder.SetActive(true);
         for (int i = 0; i < 3; i++)
         {
             StartCoroutine(Fade(re[i]));
@@ -258,7 +258,7 @@ public class GameManager : MonoBehaviour
         loadingDown.SetActive(true);
 
         titlePanel.SetActive(false);
-        StartCoroutine(FadeOut(BGM2, 1.5f));
+        if(BGM2.activeSelf) StartCoroutine(FadeOut(BGM2, 1.5f));
         Invoke("loadTitle", 1.8f);
     }
 

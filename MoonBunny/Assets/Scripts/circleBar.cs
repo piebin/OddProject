@@ -143,7 +143,8 @@ public class circleBar : MonoBehaviour
 
             Vibration.Cancel();
             if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)600);
-            life[num].GetComponent<SpriteRenderer>().sprite = emptyLife;
+            //life[num].GetComponent<SpriteRenderer>().sprite = emptyLife;
+            life[num].GetComponent<Animator>().enabled = true;
             num++;
             //this.gameObject.SetActive(false);
             GameManager.success = true;

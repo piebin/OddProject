@@ -15,6 +15,7 @@ public class OpenButton : MonoBehaviour
         openAnim1.GetComponent<Animator>().enabled = false;
         openChk = false;
         GameManager.gamePlay = false;
+        GameManager.gameStart = false;
         //open.GetComponent<Animator>().enabled = false;
 
         loadingUp.SetActive(true);

@@ -1230,6 +1230,7 @@ GameObject:
   m_Component:
   - component: {fileID: 114623372}
   - component: {fileID: 114623373}
+  - component: {fileID: 114623374}
   m_Layer: 0
   m_Name: life1
   m_TagString: Untagged
@@ -1302,6 +1303,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &114623374
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114623371}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d55d0dc61ae59084fafcb56b12e0d1b9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &160826637
 GameObject:
   m_ObjectHideFlags: 0
@@ -6522,6 +6542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadingDown: {fileID: 2000161634}
+  BGM2: {fileID: 0}
 --- !u!114 &1184893823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7595,9 +7616,9 @@ MonoBehaviour:
   FA: 0
   num: 0
   life:
-  - {fileID: 114623371}
-  - {fileID: 1537341378}
   - {fileID: 1864552654}
+  - {fileID: 1537341378}
+  - {fileID: 114623371}
   emptyLife: {fileID: 0}
   bgimage: {fileID: 1059278156}
   SCORE: {fileID: 1767997416}
@@ -9345,6 +9366,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1537341379}
   - component: {fileID: 1537341380}
+  - component: {fileID: 1537341381}
   m_Layer: 0
   m_Name: life1 (1)
   m_TagString: Untagged
@@ -9417,6 +9439,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1537341381
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537341378}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a8d5ac9ab942b714fa845e848a597620, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1538671185
 GameObject:
   m_ObjectHideFlags: 0
@@ -10488,7 +10529,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2623a92e4a63a544783dd4fca542de0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadingDown: {fileID: 0}
+  loadingDown: {fileID: 2000161634}
+  BGM2: {fileID: 715624177}
 --- !u!114 &1644879234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11690,6 +11732,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1864552655}
   - component: {fileID: 1864552656}
+  - component: {fileID: 1864552657}
   m_Layer: 0
   m_Name: life1 (2)
   m_TagString: Untagged
@@ -11762,6 +11805,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1864552657
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864552654}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 062845bbe0792464fa855a57c29ad72a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1899833022
 GameObject:
   m_ObjectHideFlags: 0
