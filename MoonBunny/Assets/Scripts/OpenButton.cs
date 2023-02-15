@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class OpenButton : MonoBehaviour
 {
@@ -30,8 +32,13 @@ public class OpenButton : MonoBehaviour
         BGM2.SetActive(false);
         //score.SetActive(false);
 
+        
         gm.GetComponent<GameManager>().backGround.GetComponent<SpriteRenderer>().sprite = gm.GetComponent<GameManager>().BgSprites[PlayerPrefs.GetInt("ing_key")];
         gm.GetComponent<GameManager>().backGround_desk.GetComponent<SpriteRenderer>().sprite = gm.GetComponent<GameManager>().BgDesksprites[PlayerPrefs.GetInt("ing_key")];
+
+        Color color;
+        ColorUtility.TryParseHtmlString(gm.GetComponent<GameManager>().scoreColor[PlayerPrefs.GetInt("ing_key")], out color);
+        gm.GetComponent<GameManager>().score.GetComponent<Text>().color = color;
     }
 
     public void quitLoading()

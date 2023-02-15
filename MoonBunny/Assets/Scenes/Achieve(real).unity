@@ -1760,7 +1760,7 @@ GameObject:
   - component: {fileID: 833174206}
   - component: {fileID: 833174205}
   m_Layer: 5
-  m_Name: Image
+  m_Name: ClickT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1782,8 +1782,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5.016, y: 245}
-  m_SizeDelta: {x: 175.8755, y: 47.535}
+  m_AnchoredPosition: {x: 5.016, y: 237.12561}
+  m_SizeDelta: {x: 175.8755, y: 31.7862}
   m_Pivot: {x: 0.5, y: 0.50000066}
 --- !u!95 &833174205
 Animator:
@@ -1795,7 +1795,7 @@ Animator:
   m_GameObject: {fileID: 833174203}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2a5a4a3ba6828234daac8a3c33600c84, type: 2}
+  m_Controller: {fileID: 9100000, guid: 365b1ccacbbf51f47881826d18643271, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1818,13 +1818,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 78e89a8edd8c1df44a11e6cfb863c7b9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2376,7 +2376,6 @@ MonoBehaviour:
   contentT: {fileID: 1189170423}
   BackGround: {fileID: 51878276}
   showImg: {fileID: 44760372}
-  clickText: {fileID: 411792304}
   back: {fileID: 581102884}
   bgChange: {fileID: 21300000, guid: e315075dc14455140bc50e77f945929c, type: 3}
   audioSource:
@@ -2385,6 +2384,8 @@ MonoBehaviour:
   rightB: {fileID: 1028338737}
   leftB: {fileID: 691036258}
   textob: {fileID: 1865769685}
+  down: {fileID: 1681439607}
+  ClickT: {fileID: 833174203}
 --- !u!114 &1063527212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3830,7 +3831,7 @@ GameObject:
   - component: {fileID: 1681439610}
   - component: {fileID: 1681439609}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Down
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3852,8 +3853,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1, y: -250}
-  m_SizeDelta: {x: 98.2253, y: 70.8342}
+  m_AnchoredPosition: {x: 7.8, y: -250}
+  m_SizeDelta: {x: 80.3289, y: 70.8342}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1681439609
 MonoBehaviour:
@@ -3913,13 +3914,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: a5dd52d6295a687418e3a57c5d6c7447, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

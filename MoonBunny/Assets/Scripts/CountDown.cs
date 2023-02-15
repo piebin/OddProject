@@ -7,6 +7,7 @@ public class CountDown : MonoBehaviour
     // Start is called before the first frame update
 
     public GameObject gm;
+    public GameObject darkBack;
     void Start()
     {
         
@@ -20,6 +21,13 @@ public class CountDown : MonoBehaviour
 
     public void anim()
     {
+        darkBack.SetActive(false);
         gm.GetComponent<GameManager>().goBackNoF();
     }
+    public void darkOn()
+    {
+        darkBack.SetActive(true);
+    }
+
+
 }

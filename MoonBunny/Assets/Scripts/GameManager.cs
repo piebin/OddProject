@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.IO;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 
 public class GameManager : MonoBehaviour
@@ -76,14 +77,26 @@ public class GameManager : MonoBehaviour
     public GameObject numberAni;
 
     public GameObject check;
+    public Text score;
+
+    public string[] scoreColor = new string[9] { "#feb07a", "#2a7e41", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff" };
+    
+
 
 
     // Start is called before the first frame update
     void Start()
     {
+        Color color;
+        ColorUtility.TryParseHtmlString(scoreColor[PlayerPrefs.GetInt("ing_key")], out color);
+        score.GetComponent<Text>().color = color;
+
         //배경적용&책상변경
         backGround_desk.GetComponent<SpriteRenderer>().sprite = BgDesksprites[PlayerPrefs.GetInt("ing_key")];
         backGround.GetComponent<SpriteRenderer>().sprite = BgSprites[PlayerPrefs.GetInt("ing_key")];
+        
+
+
 
         titlePanel.SetActive(false);
         dark.SetActive(false);
@@ -754,6 +767,7 @@ public class GameManager : MonoBehaviour
             sad.GetComponent<Animator>().SetTrigger("fup");
         }
 
+        GameObject.Find("CircleBar").GetComponent<Animator>().SetTrigger("Tover");
         character.GetComponent<Animator>().SetTrigger("fail");
         shortOrder.GetComponent<Animator>().SetTrigger("Fail");
         longOrder.GetComponent<Animator>().SetTrigger("fail");

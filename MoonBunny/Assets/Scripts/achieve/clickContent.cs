@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class clickContent : MonoBehaviour
 {
-    public GameObject scrollbar, nameT, contentT, BackGround, showImg, clickText, back;
+    public GameObject scrollbar, nameT, contentT, BackGround, showImg, back;
     private bool touchChk = false;
     private Sprite clickImg, bgReal;
     public Sprite bgChange;
@@ -19,11 +19,14 @@ public class clickContent : MonoBehaviour
 
     public GameObject textob;
 
+    public GameObject down;
+    public GameObject ClickT;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        clickText.SetActive(false);
+        
         gr = GetComponent<GraphicRaycaster>();
         bgReal = BackGround.GetComponent<SpriteRenderer>().sprite;
     }
@@ -84,10 +87,10 @@ public class clickContent : MonoBehaviour
                     touchChk = !touchChk;
                 }*/
 
-                if (results[0].gameObject.tag == "content" && results[0].gameObject.GetComponent<Image>().sprite.name != "rock")
+                if (results[0].gameObject.tag == "content" && results[0].gameObject.GetComponent<Image>().sprite.name != "ÁÂ¹°¼è ÀÏ·¯½ºÆ® Ä«µå")
                 {
 
-                    Debug.Log(results[0].gameObject.name);
+                    Debug.Log(results[0].gameObject.GetComponent<Image>().sprite.name);
 
                     if (!touchChk)
                     {
@@ -122,7 +125,9 @@ public class clickContent : MonoBehaviour
 
         if (touchChk)
         {
-            
+
+            down.SetActive(true);
+            ClickT.SetActive(true);
 
             leftB.SetActive(false);
             rightB.SetActive(false);
@@ -132,7 +137,6 @@ public class clickContent : MonoBehaviour
             contentT.SetActive(false);
             back.SetActive(false);
             showImg.SetActive(true);
-            clickText.SetActive(true);
 
             BackGround.GetComponent<SpriteRenderer>().sprite = bgChange;
             try { clickImg = results[0].gameObject.GetComponent<Image>().sprite; }
@@ -142,7 +146,9 @@ public class clickContent : MonoBehaviour
 
         if (!touchChk)
         {
-            
+            down.SetActive(false);
+            ClickT.SetActive(false);
+
             scrollbar.gameObject.SetActive(true);
             nameT.SetActive(true);
             contentT.SetActive(true);
@@ -150,7 +156,6 @@ public class clickContent : MonoBehaviour
             BackGround.GetComponent<SpriteRenderer>().sprite = bgReal;
             showImg.gameObject.GetComponent<Image>().sprite = null;
             showImg.SetActive(false);
-            clickText.SetActive(false);
 
             leftB.SetActive(true);
             rightB.SetActive(true);

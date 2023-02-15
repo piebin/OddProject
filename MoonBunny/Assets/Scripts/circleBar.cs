@@ -120,7 +120,8 @@ public class circleBar : MonoBehaviour
                 GameObject.Find("Bar").GetComponent<Image>().sprite = red8;
             }
 
-            if (FA > 0.97 && FA < 0.99)
+
+/*            if (FA > 0.97 && FA < 0.99)
             {
                 this.GetComponent<Animator>().SetTrigger("Tover");
             }
@@ -128,13 +129,14 @@ public class circleBar : MonoBehaviour
             if (FA >= 0.99)
             {
                 this.GetComponent<Animator>().SetTrigger("over");
-            }
+            }*/
 
         }
 
         //시간오버시
         else if (!GameManager.success)
         {
+
             losingHeart++;
             audioSource.Play();
 

@@ -58,5 +58,9 @@ public class testFileAchieve : MonoBehaviour
         PlayerPrefs.SetInt("achieve_key8", 1);
         PlayerPrefs.SetInt("achieve_key9", 1);
     }
+    public void money()
+    {
+        PlayerPrefs.SetInt("score_key", 1000000);
+    }
 
 }
