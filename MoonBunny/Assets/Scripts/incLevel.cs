@@ -37,7 +37,7 @@ public class incLevel : MonoBehaviour
             if (level - 1 >= lvTimerArray.Length)
                 i = 4;
             else i = lvTimerArray[level - 1];
-            Debug.Log("i : " + i);
+           // Debug.Log("i : " + i);
             anim.runtimeAnimatorController = (RuntimeAnimatorController)RuntimeAnimatorController.Instantiate(Resources.Load("LevelAnim\\level"+i, typeof(RuntimeAnimatorController)));
             nowLevel = level;
         }

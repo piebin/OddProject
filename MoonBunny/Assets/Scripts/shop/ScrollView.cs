@@ -128,7 +128,7 @@ public class ScrollView : MonoBehaviour
             openPanel(setPanel);
             if(PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)200);
             //PlayerPrefs.SetInt("ing_key", num);
-            Debug.Log("ing is" + PlayerPrefs.GetInt("ing_key"));
+           // Debug.Log("ing is" + PlayerPrefs.GetInt("ing_key"));
         }
 
         else if (state[num] == 2) //구매
@@ -200,7 +200,7 @@ public class ScrollView : MonoBehaviour
         }//구매완료
         else
         {
-            Debug.Log("소지 당근이 적습니다.");
+           // Debug.Log("소지 당근이 적습니다.");
             closePanel();
         }
     }

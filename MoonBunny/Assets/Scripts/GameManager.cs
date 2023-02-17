@@ -303,7 +303,7 @@ public class GameManager : MonoBehaviour
         if (PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)20);
         float sound = PlayerPrefs.GetFloat("bgm_sound");
         mixer.SetFloat("bgmv", Mathf.Log10(sound) * 20);
-        Debug.Log("ingame");
+        
         numberAni.SetActive(false);
     }
 
@@ -461,7 +461,7 @@ public class GameManager : MonoBehaviour
                         IsclickedDduk = 0;
 
                     IsclickedDduk += 1;
-                    Debug.Log("IsclickedDduk is " + IsclickedDduk);
+                    //Debug.Log("IsclickedDduk is " + IsclickedDduk);
 
                 }
 
@@ -469,7 +469,7 @@ public class GameManager : MonoBehaviour
                 {
                     if (PlayerPrefs.GetInt("achieve_key3") == 0)
                     {
-                        Debug.Log("achieve4 clear");
+                       // Debug.Log("achieve4 clear");
                         clearFour();
                         PlayerPrefs.SetInt("achieve_key3", 1);
                     }
@@ -479,28 +479,28 @@ public class GameManager : MonoBehaviour
                 if (hit.collider.gameObject == saucesB[0])//보라
                 {
                     IsclickedDduk--;
-                    Debug.Log("IsclickedDduk is "+IsclickedDduk);
+                    //Debug.Log("IsclickedDduk is "+IsclickedDduk);
 
                 }
 
                 if (hit.collider.gameObject == saucesB[1])//분홍
                 {
                     IsclickedDduk--;
-                    Debug.Log("IsclickedDduk is " + IsclickedDduk);
+                    //Debug.Log("IsclickedDduk is " + IsclickedDduk);
 
                 }
 
                 if (hit.collider.gameObject == saucesB[2])//파랑
                 {
                     IsclickedDduk--;
-                    Debug.Log("IsclickedDduk is " + IsclickedDduk);
+                    //Debug.Log("IsclickedDduk is " + IsclickedDduk);
 
                 }
 
                 if (hit.collider.gameObject == saucesB[3])//초록
                 {
                     IsclickedDduk--;
-                    Debug.Log("IsclickedDduk is " + IsclickedDduk);
+                    //Debug.Log("IsclickedDduk is " + IsclickedDduk);
 
                 }
 
@@ -747,7 +747,7 @@ public class GameManager : MonoBehaviour
 
         //fail로 수정
         selF++;
-        Debug.Log("selF = " + selF);
+        //Debug.Log("selF = " + selF);
 
         if(selF>=2)
         {
@@ -814,7 +814,7 @@ public class GameManager : MonoBehaviour
 
     public void sauceChON()
     {
-        Debug.Log("sauce on");
+        //Debug.Log("sauce on");
         sauceCh.GetComponent<BoxCollider2D>().enabled = true;
         buttons[0].GetComponent<BoxCollider2D>().enabled = true;
         saucesB[0].GetComponent<BoxCollider2D>().enabled = true;
@@ -828,7 +828,7 @@ public class GameManager : MonoBehaviour
 
     public void sauceChOFF()
     {
-        Debug.Log("sauce off");
+        //Debug.Log("sauce off");
         sauceCh.GetComponent<BoxCollider2D>().enabled = false;
         buttons[0].GetComponent<BoxCollider2D>().enabled = false;
         saucesB[0].GetComponent<BoxCollider2D>().enabled = false;
@@ -900,7 +900,7 @@ public class GameManager : MonoBehaviour
             && PlayerPrefs.GetInt("achieve_key5-10") == 1 && PlayerPrefs.GetInt("achieve_key5-11") == 1 && PlayerPrefs.GetInt("achieve_key5-12") == 1 
             && PlayerPrefs.GetInt("achieve_key5-13") == 1 && PlayerPrefs.GetInt("achieve_key5-14") == 1 && PlayerPrefs.GetInt("achieve_key5-15") == 1)
         {
-            Debug.Log("achieve6 clear");
+            //Debug.Log("achieve6 clear");
             clearSix();
             PlayerPrefs.SetInt("achieve_key5", 1);
         }
@@ -945,7 +945,7 @@ public class GameManager : MonoBehaviour
             && PlayerPrefs.GetInt("achieve_key6-10") == 1 && PlayerPrefs.GetInt("achieve_key6-11") == 1 && PlayerPrefs.GetInt("achieve_key6-12") == 1
             && PlayerPrefs.GetInt("achieve_key6-13") == 1 && PlayerPrefs.GetInt("achieve_key6-14") == 1 && PlayerPrefs.GetInt("achieve_key6-15") == 1)
         {
-            Debug.Log("achieve7 clear");
+            //Debug.Log("achieve7 clear");
             clearSeven();
             PlayerPrefs.SetInt("achieve_key6", 1);
         }
@@ -963,7 +963,7 @@ public class GameManager : MonoBehaviour
 
         if (PlayerPrefs.GetInt("achieve_key7") == 0 && PlayerPrefs.GetInt("achieve_key7-1") == 1 && PlayerPrefs.GetInt("achieve_key7-2") == 1 && PlayerPrefs.GetInt("achieve_key7-3") == 1)
         {
-            Debug.Log("achieve8 clear");
+            //Debug.Log("achieve8 clear");
             clearEight();
             PlayerPrefs.SetInt("achieve_key7", 1);
         }
@@ -989,7 +989,7 @@ public class GameManager : MonoBehaviour
             {
                 if(PlayerPrefs.GetInt("achieve_key8") == 0)
                 {
-                    Debug.Log("achieve9 clear");
+                    //Debug.Log("achieve9 clear");
                     clearNine();
                     PlayerPrefs.SetInt("achieve_key8", 1);
                 }
@@ -1000,7 +1000,7 @@ public class GameManager : MonoBehaviour
         {
             if (PlayerPrefs.GetInt("achieve_key4") == 0)
             {
-                Debug.Log("achieve5 clear");
+               // Debug.Log("achieve5 clear");
                 clearFive();
                 PlayerPrefs.SetInt("achieve_key4", 1);
             }
@@ -1010,7 +1010,7 @@ public class GameManager : MonoBehaviour
 
         if (level==2)
         {
-            Debug.Log("level 2");
+            //Debug.Log("level 2");
         }
 
 

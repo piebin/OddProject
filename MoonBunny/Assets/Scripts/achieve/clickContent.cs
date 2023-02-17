@@ -80,7 +80,7 @@ public class clickContent : MonoBehaviour
             if (results.Count <= 0) return;
             if (downPed.position == ped.position) {
 
-                Debug.Log(results[0].gameObject.name);
+                //Debug.Log(results[0].gameObject.name);
 
                 /*if(results[0].gameObject == clickText)
                 {
@@ -90,7 +90,7 @@ public class clickContent : MonoBehaviour
                 if (results[0].gameObject.tag == "content" && results[0].gameObject.GetComponent<Image>().sprite.name != "ÁÂ¹°¼è ÀÏ·¯½ºÆ® Ä«µå")
                 {
 
-                    Debug.Log(results[0].gameObject.GetComponent<Image>().sprite.name);
+                    //Debug.Log(results[0].gameObject.GetComponent<Image>().sprite.name);
 
                     if (!touchChk)
                     {

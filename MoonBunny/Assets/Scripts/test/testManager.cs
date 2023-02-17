@@ -238,8 +238,8 @@ public class testManager : MonoBehaviour
                         {
                             
                             ScoreManager.score += 10;
-                            Debug.Log("score up");
-                            Debug.Log("score : "+ScoreManager.score);
+                           // Debug.Log("score up");
+                           // Debug.Log("score : "+ScoreManager.score);
                             success = true;
                             ChangeGuest();
                             num = 0;
@@ -373,7 +373,7 @@ public class testManager : MonoBehaviour
 
         //Debug.Log("·£´ý ¼ö »ý¼º" + randoms[0] + "and" + randoms[1]);
         success = false;
-        Debug.Log("num : " + lvNum);
+       // Debug.Log("num : " + lvNum);
     }
 
     public IEnumerator RiceDown(GameObject obj, float target)

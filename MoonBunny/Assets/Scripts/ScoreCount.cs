@@ -49,15 +49,17 @@ public class ScoreCount : MonoBehaviour
         {
             noclick = true;
 
-            StopCoroutine(Fade());
-            StopCoroutine(countnew((float)ScoreManager.score, 0f));
-            StopCoroutine(counttotal((float)totalscore, 0f));
+            StopCoroutine(Fade());//newcarrot ÆäÀÌµå
+            StopCoroutine(countnew((float)ScoreManager.score, 0f));//new carrot
+            StopCoroutine(counttotal((float)totalscore, 0f));//total carrot
 
             nowscore.text = ScoreManager.score.ToString();//ÇöÀç È¹µæ Á¡¼ö
 
             newcarrot.text = "+" + ScoreManager.score.ToString(); //ÇöÀç È¹µæ Á¡¼ö
 
             totalC.text = totalscore.ToString();//ÃÖÁ¾Á¡¼ö 
+
+            Debug.Log("mouseDown");
 
         }
 
@@ -75,7 +77,7 @@ public class ScoreCount : MonoBehaviour
 
             if (PlayerPrefs.GetInt("achieve_key2") == 0)
             {
-                Debug.Log("achieve3 clear");
+               // Debug.Log("achieve3 clear");
                 gm.clearThree();
                 PlayerPrefs.SetInt("achieve_key2", 1);
             }
@@ -89,7 +91,7 @@ public class ScoreCount : MonoBehaviour
 
             if (PlayerPrefs.GetInt("achieve_key9") == 0)
             {
-                Debug.Log("achieve10 clear");
+               // Debug.Log("achieve10 clear");
                 gm.clearTen();
                 PlayerPrefs.SetInt("achieve_key9", 1);
             }
@@ -104,7 +106,15 @@ public class ScoreCount : MonoBehaviour
         //StartCoroutine(Fade());
         //StartCoroutine(countnew((float)ScoreManager.score, 0f));
         newcarrotO.GetComponent<Animator>().SetTrigger("newup");
-        StartCoroutine(counttotal((float)totalscore, 0f));
+        Debug.Log("newup");
+
+        //StartCoroutine(counttotal((float)totalscore, ScoreManager.score));
+        //Debug.Log("gameOver");
+    }
+
+    public void totalUP()
+    {
+        StartCoroutine(counttotal((float)totalscore, LastScoreInt));
     }
 
 

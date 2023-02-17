@@ -105,7 +105,7 @@ public class Timer : MonoBehaviour
 
         if(num == 1)
         {
-            Debug.Log("Game Over");
+           // Debug.Log("Game Over");
             gm.enabled = false;
             guesttimer.SetActive(false);
             overCarrot.SetActive(true);

@@ -85,7 +85,7 @@ public class changeBg : MonoBehaviour
         }
         else
         {
-            Debug.Log("소지 당근이 적습니다.");
+           // Debug.Log("소지 당근이 적습니다.");
             closePanel();
         }
     }

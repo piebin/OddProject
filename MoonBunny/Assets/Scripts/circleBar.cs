@@ -184,7 +184,7 @@ public class circleBar : MonoBehaviour
             {
                 if (PlayerPrefs.GetInt("achieve_key2") == 0)
                 {
-                    Debug.Log("achieve2 clear");
+                    //Debug.Log("achieve2 clear");
                     gm.clearTwo();
                     PlayerPrefs.SetInt("achieve_key1", 1);
                 }
