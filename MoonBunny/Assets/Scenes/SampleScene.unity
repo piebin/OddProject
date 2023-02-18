@@ -2853,6 +2853,7 @@ MonoBehaviour:
   gameover: 0
   noclick: 0
   bgimage: {fileID: 1059278156}
+  doubleCheck: 0
 --- !u!114 &482931239
 MonoBehaviour:
   m_ObjectHideFlags: 0

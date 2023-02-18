@@ -19,12 +19,11 @@ public class newCarrotFalse : MonoBehaviour
 
     void totalUP()
     {
-        newcarrot.SetActive(false);        
+        newcarrot.SetActive(false);
         GameObject.Find("score").GetComponent<ScoreCount>().totalUP();
     }
 
     void whenStart()
     {
-        Debug.Log("start");
     }
 }

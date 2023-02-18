@@ -18,11 +18,13 @@ public class ScoreCount : MonoBehaviour
     public bool noclick = false;
     public GameObject bgimage;
 
+    public int doubleCheck;
+
     // Start is called before the first frame update
     void Start()
     {
         LastScoreInt = PlayerPrefs.GetInt("score_key");
-
+        doubleCheck=0;
     }
 
     // Update is called once per frame
@@ -38,7 +40,8 @@ public class ScoreCount : MonoBehaviour
 
         newcarrot.text = "+"+ScoreManager.score.ToString(); //현재 획득 점수
 
-        totalC.text = totalscore.ToString();//최종점수
+        //totalC.text = totalscore.ToString();//최종점수
+        totalC.text = LastScoreInt.ToString();
 
         scoreUD();//최종 점수 파일 저장
 
@@ -59,16 +62,22 @@ public class ScoreCount : MonoBehaviour
 
             totalC.text = totalscore.ToString();//최종점수 
 
-            Debug.Log("mouseDown");
 
         }
 
 
         if (gameover)
         {
-            GOver();
-            gameover = false;
-            PlayerPrefs.SetInt("game_over", 1);
+            if(doubleCheck==0)
+            {
+                gameover = false;
+
+                GOver();
+                PlayerPrefs.SetInt("game_over", 1);
+            }
+            doubleCheck = 1;
+
+            
         }
 
         if (ScoreManager.score == 150000)
