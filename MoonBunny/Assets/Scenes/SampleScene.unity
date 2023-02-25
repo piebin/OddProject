@@ -984,22 +984,22 @@ MonoBehaviour:
   shortOrder: {fileID: 1420043684}
   BgSprites:
   - {fileID: 21300000, guid: 4f2e5c8160e0b5e45bf480c2b91f0cf3, type: 3}
+  - {fileID: 21300000, guid: ca51e7bc69df5964da369b1893daf3a5, type: 3}
+  - {fileID: 21300000, guid: 2d0f13238845dba4893e34bf8b4b504b, type: 3}
   - {fileID: 21300000, guid: 2d3919e88fcbf9c40b709bea3b07f3ba, type: 3}
   - {fileID: 21300000, guid: c5555f1e31dc90c4d81eb7a8121f9632, type: 3}
   - {fileID: 0}
-  - {fileID: 21300000, guid: 2d0f13238845dba4893e34bf8b4b504b, type: 3}
   - {fileID: 0}
-  - {fileID: 21300000, guid: ca51e7bc69df5964da369b1893daf3a5, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   BgDesksprites:
   - {fileID: 21300000, guid: 2099acd44a2e4b14eb1194c4975c64ad, type: 3}
+  - {fileID: 21300000, guid: 4e11439be65b4534a86722a8c9860b11, type: 3}
+  - {fileID: 21300000, guid: 4cfa0a109800c194f9e3f9557309860b, type: 3}
   - {fileID: 21300000, guid: 4676041b8abe4274599484864a1696ad, type: 3}
   - {fileID: 21300000, guid: 87543bb6bac9080438e64381899dbfd9, type: 3}
   - {fileID: 0}
-  - {fileID: 21300000, guid: 4cfa0a109800c194f9e3f9557309860b, type: 3}
   - {fileID: 0}
-  - {fileID: 21300000, guid: 4e11439be65b4534a86722a8c9860b11, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   BGM2: {fileID: 715624177}
@@ -1020,9 +1020,9 @@ MonoBehaviour:
   score: {fileID: 482931239}
   scoreColor:
   - '#feb07a'
+  - '#ffffff'
+  - '#ffffff'
   - '#2a7e41'
-  - '#ffffff'
-  - '#ffffff'
   - '#ffffff'
   - '#ffffff'
   - '#ffffff'

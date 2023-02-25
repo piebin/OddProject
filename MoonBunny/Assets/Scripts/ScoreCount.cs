@@ -24,7 +24,8 @@ public class ScoreCount : MonoBehaviour
     void Start()
     {
         LastScoreInt = PlayerPrefs.GetInt("score_key");
-        doubleCheck=0;
+        totalC.text = LastScoreInt.ToString();
+        doubleCheck =0;
     }
 
     // Update is called once per frame
@@ -41,14 +42,14 @@ public class ScoreCount : MonoBehaviour
         newcarrot.text = "+"+ScoreManager.score.ToString(); //현재 획득 점수
 
         //totalC.text = totalscore.ToString();//최종점수
-        totalC.text = LastScoreInt.ToString();
+        
 
         scoreUD();//최종 점수 파일 저장
 
         //Debug.Log("total score : " + totalscore);
 
 
-        if (Input.GetMouseButtonDown(0))
+/*        if (Input.GetMouseButtonDown(0))
         {
             noclick = true;
 
@@ -61,9 +62,7 @@ public class ScoreCount : MonoBehaviour
             newcarrot.text = "+" + ScoreManager.score.ToString(); //현재 획득 점수
 
             totalC.text = totalscore.ToString();//최종점수 
-
-
-        }
+        }*/
 
 
         if (gameover)
@@ -124,6 +123,7 @@ public class ScoreCount : MonoBehaviour
     public void totalUP()
     {
         StartCoroutine(counttotal((float)totalscore, LastScoreInt));
+        totalC.text = totalscore.ToString();
     }
 
 
@@ -161,9 +161,6 @@ public class ScoreCount : MonoBehaviour
 
         current = target;
         totalC.text = ((int)current).ToString();
-
-
-
     }
 
 

@@ -137,6 +137,7 @@ public class circleBar : MonoBehaviour
         else if (!GameManager.success)
         {
 
+
             losingHeart++;
             audioSource.Play();
 
@@ -154,7 +155,10 @@ public class circleBar : MonoBehaviour
 
         if (num == 3)
         {
+
+            gm.checkLv();
             gm.enabled = false;
+
 
             overCarrot.SetActive(true);
             bgimage.GetComponent<AudioSource>().Play();

@@ -288,6 +288,9 @@ public class GameManager : MonoBehaviour
         dark.SetActive(false);
 
         numberAni.SetActive(true);
+        openBtn.GetComponent<Button>().enabled = false;
+        goBack.GetComponent<Collider2D>().enabled = false;
+
 
        
     }
@@ -305,6 +308,10 @@ public class GameManager : MonoBehaviour
         mixer.SetFloat("bgmv", Mathf.Log10(sound) * 20);
         
         numberAni.SetActive(false);
+        openBtn.GetComponent<Button>().enabled = true;
+        goBack.GetComponent<Collider2D>().enabled = true;
+
+
     }
 
 
@@ -989,7 +996,7 @@ public class GameManager : MonoBehaviour
             {
                 if(PlayerPrefs.GetInt("achieve_key8") == 0)
                 {
-                    //Debug.Log("achieve9 clear");
+                    Debug.Log("achieve9 clear");
                     clearNine();
                     PlayerPrefs.SetInt("achieve_key8", 1);
                 }

@@ -50,9 +50,9 @@ public class ScrollView : MonoBehaviour
         //state[0] = 0;
         state[PlayerPrefs.GetInt("ing_key")] = 0;
         priceBG[0] = 50000; //수정 필요
-        priceBG[1] = 40000; //수정 필요
-        priceBG[2] = 30000; //수정 필요
-        priceBG[3] = 70000; //수정 필요
+        priceBG[1] = 30000; //수정 필요
+        priceBG[2] = 40000; //수정 필요
+        priceBG[3] = 50000; //수정 필요
         priceBG[4] = 70000; //수정 필요
 
         check = true;
