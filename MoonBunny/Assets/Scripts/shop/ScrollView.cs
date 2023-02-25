@@ -7,17 +7,16 @@ using System.IO;
 
 public class ScrollView : MonoBehaviour
 {
-    public Sprite[] sprite = new Sprite[9];
+    public Sprite[] sprite = new Sprite[5];
     public Sprite lockSprite;
     public GameObject content;
     private int num = 0, myCarrot;
-    private float[] xPos = { 41, -151.6f, -344, -536.6f, -729, -921.6f, -1114, -1306.6f, -1499 };
-    //private int[] clickPos = { 62, -227, -515, -805, -1093, -1382, -1670, -1959, -2248 }; //1.5 1.5
-    private float[] clickPos = { 66.8f, -248, -564.1f, -879.6f, -1195.5f, -1511, -1827, -2143, -2458 }; //1.64 1.82
+    private float[] xPos = { 41, -151.6f, -344, -536.6f, -729 };//, -921.6f, -1114, -1306.6f, -1499 };
+    private float[] clickPos = { 66.8f, -248, -564.1f, -879.6f, -1195.5f };//, -1511, -1827, -2143, -2458 }; //1.64 1.82
     private int clickYPos = 19;
     private int yPos = 3;
 
-    public Sprite[] price = new Sprite[9]; //배경별 가격
+    public Sprite[] price = new Sprite[5]; //배경별 가격
     public Sprite[] stateBG = new Sprite[2]; //0:적용중 1:구매완료
     public Sprite[] setBG = new Sprite[2]; //0:적용 1:구매
     public AudioSource[] audioSource = new AudioSource[3]; //1:적용, 구매  2:멀티
@@ -30,8 +29,8 @@ public class ScrollView : MonoBehaviour
     private bool check = false;
     private bool panel1 = false, panel2 = false, panel3 = false;
     public static bool touchChk = false;
-    private int[] priceBG = new int[9];
-    private int[] state = new int[9]; //0:적용중 1:구매완료 2:가격 3:자물쇠
+    private int[] priceBG = new int[5];
+    private int[] state = new int[5]; //0:적용중 1:구매완료 2:가격 3:자물쇠
 
     // Start is called before the first frame update
     void Start()
@@ -53,8 +52,8 @@ public class ScrollView : MonoBehaviour
         priceBG[0] = 50000; //수정 필요
         priceBG[1] = 40000; //수정 필요
         priceBG[2] = 30000; //수정 필요
+        priceBG[3] = 70000; //수정 필요
         priceBG[4] = 70000; //수정 필요
-        priceBG[6] = 70000; //수정 필요
 
         check = true;
         purchasePanel.SetActive(false);
@@ -181,18 +180,18 @@ public class ScrollView : MonoBehaviour
                 case 4:
                     PlayerPrefs.SetInt("buy_key4", 1);
                     break;
-                case 5:
-                    PlayerPrefs.SetInt("buy_key5", 1);
-                    break;
-                case 6:
-                    PlayerPrefs.SetInt("buy_key6", 1);
-                    break;
-                case 7:
-                    PlayerPrefs.SetInt("buy_key7", 1);
-                    break;
-                case 8:
-                    PlayerPrefs.SetInt("buy_key8", 1);
-                    break;
+                //case 5:
+                //    PlayerPrefs.SetInt("buy_key5", 1);
+                //    break;
+                //case 6:
+                //    PlayerPrefs.SetInt("buy_key6", 1);
+                //    break;
+                //case 7:
+                //    PlayerPrefs.SetInt("buy_key7", 1);
+                //    break;
+                //case 8:
+                //    PlayerPrefs.SetInt("buy_key8", 1);
+                //    break;
 
             }
             //텍스트 파일에 num입력->구매한 num의 번호를 입력.
@@ -285,17 +284,17 @@ public class ScrollView : MonoBehaviour
         if (PlayerPrefs.GetInt("buy_key4") == 1 && num != PlayerPrefs.GetInt("ing_key"))
             state[4] = 1;
 
-        if (PlayerPrefs.GetInt("buy_key5") == 1 && num != PlayerPrefs.GetInt("ing_key"))
-            state[5] = 1;
-
-        if (PlayerPrefs.GetInt("buy_key6") == 1 && num != PlayerPrefs.GetInt("ing_key"))
-            state[6] = 1;
-
-        if (PlayerPrefs.GetInt("buy_key7") == 1 && num != PlayerPrefs.GetInt("ing_key"))
-            state[7] = 1;
-
-        if (PlayerPrefs.GetInt("buy_key8") == 1 && num != PlayerPrefs.GetInt("ing_key"))
-            state[8] = 1;
+        //if (PlayerPrefs.GetInt("buy_key5") == 1 && num != PlayerPrefs.GetInt("ing_key"))
+        //    state[5] = 1;
+        //
+        //if (PlayerPrefs.GetInt("buy_key6") == 1 && num != PlayerPrefs.GetInt("ing_key"))
+        //    state[6] = 1;
+        //
+        //if (PlayerPrefs.GetInt("buy_key7") == 1 && num != PlayerPrefs.GetInt("ing_key"))
+        //    state[7] = 1;
+        //
+        //if (PlayerPrefs.GetInt("buy_key8") == 1 && num != PlayerPrefs.GetInt("ing_key"))
+        //    state[8] = 1;
 
 
         if (state[num] == 0)
@@ -345,21 +344,21 @@ public class ScrollView : MonoBehaviour
             else if (panel3) openPanel(alreadySetPanel);
         }
 
-        else if (touchChk)
-        {
-            right.SetActive(false);
-            left.SetActive(false);
-            oriSet.SetActive(false);
-            oriState.SetActive(false);
-            carrotText.gameObject.SetActive(false);
-            back.SetActive(false);
-            clickText.gameObject.SetActive(true);
-            gameObject.GetComponent<Transform>().localScale = new Vector3(1.64f, 1.82f);
-            gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(clickPos[num], clickYPos);
-            //BackGround.GetComponent<Transform>().localScale = new Vector3(1.0f, 1.0f);
-        }
+        //else if (touchChk)
+        //{
+        //    right.SetActive(false);
+        //    left.SetActive(false);
+        //    oriSet.SetActive(false);
+        //    oriState.SetActive(false);
+        //    carrotText.gameObject.SetActive(false);
+        //    back.SetActive(false);
+        //    clickText.gameObject.SetActive(true);
+        //    gameObject.GetComponent<Transform>().localScale = new Vector3(1.64f, 1.82f);
+        //    gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(clickPos[num], clickYPos);
+        //    //BackGround.GetComponent<Transform>().localScale = new Vector3(1.0f, 1.0f);
+        //}
 
-        else if (!touchChk)
+        else// if (!touchChk)
         {
             right.SetActive(true);
             left.SetActive(true);
