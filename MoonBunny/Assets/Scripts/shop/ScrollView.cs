@@ -35,6 +35,7 @@ public class ScrollView : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PlayerPrefs.SetInt("buy_key0", 1);
         clickText.gameObject.SetActive(false);
         for(int i=0; i<sprite.Length; i++)
         {
