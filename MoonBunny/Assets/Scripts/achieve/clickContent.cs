@@ -23,6 +23,7 @@ public class clickContent : MonoBehaviour
     public GameObject ClickT;
 
 
+
     // Start is called before the first frame update
     void Start()
     {

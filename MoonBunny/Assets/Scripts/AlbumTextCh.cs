@@ -42,6 +42,9 @@ public class AlbumTextCh : MonoBehaviour
     public ScrollRect sr;
 
     public int texN = 0;
+    public Sprite[] downIMG;
+    public GameObject download;
+
 
 
 
@@ -51,6 +54,7 @@ public class AlbumTextCh : MonoBehaviour
         sr.content.localPosition = new Vector3(position, 0.1f, 0);
 
         texN++;
+        download.GetComponent<SpriteRenderer>().sprite = downIMG[texN];
 
 
         if (chkCenter[texN] == false)
@@ -70,6 +74,8 @@ public class AlbumTextCh : MonoBehaviour
         sr.content.localPosition = new Vector3(position, 0.1f, 0);
 
         texN--;
+        download.GetComponent<SpriteRenderer>().sprite = downIMG[texN];
+
 
 
         if (chkCenter[texN] == false)
