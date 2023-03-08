@@ -8,7 +8,7 @@ public class Resolution : MonoBehaviour
     void Start()
     {
         Screen.SetResolution(1080, 2400, true);
-        Screen.SetResolution(Screen.width, (Screen.width * 20) / 9, true);
+        //Screen.SetResolution(Screen.width, (Screen.width * 20) / 9, true);
     }
 
     // Update is called once per frame
