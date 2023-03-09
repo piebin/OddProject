@@ -61,6 +61,7 @@ public class ScrollView : MonoBehaviour
         setPanel.SetActive(false);
         alreadySetPanel.SetActive(false);
         carrotText.text = PlayerPrefs.GetInt("score_key").ToString();
+        //carrotText.text = "10000000".ToString();
         Int32.TryParse(carrotText.text, out myCarrot);
         if (myCarrot > 999999999) myCarrot = 999999999;
         if (myCarrot.ToString().Length <= 6)
