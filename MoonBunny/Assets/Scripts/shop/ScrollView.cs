@@ -21,13 +21,13 @@ public class ScrollView : MonoBehaviour
     public Sprite[] setBG = new Sprite[2]; //0:적용 1:구매
     public AudioSource[] audioSource = new AudioSource[3]; //1:적용, 구매  2:멀티
     public GameObject oriState, oriSet, BackGround;
-    public GameObject purchasePanel, setPanel, alreadySetPanel, right, left, back;
+    public GameObject purchasePanel, setPanel, alreadySetPanel, fewCarrotPanel, right, left, back;
     public GameObject carrot;
     public Sprite[] carrotSprite = new Sprite[2]; //0:short 1:long
     private float[] carrotSpriteXPos = { 2.97f, 2.34f };
     public Text carrotText, clickText;
     private bool check = false;
-    private bool panel1 = false, panel2 = false, panel3 = false;
+    private bool panel1 = false, panel2 = false, panel3 = false, panel4 = false;
     public static bool touchChk = false;
     private int[] priceBG = new int[5];
     private int[] state = new int[5]; //0:적용중 1:구매완료 2:가격 3:자물쇠
@@ -201,8 +201,8 @@ public class ScrollView : MonoBehaviour
         }//구매완료
         else
         {
-           // Debug.Log("소지 당근이 적습니다.");
             closePanel();
+            openPanel(fewCarrotPanel);
         }
     }
 
@@ -244,6 +244,7 @@ public class ScrollView : MonoBehaviour
         if (nowPanel == purchasePanel)  panel1 = true;
         else if (nowPanel == setPanel)  panel2 = true;
         else if (nowPanel == alreadySetPanel) panel3 = true;
+        else if (nowPanel == fewCarrotPanel) panel4 = true;
         nowPanel.SetActive(true);
         right.SetActive(false);
         left.SetActive(false);
@@ -257,9 +258,11 @@ public class ScrollView : MonoBehaviour
         panel1 = false;
         panel2 = false;
         panel3 = false;
+        panel4 = false;
         setPanel.SetActive(false);
         purchasePanel.SetActive(false);
         alreadySetPanel.SetActive(false);
+        fewCarrotPanel.SetActive(false);
         right.SetActive(true);
         left.SetActive(true);
         oriSet.SetActive(true);
@@ -339,11 +342,12 @@ public class ScrollView : MonoBehaviour
             check = false;
         }
 
-        if(panel1 || panel2 || panel3)
+        if(panel1 || panel2 || panel3 || panel4)
         {
             if (panel1) openPanel(purchasePanel);
             else if (panel2) openPanel(setPanel);
             else if (panel3) openPanel(alreadySetPanel);
+            else if (panel4) openPanel(fewCarrotPanel);
         }
 
         //else if (touchChk)
