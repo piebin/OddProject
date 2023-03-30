@@ -287,11 +287,21 @@ public class GameManager : MonoBehaviour
         
         dark.SetActive(false);
 
-        numberAni.SetActive(true);
-        openBtn.GetComponent<Button>().enabled = false;
-        goBack.GetComponent<Collider2D>().enabled = false;
 
+        if(openBtn.activeSelf == false)
+        {
+            numberAni.SetActive(true);
+            goBack.GetComponent<Collider2D>().enabled = false;
+        }//open이 누른 후
 
+        else if(openBtn.activeSelf == true)
+        {
+            goBackNoF();
+
+        }//open누르기 전
+
+        
+        
        
     }
 
@@ -305,13 +315,15 @@ public class GameManager : MonoBehaviour
         multiBtnSound.GetComponent<AudioSource>().Play();
         if (PlayerPrefs.GetInt("vibe") == 1) Vibration.Vibrate((long)20);
         float sound = PlayerPrefs.GetFloat("bgm_sound");
-        mixer.SetFloat("bgmv", Mathf.Log10(sound) * 20);
+        mixer.SetFloat("bgmv", Mathf.Log10(sound) * 20);   
         
-        numberAni.SetActive(false);
-        openBtn.GetComponent<Button>().enabled = true;
         goBack.GetComponent<Collider2D>().enabled = true;
 
-
+        if(numberAni.activeSelf == true)
+        {
+            numberAni.SetActive(false);
+        }
+        
     }
 
 
