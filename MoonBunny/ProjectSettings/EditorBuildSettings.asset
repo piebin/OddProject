@@ -23,7 +23,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Vibe(test).unity
     guid: fb2b787544dd2734486df0c0594e1603
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TestSceen(achieve).unity
     guid: 7d224b21a8507b641862bf784de465a8
   m_configObjects: {}
